@@ -42,3 +42,11 @@ func Benchmark_TimeConsumingFunctionB(b *testing.B) {
 		anagramMappingsB([]int{12, 28, 46, 32, 50, 11, 16, 18, 19}, []int{50, 12, 11, 16, 18, 19, 32, 46, 28}, hashMap)
 	}
 }
+
+//goos: linux
+//goarch: amd64
+//pkg: 760-Find-Anagram-Mappings
+//Benchmark_Division-4                 	 2000000	       651 ns/op
+//Benchmark_TimeConsumingFunction-4    	 3000000	       723 ns/op
+//Benchmark_DivisionB-4                	 1000000	      1043 ns/op
+//Benchmark_TimeConsumingFunctionB-4   	 1000000	      1111 ns/op
