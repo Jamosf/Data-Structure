@@ -33,3 +33,5 @@ func integerBreak(n int) int {
 	}
 	return m[n]
 }
+
+//对于大于4的数字，因式的最大乘积由3和剩下的数字组成！
