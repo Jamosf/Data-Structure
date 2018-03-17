@@ -2,3 +2,4 @@
 
 1、六角填数：
 
+![images](./images/1.png)
