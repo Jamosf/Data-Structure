@@ -7,12 +7,6 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func dfs(root *TreeNode, sum *int) {
-
-	dfs(root.Left, &left)
-	dfs(root.Right, &right)
-}
-
 func sumOfLeftLeaves(root *TreeNode) int {
 	if root == nil {
 		return 0
