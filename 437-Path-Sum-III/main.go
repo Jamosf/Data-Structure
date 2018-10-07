@@ -14,7 +14,6 @@ func dfs(root *TreeNode, sum int, count *int) {
 	sum -= root.Val
 	if sum == 0 {
 		*count = *count + 1
-		return
 	}
 	dfs(root.Left, sum, count)
 	dfs(root.Right, sum, count)
