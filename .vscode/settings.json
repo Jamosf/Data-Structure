@@ -14,5 +14,6 @@
         "stdexcept": "cpp",
         "typeinfo": "cpp",
         "__locale": "cpp"
-    }
+    },
+    "files.encoding": "gbk"
 }
