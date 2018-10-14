@@ -13,7 +13,8 @@
         "new": "cpp",
         "stdexcept": "cpp",
         "typeinfo": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "queue": "cpp"
     },
     "files.encoding": "gbk"
 }

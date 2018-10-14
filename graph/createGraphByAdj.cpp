@@ -10,7 +10,7 @@ typedef struct node{    /*边表节点*/
     /*若要表示边上的权值信息，则应增加一个数据域weight*/
 }EdgeNode;
 
-typedef char VertexType;    /*顶点用字符表示*/
+typedef int VertexType;    /*顶点用字符表示*/
 
 typedef struct Vnode{
     VertexType Vertex;      /*顶点域*/
@@ -33,7 +33,7 @@ void CreateALGraph(ALGraph *G){
     scanf( "%d,%d", &(G->n), &(G->e) ); /* 读入顶点数和边数 */
     printf( "请输入顶点信息(输入格式为:顶点号<CR>)： \n" );
     for(i = 0; i < G->n; i++){
-        scanf( " %c", &(G->adjlist[i].Vertex) ); /* 读入顶点信息 */
+        scanf( "%d", &(G->adjlist[i].Vertex) ); /* 读入顶点信息 */
         G->adjlist[i].FirstEdge = NULL; /* 顶点的边表头指针设为空 */
     }
     printf( "请输入边的信息(输入格式为: i, j <CR>)： \n" );
@@ -48,5 +48,29 @@ void CreateALGraph(ALGraph *G){
     }
 }
 
+bool visited[] = {false};
+
+//深度优先搜索
+void DFS(ALGraph *G,int i){
+    /*以vi为出发点对邻接表存储的图G进行DFS搜索*/
+    EdgeNode *w;
+    printf( "visit vertex: %d\n", G->adjlist[i].Vertex );
+    /*相当于访问顶点vi*/
+    visited[i] = true;
+    for(w = G->adjlist[i].FirstEdge;w;w=w->Next){
+        if(!visited[w->Adjv]){
+            DFS(G,w->Adjv);
+        }
+    }
+}
+
+int main(int argc, char const *argv[])
+{
+    ALGraph *G = (ALGraph*)malloc(sizeof(ALGraph));
+    CreateALGraph(G);
+    DFS(G,0);
+    system("pause");
+    return 0;
+}
 
 
