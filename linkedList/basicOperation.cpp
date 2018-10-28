@@ -115,6 +115,7 @@ Polynomial Mult(Polynomial P1,Polynomial P2){
     t2 = P;
     P = P->link;
     free(t2);
+    return P;
 }
 
 void PrintPoly(Polynomial P){
@@ -133,5 +134,12 @@ void PrintPoly(Polynomial P){
 }
 
 int main(){
-
+    Polynomial P1,P2,PP,PS;
+    P1 = ReadPoly();
+    P2 = ReadPoly();
+    PS = Mult(P1,P2);
+    PrintPoly(PS);
+    PP = Add(P1,P2);
+    PrintPoly(PP);
+    //system("pause");
 }
