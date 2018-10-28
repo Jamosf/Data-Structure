@@ -43,7 +43,7 @@ int main(){
         if(temp == 0){
             first = i;
         }
-    }
+    } 
     if(sum == 0 && isAllNegtive(a,n)){
         first = 0;
         second = n-1;
