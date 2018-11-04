@@ -40,10 +40,45 @@ void LSDRadixSort(ElementType A[], int N){
     for(i = 0;i < Radix;i++){
         B[i].head = B[i].tail = NULL;
     }
+    /*将原始序列逆序存入初始序列*/
     for(i = 0;i < N;i++){
         tmp = (PtrToNode)malloc(sizeof(struct Node));
         tmp->key = A[i];
         tmp->next = List;
         List = tmp;
+    }
+    /*下面开始排序*/
+    p = List;
+    for(D = 1;D <= MaxDigit;D++){
+        /*下面是分配过程*/
+        while(p){
+            Di = GetDigit(p->key,D);
+            /*从list中移除*/
+            tmp = p; p = p->next;
+            /*插入B[Di]号桶的末尾*/
+            tmp->next = NULL;
+            if(B[Di].head == NULL){
+                B[Di].head = B[Di].tail = tmp;
+            }else{
+                B[Di].tail->next = tmp;
+                B[Di].tail = tmp;
+            }
+        }
+        /*下面是收集过程*/
+        List = NULL;
+        for(Di = Radix - 1;Di >= 0;Di--){
+            if(B[Di].head){
+                B[Di].tail->next = List;
+                List = B[Di].head;
+                B[Di].head = B[Di].tail = NULL;
+            }            
+        }
+    }
+    /*将list内容倒入A*/
+    for(i = 0; i < N;i++){
+        tmp = List;
+        A[i] = tmp->key;
+        List = List->next;
+        free(tmp);
     }
 }
