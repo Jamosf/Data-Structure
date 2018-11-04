@@ -40,4 +40,10 @@ void LSDRadixSort(ElementType A[], int N){
     for(i = 0;i < Radix;i++){
         B[i].head = B[i].tail = NULL;
     }
+    for(i = 0;i < N;i++){
+        tmp = (PtrToNode)malloc(sizeof(struct Node));
+        tmp->key = A[i];
+        tmp->next = List;
+        List = tmp;
+    }
 }
