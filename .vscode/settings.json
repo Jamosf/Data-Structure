@@ -15,7 +15,8 @@
         "typeinfo": "cpp",
         "__locale": "cpp",
         "queue": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "xstring": "cpp"
     },
     "files.encoding": "gbk"
 }
