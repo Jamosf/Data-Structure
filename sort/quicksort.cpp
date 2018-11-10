@@ -32,7 +32,7 @@ void Qsort(ElementType A[], int left, int right){
         while(1){/*将序列中比基准小的移到基准左边，大的移到右边*/
             while(A[++low] < pivot);
             while(A[--high] > pivot);
-            if(low < high) swap(&A[low], &A[right]);
+            if(low < high) swap(&A[low], &A[high]);
             else break;
         }
         swap(&A[low], &A[right-1]); /*将基准换到正确的位置*/
