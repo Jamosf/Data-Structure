@@ -2,7 +2,7 @@
 
 typedef int ElementType;
 
-//归并排序是稳定的算法，缺点是需要额外的空间，常用于外排序
+//归并排序是稳定的算法，缺点是需要额外的空间，常用外排序
 
 //合并算法
 void merge(ElementType A[], ElementType TmpA[], int L, int R, int RightEnd){
