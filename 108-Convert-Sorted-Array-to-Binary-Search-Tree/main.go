@@ -14,4 +14,5 @@ func sortedArrayToBST(nums []int) *TreeNode {
 	for i, num := range nums {
 
 	}
+	return nil
 }
