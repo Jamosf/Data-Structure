@@ -1,5 +1,6 @@
 //题目大意：在【l,r】区间内，不包含某个数字（0~9）的总个数。最多10位数。
 #include <iostream>
+#include <cstring>
 #define MAXLEN 11
 using namespace std;
 
