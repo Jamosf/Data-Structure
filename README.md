@@ -5,3 +5,7 @@ my notes on data-structure
 - 安装cpptools，微软官方出品
 - 安装mingw工具，在mingw内安装gcc、g++、gdb工具
 - 配置启动文件launch.json和tasks.json，如.vscode文件夹内的，其中setting.json与编译和调试无关
+
+
+### 刷题计划
+1、4-30前刷完Leetcode热门300道题。
