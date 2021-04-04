@@ -2,8 +2,8 @@
 package main
 
 import (
-	"sort"
 	"fmt"
+	"sort"
 )
 
 func main() {
@@ -48,6 +48,8 @@ func sortSlice(pairs [][]int) {
 }
 
 //排序算法写的比较low，使用golang系统库，效率会提升很大，如下：
-sort.Slice(pairs, func(i, j int) bool {
-        return pairs[i][1] < pairs[j][1]
-    })
+func sortByGo(pairs [][]int) {
+	sort.Slice(pairs, func(i, j int) bool {
+		return pairs[i][1] < pairs[j][1]
+	})
+}
