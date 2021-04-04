@@ -1,6 +1,5 @@
 # Data-Structure
 my notes on data-structure
-1\
 
 ### 说明：VScode配置c++的编译环境
 - 安装cpptools，微软官方出品
