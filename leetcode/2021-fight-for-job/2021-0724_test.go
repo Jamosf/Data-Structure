@@ -79,11 +79,6 @@ func min(a, b int) int {
 	return b
 }
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 // 第三题
 func reverseList(head *ListNode) *ListNode {
 	var prev *ListNode

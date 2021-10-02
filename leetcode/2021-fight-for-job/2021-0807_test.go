@@ -50,7 +50,7 @@ func (k1 *KthLargest) Pop() (v interface{}) {
 	return
 }
 
-func Constructor(k int, nums []int) KthLargest {
+func Constructor3(k int, nums []int) KthLargest {
 	k1 := KthLargest{k: k}
 	for _, v := range nums {
 		k1.Add(v)

@@ -1,4 +1,4 @@
-package leetcode
+package _021_fight_for_job
 
 func trap(height []int) int {
 	n := len(height)

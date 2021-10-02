@@ -58,13 +58,6 @@ func bfs(grid [][]int, l *list.List) int {
 	return cnt
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 // 第二题
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	if len(image) == 0 {
@@ -74,11 +67,11 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	if k == newColor {
 		return image
 	}
-	dfs(image, sr, sc, image[sr][sc], newColor)
+	dfs2(image, sr, sc, image[sr][sc], newColor)
 	return image
 }
 
-func dfs(image [][]int, r, c int, k int, color int) {
+func dfs2(image [][]int, r, c int, k int, color int) {
 	if r < 0 || r >= len(image) || c < 0 || c >= len(image[0]) {
 		return
 	}
@@ -86,10 +79,10 @@ func dfs(image [][]int, r, c int, k int, color int) {
 		return
 	}
 	image[r][c] = color
-	dfs(image, r+1, c, k, color)
-	dfs(image, r, c+1, k, color)
-	dfs(image, r-1, c, k, color)
-	dfs(image, r, c-1, k, color)
+	dfs2(image, r+1, c, k, color)
+	dfs2(image, r, c+1, k, color)
+	dfs2(image, r-1, c, k, color)
+	dfs2(image, r, c-1, k, color)
 }
 
 func Test_floodFill(t *testing.T) {
@@ -116,7 +109,7 @@ func hasCycle(head *ListNode) bool {
 }
 
 // 第四题
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+func mergeTwoLists1(l1 *ListNode, l2 *ListNode) *ListNode {
 	tmp := &ListNode{}
 	p := tmp
 	p1, p2 := l1, l2

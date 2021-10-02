@@ -1,4 +1,4 @@
-package main
+package _021_fight_for_job
 
 import (
 	"fmt"
