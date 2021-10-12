@@ -1,0 +1,165 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2012-2019. All rights reserved.
+package ojeveryday
+
+import (
+	"fmt"
+	"testing"
+)
+
+// 第一题
+func buildTree(preorder []int, inorder []int) *TreeNode {
+	if len(preorder) == 0 || len(inorder) == 0 {
+		return nil
+	}
+	r := &TreeNode{Val: preorder[0]}
+	idx := 0
+	for i := range inorder {
+		if inorder[i] == preorder[0] {
+			idx = i
+		}
+	}
+	r.Left = buildTree(preorder[1:idx+1], inorder[:idx])
+	r.Right = buildTree(preorder[idx+1:], inorder[idx+1:])
+
+	return r
+}
+
+func Test_buildTree(t *testing.T) {
+	r := buildTree([]int{-1}, []int{-1})
+	fmt.Println(r)
+}
+
+// 第二题
+func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
+	if root == nil || p == nil || q == nil {
+		return nil
+	}
+	if root.Val == p.Val || root.Val == q.Val {
+		return root
+	}
+	left := lowestCommonAncestor2(root.Left, p, q)
+	right := lowestCommonAncestor2(root.Right, p, q)
+	// 左边没有找到
+	if left == nil {
+		return right
+	}
+	if right == nil {
+		return left
+	}
+	return root
+}
+
+// 第三题
+// 解题思路：双向链表+hashmap
+type LRUCache struct {
+	mk         map[int]*DLinkNode
+	cap        int
+	size       int
+	head, tail *DLinkNode
+}
+
+type DLinkNode struct {
+	key, val  int
+	pre, next *DLinkNode
+}
+
+func Constructor_(capacity int) LRUCache {
+	l := LRUCache{mk: make(map[int]*DLinkNode), cap: capacity, head: &DLinkNode{}, tail: &DLinkNode{}}
+	l.head.next = l.tail
+	l.tail.pre = l.head
+	return l
+}
+
+func (l *LRUCache) Get(key int) int {
+	if v, ok := l.mk[key]; ok {
+		l.moveToHead(v)
+		return v.val
+	}
+	return -1
+}
+
+func (l *LRUCache) Put(key int, value int) {
+	if v, ok := l.mk[key]; ok {
+		v.val = value
+		l.moveToHead(v)
+		return
+	}
+	if len(l.mk) == l.cap {
+		v := l.removeTail()
+		delete(l.mk, v.key)
+	}
+	v := &DLinkNode{key: key, val: value}
+	l.addToHead(v)
+	l.mk[key] = v
+}
+
+func (l *LRUCache) addToHead(d *DLinkNode) {
+	d.next = l.head.next
+	d.pre = l.head
+	l.head.next.pre = d
+	l.head.next = d
+}
+
+func (l *LRUCache) removeNode(d *DLinkNode) {
+	d.pre.next = d.next
+	d.next.pre = d.pre
+}
+
+func (l *LRUCache) removeTail() *DLinkNode {
+	d := l.tail.pre
+	l.removeNode(d)
+	return d
+}
+
+func (l *LRUCache) moveToHead(d *DLinkNode) {
+	l.removeNode(d)
+	l.addToHead(d)
+}
+
+func Test_LRUCache(t *testing.T) {
+	L := Constructor_(3)
+	L.Put(1, 1)
+	L.Put(2, 2)
+	L.Put(3, 3)
+	L.Put(4, 4)
+	fmt.Println(L.Get(4))
+	fmt.Println(L.Get(3))
+	fmt.Println(L.Get(2))
+	fmt.Println(L.Get(1))
+	L.Put(5, 5)
+	fmt.Println(L.Get(1))
+	fmt.Println(L.Get(2))
+	fmt.Println(L.Get(3))
+	fmt.Println(L.Get(4))
+	fmt.Println(L.Get(5))
+}
+
+// 第四题：搜索
+// 解题思路：从右上角开始搜索
+func searchMatrix1(matrix [][]int, target int) bool {
+	m, n := len(matrix), len(matrix[0])
+	for i, j := 0, n-1; i < m && i >= 0 && j < n && j >= 0; {
+		if matrix[i][j] > target {
+			j--
+		} else if matrix[i][j] < target {
+			i++
+		} else {
+			return true
+		}
+	}
+	return false
+}
+
+// 第五题
+// 动态规划：dp[i]表示第i天获取的最大利润, 0：持有一只股票；1：不持有股票，处于冷冻期；2：不持有股票，不处于冷冻期
+func maxProfit1(prices []int) int {
+	n := len(prices)
+	dp := make([][3]int, n)
+	dp[0][0] = -prices[0]
+	for i := 1; i < n; i++ {
+		dp[i][0] = max(dp[i-1][0], dp[i-1][2]-prices[i])
+		dp[i][1] = dp[i-1][0] + prices[i]
+		dp[i][2] = max(dp[i-1][1], dp[i-1][2])
+	}
+	return max(dp[n-1][1], dp[n-1][2])
+}
