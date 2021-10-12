@@ -10,6 +10,8 @@ import (
 	"testing"
 )
 
+// 第一题
+// O(n^2)解法
 func jump(nums []int) int {
 	n := len(nums)
 	dp := make([]int, n)
@@ -29,6 +31,8 @@ func Test_jump(t *testing.T) {
 	fmt.Println(jump1([]int{1, 1, 1, 4, 1, 1, 1}))
 }
 
+// 第二题
+// O(n)解法
 func jump1(nums []int) int {
 	length := len(nums)
 	end := 0
