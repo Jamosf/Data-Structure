@@ -7,30 +7,30 @@ import (
 	"testing"
 )
 
-type minHeap []int
+type minHeap1 []int
 
-func (m *minHeap) Len() int {
+func (m *minHeap1) Len() int {
 	return len(*m)
 }
 
-func (m *minHeap) Less(i, j int) bool {
+func (m *minHeap1) Less(i, j int) bool {
 	return (*m)[i] < (*m)[j]
 }
 
-func (m *minHeap) Swap(i, j int) {
+func (m *minHeap1) Swap(i, j int) {
 	(*m)[i], (*m)[j] = (*m)[j], (*m)[i]
 }
 
-func (m *minHeap) Push(x interface{}) {
+func (m *minHeap1) Push(x interface{}) {
 	*m = append(*m, x.(int))
 }
 
-func (m *minHeap) Pop() (v interface{}) {
+func (m *minHeap1) Pop() (v interface{}) {
 	*m, v = (*m)[:m.Len()-1], (*m)[m.Len()-1]
 	return
 }
 
-func (m *minHeap) Top() (v interface{}) {
+func (m *minHeap1) Top() (v interface{}) {
 	return (*m)[0]
 }
 

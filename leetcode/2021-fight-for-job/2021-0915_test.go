@@ -6,20 +6,6 @@ import (
 	"testing"
 )
 
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func storeWater(bucket []int, vat []int) int {
 	maxn := vat[0]
 	for i := range vat {
@@ -53,17 +39,6 @@ func storeWater(bucket []int, vat []int) int {
 
 func Test_storeWater(t *testing.T) {
 	fmt.Println(storeWater([]int{1, 3}, []int{6, 8}))
-}
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func maxValue(root *TreeNode, k int) int {
-
-	return 0
 }
 
 func maxmiumScore(a []int, cnt int) int {

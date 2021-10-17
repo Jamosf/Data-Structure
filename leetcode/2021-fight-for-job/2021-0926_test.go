@@ -23,7 +23,3 @@ func trap(height []int) int {
 	}
 	return sum
 }
-
-func rotate(matrix [][]int) {
-
-}
