@@ -13,7 +13,7 @@ func isBalanced(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
-	if abs(depth(root.Left), depth(root.Right)) > 1 {
+	if minusAbs(depth(root.Left), depth(root.Right)) > 1 {
 		return false
 	}
 	return isBalanced(root.Left) && isBalanced(root.Right)
@@ -50,8 +50,8 @@ func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 }
 
 // 第三题
-// dp[i]表示以i结尾，最大利润
-// dp[i+1] = max(dp[i], dp[i] + nums[i+1]- nums[i])
+// dp[x]表示以i结尾，最大利润
+// dp[x+1] = max(dp[x], dp[x] + nums[x+1]- nums[x])
 func maxProfit(prices []int) int {
 	dp := make([]int, len(prices))
 	dp[0] = 0
@@ -121,13 +121,13 @@ func isSubStructure(A *TreeNode, B *TreeNode) bool {
 	if A == nil || B == nil {
 		return false
 	}
-	if isEqual(A, B) {
+	if isEqual1(A, B) {
 		return true
 	}
 	return isSubStructure(A.Left, B) || isSubStructure(A.Right, B)
 }
 
-func isEqual(a, b *TreeNode) bool {
+func isEqual1(a, b *TreeNode) bool {
 	if a == nil && b == nil {
 		return true
 	}
@@ -137,11 +137,11 @@ func isEqual(a, b *TreeNode) bool {
 	if a == nil && b != nil {
 		return false
 	}
-	return a.Val == b.Val && isEqual(a.Left, b.Left) && isEqual(a.Right, b.Right)
+	return a.Val == b.Val && isEqual1(a.Left, b.Left) && isEqual1(a.Right, b.Right)
 }
 
 // 第七题
-// 剪绳子类似于整数拆分：dp[i] = max(dp[j]*(i-j), j*(i, j))
+// 剪绳子类似于整数拆分：dp[x] = max(dp[y]*(x-y), y*(x, y))
 func cuttingRope(n int) int {
 	dp := make([]int, n+1)
 	dp[0] = 0

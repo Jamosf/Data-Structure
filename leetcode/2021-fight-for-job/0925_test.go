@@ -45,10 +45,6 @@ func combinationSum(candidates []int, target int) [][]int {
 	return ans
 }
 
-func Test_combinationSum(t *testing.T) {
-	fmt.Println(combinationSum([]int{2, 3, 5}, 8))
-}
-
 func merge(intervals [][]int) [][]int {
 	sort.Slice(intervals, func(i, j int) bool {
 		a, b := intervals[i], intervals[j]

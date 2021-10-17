@@ -1,4 +1,4 @@
-package _021_fight_for_job
+package ojeveryday
 
 import (
 	"container/heap"
@@ -50,7 +50,7 @@ func (k1 *KthLargest) Pop() (v interface{}) {
 	return
 }
 
-func Constructor3(k int, nums []int) KthLargest {
+func Constructor_k1(k int, nums []int) KthLargest {
 	k1 := KthLargest{k: k}
 	for _, v := range nums {
 		k1.Add(v)
@@ -88,7 +88,7 @@ func lastStoneWeight(stones []int) int {
 
 // 第四题
 // 最大值和次大值
-func maxProduct(nums []int) int {
+func maxProduct2(nums []int) int {
 	max1, max2 := 0, 0
 	for i := range nums {
 		if nums[i] > max1 {
@@ -101,29 +101,13 @@ func maxProduct(nums []int) int {
 	return (max1 - 1) * (max2 - 1)
 }
 
-func maxProduct1(nums []int) int {
-	m := &maxHeap1{nums}
+func maxProduct_2(nums []int) int {
+	m := &maxHeap1{}
+	m.IntSlice = nums
 	heap.Init(m)
 	max1 := heap.Pop(m).(int)
 	max2 := heap.Pop(m).(int)
 	return (max1 - 1) * (max2 - 1)
-}
-
-type maxHeap1 struct {
-	sort.IntSlice
-}
-
-func (m *maxHeap1) Less(i, j int) bool {
-	return m.IntSlice[i] > m.IntSlice[j]
-}
-
-func (m *maxHeap1) Push(x interface{}) {
-	m.IntSlice = append(m.IntSlice, x.(int))
-}
-
-func (m *maxHeap1) Pop() (v interface{}) {
-	m.IntSlice, v = (m.IntSlice)[:m.Len()-1], (m.IntSlice)[m.Len()-1]
-	return
 }
 
 // 第五题

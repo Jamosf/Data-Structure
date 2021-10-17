@@ -54,10 +54,6 @@ func Test_solveNQueens(t *testing.T) {
 	fmt.Println(solveNQueens(4))
 }
 
-type pos struct {
-	i, j int
-}
-
 // 求最小翻转的个数，就是求两个岛之间的最短距离
 func shortestBridge(grid [][]int) int {
 	queue := list.New()
@@ -104,7 +100,7 @@ func shortestBridge(grid [][]int) int {
 			queue.Remove(v)
 			p := v.Value.(pos)
 			for k := 0; k < 4; k++ {
-				x, y := p.i+direction[k][0], p.j+direction[k][1]
+				x, y := p.x+direction[k][0], p.y+direction[k][1]
 				if x >= 0 && x < m && y >= 0 && y < n {
 					if grid[x][y] == 1 {
 						return level

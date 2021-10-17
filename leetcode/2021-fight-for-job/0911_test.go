@@ -31,7 +31,7 @@ func Test_minimumSwitchingTimes(t *testing.T) {
 	fmt.Println(maxmiumScore([]int{1, 2, 8, 9}, 3))
 }
 
-func maxmiumScore(cards []int, cnt int) int {
+func maxmiumScore1(cards []int, cnt int) int {
 	n := len(cards)
 	maxn := 0
 	sum := 0
@@ -87,8 +87,8 @@ func flipChess1(chessboard []string) int {
 			y += dy
 			tmp = append(tmp, []int{x, y}...)
 		}
-		// for i := range ans{
-		// 	// for i
+		// for x := range ans{
+		// 	// for x
 		// }
 		return 0
 	}
@@ -109,6 +109,6 @@ func flipChess1(chessboard []string) int {
 	return maxn
 }
 
-func Test_flipChess(t *testing.T) {
+func Test_flipChess1(t *testing.T) {
 	fmt.Println(flipChess([]string{".X.", ".O.", "XO."}))
 }

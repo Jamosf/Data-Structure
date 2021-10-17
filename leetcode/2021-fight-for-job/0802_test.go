@@ -7,7 +7,7 @@ import (
 )
 
 // 第一题
-// 动态规划的转移方程：dp[i]表示用i个骰子
+// 动态规划的转移方程：dp[x]表示用i个骰子
 func dicesProbability(n int) []float64 {
 	return nil
 }

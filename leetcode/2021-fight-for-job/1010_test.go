@@ -1,4 +1,4 @@
-package _021_fight_for_job
+package ojeveryday
 
 import (
 	"sort"
@@ -32,7 +32,7 @@ type StockPrice struct {
 	now, cur           int
 }
 
-func Constructor_1() StockPrice {
+func ConstructorStockPrice() StockPrice {
 	return StockPrice{redblacktree.NewWithIntComparator(), map[int]int{}, 0, 0}
 }
 

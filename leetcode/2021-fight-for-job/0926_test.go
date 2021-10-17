@@ -52,10 +52,34 @@ func longestValidParentheses1(s string) int {
 				dp[i] = dp[i-1] + 1
 			}
 		}
-		// if s[i] == '(' {
-		// 	dp[i] = dp[i-1]
+		// if s[x] == '(' {
+		// 	dp[x] = dp[x-1]
 		// }
 		maxn = max(maxn, dp[i])
 	}
 	return 2 * maxn
+}
+
+func trap(height []int) int {
+	n := len(height)
+	maxn := height[0]
+	for i := 1; i < n; i++ {
+		maxn = max(maxn, height[i])
+	}
+	sum := 0
+	for i := 0; i < maxn; i++ {
+		hasHighInLeft := false
+		tmp := 0
+		for j := 0; j < n; j++ {
+			if hasHighInLeft && height[j] < i {
+				tmp++
+			}
+			if height[j] >= i {
+				sum += tmp
+				tmp = 0
+				hasHighInLeft = true
+			}
+		}
+	}
+	return sum
 }

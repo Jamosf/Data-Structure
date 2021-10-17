@@ -1,4 +1,4 @@
-package _021_fight_for_job
+package ojeveryday
 
 import (
 	"fmt"

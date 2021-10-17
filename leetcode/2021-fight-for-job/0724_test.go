@@ -1,4 +1,4 @@
-package _021_fight_for_job
+package ojeveryday
 
 import (
 	"container/list"
@@ -7,19 +7,19 @@ import (
 	"testing"
 )
 
-type Node struct {
+type Node_1 struct {
 	Val   int
-	Left  *Node
-	Right *Node
-	Next  *Node
+	Left  *Node_1
+	Right *Node_1
+	Next  *Node_1
 }
 
 // 第一题
-func connect(root *Node) *Node {
+func connect(root *Node_1) *Node_1 {
 	if root == nil {
 		return nil
 	}
-	queue := []*Node{root}
+	queue := []*Node_1{root}
 	for len(queue) > 0 {
 		tmp := queue
 		queue = nil
@@ -40,12 +40,28 @@ func connect(root *Node) *Node {
 }
 
 func Test_connect(t *testing.T) {
-	fmt.Println(connect(&Node{1, &Node{2, &Node{4, nil, nil, nil},
-		&Node{5, nil, nil, nil}, nil}, &Node{3, &Node{6, nil, nil, nil}, &Node{7, nil, nil, nil}, nil}, nil}))
+	fmt.Println(connect(&Node_1{1, &Node_1{2, &Node_1{4, nil, nil, nil},
+		&Node_1{5, nil, nil, nil}, nil}, &Node_1{3, &Node_1{6, nil, nil, nil}, &Node_1{7, nil, nil, nil}, nil}, nil}))
 }
 
 // 第二题
-func updateMatrix(mat [][]int) [][]int {
+func updateMatrix1(mat [][]int) [][]int {
+	var dfs func(mat [][]int, r, c int) int
+	dfs = func(mat [][]int, r, c int) int {
+		if r < 0 || r >= len(mat) || c < 0 || c >= len(mat[0]) {
+			return 0
+		}
+		var ret int
+		if mat[r][c] == 0 {
+			ret++
+			return ret
+		}
+		ret = min(ret, dfs(mat, r-1, c))
+		ret = min(ret, dfs(mat, r, c+1))
+		ret = min(ret, dfs(mat, r+1, c))
+		ret = min(ret, dfs(mat, r, c-1))
+		return ret
+	}
 	for i := 0; i < len(mat); i++ {
 		for j := 0; j < len(mat[0]); j++ {
 			if mat[i][j] != 0 {
@@ -54,29 +70,6 @@ func updateMatrix(mat [][]int) [][]int {
 		}
 	}
 	return mat
-}
-
-func dfs(mat [][]int, r, c int) int {
-	if r < 0 || r >= len(mat) || c < 0 || c >= len(mat[0]) {
-		return 0
-	}
-	var ret int
-	if mat[r][c] == 0 {
-		ret++
-		return ret
-	}
-	ret = min(ret, dfs(mat, r-1, c))
-	ret = min(ret, dfs(mat, r, c+1))
-	ret = min(ret, dfs(mat, r+1, c))
-	ret = min(ret, dfs(mat, r, c-1))
-	return ret
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 
 // 第三题
@@ -106,7 +99,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 }
 
 // 第五题
-func isValid(s string) bool {
+func isValid1(s string) bool {
 	m := map[uint8]uint8{
 		'{': '}',
 		'[': ']',
@@ -136,45 +129,45 @@ type MyQueue struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor1() MyQueue {
+func Constructor_m() MyQueue {
 	return MyQueue{add: list.New(), del: list.New()}
 }
 
 /** Push element x to the back of queue. */
-func (this *MyQueue) Push(x int) {
-	this.add.PushFront(x)
+func (m *MyQueue) Push(x int) {
+	m.add.PushFront(x)
 }
 
 /** Removes the element from in front of queue and returns that element. */
-func (this *MyQueue) Pop() int {
-	if this.del.Len() == 0 {
-		for this.add.Len() != 0 {
-			v := this.add.Front()
-			this.del.PushFront(v.Value.(int))
-			this.add.Remove(v)
+func (m *MyQueue) Pop() int {
+	if m.del.Len() == 0 {
+		for m.add.Len() != 0 {
+			v := m.add.Front()
+			m.del.PushFront(v.Value.(int))
+			m.add.Remove(v)
 		}
 	}
-	v := this.del.Front()
-	this.del.Remove(v)
+	v := m.del.Front()
+	m.del.Remove(v)
 	return v.Value.(int)
 }
 
 /** Get the front element. */
-func (this *MyQueue) Peek() int {
-	if this.del.Len() == 0 {
-		for this.add.Len() != 0 {
-			v := this.add.Front()
-			this.del.PushFront(v.Value.(int))
-			this.add.Remove(v)
+func (m *MyQueue) Peek() int {
+	if m.del.Len() == 0 {
+		for m.add.Len() != 0 {
+			v := m.add.Front()
+			m.del.PushFront(v.Value.(int))
+			m.add.Remove(v)
 		}
 	}
-	v := this.del.Front()
+	v := m.del.Front()
 	return v.Value.(int)
 }
 
 /** Returns whether the queue is empty. */
-func (this *MyQueue) Empty() bool {
-	return this.add.Len() == 0 && this.del.Len() == 0
+func (m *MyQueue) Empty() bool {
+	return m.add.Len() == 0 && m.del.Len() == 0
 }
 
 // 第七题
@@ -274,7 +267,7 @@ func reversePrint(head *ListNode) []int {
 }
 
 // 第十一题
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+func mergeTwoLists_1(l1 *ListNode, l2 *ListNode) *ListNode {
 	p := &ListNode{}
 	tmp := p
 	for l1 != nil && l2 != nil {
@@ -312,11 +305,11 @@ func mirrorTree(root *TreeNode) *TreeNode {
 }
 
 // 第十三题
-func isSymmetric(root *TreeNode) bool {
-	return check(root, root)
+func isSymmetric1(root *TreeNode) bool {
+	return check1(root, root)
 }
 
-func check(a, b *TreeNode) bool {
+func check1(a, b *TreeNode) bool {
 	if a == nil && b == nil {
 		return true
 	}
@@ -326,7 +319,7 @@ func check(a, b *TreeNode) bool {
 	if a.Val != b.Val {
 		return false
 	}
-	return check(a.Left, b.Right) && check(a.Right, b.Left)
+	return check1(a.Left, b.Right) && check1(a.Right, b.Left)
 }
 
 // 第十四题
@@ -354,7 +347,7 @@ func Test_exchange(t *testing.T) {
 }
 
 // 第十五题
-func firstUniqChar(s string) byte {
+func firstUniqChar1(s string) byte {
 	m := make(map[uint8]int)
 	for i := range s {
 		m[s[i]]++

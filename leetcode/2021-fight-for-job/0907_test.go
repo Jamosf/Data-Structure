@@ -67,8 +67,8 @@ func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
 	return false
 }
 
-// 区间dp，dp[i][j]表示前i个元素被分成j段的最小值
-// 状态转移方程：dp[i][j] = min(dp[i][j], dp[l-1][j-1] + weight[l][i])，其中l范围0...i-1
+// 区间dp，dp[x][y]表示前i个元素被分成j段的最小值
+// 状态转移方程：dp[x][y] = min(dp[x][y], dp[l-1][y-1] + weight[l][x])，其中l范围0...x-1
 func minSpaceWastedKResizing(nums []int, k int) int {
 	n := len(nums)
 	weight := make([][]int, n)

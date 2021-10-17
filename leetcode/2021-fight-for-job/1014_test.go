@@ -1,4 +1,4 @@
-package _021_fight_for_job
+package ojeveryday
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func fourSum(nums []int, target int) [][]int {
+func fourSum1(nums []int, target int) [][]int {
 	n := len(nums)
 	sort.Ints(nums)
 	ans := make([][]int, 0)

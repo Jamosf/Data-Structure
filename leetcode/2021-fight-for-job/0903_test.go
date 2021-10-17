@@ -100,9 +100,9 @@ func dijkstra(n int, edge [][]int) int {
 		}
 		used[u] = true
 		// 2. 更新最小顶点邻接的节点路径
-		// for i := 0; i < n; i++ {
-		// 	if edge[u][i] > 0 && dist[i] > dist[u]+edge[u][i] {
-		// 		dist[i] = dist[u] + edge[u][i]
+		// for x := 0; x < n; x++ {
+		// 	if edge[u][x] > 0 && dist[x] > dist[u]+edge[u][x] {
+		// 		dist[x] = dist[u] + edge[u][x]
 		// 	}
 		// }
 		// 2. 简写
@@ -188,7 +188,7 @@ func numberOfCombinations1(num string) int {
 			tmp = append(tmp, ch)
 			// if ch > pre {
 			backTracking(idx+1, ch)
-			// ch -= int(num[i] - '0')
+			// ch -= int(num[x] - '0')
 			// ch /= 10
 			tmp = tmp[:len(tmp)-1]
 			// }

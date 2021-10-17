@@ -117,8 +117,8 @@ func (d *DetectSquares) Count(point []int) int {
 	ans := 0
 	for y1, c := range d.p[x] {
 		if y != y1 {
-			ans += c * d.p[x+abs(y, y1)][y] * d.p[x+abs(y, y1)][y1]
-			ans += c * d.p[x-abs(y, y1)][y] * d.p[x-abs(y, y1)][y1]
+			ans += c * d.p[x+minusAbs(y, y1)][y] * d.p[x+minusAbs(y, y1)][y1]
+			ans += c * d.p[x-minusAbs(y, y1)][y] * d.p[x-minusAbs(y, y1)][y1]
 		}
 	}
 	return ans

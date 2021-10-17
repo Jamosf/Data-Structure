@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-// dp[i]表示以i结尾的等差数列的个数
+// dp[x]表示以i结尾的等差数列的个数
 func numberOfArithmeticSlices(nums []int) int {
 	n := len(nums)
 	if n < 3 {
@@ -193,7 +193,7 @@ func wordBreak1(s string, wordDict []string) bool {
 	return dp[n-1]
 }
 
-// dp[i]表示以i结尾的最长子序列
+// dp[x]表示以i结尾的最长子序列
 // 第六题
 func lengthOfLIS(nums []int) int {
 	n := len(nums)

@@ -73,8 +73,8 @@ func minimizeTheDifference(mat [][]int, target int) int {
 		}
 		dp[level][sum] = true
 		if level == m {
-			if abs(sum, target) < minn {
-				minn = abs(sum, target)
+			if minusAbs(sum, target) < minn {
+				minn = minusAbs(sum, target)
 			}
 			return
 		}

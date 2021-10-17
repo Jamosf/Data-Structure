@@ -6,11 +6,6 @@ import (
 	"testing"
 )
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 // 第三题
 func middleNode(head *ListNode) *ListNode {
 	p := head

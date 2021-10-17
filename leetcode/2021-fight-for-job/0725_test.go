@@ -1,4 +1,4 @@
-package _021_fight_for_job
+package ojeveryday
 
 import (
 	"container/list"
@@ -34,18 +34,18 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 
 // 第三题
 func printNumbers(n int) []int {
+	var pow func(n int) int
+	pow = func(n int) int {
+		if n == 0 {
+			return 1
+		}
+		return 10 * pow(n-1)
+	}
 	var ret []int
 	for i := 0; i < pow(n); i++ {
 		ret = append(ret, i)
 	}
 	return ret
-}
-
-func pow(n int) int {
-	if n == 0 {
-		return 1
-	}
-	return 10 * pow(n-1)
 }
 
 // 第四题
@@ -80,10 +80,10 @@ func getLeastNumbers(arr []int, k int) []int {
 	if len(arr) < k {
 		return arr
 	}
-	return quickSort(arr, 0, len(arr)-1, k)
+	return quickSort_1(arr, 0, len(arr)-1, k)
 }
 
-func quickSort(arr []int, l, r int, k int) []int {
+func quickSort_1(arr []int, l, r int, k int) []int {
 	i, j := l, r
 	for i < j {
 		for j > l && arr[j] >= arr[l] {
@@ -96,10 +96,10 @@ func quickSort(arr []int, l, r int, k int) []int {
 	}
 	arr[i], arr[l] = arr[l], arr[i]
 	if i > k {
-		return quickSort(arr, l, i-1, k)
+		return quickSort_1(arr, l, i-1, k)
 	}
 	if i < k {
-		return quickSort(arr, i+1, r, k)
+		return quickSort_1(arr, i+1, r, k)
 	}
 	return arr[:k]
 }
@@ -109,7 +109,7 @@ func Test_getLeastNumbers(t *testing.T) {
 }
 
 // 第七题
-func majorityElement(nums []int) int {
+func majorityElement1(nums []int) int {
 	votes := 0
 	x := nums[0]
 	for i := 0; i < len(nums); i++ {
@@ -128,22 +128,15 @@ func majorityElement(nums []int) int {
 }
 
 // 第八题
-func maxDepth(root *TreeNode) int {
+func maxDepth1(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	return 1 + max(maxDepth(root.Right), maxDepth(root.Left))
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return 1 + max(maxDepth1(root.Right), maxDepth1(root.Left))
 }
 
 // 第九题
-func maxSubArray(nums []int) int {
+func maxSubArray1(nums []int) int {
 	sum := 0
 	maxn := 0
 	for _, v := range nums {
@@ -187,30 +180,30 @@ type MinStack struct {
 }
 
 /** initialize your data structure here. */
-func Constructor() MinStack {
+func Constructor_mi() MinStack {
 	return MinStack{min: list.New(), l: list.New()}
 }
 
-func (this *MinStack) Push(x int) {
-	if this.min.Len() == 0 || x <= this.min.Front().Value.(int) {
-		this.min.PushFront(x)
+func (m *MinStack) Push(x int) {
+	if m.min.Len() == 0 || x <= m.min.Front().Value.(int) {
+		m.min.PushFront(x)
 	}
-	this.l.PushFront(x)
+	m.l.PushFront(x)
 }
 
-func (this *MinStack) Pop() {
-	v := this.l.Front()
-	this.l.Remove(v)
-	if this.min.Len() != 0 && v.Value.(int) == this.min.Front().Value.(int) {
-		vv := this.min.Front()
-		this.min.Remove(vv)
+func (m *MinStack) Pop() {
+	v := m.l.Front()
+	m.l.Remove(v)
+	if m.min.Len() != 0 && v.Value.(int) == m.min.Front().Value.(int) {
+		vv := m.min.Front()
+		m.min.Remove(vv)
 	}
 }
 
-func (this *MinStack) Top() int {
-	return this.l.Front().Value.(int)
+func (m *MinStack) Top() int {
+	return m.l.Front().Value.(int)
 }
 
-func (this *MinStack) Min() int {
-	return this.min.Front().Value.(int)
+func (m *MinStack) Min() int {
+	return m.min.Front().Value.(int)
 }

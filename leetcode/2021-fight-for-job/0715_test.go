@@ -13,18 +13,11 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	sort.Ints(arr)
 	arr[0] = 1
 	for i := 0; i < len(arr); i++ {
-		if abs(arr[i], arr[i+1]) > 1 {
+		if minusAbs(arr[i], arr[i+1]) > 1 {
 			arr[i+1] = arr[i] + 1
 		}
 	}
 	return arr[len(arr)-1]
-}
-
-func abs(a, b int) int {
-	if a > b {
-		return a - b
-	}
-	return b - a
 }
 
 // 第二题
@@ -37,32 +30,18 @@ func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
 	sum := 0
 	maxn := 0
 	for i := 0; i < len(nums1); i++ {
-		diff := abs(nums1[i], nums2[i])
+		diff := minusAbs(nums1[i], nums2[i])
 		sum += diff % mod
 		// 3. 在rec中找替换
 		j := rec.Search(nums2[i])
 		if j < len(nums1) {
-			maxn = max(maxn, diff-abs(rec[j], nums2[i]))
+			maxn = max(maxn, diff-minusAbs(rec[j], nums2[i]))
 		}
 		if j > 0 {
-			maxn = max(maxn, diff-abs(rec[j-1], nums2[i]))
+			maxn = max(maxn, diff-minusAbs(rec[j-1], nums2[i]))
 		}
 	}
 	return (sum - maxn) % mod
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
 }
 
 // 第三题

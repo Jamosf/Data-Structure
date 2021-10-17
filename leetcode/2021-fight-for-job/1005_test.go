@@ -2,6 +2,7 @@
 package ojeveryday
 
 import (
+	"container/list"
 	"fmt"
 	"testing"
 )
@@ -151,7 +152,7 @@ func searchMatrix1(matrix [][]int, target int) bool {
 }
 
 // 第五题
-// 动态规划：dp[i]表示第i天获取的最大利润, 0：持有一只股票；1：不持有股票，处于冷冻期；2：不持有股票，不处于冷冻期
+// 动态规划：dp[x]表示第i天获取的最大利润, 0：持有一只股票；1：不持有股票，处于冷冻期；2：不持有股票，不处于冷冻期
 func maxProfit1(prices []int) int {
 	n := len(prices)
 	dp := make([][3]int, n)
@@ -162,4 +163,62 @@ func maxProfit1(prices []int) int {
 		dp[i][2] = max(dp[i-1][1], dp[i-1][2])
 	}
 	return max(dp[n-1][1], dp[n-1][2])
+}
+
+// 第一题
+func canFinish(numCourses int, prerequisites [][]int) bool {
+	edge := make([][]int, numCourses)
+	for i := range edge {
+		edge[i] = make([]int, numCourses)
+	}
+	inDegree := make([]int, 100005)
+	for i := range prerequisites {
+		v1, v2 := prerequisites[i][0], prerequisites[i][1]
+		edge[v2][v1] = 1
+		inDegree[v1]++
+	}
+	return topoSort(edge, inDegree, numCourses)
+}
+
+func topoSort(edge [][]int, inDegree []int, n int) bool {
+	q := list.New()
+	for i := 0; i < n; i++ {
+		if inDegree[i] == 0 {
+			q.PushBack(i)
+		}
+	}
+	cnt := 0
+	for q.Len() != 0 {
+		v := q.Front()
+		q.Remove(v)
+		vv := v.Value.(int)
+		cnt++
+		for i := 0; i < n; i++ {
+			if edge[vv][i] == 1 {
+				inDegree[i]--
+				if inDegree[i] == 0 {
+					q.PushBack(i)
+				}
+			}
+		}
+	}
+	return cnt == n
+}
+
+// 第二题
+// 反向中序遍历
+func convertBST(root *TreeNode) *TreeNode {
+	sum := 0
+	var dfs func(r *TreeNode)
+	dfs = func(r *TreeNode) {
+		if r == nil {
+			return
+		}
+		dfs(r.Right)
+		sum += r.Val
+		r.Val = sum
+		dfs(r.Left)
+	}
+	dfs(root)
+	return root
 }

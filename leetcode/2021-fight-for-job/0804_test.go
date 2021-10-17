@@ -1,4 +1,4 @@
-package _021_fight_for_job
+package ojeveryday
 
 import (
 	"fmt"
@@ -28,6 +28,7 @@ func isPalindrome(s string) bool {
 	for _, v := range s {
 		if (v >= 'a' && v <= 'z') || (v >= 'A' && v <= 'Z') || (v >= '0' && v <= '9') {
 			puneStr = append(puneStr, v)
+
 		}
 	}
 	str := strings.ToLower(string(puneStr))
