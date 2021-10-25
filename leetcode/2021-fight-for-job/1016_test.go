@@ -67,7 +67,7 @@ func query(root *segTree, i, j int) int {
 	}
 }
 
-func Constructor_n(nums []int) NumArray1 {
+func ConstructorNumArray1(nums []int) NumArray1 {
 	return NumArray1{tree: buildSegTree(0, len(nums)-1, nums)}
 }
 

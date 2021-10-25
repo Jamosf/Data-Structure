@@ -158,7 +158,7 @@ func Test_permuteUnique(t *testing.T) {
 }
 
 // leetcode78
-func subsets(nums []int) [][]int {
+func subsets78(nums []int) [][]int {
 	sort.Ints(nums)
 	n := len(nums)
 	ans := make([][]int, 0)

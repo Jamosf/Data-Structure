@@ -9,7 +9,7 @@ import (
 )
 
 // leetcode66:每日一题
-func plusOne(digits []int) []int {
+func plusOne66(digits []int) []int {
 	n := len(digits)
 	carry := 1
 	for i := n - 1; i >= 0; i-- {
