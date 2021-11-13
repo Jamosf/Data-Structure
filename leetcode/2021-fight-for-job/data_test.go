@@ -21,6 +21,10 @@ type minHeap struct {
 	basic_algo.MinHeap
 }
 
+type minHeapPair struct {
+	basic_algo.MinHeapPair
+}
+
 // 基础函数
 var (
 	max = basic_algo.Max

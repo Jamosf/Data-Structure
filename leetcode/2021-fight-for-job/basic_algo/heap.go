@@ -68,3 +68,31 @@ func (h *MinHeap) Less(i, j int) bool {
 func (h *MinHeap) Swap(i, j int) {
 	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
 }
+
+type Pair struct {
+	V     int
+	Times int
+}
+
+type MinHeapPair []Pair
+
+func (m *MinHeapPair) Len() int {
+	return len(*m)
+}
+
+func (m *MinHeapPair) Less(i, j int) bool {
+	return (*m)[i].Times < (*m)[j].Times
+}
+
+func (m *MinHeapPair) Swap(i, j int) {
+	(*m)[i], (*m)[j] = (*m)[j], (*m)[i]
+}
+
+func (m *MinHeapPair) Push(x interface{}) {
+	*m = append(*m, x.(Pair))
+}
+
+func (m *MinHeapPair) Pop() (v interface{}) {
+	*m, v = (*m)[:m.Len()-1], (*m)[m.Len()-1]
+	return
+}

@@ -2,7 +2,9 @@
 package ojeveryday
 
 import (
+	"fmt"
 	"sort"
+	"testing"
 )
 
 // 第一题
@@ -130,23 +132,18 @@ func majorityElement(nums []int) int {
 
 // 第六题
 func numSubarraysWithSum(nums []int, goal int) int {
-	// 1. 先求前缀和
-	sum := make([]int, len(nums))
-	sum[0] = nums[0]
-	for i := 1; i < len(nums); i++ {
-		sum[i] = sum[i-1] + nums[i]
-	}
-	// 2. 记录前缀和出现的次数
-	cnt := make(map[int]int)
-	for _, n := range sum {
-		cnt[n]++
-	}
 	// 3. 利用前缀和计算
 	sumn := 0
 	ans := 0
+	cnt := make(map[int]int)
 	for i := range nums {
 		sumn += nums[i]
-		ans += cnt[goal-sumn]
+		cnt[sumn]++
+		ans += cnt[sumn-goal]
 	}
 	return ans
+}
+
+func Test_numSubarraysWithSum(t *testing.T) {
+	fmt.Println(numSubarraysWithSum([]int{0, 0, 0, 0, 0}, 0))
 }

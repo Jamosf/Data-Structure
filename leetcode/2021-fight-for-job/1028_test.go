@@ -105,7 +105,7 @@ func insertionSortList(head *ListNode) *ListNode {
 }
 
 func Test_insertionSortList(t *testing.T) {
-	fmt.Println(insertionSortList(newListNode([]int{4, 3, 2, 1})))
+	//fmt.Println(insertionSortList(newListNode([]int{4, 3, 2, 1})))
 }
 
 // leetcode220:存在重复元素(桶的思想)
@@ -122,10 +122,10 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 		if _, ok := m[id]; ok {
 			return true
 		}
-		if v, ok := m[id-1]; ok && abs(nums[i], v) <= t {
+		if v, ok := m[id-1]; ok && minusAbs(nums[i], v) <= t {
 			return true
 		}
-		if v, ok := m[id+1]; ok && abs(nums[i], v) <= t {
+		if v, ok := m[id+1]; ok && minusAbs(nums[i], v) <= t {
 			return true
 		}
 		m[id] = nums[i]

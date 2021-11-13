@@ -3,6 +3,7 @@ package ojeveryday
 import (
 	"container/heap"
 	"fmt"
+	"leetcode/leetcode/2021-fight-for-job/basic_algo"
 	"sort"
 	"testing"
 )
@@ -130,46 +131,18 @@ func topKFrequent(nums []int, k int) []int {
 	}
 	h := &minHeapPair{}
 	for kk, v := range m {
-		heap.Push(h, pair{kk, v})
+		heap.Push(h, basic_algo.Pair{kk, v})
 		if h.Len() > k {
 			heap.Pop(h)
 		}
 	}
 	ans := make([]int, 0, k)
 	for h.Len() != 0 {
-		ans = append(ans, heap.Pop(h).(pair).v)
+		ans = append(ans, heap.Pop(h).(basic_algo.Pair).V)
 	}
 	return ans
 }
 
 func Test_topKFrequent(t *testing.T) {
 	fmt.Println(topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2))
-}
-
-type pair struct {
-	v     int
-	times int
-}
-
-type minHeapPair []pair
-
-func (m *minHeapPair) Len() int {
-	return len(*m)
-}
-
-func (m *minHeapPair) Less(i, j int) bool {
-	return (*m)[i].times < (*m)[j].times
-}
-
-func (m *minHeapPair) Swap(i, j int) {
-	(*m)[i], (*m)[j] = (*m)[j], (*m)[i]
-}
-
-func (m *minHeapPair) Push(x interface{}) {
-	*m = append(*m, x.(pair))
-}
-
-func (m *minHeapPair) Pop() (v interface{}) {
-	*m, v = (*m)[:m.Len()-1], (*m)[m.Len()-1]
-	return
 }
