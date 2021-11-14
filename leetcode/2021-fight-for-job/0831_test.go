@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-// dp[x]表示以i结尾的等差数列的个数
+// dp[i]表示以i结尾的等差数列的个数
 func numberOfArithmeticSlices(nums []int) int {
 	n := len(nums)
 	if n < 3 {
@@ -193,7 +193,8 @@ func wordBreak1(s string, wordDict []string) bool {
 	return dp[n-1]
 }
 
-// dp[x]表示以i结尾的最长子序列
+// leetcode300
+// dp[i]表示以i结尾的最长子序列
 // 第六题
 func lengthOfLIS(nums []int) int {
 	n := len(nums)
@@ -212,8 +213,24 @@ func lengthOfLIS(nums []int) int {
 	return maxn
 }
 
+// 优化版解法：贪心+二分查找
+func lengthOfLIS1(nums []int) int {
+	n := len(nums)
+	tail := make([]int, 0)
+	tail = append(tail, nums[0])
+	for i := 1; i < n; i++ {
+		if nums[i] > tail[len(tail)-1] {
+			tail = append(tail, nums[i])
+		} else {
+			idx := sort.SearchInts(tail, nums[i])
+			tail[idx] = nums[i]
+		}
+	}
+	return len(tail)
+}
+
 func Test_lengthOfLIS(t *testing.T) {
-	fmt.Println(lengthOfLIS([]int{1, 3, 6, 7, 9, 4, 10, 5, 6}))
+	fmt.Println(lengthOfLIS1([]int{1, 3, 6, 7, 9, 4, 10, 5, 6}))
 }
 
 // 第七题

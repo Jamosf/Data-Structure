@@ -49,3 +49,44 @@ func print_matrix(grid [][]int) {
 		fmt.Printf("\n")
 	}
 }
+
+func print_matrix_b(grid [][]byte) {
+	m, n := len(grid), len(grid[0])
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			fmt.Printf("%s\t", string(grid[i][j]))
+		}
+		fmt.Printf("\n")
+	}
+}
+
+func newListNode(nums []int) *ListNode {
+	dummy := &ListNode{}
+	p := dummy
+	for i := range nums {
+		p.Next = &ListNode{Val: nums[i]}
+		p = p.Next
+	}
+	return dummy.Next
+}
+
+func print_byte(b []byte) {
+	for i := range b {
+		fmt.Printf("%c ", b[i])
+	}
+	fmt.Println()
+}
+
+func print_binary_array(b []int, n int) {
+	for i := range b {
+		print_binary(b[i], n)
+	}
+}
+
+func print_binary(b int, n int) {
+	fmt.Printf("%0*b ", n, b)
+}
+
+func Test_print_binary(t *testing.T) {
+	print_binary(3, 4)
+}

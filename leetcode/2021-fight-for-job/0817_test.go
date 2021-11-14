@@ -54,6 +54,7 @@ func (u *unionFind) count() int {
 }
 
 // 第一题
+// leetcode130：被围绕的区域
 func solve(board [][]byte) {
 	m := len(board)
 	n := len(board[0])
@@ -108,6 +109,7 @@ func Test_solve(t *testing.T) {
 }
 
 // 第二题
+// leetcode684: 冗余连接
 // 删除图中多余的边
 func findRedundantConnection(edges [][]int) []int {
 	nodeNum := len(edges)
@@ -124,6 +126,7 @@ func findRedundantConnection(edges [][]int) []int {
 }
 
 // 第三题
+// leetcode547: 省份数量
 func findCircleNum(isConnected [][]int) int {
 	cityNum := len(isConnected)
 	u := newUnionFind(cityNum)
@@ -138,6 +141,7 @@ func findCircleNum(isConnected [][]int) int {
 }
 
 // 第四题
+// leetcode1905：统计子岛屿
 func countSubIslands(grid1 [][]int, grid2 [][]int) int {
 	m, n := len(grid1), len(grid1[0])
 	u := newUnionFind(m * n)

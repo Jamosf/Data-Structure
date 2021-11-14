@@ -52,8 +52,8 @@ func longestValidParentheses1(s string) int {
 				dp[i] = dp[i-1] + 1
 			}
 		}
-		// if s[x] == '(' {
-		// 	dp[x] = dp[x-1]
+		// if s[i] == '(' {
+		// 	dp[i] = dp[i-1]
 		// }
 		maxn = max(maxn, dp[i])
 	}

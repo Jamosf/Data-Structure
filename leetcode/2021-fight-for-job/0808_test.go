@@ -23,15 +23,15 @@ func (t *trie) insert(word string) {
 	l := len(word)
 	for i := 0; i < l; i++ {
 		c := word[i] - 'a'
-		if i == l-1 {
-			p.endFlag = true
-		}
 		if p.next[c] == nil {
 			p.next[c] = &trie{}
 			p.num++
 			p = p.next[c]
 		} else {
 			p = p.next[c]
+		}
+		if i == l-1 {
+			p.endFlag = true
 		}
 	}
 }
@@ -44,10 +44,10 @@ func (t *trie) search(word string) bool {
 		if p.next[c] == nil {
 			return false
 		}
+		p = p.next[c]
 		if p.endFlag && i == l-1 {
 			return true
 		}
-		p = p.next[c]
 	}
 	return false
 }

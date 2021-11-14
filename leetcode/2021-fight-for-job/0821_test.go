@@ -246,7 +246,3 @@ func find132pattern(nums []int) bool {
 func Test_find132pattern(t *testing.T) {
 	fmt.Println(find132pattern([]int{3, 5, 0, 3, 4}))
 }
-
-func largestRectangleArea(heights []int) int {
-	return 0
-}

@@ -50,8 +50,8 @@ func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 }
 
 // 第三题
-// dp[x]表示以i结尾，最大利润
-// dp[x+1] = max(dp[x], dp[x] + nums[x+1]- nums[x])
+// dp[i]表示以i结尾，最大利润
+// dp[i+1] = max(dp[i], dp[i] + nums[i+1]- nums[i])
 func maxProfit(prices []int) int {
 	dp := make([]int, len(prices))
 	dp[0] = 0
@@ -141,7 +141,7 @@ func isEqual1(a, b *TreeNode) bool {
 }
 
 // 第七题
-// 剪绳子类似于整数拆分：dp[x] = max(dp[y]*(x-y), y*(x, y))
+// 剪绳子类似于整数拆分：dp[i] = max(dp[j]*(i-j), j*(i, j))
 func cuttingRope(n int) int {
 	dp := make([]int, n+1)
 	dp[0] = 0

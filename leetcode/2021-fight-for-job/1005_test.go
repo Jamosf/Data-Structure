@@ -152,7 +152,7 @@ func searchMatrix1(matrix [][]int, target int) bool {
 }
 
 // 第五题
-// 动态规划：dp[x]表示第i天获取的最大利润, 0：持有一只股票；1：不持有股票，处于冷冻期；2：不持有股票，不处于冷冻期
+// 动态规划：dp[i]表示第i天获取的最大利润, 0：持有一只股票；1：不持有股票，处于冷冻期；2：不持有股票，不处于冷冻期
 func maxProfit1(prices []int) int {
 	n := len(prices)
 	dp := make([][3]int, n)
