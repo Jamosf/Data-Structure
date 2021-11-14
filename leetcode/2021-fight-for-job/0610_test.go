@@ -9,6 +9,7 @@ import (
 )
 
 // 第一题
+// leetcode80: 删除有序数组中的重复项II
 func removeDuplicates(nums []int) int {
 	sort.Ints(nums)
 	first, second := 0, 1
@@ -64,7 +65,7 @@ func removeNthFromEnd1(head *ListNode, n int) *ListNode {
 	return tmp.Next
 }
 
-func threeSum_t(nums []int, target int) [][]int {
+func threesumT(nums []int, target int) [][]int {
 	sort.Ints(nums)
 	var ans [][]int
 	for i := 1; i < len(nums)-1; i++ {
@@ -94,11 +95,12 @@ func threeSum_t(nums []int, target int) [][]int {
 }
 
 // 第三题
+// leetcode18: 四数之和
 func fourSum(nums []int, target int) [][]int {
 	sort.Ints(nums)
 	var ans [][]int
 	for i := 0; i < len(nums)-1; i++ {
-		res := threeSum_t(append(nums[:i], nums[i+1:]...), target-nums[i])
+		res := threesumT(append(nums[:i], nums[i+1:]...), target-nums[i])
 		for k := range res {
 			flag := false
 			for j := range ans {
@@ -121,6 +123,7 @@ func Test_four(t *testing.T) {
 }
 
 // 第四题
+// leetcode16: 最接近的三数之和
 func threeSumClosest(nums []int, target int) int {
 	sort.Ints(nums)
 	min := math.MaxInt32
@@ -162,6 +165,7 @@ func Test_close(t *testing.T) {
 }
 
 // 第五题
+// leetcode15: 三数之和
 func threeSum(nums []int) [][]int {
 	sort.Ints(nums)
 	var ans [][]int

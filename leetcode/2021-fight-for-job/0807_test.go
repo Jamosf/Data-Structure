@@ -8,34 +8,8 @@ import (
 	"testing"
 )
 
-type minHeap1 []int
-
-func (m *minHeap1) Len() int {
-	return len(*m)
-}
-
-func (m *minHeap1) Less(i, j int) bool {
-	return (*m)[i] < (*m)[j]
-}
-
-func (m *minHeap1) Swap(i, j int) {
-	(*m)[i], (*m)[j] = (*m)[j], (*m)[i]
-}
-
-func (m *minHeap1) Push(x interface{}) {
-	*m = append(*m, x.(int))
-}
-
-func (m *minHeap1) Pop() (v interface{}) {
-	*m, v = (*m)[:m.Len()-1], (*m)[m.Len()-1]
-	return
-}
-
-func (m *minHeap1) Top() (v interface{}) {
-	return (*m)[0]
-}
-
 // 第一题
+// leetcode703: 数据流中的第K大元素
 // 数据流中第k大的数据
 type KthLargest struct {
 	k int
@@ -51,7 +25,7 @@ func (k1 *KthLargest) Pop() (v interface{}) {
 	return
 }
 
-func Constructor_k1(k int, nums []int) KthLargest {
+func ConstructorKthLargest(k int, nums []int) KthLargest {
 	k1 := KthLargest{k: k}
 	for _, v := range nums {
 		k1.Add(v)
@@ -68,7 +42,7 @@ func (k1 *KthLargest) Add(val int) int {
 }
 
 // 第三题
-// 最后一块石头的重量
+// leetcode1046: 最后一块石头的重量
 func lastStoneWeight(stones []int) int {
 	m := &maxHeap1{}
 	for _, v := range stones {
@@ -88,8 +62,9 @@ func lastStoneWeight(stones []int) int {
 }
 
 // 第四题
+// leetcode1464: 数组中两元素的最大乘积
 // 最大值和次大值
-func maxProduct2(nums []int) int {
+func maxProduct1464(nums []int) int {
 	max1, max2 := 0, 0
 	for i := range nums {
 		if nums[i] > max1 {
@@ -102,7 +77,7 @@ func maxProduct2(nums []int) int {
 	return (max1 - 1) * (max2 - 1)
 }
 
-func maxProduct_2(nums []int) int {
+func maxProduct1464_(nums []int) int {
 	m := &maxHeap1{}
 	m.IntSlice = nums
 	heap.Init(m)
@@ -112,6 +87,7 @@ func maxProduct_2(nums []int) int {
 }
 
 // 第五题
+// leetcode215: 数组中两元素的最大乘积
 func findKthLargest(nums []int, k int) int {
 	m := &minHeap{}
 	for i := range nums {
@@ -124,6 +100,7 @@ func findKthLargest(nums []int, k int) int {
 }
 
 // 第六题
+// leetcode347: 前k个高频元素
 func topKFrequent(nums []int, k int) []int {
 	m := make(map[int]int)
 	for i := range nums {

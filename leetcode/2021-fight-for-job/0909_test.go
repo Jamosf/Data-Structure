@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// leetcode1945: 字符串转化后的各位数字之和
 func getLucky(s string, k int) int {
 	ans := make([]byte, 0)
 	for i := range s {
@@ -42,6 +43,7 @@ func Test_getLucky(t *testing.T) {
 	fmt.Println(getLucky("dbvmfhnttvr", 5))
 }
 
+// leetcode1946: 子字符串突变后可能得到的最大整数
 func maximumNumber(num string, change []int) string {
 	b := []byte(num)
 	cnt := 0
@@ -63,6 +65,7 @@ func Test_maximumNumber(t *testing.T) {
 	fmt.Println(maximumNumber("334111", []int{0, 9, 2, 3, 3, 2, 5, 5, 5, 5}))
 }
 
+// leetcode1947: 最大兼容性评分和
 func maxCompatibilitySum(students [][]int, mentors [][]int) int {
 	m := len(students)
 	maxn := 0
@@ -109,6 +112,7 @@ type folder struct {
 	del bool   // 删除标记
 }
 
+// leetcode1948：删除系统中的重复文件夹
 func deleteDuplicateFolder(paths [][]string) (ans [][]string) {
 	root := &folder{}
 	for _, path := range paths {
@@ -175,6 +179,7 @@ func Test_deleteDuplicateFolder(t *testing.T) {
 	fmt.Println(deleteDuplicateFolder([][]string{{"a"}, {"a", "x"}, {"a", "x", "y"}, {"a", "z"}, {"b"}, {"b", "x"}, {"b", "x", "y"}, {"b", "z"}, {"b", "w"}}))
 }
 
+// leetcode1895: 最大的幻方
 func largestMagicSquare(grid [][]int) int {
 	print_matrix(grid)
 	maxn := 0

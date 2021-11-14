@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// leetcode1711: 大餐计数
 func countPairs(deliciousness []int) int {
 	n := len(deliciousness)
 	ans := 0
@@ -40,7 +41,7 @@ func countPairs(deliciousness []int) int {
 	return ans % mod
 }
 
-func countPairs1(deliciousness []int) int {
+func countPairs_(deliciousness []int) int {
 	mod := int(1e9 + 7)
 	maxn := deliciousness[0]
 	for i := range deliciousness {
@@ -60,12 +61,14 @@ func countPairs1(deliciousness []int) int {
 
 func Test_countPairs(t *testing.T) {
 	fmt.Println(countPairs([]int{2160, 1936, 3, 29, 27, 5, 2503, 1593, 2, 0, 16, 0, 3860, 28908, 6, 2, 15, 49, 6246, 1946, 23, 105, 7996, 196, 0, 2, 55, 457, 5, 3, 924, 7268, 16, 48, 4, 0, 12, 116, 2628, 1468}))
+	fmt.Println(countPairs_([]int{2160, 1936, 3, 29, 27, 5, 2503, 1593, 2, 0, 16, 0, 3860, 28908, 6, 2, 15, 49, 6246, 1946, 23, 105, 7996, 196, 0, 2, 55, 457, 5, 3, 924, 7268, 16, 48, 4, 0, 12, 116, 2628, 1468}))
 }
 
 func Test_t(t *testing.T) {
 	fmt.Println(int(4999950000) % int(1e9+7))
 }
 
+// leetcode lcp28: 采购方案
 func purchasePlans(nums []int, target int) int {
 	mod := int(1e9 + 7)
 	n := len(nums)
@@ -90,6 +93,7 @@ func Test_purse(t *testing.T) {
 	fmt.Println(purchasePlans([]int{2, 2, 1, 9}, 10))
 }
 
+// leetcode lcp29: 乐团站位
 func orchestraLayout(num int, xPos int, yPos int) int {
 	cycle := min(min(num-1-xPos, xPos), min(num-1-yPos, yPos))
 	sum := (num - cycle) * cycle * 4
@@ -110,6 +114,7 @@ func Test_orchestraLayout(t *testing.T) {
 	fmt.Println(orchestraLayout(10, 5, 6))
 }
 
+// leetcode414: 第三大的数
 func thirdMax(nums []int) int {
 	sort.Ints(nums)
 	n := len(nums)
@@ -126,7 +131,7 @@ func thirdMax(nums []int) int {
 }
 
 // 参考算法思想
-func thirdMax1(nums []int) int {
+func thirdMax_(nums []int) int {
 	var one, two, three int64 = math.MinInt64, math.MinInt64, math.MinInt64
 	for _, num := range nums {
 		n := int64(num)
@@ -147,5 +152,6 @@ func thirdMax1(nums []int) int {
 }
 
 func Test_third(t *testing.T) {
-	fmt.Println(thirdMax1([]int{2, 2, 1, 3}))
+	fmt.Println(thirdMax([]int{2, 2, 1, 3}))
+	fmt.Println(thirdMax_([]int{2, 2, 1, 3}))
 }

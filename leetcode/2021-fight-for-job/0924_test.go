@@ -8,6 +8,8 @@ import (
 )
 
 // 第一题
+// leetcode1806: 还原排列的最少操作步数
+// 位运算
 func reinitializePermutation(n int) int {
 	ans := 0
 	i := 1
@@ -30,6 +32,7 @@ func Test_reinitializePermutation(t *testing.T) {
 }
 
 // 第二题
+// leetcode22: 括号生成
 func generateParenthesis(n int) []string {
 	s := make([]byte, 2*n)
 	for i := 0; i < 2*n; i++ {
@@ -91,6 +94,7 @@ func Test_generateParenthesis(t *testing.T) {
 }
 
 // 第三题
+// leetcode31: 下一个排列
 func nextPermutation(nums []int) {
 	n := len(nums)
 	left, right := -1, -1
@@ -123,6 +127,7 @@ func Test_nextPermutation(t *testing.T) {
 }
 
 // 第四题
+// leetcode621: 任务调度器
 func leastInterval(tasks []byte, n int) int {
 	f := [26]int{}
 	maxn := 0
@@ -144,6 +149,7 @@ func leastInterval(tasks []byte, n int) int {
 }
 
 // 第五题
+// leetcode114: 二叉树展开为链表
 func flatten(root *TreeNode) {
 	dummy := &TreeNode{}
 	p := dummy
@@ -170,6 +176,7 @@ func Test_flatten(t *testing.T) {
 }
 
 // 第六题
+// leetcode55: 跳跃游戏
 func canJump(nums []int) bool {
 	n := len(nums)
 	dp := make([]bool, n)

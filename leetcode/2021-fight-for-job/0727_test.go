@@ -177,31 +177,6 @@ func reverseList2(head *ListNode) *ListNode {
 	return pre
 }
 
-// 第二题
-//func combine(n int, k int) [][]int {
-//	cnt := n * (n - 1) / k
-//	ret := make([][]int, cnt)
-//	visited := make([]bool, n+1)
-//
-//}
-//
-//func backtrace(res [][]int, visited []bool, n int, k int) (ret [][]int) {
-//	var tmp []int
-//	if k == 0 {
-//		res = append(res)
-//		return
-//	}
-//	for x := 1; x <= n; x++ {
-//		if !visited[x] {
-//			visited[x] = true
-//			tmp = append(tmp, x)
-//			backtrace(res, n, k-1)
-//			visited[x] = false
-//			tmp = tmp[:len(tmp)-1]
-//		}
-//	}
-//}
-
 // 第三题
 func add(a int, b int) int {
 	for b != 0 {

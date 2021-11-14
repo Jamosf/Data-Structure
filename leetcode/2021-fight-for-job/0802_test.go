@@ -6,13 +6,8 @@ import (
 	"testing"
 )
 
-// 第一题
-// 动态规划的转移方程：dp[i]表示用i个骰子
-func dicesProbability(n int) []float64 {
-	return nil
-}
-
 // 第二题
+// leetcode 剑指offer56-I：数组中数字出现的次数
 // 数组中两个出现一次的数，分开异或
 func singleNumbers(nums []int) []int {
 	m, n := 0, 1
@@ -38,8 +33,8 @@ func Test_singleNumbers(t *testing.T) {
 }
 
 // 第三题
-// 数组中出现一次的数字
-func singleNumber3(nums []int) int {
+// leetcode剑指offer56-II: 数组中数字出现的次数II
+func singleNumberII(nums []int) int {
 	m := make([]int, 32)
 	for _, v := range nums {
 		for i := 0; i < 32; i++ {
@@ -58,6 +53,7 @@ func singleNumber3(nums []int) int {
 }
 
 // 第四题
+// leetcode剑指offer 66： 构建乘积数组
 func constructArr(a []int) []int {
 	if len(a) == 0 {
 		return nil

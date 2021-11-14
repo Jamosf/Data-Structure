@@ -39,6 +39,7 @@ func floor(x int) int {
 	return x>>1 + 1
 }
 
+// leetcode1962: 移除石子使总数最小
 func minStoneSum(piles []int, k int) int {
 	mh := &mHeap{}
 	sum := 0
@@ -57,12 +58,8 @@ func minStoneSum(piles []int, k int) int {
 	return sum
 }
 
-func Test_minStoneSum(t *testing.T) {
-	fmt.Println(minStoneSum([]int{5, 4, 9}, 2))
-}
-
 // 高手的代码
-func minStoneSum1(piles []int, k int) (ans int) {
+func minStoneSum_(piles []int, k int) (ans int) {
 	h := &hp{piles}
 	heap.Init(h)
 	for ; k > 0; k-- {
@@ -75,12 +72,18 @@ func minStoneSum1(piles []int, k int) (ans int) {
 	return
 }
 
+func Test_minStoneSum(t *testing.T) {
+	fmt.Println(minStoneSum([]int{5, 4, 9}, 2))
+	fmt.Println(minStoneSum_([]int{5, 4, 9}, 2))
+}
+
 type hp struct{ sort.IntSlice }
 
 func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 func (hp) Push(interface{})     {}
 func (hp) Pop() (_ interface{}) { return }
 
+// leetcode1963: 使字符串平衡的最小交换次数
 func minSwaps(s string) int {
 	cnt := 0
 	minCnt := 0
@@ -95,6 +98,7 @@ func minSwaps(s string) int {
 	return (-minCnt + 1) >> 1
 }
 
+// leetcode1753: 移除石子的最大得分
 func maximumScore(a int, b int, c int) int {
 	v := []int{a, b, c}
 	sort.Ints(v)

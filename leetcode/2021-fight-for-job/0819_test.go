@@ -8,6 +8,7 @@ import (
 
 // 哈希表
 // 第一题
+// leetcode12: 整数转罗马数字
 func intToRoman(num int) string {
 	i := []int{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000}
 	r := []string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"}
@@ -26,6 +27,7 @@ func Test_intToRoman(t *testing.T) {
 }
 
 // 第二题
+// leetcode17: 电话号码的字母组合
 func letterCombinations(digits string) []string {
 	m := []string{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
 	size := len(digits)

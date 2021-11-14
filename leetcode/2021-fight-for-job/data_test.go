@@ -25,13 +25,91 @@ type minHeapPair struct {
 	basic_algo.MinHeapPair
 }
 
+type unionFind struct {
+	*basic_algo.UnionFind
+}
+
+func newUnionFind(size int) *unionFind {
+	return &unionFind{basic_algo.NewUnionFind(size)}
+}
+
+func (u *unionFind) union(p, q int) {
+	u.Union(p, q)
+}
+
+func (u *unionFind) find(p int) int {
+	return u.Find(p)
+}
+
+func (u *unionFind) isConnected(p, q int) bool {
+	return u.IsConnected(p, q)
+}
+
+func (u *unionFind) count() int {
+	return u.Count()
+}
+
+type trie struct {
+	next    [maxNodeNum]*trie
+	num     int
+	endFlag bool
+}
+
+func (t *trie) Insert(word string) {
+	p := t
+	l := len(word)
+	for i := 0; i < l; i++ {
+		c := word[i] - 'a'
+		if p.next[c] == nil {
+			p.next[c] = &trie{}
+			p.num++
+			p = p.next[c]
+		} else {
+			p = p.next[c]
+		}
+		if i == l-1 {
+			p.endFlag = true
+		}
+	}
+}
+
+func (t *trie) Search(word string) bool {
+	p := t
+	l := len(word)
+	for i := 0; i < l; i++ {
+		c := word[i] - 'a'
+		if p.next[c] == nil {
+			return false
+		}
+		p = p.next[c]
+		if p.endFlag && i == l-1 {
+			return true
+		}
+	}
+	return false
+}
+
+func (t *trie) SearchStartsWith(prefix string) bool {
+	p := t
+	l := len(prefix)
+	for i := 0; i < l; i++ {
+		c := prefix[i] - 'a'
+		if p.next[c] == nil {
+			return false
+		}
+		p = p.next[c]
+	}
+	return true
+}
+
 // 基础函数
 var (
 	max = basic_algo.Max
 	min = basic_algo.Min
 
-	abs      = basic_algo.Abs
-	minusAbs = basic_algo.MinusAbs
+	abs        = basic_algo.Abs
+	minusAbs   = basic_algo.MinusAbs
+	quickSortK = basic_algo.QuickSortK
 )
 
 var data = "[[2,3],[4,5],[6,7],[8,9],[1,10]]"

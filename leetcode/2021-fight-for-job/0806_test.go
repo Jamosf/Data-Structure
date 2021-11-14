@@ -91,6 +91,7 @@ func (m *myHeap) Pop() (v interface{}) {
 }
 
 // 第一题：合并链表
+// leetcode23: 合并k个升序链表
 func mergeKLists(lists []*ListNode) *ListNode {
 	if len(lists) == 0 {
 		return nil
@@ -114,7 +115,8 @@ func mergeKLists(lists []*ListNode) *ListNode {
 }
 
 // 第二题
-// 天际线问题
+// TODO
+// leetcode218: 天际线问题
 func getSkyline(buildings [][]int) [][]int {
 	if len(buildings) == 0 {
 		return nil
@@ -154,8 +156,8 @@ func getSkyline(buildings [][]int) [][]int {
 	return ans
 }
 
-// 第一题
-// 天际线问题
+// leetcode218: 天际线问题
+// TODO
 func getSkyline1(buildings [][]int) [][]int {
 	if len(buildings) == 0 {
 		return nil
@@ -205,6 +207,7 @@ func Test_getSkyline(t *testing.T) {
 }
 
 // 第二题
+// leetcode506: 相对名次
 // 金牌、银牌、铜牌
 func findRelativeRanks(score []int) []string {
 	m := &rankHeap{}

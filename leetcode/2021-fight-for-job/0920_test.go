@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// leetcode2011：执行操作后的变量值
 func finalValueAfterOperations(operations []string) int {
 	ans := 0
 	for i := range operations {
@@ -19,6 +20,7 @@ func finalValueAfterOperations(operations []string) int {
 	return ans
 }
 
+// leetcode2012: 数组美丽值求和
 // 双向单调栈
 func sumOfBeauties(nums []int) int {
 	n := len(nums)
@@ -63,8 +65,9 @@ func sumOfBeauties(nums []int) int {
 	return ans
 }
 
+// leetcode2012: 数组美丽值求和
 // 前缀最大值和后缀最小值
-func sumOfBeauties1(nums []int) int {
+func sumOfBeauties_(nums []int) int {
 	n := len(nums)
 	f1 := make([]int, n)
 	f1[0] = nums[0]
@@ -91,13 +94,15 @@ func sumOfBeauties1(nums []int) int {
 
 func Test_sumOfBeauties(t *testing.T) {
 	fmt.Println(sumOfBeauties([]int{5, 5, 10, 4, 6}))
+	fmt.Println(sumOfBeauties_([]int{5, 5, 10, 4, 6}))
 }
 
+// leetcode2013: 检测正方形
 type DetectSquares struct {
 	p map[int]map[int]int
 }
 
-func Constructor_1() DetectSquares {
+func ConstructorDetectSquares() DetectSquares {
 	return DetectSquares{make(map[int]map[int]int)}
 }
 
@@ -125,7 +130,7 @@ func (d *DetectSquares) Count(point []int) int {
 }
 
 func Test_DetectSquares(t *testing.T) {
-	d := Constructor_1()
+	d := ConstructorDetectSquares()
 	d.Add([]int{3, 10})
 	d.Add([]int{3, 10})
 	d.Add([]int{11, 2})
@@ -137,13 +142,6 @@ func Test_DetectSquares(t *testing.T) {
 	d.Add([]int{11, 2})
 	fmt.Println(d.Count([]int{11, 10}))
 }
-
-/**
- * Your DetectSquares object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Add(point);
- * param_2 := obj.Count(point);
- */
 
 func longestSubsequenceRepeatedK(s string, k int) (ans string) {
 	n := len(s)
@@ -232,6 +230,7 @@ func permutations(n, r int, do func(ids []int) bool) {
 	}
 }
 
+// leetcode2006：差的绝对值为k的数对数目
 func countKDifference(nums []int, k int) int {
 	m := make(map[int]int)
 	ans := 0
@@ -243,6 +242,7 @@ func countKDifference(nums []int, k int) int {
 	return ans
 }
 
+// leetcode2007: 从双倍数组中还原数组
 func findOriginalArray(changed []int) []int {
 	sort.Ints(changed)
 	cnt := make(map[int]int)
@@ -275,6 +275,7 @@ func maxInt64(a, b int64) int64 {
 	return b
 }
 
+// leetcode2008: 出租车的最大盈利
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool {
 		a, b := rides[i], rides[j]
@@ -301,7 +302,8 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 	return maxn
 }
 
-func maxTaxiEarnings1(n int, rides [][]int) int64 {
+// leetcode2008: 出租车的最大盈利
+func maxTaxiEarnings_(n int, rides [][]int) int64 {
 	g := make([][][2]int, n+1)
 	for _, v := range rides {
 		start, end, trips := v[0], v[1], v[2]
@@ -318,5 +320,6 @@ func maxTaxiEarnings1(n int, rides [][]int) int64 {
 }
 
 func Test_maxTaxiEarnings(t *testing.T) {
-	fmt.Println(maxTaxiEarnings1(10, [][]int{{9, 10, 2}, {4, 5, 6}, {6, 8, 1}, {1, 5, 5}, {4, 9, 5}, {1, 6, 5}, {4, 8, 3}, {4, 7, 10}, {1, 9, 8}, {2, 3, 5}}))
+	fmt.Println(maxTaxiEarnings(10, [][]int{{9, 10, 2}, {4, 5, 6}, {6, 8, 1}, {1, 5, 5}, {4, 9, 5}, {1, 6, 5}, {4, 8, 3}, {4, 7, 10}, {1, 9, 8}, {2, 3, 5}}))
+	fmt.Println(maxTaxiEarnings_(10, [][]int{{9, 10, 2}, {4, 5, 6}, {6, 8, 1}, {1, 5, 5}, {4, 9, 5}, {1, 6, 5}, {4, 8, 3}, {4, 7, 10}, {1, 9, 8}, {2, 3, 5}}))
 }

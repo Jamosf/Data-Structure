@@ -26,6 +26,7 @@ func minAbs(a, b int) int {
 	return a
 }
 
+// leetcode1974: 使用特殊打字机键入单词的最少次数
 func minTimeToType(word string) int {
 	n := len(word)
 	var pre int = 'a'
@@ -42,6 +43,7 @@ func Test_minTimeToType(t *testing.T) {
 	fmt.Println(minTimeToType("bza"))
 }
 
+// leetcode1975: 最大方阵和
 func maxMatrixSum(matrix [][]int) int64 {
 	m, n := len(matrix), len(matrix[0])
 	sum := int64(0)
@@ -65,11 +67,12 @@ func maxMatrixSum(matrix [][]int) int64 {
 }
 
 func Test_maxMatrixSum(t *testing.T) {
-	// fmt.Println(maxMatrixSum([][]int{{1, 2, 3}, {-1, -2, -3}, {1, 2, 3}}))
-	// fmt.Println(maxMatrixSum([][]int{{1, -1}, {-1, 1}}))
+	fmt.Println(maxMatrixSum([][]int{{1, 2, 3}, {-1, -2, -3}, {1, 2, 3}}))
+	fmt.Println(maxMatrixSum([][]int{{1, -1}, {-1, 1}}))
 	fmt.Println(maxMatrixSum([][]int{{-1, 0, -1}, {-2, 1, 3}, {3, 2, 2}}))
 }
 
+// leetcode1976: 达到目的地的方案数
 func countPaths(n int, roads [][]int) int {
 	edge := make([][]int, n)
 	for i := range edge {
@@ -167,35 +170,5 @@ func numberOfCombinations(num string) int {
 }
 
 func Test_number(t *testing.T) {
-	fmt.Println(numberOfCombinations1("327"))
-}
-
-func numberOfCombinations1(num string) int {
-	n := len(num)
-	ans := 0
-	ans1 := make([][]int, 0, n)
-	tmp := make([]int, 0, n)
-	var backTracking func(idx int, pre int)
-	backTracking = func(idx int, pre int) {
-		if idx == n {
-			ans1 = append(ans1, tmp)
-			ans++
-			return
-		}
-		ch := 0
-		for i := idx; i < n; i++ {
-			ch = ch*10 + int(num[i]-'0')
-			tmp = append(tmp, ch)
-			// if ch > pre {
-			backTracking(idx+1, ch)
-			// ch -= int(num[x] - '0')
-			// ch /= 10
-			tmp = tmp[:len(tmp)-1]
-			// }
-
-		}
-	}
-	backTracking(0, 0)
-	fmt.Println(ans1)
-	return ans
+	fmt.Println(numberOfCombinations("327"))
 }

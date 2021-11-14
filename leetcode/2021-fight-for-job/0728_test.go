@@ -8,6 +8,7 @@ import (
 )
 
 // 第一题
+// leetcode191: 2的幂
 func isPowerOfTwo(n int) bool {
 	cnt := 0
 	for n != 0 {
@@ -18,6 +19,7 @@ func isPowerOfTwo(n int) bool {
 }
 
 // 第二题
+// leetcode461: 汉明距离
 func hammingWeight(num uint32) int {
 	cnt := 0
 	for num != 0 {
@@ -28,6 +30,7 @@ func hammingWeight(num uint32) int {
 }
 
 // 第三题
+// leetcode198: 打家劫舍
 func rob(nums []int) int {
 	dp := make([]int, len(nums))
 	for i := 0; i < len(nums); i++ {
@@ -43,6 +46,7 @@ func rob(nums []int) int {
 }
 
 // 第四题
+// leetcode120: 三角形最小路径和
 func minimumTotal(triangle [][]int) int {
 	if len(triangle) == 0 {
 		return 0
@@ -77,6 +81,7 @@ func Test_minimumTotal(t *testing.T) {
 }
 
 // 第五题
+// leetcode700: 二叉搜索树中的搜索
 func searchBST(root *TreeNode, val int) *TreeNode {
 	if root == nil {
 		return nil

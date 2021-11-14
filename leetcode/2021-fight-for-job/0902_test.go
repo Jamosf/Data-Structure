@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// leetcode1986: 完成任务的最少工作时间段
 // dp[i]的含义是：i表示的二进制对应的索引全部选中的情况下，最小的组合数
 func minSessions(tasks []int, sessionTime int) int {
 	n := len(tasks)
@@ -47,8 +48,9 @@ func minSessions(tasks []int, sessionTime int) int {
 	return dp[m-1]
 }
 
+// leetcode1986: 完成任务的最少工作时间段
 // dfs解这个题
-func minSessions2(tasks []int, sessionTime int) int {
+func minSessions_(tasks []int, sessionTime int) int {
 	sort.Slice(tasks, func(i, j int) bool {
 		return tasks[i] > tasks[j]
 	})
@@ -82,10 +84,11 @@ func minSessions2(tasks []int, sessionTime int) int {
 }
 
 func Test_minSessions2(t *testing.T) {
-	fmt.Println(minSessions2([]int{1, 1, 1, 3, 3, 1}, 8))
+	fmt.Println(minSessions([]int{1, 1, 1, 3, 3, 1}, 8))
+	fmt.Println(minSessions_([]int{1, 1, 1, 3, 3, 1}, 8))
 }
 
-//
+// leetcode1987: 不同的好子序列数目
 func numberOfUniqueGoodSubsequences(binary string) int {
 	n := len(binary)
 	dp0, dp1 := 0, 0
@@ -101,6 +104,7 @@ func numberOfUniqueGoodSubsequences(binary string) int {
 	return (dp1 + has0) % mod
 }
 
+// leetcode165: 比较版本号
 // 分割字符串
 func compareVersion(version1 string, version2 string) int {
 	s1 := strings.Split(version1, ".")
@@ -148,12 +152,9 @@ func compareVersion(version1 string, version2 string) int {
 	return 0
 }
 
-func Test_compareVersion(t *testing.T) {
-	fmt.Println(compareVersion1("1.2", "1.10"))
-}
-
+// leetcode165: 比较版本号
 // 双指针解法
-func compareVersion1(v1 string, v2 string) int {
+func compareVersion_(v1 string, v2 string) int {
 	n1, n2 := len(v1), len(v2)
 	pre1, pre2 := 0, 0
 	pos1, pos2 := 0, 0
@@ -208,8 +209,9 @@ func compare(s, t string) int {
 	return 0
 }
 
+// leetcode165: 比较版本号
 // leetcode 100%的典范代码
-func compareVersion3(version1 string, version2 string) int {
+func compareVersion__(version1 string, version2 string) int {
 	v1 := NewVersionIterator(version1)
 	v2 := NewVersionIterator(version2)
 	for {
@@ -264,6 +266,13 @@ func (v *VersionIterator) NextRevision() (int, bool) {
 	return revision, true
 }
 
+func Test_compareVersion(t *testing.T) {
+	fmt.Println(compareVersion("1.2", "1.10"))
+	fmt.Println(compareVersion_("1.2", "1.10"))
+	fmt.Println(compareVersion__("1.2", "1.10"))
+}
+
+// leetcode214: 最短回文串
 // 输入：s = "aacecaaa"
 // 输出："aaacecaaa"
 // 解法：将字符串翻转，然后去掉中间重叠的部分即可

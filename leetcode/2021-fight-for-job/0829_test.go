@@ -6,6 +6,7 @@ import (
 )
 
 // 第一题
+// leetcode79: 单词搜索
 func exist(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
 	visited := make([][]bool, m)

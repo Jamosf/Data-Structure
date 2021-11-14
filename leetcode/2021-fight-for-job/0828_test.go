@@ -6,35 +6,8 @@ import (
 	"testing"
 )
 
-// 排序算法
-func quickSort(nums []int, l, r int) {
-	if l+1 >= r {
-		return
-	}
-	first, last := l, r-1
-	key := nums[first]
-	for first < last {
-		for first < last && nums[last] >= key {
-			last--
-		}
-		nums[first] = nums[last]
-		for first < last && nums[first] <= key {
-			first++
-		}
-		nums[last] = nums[first]
-	}
-	nums[first] = key
-	quickSort(nums, l, first)
-	quickSort(nums, first+1, r)
-}
-
-func Test_quickSort(t *testing.T) {
-	nums := []int{5, 4, 2, 3}
-	quickSort(nums, 0, 4)
-	fmt.Println(nums)
-}
-
-func permute1(nums []int) [][]int {
+// leetcode46: 全排列
+func permute(nums []int) [][]int {
 	n := len(nums)
 	l := factorial(n)
 	ans := make([][]int, 0, l)
@@ -55,10 +28,18 @@ func permute1(nums []int) [][]int {
 	return ans
 }
 
-func Test_permute1(t *testing.T) {
-	fmt.Println(permute1([]int{1, 2, 3}))
+func factorial(n int) int {
+	if n == 1 {
+		return 1
+	}
+	return n * factorial(n-1)
 }
 
+func Test_permute(t *testing.T) {
+	fmt.Println(permute([]int{1, 2, 3}))
+}
+
+// leetcode77: 组合
 func combine(n int, k int) [][]int {
 	var ans [][]int
 	tmp := make([]int, 0, k)

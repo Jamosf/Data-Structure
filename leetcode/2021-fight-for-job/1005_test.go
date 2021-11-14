@@ -8,6 +8,7 @@ import (
 )
 
 // 第一题
+// leetcode105: 从前序与中序遍历序列构造二叉树
 func buildTree(preorder []int, inorder []int) *TreeNode {
 	if len(preorder) == 0 || len(inorder) == 0 {
 		return nil
@@ -31,15 +32,17 @@ func Test_buildTree(t *testing.T) {
 }
 
 // 第二题
-func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
+// leetcode236: 二叉树的最近公共祖先
+// 二叉树
+func lowestCommonAncestor236(root, p, q *TreeNode) *TreeNode {
 	if root == nil || p == nil || q == nil {
 		return nil
 	}
 	if root.Val == p.Val || root.Val == q.Val {
 		return root
 	}
-	left := lowestCommonAncestor2(root.Left, p, q)
-	right := lowestCommonAncestor2(root.Right, p, q)
+	left := lowestCommonAncestor236(root.Left, p, q)
+	right := lowestCommonAncestor236(root.Right, p, q)
 	// 左边没有找到
 	if left == nil {
 		return right
@@ -51,6 +54,7 @@ func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
 }
 
 // 第三题
+// leetcode146: LRU缓存机制
 // 解题思路：双向链表+hashmap
 type LRUCache struct {
 	mk         map[int]*DLinkNode
@@ -136,6 +140,7 @@ func Test_LRUCache(t *testing.T) {
 }
 
 // 第四题：搜索
+// leetcode240: 搜索二维矩阵II
 // 解题思路：从右上角开始搜索
 func searchMatrix1(matrix [][]int, target int) bool {
 	m, n := len(matrix), len(matrix[0])
@@ -152,6 +157,7 @@ func searchMatrix1(matrix [][]int, target int) bool {
 }
 
 // 第五题
+// leetcode309: 最佳买卖股票时机含冷冻期
 // 动态规划：dp[i]表示第i天获取的最大利润, 0：持有一只股票；1：不持有股票，处于冷冻期；2：不持有股票，不处于冷冻期
 func maxProfit1(prices []int) int {
 	n := len(prices)
@@ -165,7 +171,9 @@ func maxProfit1(prices []int) int {
 	return max(dp[n-1][1], dp[n-1][2])
 }
 
-// 第一题
+// 第六题
+// leetcode207: 课程表
+// 拓扑排序
 func canFinish(numCourses int, prerequisites [][]int) bool {
 	edge := make([][]int, numCourses)
 	for i := range edge {
@@ -206,7 +214,8 @@ func topoSort(edge [][]int, inDegree []int, n int) bool {
 }
 
 // 第二题
-// 反向中序遍历
+// leetcode538: 二叉搜索树转换为累加树
+// 二叉树、反向中序遍历
 func convertBST(root *TreeNode) *TreeNode {
 	sum := 0
 	var dfs func(r *TreeNode)

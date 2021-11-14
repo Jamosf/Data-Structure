@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// leetcode413: 等差数列划分
 // dp[i]表示以i结尾的等差数列的个数
 func numberOfArithmeticSlices(nums []int) int {
 	n := len(nums)
@@ -34,8 +35,9 @@ func Test_numberOfArithmeticSlices(t *testing.T) {
 	fmt.Println(numberOfArithmeticSlices([]int{1, 2, 3, 0, 5, 6, 7}))
 }
 
+// leetcode413: 等差数列划分
 // 双指针方法
-func numberOfArithmeticSlices1(nums []int) int {
+func numberOfArithmeticSlices_(nums []int) int {
 	n := len(nums)
 	left, right := 0, 1
 	ans := 0
@@ -55,10 +57,12 @@ func numberOfArithmeticSlices1(nums []int) int {
 }
 
 func Test_numberOfArithmeticSlices1(t *testing.T) {
-	fmt.Println(numberOfArithmeticSlices1([]int{1, 2, 3, 0, 5, 6, 7}))
+	fmt.Println(numberOfArithmeticSlices([]int{1, 2, 3, 0, 5, 6, 7}))
+	fmt.Println(numberOfArithmeticSlices_([]int{1, 2, 3, 0, 5, 6, 7}))
 }
 
 // 第二题
+// leetcode542: 01矩阵
 func updateMatrix(mat [][]int) [][]int {
 	m, n := len(mat), len(mat[0])
 	dp := make([][]int, m)
@@ -100,6 +104,7 @@ func updateMatrix(mat [][]int) [][]int {
 }
 
 // 第三题
+// leetcode221: 最大正方形
 func maximalSquare(matrix [][]byte) int {
 	m, n := len(matrix), len(matrix[0])
 	dp := make([][]int, m)
@@ -127,6 +132,7 @@ func Test_maximalSquare(t *testing.T) {
 }
 
 // 第四题
+// leetcode91: 解码方法
 func numDecodings(s string) int {
 	n := len(s)
 	dp := make([]int, n)
@@ -149,8 +155,9 @@ func numDecodings(s string) int {
 	return dp[n-1]
 }
 
+// leetcode91: 解码方法
 // 空间压缩版，内存消耗略优于上面的版本
-func numDecodings1(s string) int {
+func numDecodings_(s string) int {
 	n := len(s)
 	dp := make([]int, 3)
 	if s[0] == '0' {
@@ -174,11 +181,13 @@ func numDecodings1(s string) int {
 }
 
 func Test_numDecodings(t *testing.T) {
-	fmt.Println(numDecodings1("226"))
+	fmt.Println(numDecodings("226"))
+	fmt.Println(numDecodings_("226"))
 }
 
 // 第五题
-func wordBreak1(s string, wordDict []string) bool {
+// leetcode139：单词拆分
+func wordBreak139(s string, wordDict []string) bool {
 	s = " " + s
 	n := len(s)
 	dp := make([]bool, n)
@@ -193,9 +202,9 @@ func wordBreak1(s string, wordDict []string) bool {
 	return dp[n-1]
 }
 
+// 第六题
 // leetcode300
 // dp[i]表示以i结尾的最长子序列
-// 第六题
 func lengthOfLIS(nums []int) int {
 	n := len(nums)
 	dp := make([]int, n)
@@ -214,7 +223,7 @@ func lengthOfLIS(nums []int) int {
 }
 
 // 优化版解法：贪心+二分查找
-func lengthOfLIS1(nums []int) int {
+func lengthOfLIS_(nums []int) int {
 	n := len(nums)
 	tail := make([]int, 0)
 	tail = append(tail, nums[0])
@@ -230,10 +239,12 @@ func lengthOfLIS1(nums []int) int {
 }
 
 func Test_lengthOfLIS(t *testing.T) {
-	fmt.Println(lengthOfLIS1([]int{1, 3, 6, 7, 9, 4, 10, 5, 6}))
+	fmt.Println(lengthOfLIS([]int{1, 3, 6, 7, 9, 4, 10, 5, 6}))
+	fmt.Println(lengthOfLIS_([]int{1, 3, 6, 7, 9, 4, 10, 5, 6}))
 }
 
 // 第七题
+// leetcode205：同构字符串
 func isIsomorphic(s string, t string) bool {
 	return isIsomorphicExec(s, t) && isIsomorphicExec(t, s)
 }
@@ -256,6 +267,7 @@ func Test_isIsomorphic(t *testing.T) {
 	fmt.Println(isIsomorphic("egt", "add"))
 }
 
+// leetcode1984: 学生分数的最小差值
 func minimumDifference(nums []int, k int) int {
 	n := len(nums)
 	sort.Ints(nums)
@@ -273,6 +285,7 @@ func Test_minimumDifference(t *testing.T) {
 	fmt.Println(minimumDifference([]int{9, 4, 1, 7}, 2))
 }
 
+// leetcode1985: 找出数组中的第K大整数
 func kthLargestNumber(nums []string, k int) string {
 	sort.SliceStable(nums, func(i, j int) bool {
 		if len(nums[i]) > len(nums[j]) {
@@ -288,45 +301,4 @@ func kthLargestNumber(nums []string, k int) string {
 
 func Test_kthLargestNumber(t *testing.T) {
 	fmt.Println(kthLargestNumber([]string{"233", "97"}, 1))
-}
-
-type w struct {
-	total int
-	pos   int
-}
-
-func minSessions1(tasks []int, sessionTime int) int {
-	n := len(tasks)
-	dp := make([]w, sessionTime+1)
-	flag := false
-
-	for i := 0; i < n; i++ {
-		if tasks[i] == 0 {
-			continue
-		}
-		flag = true
-		for j := sessionTime; j >= tasks[i]; j-- {
-			if dp[j].total < dp[j-tasks[i]].total+tasks[i] {
-				dp[j].total = dp[j-tasks[i]].total + tasks[i]
-				dp[j].pos = i
-			}
-		}
-	}
-	if !flag {
-		return 0
-	}
-	var ans []int
-	for i := 0; i < sessionTime; {
-		pos := dp[sessionTime-i].pos
-		ans = append(ans, pos)
-		i = pos
-	}
-	for i := range ans {
-		tasks[i] = 0
-	}
-	return 1 + minSessions(tasks, sessionTime)
-}
-
-func Test_minSessions(t *testing.T) {
-	fmt.Println(minSessions([]int{3, 1, 3, 1, 1}, 8))
 }

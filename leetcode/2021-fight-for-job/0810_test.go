@@ -8,6 +8,7 @@ import (
 )
 
 // 第一题
+// leetcode494: 目标和
 // 背包问题
 func findTargetSumWays(nums []int, target int) int {
 	sum := 0
@@ -34,7 +35,7 @@ func Test_findTargetSumWays(t *testing.T) {
 }
 
 // 第二题
-// 完全平方数，背包问题
+// leetcode279: 完全平方数，背包问题
 func numSquares(n int) int {
 	dp := make([]int, n+1)
 	for i := range dp {
@@ -54,7 +55,7 @@ func Test_numSquares(t *testing.T) {
 }
 
 // 第三题
-// 组合总和IV
+// leetcode377: 组合总和IV
 func combinationSum4(nums []int, target int) int {
 	dp := make([]int, target+1)
 	dp[0] = 1
@@ -73,7 +74,7 @@ func Test_combinationSum4(t *testing.T) {
 }
 
 // 第四题
-// 零钱兑换II
+// leetcode518: 零钱兑换II
 func change(amount int, coins []int) int {
 	dp := make([]int, amount+1)
 	dp[0] = 1
@@ -86,7 +87,7 @@ func change(amount int, coins []int) int {
 }
 
 // 第五题
-// 一和零
+// leetcode474: 一和零
 func findMaxForm(strs []string, m int, n int) int {
 	dp := make([][]int, m+1)
 	for i := range dp {
@@ -132,7 +133,7 @@ func Test_findMaxForm(t *testing.T) {
 }
 
 // 第六题
-// 最后一块石头的重量 II
+// leetcode1049: 最后一块石头的重量 II
 func lastStoneWeightII(stones []int) int {
 	sum := 0
 	for i := range stones {

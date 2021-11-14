@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-// lcp30
+// leetcode lcp30: 魔塔游戏
 func magicTower(nums []int) int {
 	sum := 1
 	n := len(nums)
@@ -36,6 +36,7 @@ func magicTower(nums []int) int {
 	return cnt
 }
 
+// leetcode lcp39: 无人机方阵
 func escapeMaze(g [][]string) bool {
 	k, m, n := len(g), len(g[0]), len(g[0][0])
 	dir := [4][2]int{{1, 0}, {0, 1}, {-1, 0}, {0, -1}}
@@ -88,6 +89,7 @@ func escapeMaze(g [][]string) bool {
 	return dfs(0, 0, 0, 0)
 }
 
+// leetcode lcp33: 蓄水
 func storeWater(bucket []int, vat []int) int {
 	maxn := vat[0]
 	for i := range vat {
@@ -123,6 +125,7 @@ func Test_storeWater(t *testing.T) {
 	fmt.Println(storeWater([]int{1, 3}, []int{6, 8}))
 }
 
+// leetcode lcp40: 心算挑战
 func maxmiumScore(a []int, cnt int) int {
 	n := len(a)
 	sort.Ints(a)
@@ -157,70 +160,4 @@ func maxmiumScore(a []int, cnt int) int {
 		}
 	}
 	return 0
-}
-
-func f1(g [][]byte) int {
-	n, m := len(g), len(g[0])
-	var check func(i, j int) bool
-	check = func(i, j int) bool {
-		return i >= 0 && i < n && j >= 0 && j < m
-	}
-	ans := 0
-	for {
-		done := true
-		for i := 0; i < n; i++ {
-			for j := 0; j < m; j++ {
-				for k := 0; k < 4; k++ {
-					if g[i][j] == 'O' {
-						x, y := 0, 0
-						for check(i+dx[k]*x, j+dy[k]*x) && g[i+dx[k]*x][j+dy[k]*x] == 'O' {
-							x++
-						}
-						for check(i+dx[k]*y, j+dy[k]*y) && g[i+dx[k]*y][j+dy[k]*y] == 'O' {
-							y--
-						}
-						if check(i+dx[k]*x, j+dy[k]*x) && g[i+dx[k]*x][j+dy[k]*x] == 'X' &&
-							check(i+dx[k]*y, j+dy[k]*y) && g[i+dx[k]*y][j+dy[k]*y] == 'X' {
-							ans++
-							done = false
-							g[i][j] = 'X'
-						}
-					}
-				}
-			}
-		}
-		if done {
-			break
-		}
-	}
-	return ans
-}
-
-func flipChess2(chessboard []string) int {
-	n, m := len(chessboard), len(chessboard[0])
-	g := make([][]byte, n)
-	for i := range g {
-		g[i] = make([]byte, m)
-	}
-	for i := 0; i < n; i++ {
-		for j := 0; j < m; j++ {
-			g[i][j] = chessboard[i][j]
-		}
-	}
-
-	ans := -1
-	for i := 0; i < n; i++ {
-		for j := 0; j < m; j++ {
-			if g[i][j] == '.' {
-				g[i][j] = 'X'
-				ans = max(ans, f1(g))
-				g[i][j] = '.'
-			}
-		}
-	}
-	return ans
-}
-
-func Test_flipChess(t *testing.T) {
-	fmt.Println(flipChess([]string{"....X.", "....X.", "XOOO..", "......", "......"}))
 }

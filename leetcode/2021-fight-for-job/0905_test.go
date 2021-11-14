@@ -8,39 +8,41 @@ import (
 	"testing"
 )
 
+// leetcode 面试题17.14：最小K个数
 func smallestK(arr []int, k int) []int {
 	if len(arr) <= k {
 		return arr
 	}
-	return quickSort1(arr, 0, len(arr)-1, k)
+	var quickSort func(nums []int, l, r int, k int) []int
+	quickSort = func(nums []int, l, r int, k int) []int {
+		if l+1 >= r {
+			return nums
+		}
+		first, last := l, r-1
+		key := nums[first]
+		for first < last {
+			for first < last && nums[last] >= key {
+				last--
+			}
+			nums[first] = nums[last]
+			for first < last && nums[first] <= key {
+				first++
+			}
+			nums[last] = nums[first]
+		}
+		nums[first] = key
+		if first > k {
+			return quickSort(nums, l, first, k)
+		}
+		if first < k {
+			return quickSort(nums, first+1, r, k)
+		}
+		return nums[:k]
+	}
+	return quickSort(arr, 0, len(arr)-1, k)
 }
 
-func quickSort1(nums []int, l, r int, k int) []int {
-	if l+1 >= r {
-		return nums
-	}
-	first, last := l, r-1
-	key := nums[first]
-	for first < last {
-		for first < last && nums[last] >= key {
-			last--
-		}
-		nums[first] = nums[last]
-		for first < last && nums[first] <= key {
-			first++
-		}
-		nums[last] = nums[first]
-	}
-	nums[first] = key
-	if first > k {
-		return quickSort1(nums, l, first, k)
-	}
-	if first < k {
-		return quickSort1(nums, first+1, r, k)
-	}
-	return nums[:k]
-}
-
+// leetcode1995: 统计特殊四元组
 func countQuadruplets(nums []int) int {
 	n := len(nums)
 	m := make(map[int][]int)
@@ -71,6 +73,7 @@ func Test_count(t *testing.T) {
 	fmt.Println(countQuadruplets([]int{9, 6, 23, 8, 39, 23}))
 }
 
+// leetcode1996: 游戏中弱角色的数量
 func numberOfWeakCharacters(properties [][]int) int {
 	n := len(properties)
 	sort.Slice(properties, func(i, j int) bool {
@@ -93,6 +96,7 @@ func Test_numberOfWeakCharacters(t *testing.T) {
 	fmt.Println(numberOfWeakCharacters([][]int{{1, 1}, {2, 1}, {2, 2}, {1, 2}}))
 }
 
+// leetcode1997: 访问完所有房间的第一天
 // 超时了
 func firstDayBeenInAllRooms(nextVisit []int) int {
 	m := make(map[int]int)
@@ -115,8 +119,9 @@ func firstDayBeenInAllRooms(nextVisit []int) int {
 	return ans
 }
 
+// leetcode1997: 访问完所有房间的第一天
 // dp求解, +mod 可以防止出现负数
-func firstDayBeenInAllRooms1(nextVisit []int) int {
+func firstDayBeenInAllRooms_(nextVisit []int) int {
 	mod := int64(1e9 + 7)
 	n := len(nextVisit)
 	dp := make([]int64, n)
@@ -128,9 +133,11 @@ func firstDayBeenInAllRooms1(nextVisit []int) int {
 }
 
 func Test_firstDayBeenInAllRooms1(t *testing.T) {
-	fmt.Println(firstDayBeenInAllRooms1([]int{0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32, 33, 33, 34, 34, 35, 35, 36, 36, 37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 42, 42, 43, 43, 44, 44, 45, 45, 46, 46, 47, 47, 48}))
+	fmt.Println(firstDayBeenInAllRooms([]int{0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32, 33, 33, 34, 34, 35, 35, 36, 36, 37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 42, 42, 43, 43, 44, 44, 45, 45, 46, 46, 47, 47, 48}))
+	fmt.Println(firstDayBeenInAllRooms_([]int{0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32, 33, 33, 34, 34, 35, 35, 36, 36, 37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 42, 42, 43, 43, 44, 44, 45, 45, 46, 46, 47, 47, 48}))
 }
 
+// leetcode1998: 数组的最大公因数排序
 func gcdSort(nums []int) bool {
 	n := len(nums)
 	u := newUnionFind(1e5 + 1)
@@ -165,6 +172,7 @@ func Test_gcdSort(t *testing.T) {
 	fmt.Println(gcdSort([]int{8, 9, 4, 2, 3}))
 }
 
+// leetcode1992: 找到所有的农场组
 // 注意：使用切片作为队列时，长度申请不合理，会超时。使用list不会超时。
 func findFarmland(land [][]int) [][]int {
 	m, n := len(land), len(land[0])

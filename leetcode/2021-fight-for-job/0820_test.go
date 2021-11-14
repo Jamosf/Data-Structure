@@ -7,7 +7,8 @@ import (
 )
 
 // 二分查找
-// 第一题 153
+// 第一题
+// leetcode153: 寻找旋转排序数组中的最小值
 func findMin(nums []int) int {
 	left, right := 0, len(nums)-1
 	for left < right {
@@ -26,7 +27,8 @@ func Test_findMin(t *testing.T) {
 }
 
 // 第二题
-func search2(nums []int, target int) int {
+// leetcode33: 搜索旋转排序数组
+func search33(nums []int, target int) int {
 	left, right := 0, len(nums)-1
 	for left < right {
 		mid := (left + right) >> 1
@@ -60,7 +62,8 @@ func search2(nums []int, target int) int {
 }
 
 // 第三题
-func search3(nums []int, target int) bool {
+// leetcode81: 搜索旋转排序数组II
+func search81(nums []int, target int) bool {
 	left, right := 0, len(nums)-1
 	for left < right {
 		mid := (left + right) >> 1
@@ -91,5 +94,5 @@ func search3(nums []int, target int) bool {
 }
 
 func Test_search3(t *testing.T) {
-	fmt.Println(search3([]int{1, 0, 1, 1, 1}, 0))
+	fmt.Println(search81([]int{1, 0, 1, 1, 1}, 0))
 }

@@ -8,6 +8,7 @@ import (
 )
 
 // 第一题
+// leetcode45: 分发饼干
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
 	sort.Ints(s)
@@ -24,6 +25,7 @@ func findContentChildren(g []int, s []int) int {
 }
 
 // 第二题
+// leetcode135：分发糖果
 func candy(ratings []int) int {
 	ans := make([]int, len(ratings))
 	for i := range ans {
@@ -49,6 +51,7 @@ func Test_candy(t *testing.T) {
 }
 
 // 第三题
+// leetcode435: 无重叠区间
 func eraseOverlapIntervals(intervals [][]int) int {
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][1] < intervals[j][1]
@@ -69,6 +72,7 @@ func Test_eraseOverlapIntervals(t *testing.T) {
 }
 
 // 第四题
+// leetcode605：种花问题
 func canPlaceFlowers(flowerbed []int, n int) bool {
 	ans := 0
 	pre := -1
@@ -95,6 +99,7 @@ func Test_canPlaceFlowers(t *testing.T) {
 }
 
 // 第五题
+// leetcode763: 划分字母区间
 func partitionLabels(s string) []int {
 	tmp := make([][2]int, 26)
 	for i := range tmp {
@@ -134,6 +139,7 @@ func Test_partitionLabels(t *testing.T) {
 }
 
 // 第六题
+// leetcode76: 最小覆盖子串
 func minWindow(s string, t string) string {
 	ms, mt := make(map[byte]int), make(map[byte]int)
 	for i := range t {
@@ -169,6 +175,7 @@ func Test_minWindow(t *testing.T) {
 }
 
 // 第七题
+// leetcode633：平方数之和
 func judgeSquareSum(c int) bool {
 	left, right := 0, sqrt(c)
 	for left <= right {
@@ -212,6 +219,7 @@ func Test_judgeSquareSum(t *testing.T) {
 }
 
 // 第八题
+// leetcode680: 验证回文字符串II
 func validPalindrome(s string) bool {
 	low, high := 0, len(s)-1
 	for low < high {

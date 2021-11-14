@@ -6,6 +6,8 @@ import (
 	"testing"
 )
 
+// leetcode2027：转换字符串的最少操作次数
+// 字符串、贪心
 func minimumMoves(s string) int {
 	n := len(s)
 	idx := 0
@@ -21,6 +23,7 @@ func minimumMoves(s string) int {
 	return cnt
 }
 
+// leetcode2028: 找出缺失的观测数据
 // dfs求解超时
 func missingRolls(rolls []int, mean int, n int) []int {
 	t := mean * (n + len(rolls))
@@ -61,12 +64,8 @@ func missingRolls(rolls []int, mean int, n int) []int {
 	return res
 }
 
-func Test_missingRolls(t *testing.T) {
-	fmt.Println(missingRolls1([]int{6, 3, 4, 3, 5, 3}, 1, 6))
-}
-
 // 求解
-func missingRolls1(rolls []int, mean int, n int) []int {
+func missingRolls_(rolls []int, mean int, n int) []int {
 	t := mean * (n + len(rolls))
 	sum := 0
 	for i := range rolls {
@@ -91,7 +90,13 @@ func missingRolls1(rolls []int, mean int, n int) []int {
 	return ans
 }
 
+func Test_missingRolls(t *testing.T) {
+	fmt.Println(missingRolls_([]int{6, 3, 4, 3, 5, 3}, 1, 6))
+}
+
 // 第三题
+// leetcode2029: 石子游戏IX
+// 数学
 func stoneGameIX(stones []int) bool {
 	c := [3]int{}
 	for _, v := range stones {
@@ -114,6 +119,8 @@ func checkW(c [3]int) bool {
 }
 
 // 第四题
+// leetcode43: 字符串相乘
+// 数学，字符串
 func multiply(num1 string, num2 string) string {
 	m, n := len(num1), len(num2)
 	ans := make([]int, m+n)

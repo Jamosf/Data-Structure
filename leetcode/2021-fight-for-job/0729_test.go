@@ -8,6 +8,7 @@ import (
 )
 
 // 第一题
+// leetcode701: 二叉搜索树中的插入操作
 func insertIntoBST(root *TreeNode, val int) *TreeNode {
 	if root == nil {
 		return &TreeNode{Val: val}
@@ -21,6 +22,7 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 }
 
 // 第二题
+// leetcode98: 验证二叉搜索树
 func isValidBST(root *TreeNode) bool {
 	pre := math.MinInt64
 	if root == nil {
@@ -36,6 +38,7 @@ func isValidBST(root *TreeNode) bool {
 	return isValidBST(root.Right)
 }
 
+// leetcode98: 验证二叉搜索树
 // 方法2
 func isValidBST2(root *TreeNode) bool {
 	return helper(root, math.MinInt64, math.MaxInt64)
@@ -52,6 +55,7 @@ func helper(root *TreeNode, lower, upper int) bool {
 }
 
 // 第三题
+//
 func findTarget(root *TreeNode, k int) bool {
 	m := make(map[int]struct{})
 	return dfs(root, m, k)
@@ -69,6 +73,7 @@ func dfs(root *TreeNode, m map[int]struct{}, k int) bool {
 }
 
 // 第四题
+// leetcode235: 二叉搜索树的最近公共祖先
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -87,6 +92,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 }
 
 // 第五题
+// leetcode190: 颠倒二进制位
 func reverseBits(num uint32) uint32 {
 	var ret uint32
 	for i := 0; i < 32; i++ {
@@ -97,6 +103,7 @@ func reverseBits(num uint32) uint32 {
 	return ret
 }
 
+// leetcode190: 颠倒二进制位
 // 方法2
 func reverseBits1(n uint32) uint32 {
 	n = (n >> 16) | (n << 16)
@@ -112,6 +119,7 @@ func Test_reverseBits(t *testing.T) {
 }
 
 // 第六题
+// leetcode136: 只出现一次的数字
 func singleNumber(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -121,41 +129,4 @@ func singleNumber(nums []int) int {
 		ret ^= nums[i]
 	}
 	return ret
-}
-
-// 第七题
-func permute(nums []int) [][]int {
-	n := len(nums)
-	l := factorial(n)
-	res := make([][]int, l, l)
-	for i := 0; i < l; i++ {
-		res[i] = make([]int, n, n)
-	}
-	idx := 0
-	backtrack(res, nums, 0, n, &idx)
-	return res
-}
-
-func factorial(n int) int {
-	if n == 1 {
-		return 1
-	}
-	return n * factorial(n-1)
-}
-
-func backtrack(res [][]int, nums []int, first, len int, idx *int) {
-	if first == len {
-		copy(res[*idx], nums)
-		*idx++
-		return
-	}
-	for i := first; i < len; i++ {
-		nums[i], nums[first] = nums[first], nums[i]
-		backtrack(res, nums, first+1, len, idx)
-		nums[i], nums[first] = nums[first], nums[i]
-	}
-}
-
-func Test_permute(t *testing.T) {
-	fmt.Println(permute([]int{1, 2, 3}))
 }

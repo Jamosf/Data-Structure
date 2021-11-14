@@ -3,10 +3,10 @@ package ojeveryday
 
 import (
 	"fmt"
-	"math"
 	"testing"
 )
 
+// leetcode1993: 树上的操作
 type lockStatus struct {
 	user     int
 	isLocked bool
@@ -19,7 +19,7 @@ type LockingTree struct {
 	parent     []int
 }
 
-func Constructor3(parent []int) LockingTree {
+func ConstructorLockingTree(parent []int) LockingTree {
 	l := LockingTree{lockStates: make(map[int]*lockStatus), parent: make([]int, len(parent))}
 	for i := range parent {
 		_, ok := l.lockStates[i]
@@ -37,8 +37,8 @@ func Constructor3(parent []int) LockingTree {
 	return l
 }
 
-func (this *LockingTree) Lock(num int, user int) bool {
-	v, ok := this.lockStates[num]
+func (l *LockingTree) Lock(num int, user int) bool {
+	v, ok := l.lockStates[num]
 	if ok && v.isLocked {
 		return false
 	}
@@ -47,8 +47,8 @@ func (this *LockingTree) Lock(num int, user int) bool {
 	return true
 }
 
-func (this *LockingTree) Unlock(num int, user int) bool {
-	v, ok := this.lockStates[num]
+func (l *LockingTree) Unlock(num int, user int) bool {
+	v, ok := l.lockStates[num]
 	if ok && v.isLocked && v.user == user {
 		v.isLocked = false
 		return true
@@ -56,20 +56,20 @@ func (this *LockingTree) Unlock(num int, user int) bool {
 	return false
 }
 
-func (this *LockingTree) Upgrade(num int, user int) bool {
-	v, ok := this.lockStates[num]
+func (l *LockingTree) Upgrade(num int, user int) bool {
+	v, ok := l.lockStates[num]
 	if !ok || v.isLocked {
 		return false
 	}
-	for this.parent[num] != -1 {
-		num = this.parent[num]
-		if v, ok := this.lockStates[num]; ok && v.isLocked {
+	for l.parent[num] != -1 {
+		num = l.parent[num]
+		if v, ok := l.lockStates[num]; ok && v.isLocked {
 			return false
 		}
 	}
 	// 子节点被上锁
 	flag := false
-	this.isChildLocked(v, &flag)
+	l.isChildLocked(v, &flag)
 	if !flag {
 		return false
 	}
@@ -78,19 +78,19 @@ func (this *LockingTree) Upgrade(num int, user int) bool {
 	return true
 }
 
-func (this *LockingTree) isChildLocked(v *lockStatus, flag *bool) {
+func (l *LockingTree) isChildLocked(v *lockStatus, flag *bool) {
 	for _, child := range v.child {
-		v, ok := this.lockStates[child]
+		v, ok := l.lockStates[child]
 		if ok && v.isLocked {
 			*flag = true
 			v.isLocked = false
 		}
-		this.isChildLocked(v, flag)
+		l.isChildLocked(v, flag)
 	}
 }
 
 func Test_lock(t *testing.T) {
-	lockTree := Constructor3([]int{-1, 0, 0, 1, 1, 2, 2})
+	lockTree := ConstructorLockingTree([]int{-1, 0, 0, 1, 1, 2, 2})
 	a := lockTree.Lock(2, 2)
 	b := lockTree.Unlock(2, 3)
 	c := lockTree.Unlock(2, 2)
@@ -100,7 +100,7 @@ func Test_lock(t *testing.T) {
 	fmt.Println(a, b, c, d, e, f)
 }
 
-//
+// leetcode149: 直线上最多的点数
 func maxPoints(points [][]int) int {
 	m := len(points)
 	mk := make(map[float64]int) // 斜率和个数
@@ -146,6 +146,7 @@ func countSubstrings(s string) int {
 	return ans
 }
 
+// leetcode1952: 三除数
 func isThree(n int) bool {
 	if n == 1 || n == 2 || n == 3 {
 		return false
@@ -165,27 +166,4 @@ func isThree(n int) bool {
 
 func Test_isThree(t *testing.T) {
 	fmt.Println(isThree(8))
-}
-
-func minimumPerimeter(neededApples int64) int64 {
-	sum := int64(0)
-	for i := int64(1); i < math.MaxInt64; i++ {
-		dp := 8 * i
-		for j := 2*i - 1; j >= i; j-- {
-			if j != i {
-				dp += 8 * j
-			} else {
-				dp += 4 * j
-			}
-		}
-		sum += dp
-		if sum > neededApples {
-			return i * 8
-		}
-	}
-	return 0
-}
-
-func Test_minimumPerimeter(t *testing.T) {
-	fmt.Println(minimumPerimeter(1000))
 }

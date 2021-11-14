@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// leetcode287: 寻找重复数
 // 利用数字出现次数的的前缀和
 func findDuplicate(nums []int) int {
 	n := len(nums)
@@ -29,9 +30,10 @@ func findDuplicate(nums []int) int {
 	return ans
 }
 
+// leetcode287: 寻找重复数
 // 利用快慢指针，找环的入口
 // 由于题目的数据范围在1~n之间，可以把这些元素组织成链表
-func findDuplicate1(nums []int) int {
+func findDuplicate_(nums []int) int {
 	fast, slow := nums[0], 0
 	for fast != slow {
 		fast = nums[nums[fast]]
@@ -45,13 +47,10 @@ func findDuplicate1(nums []int) int {
 	return p1
 }
 
-func Test_findDuplicate1(t *testing.T) {
-	fmt.Println(findDuplicate1([]int{1, 3, 2, 2, 4}))
-}
-
+// leetcode287: 寻找重复数
 // 二进制解法
 // 解题思路：如果重复的数字在第i位为1，那么第i位上1的个数大于1~n所有数字第i位上1的个数。
-func findDuplicate2(nums []int) int {
+func findDuplicate__(nums []int) int {
 	n := len(nums)
 	bit_max := 31
 	for (n-1)>>bit_max == 0 {
@@ -73,4 +72,10 @@ func findDuplicate2(nums []int) int {
 		}
 	}
 	return ans
+}
+
+func Test_findDuplicate1(t *testing.T) {
+	fmt.Println(findDuplicate([]int{1, 3, 2, 2, 4}))
+	fmt.Println(findDuplicate_([]int{1, 3, 2, 2, 4}))
+	fmt.Println(findDuplicate__([]int{1, 3, 2, 2, 4}))
 }

@@ -35,20 +35,6 @@ func search1(nums []int, target int) int {
 	return -1
 }
 
-// 第三题
-// func firstBadVersion(n int) int {
-// 	left, right := 1, n
-// 	for left <= right {
-// 		mid := (left + right) / 2
-// 		if isBadVersion(mid) {
-// 			right = mid - 1
-// 		} else {
-// 			left = mid + 1
-// 		}
-// 	}
-// 	return left
-// }
-
 // 第四题
 func searchInsert(nums []int, target int) int {
 	left, right := 0, len(nums)-1
@@ -76,11 +62,3 @@ func containsDuplicate(nums []int) bool {
 	}
 	return true
 }
-
-// 第六题
-// func maxSubArray(nums []int) int {
-// 	sum := 0
-// 	for _, v := range nums {
-//
-// 	}
-// }

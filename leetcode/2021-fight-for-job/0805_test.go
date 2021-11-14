@@ -7,6 +7,7 @@ import (
 )
 
 // 第一题
+// leetcode168: Excel表列名称
 func convertToTitle(columnNumber int) string {
 	var ans []uint8
 	for columnNumber > 0 {
@@ -30,6 +31,7 @@ func Test_convert(t *testing.T) {
 }
 
 // 第二题
+// leetcode122: 买卖股票的最佳时机II
 func maxProfitII(prices []int) int {
 	sum := 0
 	for i := 0; i < len(prices)-1; i++ {

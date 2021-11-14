@@ -6,6 +6,8 @@ import (
 	"testing"
 )
 
+// leetcode581: 最短无序连续子数组
+// TODO
 func findUnsortedSubarray(nums []int) int {
 	left, right := -1, -1
 	stack := make([]int, 0, len(nums))

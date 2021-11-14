@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// leetcode1979: 找出数组的最大公约数
 func findGCD(nums []int) int {
 	minn, maxn := nums[0], nums[0]
 	for i := range nums {
@@ -28,6 +29,7 @@ func Test_findGCD(t *testing.T) {
 	fmt.Println(findGCD([]int{1, 12}))
 }
 
+// leetcode1980: 找出不同的二进制字符串
 func findDifferentBinaryString(nums []string) string {
 	m := make(map[string]bool)
 	for i := range nums {
@@ -58,6 +60,7 @@ func Test_findDifferentBinaryString(t *testing.T) {
 	fmt.Println(findDifferentBinaryString([]string{"1"}))
 }
 
+// leetcode1981: 最小化目标值与所选元素的差
 func minimizeTheDifference(mat [][]int, target int) int {
 	m, n := len(mat), len(mat[0])
 	for i := range mat {

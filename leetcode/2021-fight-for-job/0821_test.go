@@ -10,6 +10,7 @@ import (
 
 // 二分查找
 // 第一题
+// leetcode34: 在排序数组中查找元素的第一个和最后一个位置
 func searchRange(nums []int, target int) []int {
 	if len(nums) == 0 {
 		return []int{-1, -1}
@@ -55,6 +56,7 @@ func Test_searchRange(t *testing.T) {
 }
 
 // 第二题
+// leetcode69: sqrt
 func mySqrt(x int) int {
 	left, right := 0, x
 	for left <= right {
@@ -75,6 +77,7 @@ func Test_mySqrt(t *testing.T) {
 }
 
 // 第三题
+// leetcode74: 搜索二维矩阵
 func searchMatrix(matrix [][]int, target int) bool {
 	row, col := len(matrix), len(matrix[0])
 	left, right := 0, row*col-1
@@ -101,6 +104,7 @@ func Test_searchMatrix(t *testing.T) {
 }
 
 // 第四题
+// leetcode496: 下一个更大元素I
 // 单调栈
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
 	m := make(map[int]int, len(nums1))
@@ -129,6 +133,7 @@ func Test_nextGreaterElement(t *testing.T) {
 }
 
 // 第六题
+// leetcode503: 下一个更大元素II
 func nextGreaterElements(nums []int) []int {
 	tmp := append(nums, nums...)
 	stack := make([]int, 0, len(nums)*2)
@@ -153,6 +158,7 @@ func Test_nextGreaterElements(t *testing.T) {
 }
 
 // 第七题
+// leetcode556: 下一个更大元素III
 func nextGreaterElementIII(n int) int {
 	var nums []int
 	num := n
@@ -201,6 +207,7 @@ func Test_nextGreaterElementIII(t *testing.T) {
 }
 
 // 第八题
+// leetcode739: 每日温度
 func dailyTemperatures(temperatures []int) []int {
 	ans := make([]int, len(temperatures))
 	stack := make([]int, 0, len(temperatures))
@@ -212,37 +219,4 @@ func dailyTemperatures(temperatures []int) []int {
 		stack = append(stack, i)
 	}
 	return ans
-}
-
-// 第九题
-func find132pattern(nums []int) bool {
-	for i, j := 0, len(nums)-1; i < j; i, j = i+1, j-1 {
-		nums[i], nums[j] = nums[j], nums[i]
-	}
-	ans, stack := make([]int, len(nums)), make([]int, 0, len(nums))
-	for i := range ans {
-		ans[i] = -1
-	}
-	for i := range nums {
-		for len(stack) != 0 && nums[stack[len(stack)-1]] < nums[i] {
-			ans[stack[len(stack)-1]] = i
-			stack = stack[:len(stack)-1]
-		}
-		stack = append(stack, i)
-	}
-
-	for i := 0; i < len(ans); i++ {
-		if ans[i] > 0 {
-			for j := ans[i] + 1; j < len(nums); j++ {
-				if nums[j] < nums[i] {
-					return true
-				}
-			}
-		}
-	}
-	return false
-}
-
-func Test_find132pattern(t *testing.T) {
-	fmt.Println(find132pattern([]int{3, 5, 0, 3, 4}))
 }

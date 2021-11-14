@@ -9,6 +9,7 @@ import (
 )
 
 // 第一题
+// leetcode51: N皇后
 func solveNQueens(n int) [][]string {
 	var ans [][]string
 	tmp := make([][]byte, n)
@@ -54,6 +55,7 @@ func Test_solveNQueens(t *testing.T) {
 	fmt.Println(solveNQueens(4))
 }
 
+// leetcode934: 最短的桥
 // 求最小翻转的个数，就是求两个岛之间的最短距离
 func shortestBridge(grid [][]int) int {
 	queue := list.New()
@@ -123,7 +125,7 @@ type graph struct {
 	n, e   int
 }
 
-//
+// leetcode127: 单词接龙
 func findLadders(beginWord string, endWord string, wordList []string) [][]string {
 	isExist, idx := isWordExist(beginWord, wordList)
 	newWordList := []string{beginWord}
@@ -260,7 +262,7 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 	return 0
 }
 
-func Test_ladderLength1(t *testing.T) {
+func Test_ladderLength(t *testing.T) {
 	fmt.Println(ladderLength("lost", "miss", []string{"most", "mist", "miss", "lost", "fist", "fish"}))
 }
 

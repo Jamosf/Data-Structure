@@ -154,7 +154,7 @@ func Test_magicalString_(t *testing.T) {
 	fmt.Println(magicalString_(100))
 }
 
-//leetcode71:简化路径
+// leetcode71: 简化路径
 func simplifyPath(path string) string {
 	ss := strings.Split(path, "/")
 	newPath := make([]string, 0)

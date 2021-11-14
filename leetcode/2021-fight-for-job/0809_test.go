@@ -4,6 +4,7 @@ package ojeveryday
 import "math"
 
 // 完全背包问题
+// leetcode139: 单词拆分
 func wordBreak(s string, wordDict []string) bool {
 	dp := make([]bool, len(s)+1)
 	dp[0] = true
@@ -19,7 +20,7 @@ func wordBreak(s string, wordDict []string) bool {
 }
 
 // 背包问题
-
+// leetcode416: 分割等和子集
 // 0-1背包问题
 // 给你一个 只包含正整数 的 非空 数组 nums 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
 func canPartition(nums []int) bool {
@@ -42,7 +43,7 @@ func canPartition(nums []int) bool {
 }
 
 // 完全背包问题
-// 钱币兑换
+// leetcode322: 钱币兑换
 func coinChange(coins []int, amount int) int {
 	dp := make([]int, amount+1)
 	for i := 0; i <= amount; i++ {

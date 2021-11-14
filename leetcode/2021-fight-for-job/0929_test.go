@@ -20,6 +20,7 @@ func (h *dhp) Pop() interface{} {
 	return v
 }
 
+// leetcode239: 滑动窗口最大值
 // 大根堆
 // 求解思路：将遍历到的数据的索引添加到大根堆中，在前进过程中，不断的弹出大根堆的堆顶元素，如果堆顶的索引在滑窗中，则为滑窗内最大值。
 func maxSlidingWindow(nums []int, k int) (ans []int) {
@@ -43,13 +44,10 @@ func maxSlidingWindow(nums []int, k int) (ans []int) {
 	return
 }
 
-func Test_maxSlidingWindow(t *testing.T) {
-	fmt.Println(maxSlidingWindow([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
-}
-
+// leetcode239: 滑动窗口最大值
 // 双端队列求解
 // 求解思路：将遍历到的数据添加到单调队列中，队列单调递增。从队列头部弹出元素，如果元素在滑窗内，则
-func maxSlidingWindow1(nums []int, k int) (ans []int) {
+func maxSlidingWindow_(nums []int, k int) (ans []int) {
 	var q []int
 	push := func(i int) {
 		for len(q) != 0 && nums[q[len(q)-1]] <= nums[i] {
@@ -71,8 +69,9 @@ func maxSlidingWindow1(nums []int, k int) (ans []int) {
 	return
 }
 
+// leetcode239: 滑动窗口最大值
 // 分块：前缀最大值和后缀最大值求解
-func maxSlidingWindow2(nums []int, k int) []int {
+func maxSlidingWindow__(nums []int, k int) []int {
 	n := len(nums)
 	prefix := make([]int, n+1)
 	suffix := make([]int, n+1)
@@ -95,4 +94,10 @@ func maxSlidingWindow2(nums []int, k int) []int {
 		ans[i] = max(suffix[i], prefix[i+k-1])
 	}
 	return ans
+}
+
+func Test_maxSlidingWindow(t *testing.T) {
+	fmt.Println(maxSlidingWindow([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
+	fmt.Println(maxSlidingWindow_([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
+	fmt.Println(maxSlidingWindow__([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
 }

@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// leetcode39: 组合总和
 // 回溯
 func combinationSum(candidates []int, target int) [][]int {
 	sort.Ints(candidates)
@@ -49,6 +50,7 @@ func Test_combinationSum(t *testing.T) {
 	fmt.Println(combinationSum([]int{2, 3, 5}, 8))
 }
 
+// leetcode56: 合并区间
 func merge(intervals [][]int) [][]int {
 	sort.Slice(intervals, func(i, j int) bool {
 		a, b := intervals[i], intervals[j]
@@ -76,6 +78,7 @@ func Test_merge(t *testing.T) {
 	fmt.Println(merge([][]int{{2, 3}, {4, 5}, {6, 7}, {8, 9}, {1, 10}}))
 }
 
+// leetcode406: 根据身高重建队列
 // 贪心
 func reconstructQueue(people [][]int) (ans [][]int) {
 	sort.Slice(people, func(i, j int) bool {

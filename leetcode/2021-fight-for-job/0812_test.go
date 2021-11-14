@@ -9,7 +9,8 @@ import (
 )
 
 // 第一题
-// 方法1
+// leetcode209: 长度最小的子数组
+// 双指针
 func minSubArrayLen(target int, nums []int) int {
 	sum := make([]int, len(nums)+1)
 	sum[0] = 0
@@ -32,8 +33,9 @@ func minSubArrayLen(target int, nums []int) int {
 	return minn
 }
 
-// 方法2
-func minSubArrayLen1(target int, nums []int) int {
+// leetcode209: 长度最小的子数组
+// 二分搜索
+func minSubArrayLen_(target int, nums []int) int {
 	sum := make([]int, len(nums)+1)
 	sum[0] = 0
 	for i := 0; i < len(nums); i++ {
@@ -73,6 +75,7 @@ func Test_sortSearch(t *testing.T) {
 }
 
 // 第二题
+// leetcode238: 除自身以外数组的乘积
 func productExceptSelf(nums []int) []int {
 	ans := make([]int, len(nums))
 	ans[0] = 1
@@ -88,6 +91,7 @@ func productExceptSelf(nums []int) []int {
 }
 
 // 第三题
+// leetcode304: 二维区域和检索-矩阵不可变
 type NumMatrix struct {
 	sum    [][]int
 	matrix [][]int
@@ -118,6 +122,7 @@ func (n *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 }
 
 // 第四题
+// leetcode523: 连续的子数组和
 // 方法1 前缀和+hashmap
 func checkSubarraySum(nums []int, k int) bool {
 	sum := make([]int, len(nums)+1)

@@ -180,7 +180,7 @@ type MinStack struct {
 }
 
 /** initialize your data structure here. */
-func Constructor_mi() MinStack {
+func ConstructorMinStack() MinStack {
 	return MinStack{min: list.New(), l: list.New()}
 }
 

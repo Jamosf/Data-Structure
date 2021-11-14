@@ -9,6 +9,7 @@ import (
 )
 
 // 第一题
+// leetcode 剑指offer55-II: 平衡二叉树
 func isBalanced(root *TreeNode) bool {
 	if root == nil {
 		return true
@@ -27,6 +28,7 @@ func depth(root *TreeNode) int {
 }
 
 // 第二题
+// leetcode 剑指offer 68-II: 二叉树的最近公共祖先
 func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -50,6 +52,7 @@ func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 }
 
 // 第三题
+// leetcode 剑指offer63: 股票的最大利润
 // dp[i]表示以i结尾，最大利润
 // dp[i+1] = max(dp[i], dp[i] + nums[i+1]- nums[i])
 func maxProfit(prices []int) int {
@@ -64,6 +67,7 @@ func maxProfit(prices []int) int {
 }
 
 // 第四题
+// leetcode 剑指offer64: 求和
 func sumNums(n int) int {
 	ans := 0
 	var sum func(n int) bool
@@ -82,6 +86,7 @@ type Node struct {
 }
 
 // 第五题
+// leetcode 剑指offer35: 复杂链表的复制
 // 1. 构建新链表
 // 2. 初始化新链表
 // 3. 拆分新链表
@@ -117,6 +122,7 @@ func copyRandomList(head *Node) *Node {
 }
 
 // 第六题
+// leetcode 剑指offer26: 树的子结构
 func isSubStructure(A *TreeNode, B *TreeNode) bool {
 	if A == nil || B == nil {
 		return false
@@ -141,6 +147,7 @@ func isEqual1(a, b *TreeNode) bool {
 }
 
 // 第七题
+// leetcode 剑指offer14-I: 剪绳子
 // 剪绳子类似于整数拆分：dp[i] = max(dp[j]*(i-j), j*(i, j))
 func cuttingRope(n int) int {
 	dp := make([]int, n+1)
@@ -157,36 +164,27 @@ func cuttingRope(n int) int {
 }
 
 // 第八题
+// leetcode 剑指offer 16: 数值的整数次方
 func myPow(x float64, n int) float64 {
 	if n < 0 {
-		return float64(1) / pow1(x, -n)
+		return float64(1) / powF(x, -n)
 	}
-	return pow1(x, n)
+	return powF(x, n)
 }
 
-func pow1(x float64, n int) float64 {
-	if n == 0 {
-		return 1
-	}
-	ret := x
-	for i := 1; i < n; i++ {
-		ret *= x
-	}
-	return ret
-}
-
-func pow2(x float64, n int) float64 {
+func powF(x float64, n int) float64 {
 	if n == 0 {
 		return 1
 	}
 	if n%2 == 0 {
-		tmp := pow2(x, n/2)
+		tmp := powF(x, n/2)
 		return tmp * tmp
 	}
-	return pow2(x, n-1) * x
+	return powF(x, n-1) * x
 }
 
 // 第九题
+// leetcode 剑指offer 31: 栈的压入、弹出序列
 func validateStackSequences(pushed []int, popped []int) bool {
 	stack := list.New()
 	for _, v := range pushed {
@@ -200,6 +198,7 @@ func validateStackSequences(pushed []int, popped []int) bool {
 }
 
 // 第十题
+// leetcode 剑指offer 48：最长不包含重复字符的子串
 func lengthOfLongestSubstring11(s string) int {
 	left, right := 0, 0
 	m := make(map[uint8]int, len(s))
@@ -222,6 +221,7 @@ func Test_lengthOfLongestSubstring11(t *testing.T) {
 }
 
 // 第十一题
+// leetcode 剑指offer67：把字符串转换为整数
 func strToInt(str string) int {
 	if str == "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000522545459" {
 		return math.MaxInt32

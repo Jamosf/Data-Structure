@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// leetcode32: 最长有效括号
 // 栈的解法，栈保留索引
 func longestValidParentheses(s string) int {
 	n := len(s)
@@ -36,12 +37,9 @@ func isPair(a, b byte) bool {
 	return a == '(' && b == ')'
 }
 
-func Test_longestValidParentheses(t *testing.T) {
-	fmt.Println(longestValidParentheses1("()()(((()())))"))
-}
-
+// leetcode32: 最长有效括号
 // 动态规划解法
-func longestValidParentheses1(s string) int {
+func longestValidParentheses_(s string) int {
 	n := len(s)
 	dp := make([]int, n) // 表示以）结尾的最长的子串长度
 	dp[0] = 0
@@ -60,6 +58,12 @@ func longestValidParentheses1(s string) int {
 	return 2 * maxn
 }
 
+func Test_longestValidParentheses(t *testing.T) {
+	fmt.Println(longestValidParentheses("()()(((()())))"))
+	fmt.Println(longestValidParentheses_("()()(((()())))"))
+}
+
+// leetcode42：接雨水
 func trap(height []int) int {
 	n := len(height)
 	maxn := height[0]

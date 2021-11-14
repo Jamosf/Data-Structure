@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// leetcode2000: 反转单次前缀
 func reversePrefix(word string, ch byte) string {
 	idx := strings.Index(word, string(ch))
 	if idx == -1 {
@@ -19,6 +20,7 @@ func reversePrefix(word string, ch byte) string {
 	return string(b) + word[idx+1:]
 }
 
+// leetcode2001: 可变换矩阵的组数
 func interchangeableRectangles(rectangles [][]int) int64 {
 	m := make(map[float64]int64)
 	for i := 0; i < len(rectangles); i++ {
@@ -33,6 +35,7 @@ func interchangeableRectangles(rectangles [][]int) int64 {
 	return cnt
 }
 
+// leetcode2002: 两个回文子序列长度的最大乘积
 func maxProduct(s string) int {
 	n := len(s)
 	m := map[int]int{}
@@ -85,6 +88,7 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	}
 }
 
+// leetcode
 func getKthElement(nums1, nums2 []int, k int) int {
 	index1, index2 := 0, 0
 	for {

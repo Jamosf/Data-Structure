@@ -61,7 +61,7 @@ func Test_largestRectangleArea(t *testing.T) {
 
 // leetcode42：接雨水, 单调栈解法
 // 思路：如果栈内元素超过两个，并且当前元素大于栈顶元素，那么栈顶元素处可以积水
-func trap(height []int) (ans int) {
+func trap_(height []int) (ans int) {
 	n := len(height)
 	stack := make([]int, 0, n)
 	ans = 0
@@ -80,7 +80,7 @@ func trap(height []int) (ans int) {
 }
 
 func Test_trap(t *testing.T) {
-	fmt.Println(trap([]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}))
+	fmt.Println(trap_([]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}))
 }
 
 // leetcode901: 股票价格跨度, 单调递增栈

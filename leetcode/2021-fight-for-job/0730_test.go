@@ -7,6 +7,7 @@ import (
 )
 
 // 第一题
+// leetcode 剑指offer52: 两个链表的第一个公共节点
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	la, lb := lenOfList(headA), lenOfList(headB)
 	pa, pb := headA, headB
@@ -39,6 +40,7 @@ func lenOfList(p *ListNode) int {
 }
 
 // 第二题
+// leetcode 171: Excel表列序号
 func titleToNumber(columnTitle string) int {
 	l := len(columnTitle)
 	sum := 0
@@ -67,6 +69,7 @@ func Test_titleToNumber(t *testing.T) {
 }
 
 // 第三题
+// leetcode 剑指offer32-II: 从上到下打印二叉树
 func levelOrder(root *TreeNode) [][]int {
 	if root == nil {
 		return nil
@@ -94,6 +97,7 @@ func levelOrder(root *TreeNode) [][]int {
 }
 
 // 第四题
+// leetcode 剑指offer57-II: 和为s的连续正数序列
 func findContinuousSequence(target int) [][]int {
 	var res [][]int
 	left, right := 0, 1
@@ -116,11 +120,13 @@ func findContinuousSequence(target int) [][]int {
 }
 
 // 第五题
+// leetcode 剑指offer58-II: 左旋转字符串
 func reverseLeftWords(s string, n int) string {
 	return s[n:] + s[:n]
 }
 
 // 第六题
+// leetcode 剑指offer53-II: 0~n-1中缺失的数字
 func missingNumber(nums []int) int {
 	left, right := 0, len(nums)
 	for left < right {

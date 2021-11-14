@@ -120,7 +120,7 @@ func Test_combinationSum2(t *testing.T) {
 	fmt.Println(combinationSum2([]int{2, 5, 2, 1, 2}, 5))
 }
 
-//leetcode47: 不重复全排列
+// leetcode47: 不重复全排列
 func permuteUnique(nums []int) [][]int {
 	n := len(nums)
 	sort.Ints(nums)

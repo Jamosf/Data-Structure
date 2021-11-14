@@ -7,6 +7,8 @@ import (
 	"testing"
 )
 
+// leetcode75: 颜色分类
+// 双指针
 func sortColors(nums []int) {
 	n := len(nums)
 	left, right := 0, n-1
@@ -25,7 +27,9 @@ func Test_sortColors(t *testing.T) {
 	sortColors([]int{1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0})
 }
 
-func maxProduct1(nums []int) int {
+// leetcode152: 乘积最大的子数组
+// 动态规划
+func maxProduct152(nums []int) int {
 	n := len(nums)
 	dp := make([][2]int, n) // 以i结尾的最大值或最小值，
 	dp[0][0] = nums[0]      // 0存最小值
@@ -45,9 +49,11 @@ func maxProduct1(nums []int) int {
 }
 
 func Test_maxProduct1(t *testing.T) {
-	fmt.Println(maxProduct1([]int{-3, 2, -4}))
+	fmt.Println(maxProduct152([]int{-3, 2, -4}))
 }
 
+// leetcode 面试题17.16: 按摩师
+// 动态规划
 func massage(nums []int) int {
 	n := len(nums)
 	dp := make([]int, n)
@@ -64,6 +70,7 @@ func massage(nums []int) int {
 	return max(dp[n-1], dp[n-2])
 }
 
+// leetcode337: 打家劫舍
 // 树形dp
 func rob1(root *TreeNode) int {
 	var dfs func(r *TreeNode) [2]int
@@ -83,6 +90,8 @@ func rob1(root *TreeNode) int {
 	return max(ans[0], ans[1])
 }
 
+// leetcode62: 不同路径
+// 动态规划
 func uniquePaths(m int, n int) int {
 	dp := make([][]int, m)
 	for i := range dp {
@@ -105,6 +114,7 @@ func uniquePaths(m int, n int) int {
 	return dp[m-1][n-1]
 }
 
+// leetcode148: 排序链表
 func sortList(head *ListNode) *ListNode {
 	p := head
 	t := make([]int, 0)
@@ -122,8 +132,9 @@ func sortList(head *ListNode) *ListNode {
 	return q.Next
 }
 
+// leetcode148: 排序链表
 // 递归解法
-func sortList1(head *ListNode) *ListNode {
+func sortList_(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
@@ -133,7 +144,7 @@ func sortList1(head *ListNode) *ListNode {
 		slow = slow.Next
 	}
 	tmp := slow.Next
-	left, right := sortList1(head), sortList1(tmp)
+	left, right := sortList_(head), sortList_(tmp)
 	t := &ListNode{}
 	p := t
 	for left != nil && right != nil {
@@ -153,6 +164,7 @@ func sortList1(head *ListNode) *ListNode {
 	return p.Next
 }
 
+// leetcode96: 不同的二叉搜索树
 // 每个数字作为根节点，左右子树的各种组合乘积
 func numTrees(n int) int {
 	dp := make([]int, n+1)

@@ -44,7 +44,7 @@ func wiggleSort(nums []int) {
 // leetcode324: 优化解法, 快速选择+3-way-partition, 实现暂时有点问题。
 func wiggleSort_(nums []int) {
 	n := len(nums)
-	mid := quickSort1(nums, 0, n, (n+1)/2)[n/2]
+	mid := quickSortK(nums, 0, n, (n+1)/2)[n/2]
 	// 3-way-partition
 	i, j, k := 0, 0, n-1
 	for j < k {

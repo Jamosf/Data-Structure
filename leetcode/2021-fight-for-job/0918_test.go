@@ -7,39 +7,61 @@ import (
 	"testing"
 )
 
+// leetcode LCP42: 玩具套圈
+func circleGame(toys [][]int, circles [][]int, r int) int {
+	var check func(toy []int, circle []int, r int) bool
+	check = func(toy []int, circle []int, r int) bool {
+		if toy[0]+toy[2] > circle[0]+r || toy[0]-toy[2] < circle[0]-r {
+			return false
+		}
+		if toy[1]+toy[2] > circle[1]+r || toy[1]-toy[2] < circle[1]-r {
+			return false
+		}
+		return true
+	}
+	ans := 0
+	for i := 0; i < len(toys); i++ {
+		for j := 0; j < len(circles); j++ {
+			if check(toys[i], circles[j], r) {
+				ans++
+				break
+			}
+		}
+	}
+	return ans
+}
+
+// leetcode LCP42: 玩具套圈
 // 两次二分找距离玩具最近的点
-func circleGame2(toys [][]int, circles [][]int, r int) int {
+// 利用二分找到离玩具圆心最近的圈的中心，如果离的最近的圈都套不上，那么离的远的肯定更加套不上。
+func circleGame_(toys [][]int, circles [][]int, r0 int) (ans int) {
 	// 1. 将所有的圈的横坐标按照大小进行排序
-	sort.Slice(circles, func(i, j int) bool {
-		a, b := circles[i], circles[j]
-		return a[0] < b[0] || (a[0] == b[0] && a[1] < b[1])
-	})
+	sort.Slice(circles, func(i, j int) bool { a, b := circles[i], circles[j]; return a[0] < b[0] || a[0] == b[0] && a[1] < b[1] })
+
 	// 2. 数据预处理，同一个横坐标的圈，放到一起
 	type pair struct {
 		x  int
 		ys []int
 	}
-	var p []pair
-	y := -1
-	for _, c := range circles {
-		if len(p) == 0 || c[0] > p[len(p)-1].x {
-			p = append(p, pair{c[0], []int{c[1]}})
+	a, y := []pair{}, -1
+	for _, p := range circles {
+		if len(a) == 0 || p[0] > a[len(a)-1].x {
+			a = append(a, pair{p[0], []int{p[1]}})
 			y = -1
-		} else if c[1] > y {
-			p[len(p)-1].ys = append(p[len(p)-1].ys, c[1])
-			y = c[1]
+		} else if p[1] > y { // 去重
+			a[len(a)-1].ys = append(a[len(a)-1].ys, p[1])
+			y = p[1]
 		}
 	}
-	ans := 0
 	// 3. 遍历所有的玩具，用两层二分搜索来寻找离的最近的圆环
 	for _, t := range toys {
-		x, y, r0 := t[0], t[1], t[2]
-		if r0 > r {
+		x, y, r := t[0], t[1], t[2]
+		if r > r0 {
 			continue
 		}
-		idx := sort.Search(len(p), func(i int) bool { return p[i].x+r >= x+r0 })
-		for ; idx < len(p) && p[idx].x-r <= x-r0; idx++ {
-			cx, ys := p[idx].x, p[idx].ys
+		i := sort.Search(len(a), func(i int) bool { return a[i].x+r0 >= x+r })
+		for ; i < len(a) && a[i].x-r0 <= x-r; i++ {
+			cx, ys := a[i].x, a[i].ys
 			j := sort.SearchInts(ys, y)
 			// 下面的写法可以兼顾j==0和j==len(ys)
 			if j < len(ys) {
@@ -56,9 +78,10 @@ func circleGame2(toys [][]int, circles [][]int, r int) int {
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func Test_circleGame2(t *testing.T) {
-	fmt.Println(circleGame2([][]int{{1, 3, 2}, {4, 3, 1}}, [][]int{{1, 0}, {3, 3}, {0, 0}, {3, 4}}, 4))
+	fmt.Println(circleGame([][]int{{1, 3, 2}, {4, 3, 1}}, [][]int{{1, 0}, {3, 3}, {0, 0}, {3, 4}}, 4))
+	fmt.Println(circleGame_([][]int{{1, 3, 2}, {4, 3, 1}}, [][]int{{1, 0}, {3, 3}, {0, 0}, {3, 4}}, 4))
 }

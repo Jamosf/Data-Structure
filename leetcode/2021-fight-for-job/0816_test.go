@@ -7,8 +7,8 @@ import (
 )
 
 // 前缀和
-
 // 第一题
+// leetcode525: 连续数组
 // 前缀和+hash
 func findMaxLength(nums []int) int {
 	sum := 0
@@ -34,6 +34,7 @@ func Test_findMaxLength(t *testing.T) {
 }
 
 // 第二题
+
 func subarraySum(nums []int, k int) int {
 	sum := make([]int, len(nums)+1)
 	sum[0] = 0
@@ -56,6 +57,7 @@ func Test_subarraySum(t *testing.T) {
 }
 
 // 第三题
+// leetcode1109: 航班预定统计
 func corpFlightBookings(bookings [][]int, n int) []int {
 	sum := make([]int, n+1)
 	sum[0] = 0
@@ -67,9 +69,9 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 	return sum[1:]
 }
 
-// 方法2
+// leetcode1109: 航班预定统计
 // 差分数组+前缀和
-func corpFlightBookings1(bookings [][]int, n int) []int {
+func corpFlightBookings_(bookings [][]int, n int) []int {
 	diff := make([]int, n+1)
 	for _, booking := range bookings {
 		diff[booking[0]-1] += booking[2]
@@ -81,28 +83,9 @@ func corpFlightBookings1(bookings [][]int, n int) []int {
 	return diff[:n]
 }
 
-type unionSet []int
-
-func (u unionSet) union(a, b int) {
-	r1 := u.findRoot(a)
-	r2 := u.findRoot(b)
-	if r1 == r2 {
-		return
-	}
-	u[r1] = r2 // 没有做路径压缩，可以增加树的高度来进行压缩
-}
-
-func (u unionSet) findRoot(v int) int {
-	cnt := 1
-	for u[v] != -1 {
-		v = u[v]
-		cnt++
-	}
-	return cnt
-}
-
 // 并查集
 // 第四题
+// leetcode128: 最长连续序列
 func longestConsecutive(nums []int) int {
 	inf := int(1e9 + 1)
 	m := make(map[int]struct{}, len(nums))
