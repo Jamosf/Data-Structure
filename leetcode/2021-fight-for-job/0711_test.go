@@ -1,6 +1,7 @@
 // Copyright (c) Huawei Technologies Co., Ltd. 2012-2019. All rights reserved.
 package ojeveryday
 
+// leetcode718: 最长重复子数组
 func findLength(nums1 []int, nums2 []int) int {
 	lenA, lenB := len(nums1), len(nums2)
 	ret := 0
@@ -14,7 +15,6 @@ func findLength(nums1 []int, nums2 []int) int {
 			}
 			ret = max(ret, k)
 		}
-
 	}
 
 	for i := 0; i < lenB; i++ {
@@ -31,6 +31,7 @@ func findLength(nums1 []int, nums2 []int) int {
 	return ret
 }
 
+// leetcode187: 重复DNA序列
 func findRepeatedDnaSequences(s string) []string {
 	m := make(map[string]uint8, len(s)-10)
 	for i := 0; i < len(s)-10+1; i++ {
@@ -43,4 +44,19 @@ func findRepeatedDnaSequences(s string) []string {
 		}
 	}
 	return result
+}
+
+// leetcode1461: 检查一个字符串是否包含所有长度为K的二进制子串
+func hasAllCodes(s string, k int) bool {
+	m := make(map[string]uint8, len(s)-k)
+	for i := 0; i < len(s)-k+1; i++ {
+		m[s[i:i+k]]++
+	}
+	result := 0
+	for _, v := range m {
+		if v >= 1 {
+			result++
+		}
+	}
+	return result == 1<<k
 }

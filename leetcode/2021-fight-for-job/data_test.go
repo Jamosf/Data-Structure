@@ -55,7 +55,7 @@ type trie struct {
 	endFlag bool
 }
 
-func (t *trie) Insert(word string) {
+func (t *trie) insert(word string) {
 	p := t
 	l := len(word)
 	for i := 0; i < l; i++ {
@@ -73,7 +73,7 @@ func (t *trie) Insert(word string) {
 	}
 }
 
-func (t *trie) Search(word string) bool {
+func (t *trie) search(word string) bool {
 	p := t
 	l := len(word)
 	for i := 0; i < l; i++ {
@@ -89,7 +89,7 @@ func (t *trie) Search(word string) bool {
 	return false
 }
 
-func (t *trie) SearchStartsWith(prefix string) bool {
+func (t *trie) searchStartsWith(prefix string) bool {
 	p := t
 	l := len(prefix)
 	for i := 0; i < l; i++ {

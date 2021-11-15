@@ -9,6 +9,7 @@ import (
 )
 
 // 第一题
+// leetcode144: 二叉树的前序遍历
 func preorderTraversal(root *TreeNode) []int {
 	if root == nil {
 		return nil
@@ -22,6 +23,7 @@ func preorderTraversal(root *TreeNode) []int {
 }
 
 // 第二题
+// leetcode94: 二叉树的中序遍历
 func inorderTraversal(root *TreeNode) []int {
 	if root == nil {
 		return nil
@@ -35,20 +37,7 @@ func inorderTraversal(root *TreeNode) []int {
 }
 
 // 第三题
-func removeElements(head *ListNode, val int) *ListNode {
-	p := &ListNode{Next: head}
-	tmp := p
-	for tmp.Next != nil {
-		if tmp.Next.Val == val {
-			tmp.Next = tmp.Next.Next
-		} else {
-			tmp = tmp.Next
-		}
-	}
-	return p.Next
-}
-
-// 第四题
+// leetcode145: 二叉树的后序遍历
 func postorderTraversal(root *TreeNode) []int {
 	if root == nil {
 		return nil
@@ -62,6 +51,7 @@ func postorderTraversal(root *TreeNode) []int {
 }
 
 // 第五题
+// leetcode104: 二叉树的最大深度
 func maxDepth(root *TreeNode) int {
 	if root == nil {
 		return 0
@@ -70,6 +60,7 @@ func maxDepth(root *TreeNode) int {
 }
 
 // 第六题
+// leetcode101: 对称二叉树
 func isSymmetric(root *TreeNode) bool {
 	if root == nil {
 		return false
@@ -88,6 +79,7 @@ func check(left, right *TreeNode) bool {
 }
 
 // 第七题
+// leetcode226: 翻转二叉树
 func invertTree(root *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -97,6 +89,7 @@ func invertTree(root *TreeNode) *TreeNode {
 }
 
 // 第八题
+// leetcode112: 路径总和
 func hasPathSum(root *TreeNode, targetSum int) bool {
 	if root == nil {
 		return false
@@ -109,6 +102,7 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 }
 
 // 第九题
+// leetcode102: 二叉树的层序遍历
 func levelOrder1(root *TreeNode) [][]int {
 	if root == nil {
 		return nil
@@ -136,8 +130,55 @@ func levelOrder1(root *TreeNode) [][]int {
 	return ret
 }
 
-// 第十题
+// 第四题
+// leetcode203: 移除链表元素
+func removeElements(head *ListNode, val int) *ListNode {
+	p := &ListNode{Next: head}
+	tmp := p
+	for tmp.Next != nil {
+		if tmp.Next.Val == val {
+			tmp.Next = tmp.Next.Next
+		} else {
+			tmp = tmp.Next
+		}
+	}
+	return p.Next
+}
+
+// 第四题
+// leetcode21: 合并两个有序链表
+// 迭代
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+	tmp := &ListNode{}
+	p := tmp
+	p1, p2 := l1, l2
+	for p1 != nil && p2 != nil {
+		if p1.Val > p2.Val {
+			p.Next = p2
+			p2 = p2.Next
+		} else {
+			p.Next = p1
+			p1 = p1.Next
+		}
+		p = p.Next
+	}
+	for p1 != nil {
+		p.Next = p1
+		p = p.Next
+		p1 = p1.Next
+	}
+	for p2 != nil {
+		p.Next = p2
+		p = p.Next
+		p2 = p2.Next
+	}
+	return tmp.Next
+}
+
+// 第十题
+// leetcode21: 合并两个有序链表
+// 递归
+func mergeTwoLists_(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil {
 		return l2
 	}
@@ -145,15 +186,16 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 		return l1
 	}
 	if l1.Val > l2.Val {
-		l2.Next = mergeTwoLists(l1, l2.Next)
+		l2.Next = mergeTwoLists_(l1, l2.Next)
 		return l2
 	} else {
-		l1.Next = mergeTwoLists(l1.Next, l2)
+		l1.Next = mergeTwoLists_(l1.Next, l2)
 		return l1
 	}
 }
 
 // 第十一题
+// leetcode70: 爬楼梯
 func climbStairs(n int) int {
 	dp := make([]int, n)
 	dp[0] = 1
@@ -164,20 +206,8 @@ func climbStairs(n int) int {
 	return dp[n-1]
 }
 
-// 第一题
-func reverseList2(head *ListNode) *ListNode {
-	var pre *ListNode
-	cur := head
-	for cur != nil {
-		next := cur.Next
-		cur.Next = pre
-		pre = cur
-		cur = next
-	}
-	return pre
-}
-
 // 第三题
+// leetcode 剑指offer 65: 不用加减乘除做加法
 func add(a int, b int) int {
 	for b != 0 {
 		c := a & b << 1
@@ -188,6 +218,7 @@ func add(a int, b int) int {
 }
 
 // 第四题
+// leetcode 剑指offer 61: 扑克牌中的顺子
 func isStraight(nums []int) bool {
 	sort.Ints(nums)
 	idx := 0
@@ -205,35 +236,4 @@ func isStraight(nums []int) bool {
 
 func Test_isStraight(t *testing.T) {
 	fmt.Println(isStraight([]int{0, 1, 1, 0, 5}))
-}
-
-// 第五题
-func lastRemaining(n int, m int) int {
-	head := &ListNode{}
-	p := head
-	var pre *ListNode
-	for i := 0; i < n; i++ {
-		p.Val = i
-		if i == n-1 {
-			pre = p
-			p.Next = head
-		} else {
-			p.Next = &ListNode{}
-		}
-		p = p.Next
-	}
-	tmp := head
-	for tmp.Next != tmp {
-		for i := 0; i < m-1; i++ {
-			tmp = tmp.Next
-			pre = pre.Next
-		}
-		pre.Next = pre.Next.Next
-		tmp = pre.Next
-	}
-	return tmp.Val
-}
-
-func Test_lastRemaining(t *testing.T) {
-	fmt.Println(lastRemaining(10, 17))
 }

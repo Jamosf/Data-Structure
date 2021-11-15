@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// leetcode 面试题01.01：字符串压缩
 func compressString(S string) string {
 	var buff bytes.Buffer
 	for i := 0; i < len(S); {

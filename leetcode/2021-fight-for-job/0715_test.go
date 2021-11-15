@@ -8,6 +8,7 @@ import (
 )
 
 // 第一题
+// leetcode1846: 减少和重新排列数组后的最大元素
 func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	if len(arr) == 0 {
 		return 0
@@ -23,6 +24,7 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 }
 
 // 第二题
+// leetcode1818: 绝对差值和
 func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
 	mod := int(1e9 + 7)
 	// 1. 先复制一份数组并排序
@@ -47,6 +49,7 @@ func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
 }
 
 // 第三题
+// leetcode275: H指数II
 func hIndex(citations []int) int {
 	left, right := 0, len(citations)
 	mid := (left + right) / 2
@@ -62,6 +65,7 @@ func hIndex(citations []int) int {
 }
 
 // 第四题
+// leetcode981: 基于时间的键值存储
 type TimeMap struct {
 	kv map[string][]v
 }
@@ -85,16 +89,16 @@ func maxSubArray(nums []int) int {
 }
 
 /** Initialize your data structure here. */
-func Constructor2() TimeMap {
+func ConstructorTimeMap() TimeMap {
 	return TimeMap{kv: make(map[string][]v)}
 }
 
-func (this *TimeMap) Set(key string, value string, timestamp int) {
-	this.kv[key] = append(this.kv[key], v{value: value, timeStamp: timestamp})
+func (t *TimeMap) Set(key string, value string, timestamp int) {
+	t.kv[key] = append(t.kv[key], v{value: value, timeStamp: timestamp})
 }
 
-func (this *TimeMap) Get(key string, timestamp int) string {
-	if vv, ok := this.kv[key]; ok && len(vv) != 0 {
+func (t *TimeMap) Get(key string, timestamp int) string {
+	if vv, ok := t.kv[key]; ok && len(vv) != 0 {
 		for i := len(vv) - 1; i >= 0; i-- {
 			if vv[i].timeStamp <= timestamp {
 				return vv[i].value
@@ -105,6 +109,7 @@ func (this *TimeMap) Get(key string, timestamp int) string {
 }
 
 // 第五题
+// leetcode 面试题17.10: 主要元素
 func majorityElement(nums []int) int {
 	candidate := -1
 	count := 0
@@ -131,6 +136,7 @@ func majorityElement(nums []int) int {
 }
 
 // 第六题
+// leetcode
 func numSubarraysWithSum(nums []int, goal int) int {
 	// 3. 利用前缀和计算
 	sumn := 0

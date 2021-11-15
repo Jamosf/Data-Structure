@@ -7,6 +7,7 @@ import (
 )
 
 // 第一题
+// leetcode3: 无重复字符的最长子串
 func lengthOfLongestSubstring(s string) int {
 	m := make(map[uint8]int)
 	left, right := 0, 0
@@ -29,6 +30,7 @@ func Test_lengthOfLongestSubstring(t *testing.T) {
 }
 
 // 第二题
+// leetcode567: 字符串的排列
 func checkInclusion(s1 string, s2 string) bool {
 	m := make(map[uint8]int)
 	for i := range s1 {
@@ -62,6 +64,7 @@ func isMapEmpty(m map[uint8]int) bool {
 }
 
 // 第三题
+// leetcode387: 字符串中的第一个唯一字符
 func firstUniqChar(s string) int {
 	var m [26]int
 	for _, v := range s {
@@ -76,6 +79,7 @@ func firstUniqChar(s string) int {
 }
 
 // 第四题
+// leetcode383: 赎金信
 func canConstruct(ransomNote string, magazine string) bool {
 	var m [26]int
 	for _, v := range magazine {
@@ -93,6 +97,7 @@ func canConstruct(ransomNote string, magazine string) bool {
 }
 
 // 第五题
+// leetcode242: 有效的字母异位词
 func isAnagram(s string, t string) bool {
 	var m [26]int
 	for _, v := range s {

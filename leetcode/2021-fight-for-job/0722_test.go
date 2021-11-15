@@ -8,6 +8,7 @@ import (
 )
 
 // 第一题
+// leetcode617: 合并二叉树
 func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	if root1 == nil {
 		return root2
@@ -34,6 +35,7 @@ type pos struct {
 }
 
 // 第一题
+// leetcode695: 岛屿的最大面积
 func maxAreaOfIsland(grid [][]int) int {
 	if len(grid) == 0 || len(grid[0]) == 0 {
 		return 0
@@ -76,6 +78,7 @@ func bfs(grid [][]int, l *list.List) int {
 }
 
 // 第二题
+// leetcode733: 图像渲染
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	if len(image) == 0 {
 		return nil
@@ -107,7 +110,7 @@ func Test_floodFill(t *testing.T) {
 }
 
 // 第三题
-
+// leetcode141: 环形链表
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -123,48 +126,4 @@ func hasCycle(head *ListNode) bool {
 		}
 	}
 	return false
-}
-
-// 第四题
-func mergeTwoLists1(l1 *ListNode, l2 *ListNode) *ListNode {
-	tmp := &ListNode{}
-	p := tmp
-	p1, p2 := l1, l2
-	for p1 != nil && p2 != nil {
-		if p1.Val > p2.Val {
-			p.Next = p2
-			p2 = p2.Next
-		} else {
-			p.Next = p1
-			p1 = p1.Next
-		}
-		p = p.Next
-	}
-	for p1 != nil {
-		p.Next = p1
-		p = p.Next
-		p1 = p1.Next
-	}
-	for p2 != nil {
-		p.Next = p2
-		p = p.Next
-		p2 = p2.Next
-	}
-	return tmp.Next
-}
-
-// 第五题
-func removeElements1(head *ListNode, val int) *ListNode {
-	p := &ListNode{Next: head}
-	pre := p
-	for pre.Next != nil {
-		if pre.Next.Val == val {
-			pre.Next = pre.Next.Next
-		}
-	}
-	return p.Next
-}
-
-func Test_removeElements(t *testing.T) {
-	fmt.Println(removeElements1(&ListNode{7, &ListNode{7, &ListNode{7, &ListNode{7, nil}}}}, 7))
 }

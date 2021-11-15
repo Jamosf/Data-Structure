@@ -7,19 +7,20 @@ import (
 	"testing"
 )
 
-type Node_1 struct {
+type NodeC struct {
 	Val   int
-	Left  *Node_1
-	Right *Node_1
-	Next  *Node_1
+	Left  *NodeC
+	Right *NodeC
+	Next  *NodeC
 }
 
 // 第一题
-func connect(root *Node_1) *Node_1 {
+// leetcode116: 填充每个节点的下一个右侧节点指针
+func connect(root *NodeC) *NodeC {
 	if root == nil {
 		return nil
 	}
-	queue := []*Node_1{root}
+	queue := []*NodeC{root}
 	for len(queue) > 0 {
 		tmp := queue
 		queue = nil
@@ -40,8 +41,8 @@ func connect(root *Node_1) *Node_1 {
 }
 
 func Test_connect(t *testing.T) {
-	fmt.Println(connect(&Node_1{1, &Node_1{2, &Node_1{4, nil, nil, nil},
-		&Node_1{5, nil, nil, nil}, nil}, &Node_1{3, &Node_1{6, nil, nil, nil}, &Node_1{7, nil, nil, nil}, nil}, nil}))
+	fmt.Println(connect(&NodeC{1, &NodeC{2, &NodeC{4, nil, nil, nil},
+		&NodeC{5, nil, nil, nil}, nil}, &NodeC{3, &NodeC{6, nil, nil, nil}, &NodeC{7, nil, nil, nil}, nil}, nil}))
 }
 
 // 第二题
@@ -86,6 +87,7 @@ func reverseList(head *ListNode) *ListNode {
 }
 
 // 第四题
+// leetcode83: 删除排序链表中的重复元素
 func deleteDuplicates(head *ListNode) *ListNode {
 	cur := head
 	for cur != nil && cur.Next != nil {
@@ -99,7 +101,8 @@ func deleteDuplicates(head *ListNode) *ListNode {
 }
 
 // 第五题
-func isValid1(s string) bool {
+// leetcode20: 有效的括号
+func isValidParentheses(s string) bool {
 	m := map[uint8]uint8{
 		'{': '}',
 		'[': ']',
@@ -123,13 +126,14 @@ func isValid1(s string) bool {
 }
 
 // 第六题
+// leetcode232: 用栈实现队列
 type MyQueue struct {
 	add *list.List
 	del *list.List
 }
 
 /** Initialize your data structure here. */
-func Constructor_m() MyQueue {
+func ConstructorMyQueue() MyQueue {
 	return MyQueue{add: list.New(), del: list.New()}
 }
 
@@ -171,6 +175,7 @@ func (m *MyQueue) Empty() bool {
 }
 
 // 第七题
+// leetcode566: 重塑矩阵
 func matrixReshape(mat [][]int, r int, c int) [][]int {
 	n, m := len(mat), len(mat[0])
 	if r*c > n*m {
@@ -196,6 +201,7 @@ func Test_matrixReshape(t *testing.T) {
 }
 
 // 第八题
+// leetcode118: 杨辉三角
 func generate(numRows int) [][]int {
 	out := make([][]int, numRows)
 	for i := 0; i < numRows; i++ {
@@ -217,6 +223,7 @@ func Test_generate(t *testing.T) {
 }
 
 // 第九题
+// leetcode36: 有效的数独
 func isValidSudoku(board [][]byte) bool {
 	row := [10][10]bool{}
 	col := [10][10]bool{}
@@ -256,6 +263,7 @@ func Test_isVlid(t *testing.T) {
 }
 
 // 第十题
+// leetcode 剑指offer 06: 从尾到头打印链表
 func reversePrint(head *ListNode) []int {
 	if head == nil {
 		return nil
@@ -266,29 +274,6 @@ func reversePrint(head *ListNode) []int {
 	return ret
 }
 
-// 第十一题
-func mergeTwoLists_1(l1 *ListNode, l2 *ListNode) *ListNode {
-	p := &ListNode{}
-	tmp := p
-	for l1 != nil && l2 != nil {
-		if l1.Val > l2.Val {
-			p.Next = l2
-			l2 = l2.Next
-		} else {
-			p.Next = l1
-			l1 = l1.Next
-		}
-		p = p.Next
-	}
-	if l1 != nil {
-		p.Next = l1
-	}
-	if l2 != nil {
-		p.Next = l2
-	}
-	return tmp.Next
-}
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -296,6 +281,7 @@ type TreeNode struct {
 }
 
 // 第十二题
+// leetcode 剑指offer 27: 二叉树的镜像
 func mirrorTree(root *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -304,25 +290,8 @@ func mirrorTree(root *TreeNode) *TreeNode {
 	return root
 }
 
-// 第十三题
-func isSymmetric1(root *TreeNode) bool {
-	return check1(root, root)
-}
-
-func check1(a, b *TreeNode) bool {
-	if a == nil && b == nil {
-		return true
-	}
-	if a == nil || b == nil {
-		return false
-	}
-	if a.Val != b.Val {
-		return false
-	}
-	return check1(a.Left, b.Right) && check1(a.Right, b.Left)
-}
-
 // 第十四题
+// leetcode 剑指offer 21: 调整数组顺序使奇数位于偶数前面
 func exchange(nums []int) []int {
 	left, right := 0, len(nums)-1
 	for left < right {
@@ -346,21 +315,8 @@ func Test_exchange(t *testing.T) {
 	fmt.Println(exchange([]int{2, 4, 5}))
 }
 
-// 第十五题
-func firstUniqChar1(s string) byte {
-	m := make(map[uint8]int)
-	for i := range s {
-		m[s[i]]++
-	}
-	for i := range s {
-		if m[s[i]] == 1 {
-			return s[i]
-		}
-	}
-	return ' '
-}
-
 // 第十六题
+// leetcode 剑指offer 58-I: 翻转单词顺序
 func reverseWords(s string) string {
 	ss := strings.Split(s, " ")
 	stack := make([]string, len(ss))

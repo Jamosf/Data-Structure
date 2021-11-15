@@ -8,6 +8,7 @@ import (
 )
 
 // 第一题
+// leetcode 剑指offer 11: 旋转数组的最小数字
 func minArray(numbers []int) int {
 	min := math.MaxInt64
 	for i := 0; i < len(numbers); i++ {
@@ -19,6 +20,7 @@ func minArray(numbers []int) int {
 }
 
 // 第二题
+// leetcode 剑指offer 22: 链表中倒数第K个节点
 func getKthFromEnd(head *ListNode, k int) *ListNode {
 	fast, slow := head, head
 	for fast != nil && k > 0 {
@@ -33,6 +35,7 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 }
 
 // 第三题
+// leetcode 剑指offer 17: 打印从1到最大的n位数
 func printNumbers(n int) []int {
 	var pow func(n int) int
 	pow = func(n int) int {
@@ -48,20 +51,8 @@ func printNumbers(n int) []int {
 	return ret
 }
 
-// 第四题
-func reverseList1(head *ListNode) *ListNode {
-	var pre *ListNode
-	cur := head
-	for cur != nil {
-		next := cur.Next
-		cur.Next = pre
-		pre = cur
-		cur = next
-	}
-	return pre
-}
-
 // 第五题
+// leetcode 剑指offer 18: 删除链表节点
 func deleteNode(head *ListNode, val int) *ListNode {
 	tmp := &ListNode{Next: head}
 	p := tmp
@@ -76,67 +67,21 @@ func deleteNode(head *ListNode, val int) *ListNode {
 }
 
 // 第六题
+// leetcode 剑指offer 40: 最小的K个数
 func getLeastNumbers(arr []int, k int) []int {
 	if len(arr) < k {
 		return arr
 	}
-	return quickSort_1(arr, 0, len(arr)-1, k)
-}
-
-func quickSort_1(arr []int, l, r int, k int) []int {
-	i, j := l, r
-	for i < j {
-		for j > l && arr[j] >= arr[l] {
-			j--
-		}
-		for i > l && arr[i] <= arr[l] {
-			i++
-		}
-		arr[i], arr[j] = arr[j], arr[i]
-	}
-	arr[i], arr[l] = arr[l], arr[i]
-	if i > k {
-		return quickSort_1(arr, l, i-1, k)
-	}
-	if i < k {
-		return quickSort_1(arr, i+1, r, k)
-	}
-	return arr[:k]
+	return quickSortK(arr, 0, len(arr)-1, k)
 }
 
 func Test_getLeastNumbers(t *testing.T) {
 	fmt.Println(getLeastNumbers([]int{3, 2, 1}, 2))
 }
 
-// 第七题
-func majorityElement1(nums []int) int {
-	votes := 0
-	x := nums[0]
-	for i := 0; i < len(nums); i++ {
-		if votes == 0 {
-			x = nums[i]
-			votes++
-			continue
-		}
-		if nums[i] == x {
-			votes++
-		} else {
-			votes--
-		}
-	}
-	return x
-}
-
-// 第八题
-func maxDepth1(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	return 1 + max(maxDepth1(root.Right), maxDepth1(root.Left))
-}
-
 // 第九题
-func maxSubArray1(nums []int) int {
+// leetcode 剑指offer 42: 连续子数组的最大和
+func maxSubArray42(nums []int) int {
 	sum := 0
 	maxn := 0
 	for _, v := range nums {
@@ -150,30 +95,30 @@ func maxSubArray1(nums []int) int {
 	return maxn
 }
 
-var res, kk int
-
 // 第十题
+// leetcode 剑指offer 54: 二叉搜索树的第K大节点
 func kthLargest(root *TreeNode, k int) int {
-	kk = k
-	dfs1(root)
+	var res int
+	var dfs func(r *TreeNode)
+	dfs = func(r *TreeNode) {
+		if r == nil {
+			return
+		}
+		dfs(r.Right)
+		if k == 0 {
+			return
+		}
+		if k--; k == 0 {
+			res = root.Val
+		}
+		dfs(root.Left)
+	}
+	dfs(root)
 	return res
 }
 
-func dfs1(root *TreeNode) {
-	if root == nil {
-		return
-	}
-	dfs1(root.Right)
-	if kk == 0 {
-		return
-	}
-	if kk--; kk == 0 {
-		res = root.Val
-	}
-	dfs1(root.Left)
-}
-
 // 第十一题
+// leetcode 剑指offer 30: 包含min函数的栈
 type MinStack struct {
 	min *list.List
 	l   *list.List

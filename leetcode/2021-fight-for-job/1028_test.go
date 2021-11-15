@@ -70,18 +70,6 @@ func reorderedPowerOf2_(n int) bool {
 	return m[countDigital(n)]
 }
 
-// 插入排序的基本代码实现
-func insert_sort(nums []int) {
-	n := len(nums)
-	for i := 0; i < n; i++ {
-		j := i
-		for ; j > 0 && nums[j-1] > nums[i]; j-- {
-			nums[j] = nums[j-1]
-		}
-		nums[j] = nums[i]
-	}
-}
-
 // leetcode147:仿照插入排序的实现
 func insertionSortList(head *ListNode) *ListNode {
 	dummy := &ListNode{Val: math.MinInt32, Next: head}

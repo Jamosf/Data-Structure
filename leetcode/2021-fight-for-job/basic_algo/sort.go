@@ -48,3 +48,15 @@ func QuickSortK(nums []int, l, r int, k int) []int {
 	}
 	return nums[:k]
 }
+
+// 插入排序的基本代码实现
+func InsertSort(nums []int) {
+	n := len(nums)
+	for i := 0; i < n; i++ {
+		j := i
+		for ; j > 0 && nums[j-1] > nums[i]; j-- {
+			nums[j] = nums[j-1]
+		}
+		nums[j] = nums[i]
+	}
+}

@@ -34,7 +34,7 @@ func Test_findMaxLength(t *testing.T) {
 }
 
 // 第二题
-
+// leetcode560: 和为K的子数组
 func subarraySum(nums []int, k int) int {
 	sum := make([]int, len(nums)+1)
 	sum[0] = 0

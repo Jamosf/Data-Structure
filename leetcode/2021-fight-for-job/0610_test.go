@@ -38,31 +38,28 @@ func Test_remove(t *testing.T) {
 	fmt.Println(removeDuplicates([]int{1, 1, 1}))
 }
 
-// 第二题
-func removeNthFromEnd1(head *ListNode, n int) *ListNode {
-	tmp := &ListNode{}
-	tmp.Next = head
-	p := head
-	var k *ListNode
-	var pre *ListNode
-	for p != nil {
-		n--
-		if n == 0 {
-			pre = tmp
-			k = head
-			break
+// 第三题
+// leetcode18: 四数之和
+func fourSum(nums []int, target int) [][]int {
+	sort.Ints(nums)
+	var ans [][]int
+	for i := 0; i < len(nums)-1; i++ {
+		res := threesumT(append(nums[:i], nums[i+1:]...), target-nums[i])
+		for k := range res {
+			flag := false
+			for j := range ans {
+				if ans[j][0] == nums[i] && ans[j][1] == res[k][0] && ans[j][2] == res[k][1] && ans[j][3] == res[k][3] {
+					flag = true
+					break
+				}
+			}
+			if !flag {
+				ans = append(ans, []int{nums[i], res[k][0], res[k][1], res[k][2]})
+			}
 		}
-		p = p.Next
+
 	}
-	for p != nil && p.Next != nil {
-		pre = pre.Next
-		k = k.Next
-		p = p.Next
-	}
-	if pre != nil {
-		pre.Next = k.Next
-	}
-	return tmp.Next
+	return ans
 }
 
 func threesumT(nums []int, target int) [][]int {
@@ -90,30 +87,6 @@ func threesumT(nums []int, target int) [][]int {
 				r++
 			}
 		}
-	}
-	return ans
-}
-
-// 第三题
-// leetcode18: 四数之和
-func fourSum(nums []int, target int) [][]int {
-	sort.Ints(nums)
-	var ans [][]int
-	for i := 0; i < len(nums)-1; i++ {
-		res := threesumT(append(nums[:i], nums[i+1:]...), target-nums[i])
-		for k := range res {
-			flag := false
-			for j := range ans {
-				if ans[j][0] == nums[i] && ans[j][1] == res[k][0] && ans[j][2] == res[k][1] && ans[j][3] == res[k][3] {
-					flag = true
-					break
-				}
-			}
-			if !flag {
-				ans = append(ans, []int{nums[i], res[k][0], res[k][1], res[k][2]})
-			}
-		}
-
 	}
 	return ans
 }
