@@ -65,6 +65,7 @@ func Test_countLR(t *testing.T) {
 // 03 动态规划
 func largestSubTriangle(a int, maps []int) int {
 	// write code here
+	return 0
 }
 
 // XXXX
