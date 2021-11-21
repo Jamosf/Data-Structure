@@ -48,6 +48,10 @@ func (u *UnionFind) Count() int {
 	return u.cnt
 }
 
+func (u *UnionFind) Size(p int) int {
+	return u.rank[u.Find(p)]
+}
+
 // 简单实现
 type unionSet []int
 

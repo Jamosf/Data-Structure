@@ -49,6 +49,10 @@ func (u *unionFind) count() int {
 	return u.Count()
 }
 
+func (u *unionFind) size(p int) int {
+	return u.Size(p)
+}
+
 type trie struct {
 	next    [maxNodeNum]*trie
 	num     int
@@ -112,7 +116,7 @@ var (
 	quickSortK = basic_algo.QuickSortK
 )
 
-var data = "[[2,3],[4,5],[6,7],[8,9],[1,10]]"
+var data = "[[7,12],[4,5,15],[6],[15,19],[9,12,13]]"
 
 func Test_convertInputData(t *testing.T) {
 	fmt.Println(strings.ReplaceAll(strings.ReplaceAll(data, "[", "{"), "]", "}"))
