@@ -14,6 +14,7 @@ type NodeC struct {
 	Next  *NodeC
 }
 
+// tag-[二叉树]
 // 第一题
 // leetcode116: 填充每个节点的下一个右侧节点指针
 func connect(root *NodeC) *NodeC {
@@ -45,6 +46,7 @@ func Test_connect(t *testing.T) {
 		&NodeC{5, nil, nil, nil}, nil}, &NodeC{3, &NodeC{6, nil, nil, nil}, &NodeC{7, nil, nil, nil}, nil}, nil}))
 }
 
+// tag-[深度优先搜索]
 // 第二题
 func updateMatrix1(mat [][]int) [][]int {
 	var dfs func(mat [][]int, r, c int) int
@@ -73,6 +75,7 @@ func updateMatrix1(mat [][]int) [][]int {
 	return mat
 }
 
+// tag-[链表]
 // 第三题
 func reverseList(head *ListNode) *ListNode {
 	var prev *ListNode
@@ -86,6 +89,7 @@ func reverseList(head *ListNode) *ListNode {
 	return prev
 }
 
+// tag-[链表]
 // 第四题
 // leetcode83: 删除排序链表中的重复元素
 func deleteDuplicates(head *ListNode) *ListNode {
@@ -100,6 +104,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 
+// tag-[栈]
 // 第五题
 // leetcode20: 有效的括号
 func isValidParentheses(s string) bool {
@@ -125,6 +130,7 @@ func isValidParentheses(s string) bool {
 	return stack.Len() == 0
 }
 
+// tag-[栈]
 // 第六题
 // leetcode232: 用栈实现队列
 type MyQueue struct {
@@ -174,6 +180,7 @@ func (m *MyQueue) Empty() bool {
 	return m.add.Len() == 0 && m.del.Len() == 0
 }
 
+// tag-[数学]
 // 第七题
 // leetcode566: 重塑矩阵
 func matrixReshape(mat [][]int, r int, c int) [][]int {
@@ -200,6 +207,7 @@ func Test_matrixReshape(t *testing.T) {
 	fmt.Println(matrixReshape(mat, 1, 1))
 }
 
+// tag-[数组]
 // 第八题
 // leetcode118: 杨辉三角
 func generate(numRows int) [][]int {
@@ -222,6 +230,7 @@ func Test_generate(t *testing.T) {
 	fmt.Println(generate(5))
 }
 
+// tag-[数组]
 // 第九题
 // leetcode36: 有效的数独
 func isValidSudoku(board [][]byte) bool {
@@ -262,6 +271,7 @@ func Test_isVlid(t *testing.T) {
 	fmt.Println(isValidSudoku(board))
 }
 
+// tag-[链表]
 // 第十题
 // leetcode 剑指offer 06: 从尾到头打印链表
 func reversePrint(head *ListNode) []int {
@@ -280,6 +290,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// tag-[二叉树]
 // 第十二题
 // leetcode 剑指offer 27: 二叉树的镜像
 func mirrorTree(root *TreeNode) *TreeNode {
@@ -290,6 +301,7 @@ func mirrorTree(root *TreeNode) *TreeNode {
 	return root
 }
 
+// tag-[双指针]
 // 第十四题
 // leetcode 剑指offer 21: 调整数组顺序使奇数位于偶数前面
 func exchange(nums []int) []int {
@@ -315,6 +327,7 @@ func Test_exchange(t *testing.T) {
 	fmt.Println(exchange([]int{2, 4, 5}))
 }
 
+// tag-[字符串]
 // 第十六题
 // leetcode 剑指offer 58-I: 翻转单词顺序
 func reverseWords(s string) string {

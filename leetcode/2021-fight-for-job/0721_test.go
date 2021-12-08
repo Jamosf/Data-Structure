@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[字符串]
 // 第一题
 // leetcode3: 无重复字符的最长子串
 func lengthOfLongestSubstring(s string) int {
@@ -29,6 +30,7 @@ func Test_lengthOfLongestSubstring(t *testing.T) {
 	fmt.Println(lengthOfLongestSubstring(" "))
 }
 
+// tag-[字符串]
 // 第二题
 // leetcode567: 字符串的排列
 func checkInclusion(s1 string, s2 string) bool {
@@ -63,6 +65,7 @@ func isMapEmpty(m map[uint8]int) bool {
 	return cnt == 0
 }
 
+// tag-[字符串]
 // 第三题
 // leetcode387: 字符串中的第一个唯一字符
 func firstUniqChar(s string) int {
@@ -78,6 +81,7 @@ func firstUniqChar(s string) int {
 	return -1
 }
 
+// tag-[字符串]
 // 第四题
 // leetcode383: 赎金信
 func canConstruct(ransomNote string, magazine string) bool {
@@ -96,6 +100,7 @@ func canConstruct(ransomNote string, magazine string) bool {
 	return true
 }
 
+// tag-[字符串]
 // 第五题
 // leetcode242: 有效的字母异位词
 func isAnagram(s string, t string) bool {

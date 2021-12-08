@@ -1,6 +1,7 @@
 // Copyright (c) Huawei Technologies Co., Ltd. 2012-2019. All rights reserved.
 package ojeveryday
 
+// tag-[字符串]
 // leetcode718: 最长重复子数组
 func findLength(nums1 []int, nums2 []int) int {
 	lenA, lenB := len(nums1), len(nums2)

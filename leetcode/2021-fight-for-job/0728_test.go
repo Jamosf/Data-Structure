@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[数学]
 // 第一题
 // leetcode191: 2的幂
 func isPowerOfTwo(n int) bool {
@@ -18,6 +19,7 @@ func isPowerOfTwo(n int) bool {
 	return cnt == 1
 }
 
+// tag-[数学]
 // 第二题
 // leetcode461: 汉明距离
 func hammingWeight(num uint32) int {
@@ -29,6 +31,7 @@ func hammingWeight(num uint32) int {
 	return cnt
 }
 
+// tag-[动态规划]
 // 第三题
 // leetcode198: 打家劫舍
 func rob(nums []int) int {
@@ -45,6 +48,7 @@ func rob(nums []int) int {
 	return dp[len(nums)-1]
 }
 
+// tag-[动态规划]
 // 第四题
 // leetcode120: 三角形最小路径和
 func minimumTotal(triangle [][]int) int {
@@ -80,6 +84,7 @@ func Test_minimumTotal(t *testing.T) {
 	fmt.Println(minimumTotal([][]int{{-1}, {-2, -3}}))
 }
 
+// tag-[二叉树]
 // 第五题
 // leetcode700: 二叉搜索树中的搜索
 func searchBST(root *TreeNode, val int) *TreeNode {

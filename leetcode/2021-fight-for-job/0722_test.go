@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[二叉树]
 // 第一题
 // leetcode617: 合并二叉树
 func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
@@ -34,6 +35,7 @@ type pos struct {
 	y int
 }
 
+// tag-[广度优先搜索]
 // 第一题
 // leetcode695: 岛屿的最大面积
 func maxAreaOfIsland(grid [][]int) int {
@@ -77,6 +79,7 @@ func bfs(grid [][]int, l *list.List) int {
 	return cnt
 }
 
+// tag-[深度预先搜索]
 // 第二题
 // leetcode733: 图像渲染
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
@@ -109,6 +112,7 @@ func Test_floodFill(t *testing.T) {
 	fmt.Println(floodFill([][]int{{0, 0, 0}, {0, 1, 1}}, 1, 1, 1))
 }
 
+// tag-[链表]
 // 第三题
 // leetcode141: 环形链表
 type ListNode struct {

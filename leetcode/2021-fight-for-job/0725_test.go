@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[数组]
 // 第一题
 // leetcode 剑指offer 11: 旋转数组的最小数字
 func minArray(numbers []int) int {
@@ -19,6 +20,7 @@ func minArray(numbers []int) int {
 	return min
 }
 
+// tag-[链表]
 // 第二题
 // leetcode 剑指offer 22: 链表中倒数第K个节点
 func getKthFromEnd(head *ListNode, k int) *ListNode {
@@ -34,6 +36,7 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 	return slow
 }
 
+// tag-[数学]
 // 第三题
 // leetcode 剑指offer 17: 打印从1到最大的n位数
 func printNumbers(n int) []int {
@@ -51,6 +54,7 @@ func printNumbers(n int) []int {
 	return ret
 }
 
+// tag-[链表]
 // 第五题
 // leetcode 剑指offer 18: 删除链表节点
 func deleteNode(head *ListNode, val int) *ListNode {
@@ -66,6 +70,7 @@ func deleteNode(head *ListNode, val int) *ListNode {
 	return tmp.Next
 }
 
+// tag-[排序]
 // 第六题
 // leetcode 剑指offer 40: 最小的K个数
 func getLeastNumbers(arr []int, k int) []int {
@@ -79,6 +84,7 @@ func Test_getLeastNumbers(t *testing.T) {
 	fmt.Println(getLeastNumbers([]int{3, 2, 1}, 2))
 }
 
+// tag-[数组]
 // 第九题
 // leetcode 剑指offer 42: 连续子数组的最大和
 func maxSubArray42(nums []int) int {
@@ -95,6 +101,7 @@ func maxSubArray42(nums []int) int {
 	return maxn
 }
 
+// tag-[二叉树]
 // 第十题
 // leetcode 剑指offer 54: 二叉搜索树的第K大节点
 func kthLargest(root *TreeNode, k int) int {
@@ -117,6 +124,7 @@ func kthLargest(root *TreeNode, k int) int {
 	return res
 }
 
+// tag-[栈]
 // 第十一题
 // leetcode 剑指offer 30: 包含min函数的栈
 type MinStack struct {

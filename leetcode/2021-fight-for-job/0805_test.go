@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[字符串]
 // 第一题
 // leetcode168: Excel表列名称
 func convertToTitle(columnNumber int) string {
@@ -30,6 +31,7 @@ func Test_convert(t *testing.T) {
 	fmt.Println(convertToTitle(701))
 }
 
+// tag-[前缀和]
 // 第二题
 // leetcode122: 买卖股票的最佳时机II
 func maxProfitII(prices []int) int {

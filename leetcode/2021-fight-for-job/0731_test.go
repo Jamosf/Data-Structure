@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[二叉树]
 // 第一题
 // leetcode 剑指offer55-II: 平衡二叉树
 func isBalanced(root *TreeNode) bool {
@@ -27,6 +28,7 @@ func depth(root *TreeNode) int {
 	return 1 + max(depth(root.Left), depth(root.Right))
 }
 
+// tag-[二叉树]
 // 第二题
 // leetcode 剑指offer 68-II: 二叉树的最近公共祖先
 func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
@@ -51,6 +53,7 @@ func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 	}
 }
 
+// tag-[动态规划]
 // 第三题
 // leetcode 剑指offer63: 股票的最大利润
 // dp[i]表示以i结尾，最大利润
@@ -66,6 +69,7 @@ func maxProfit(prices []int) int {
 	return maxn
 }
 
+// tag-[数组]
 // 第四题
 // leetcode 剑指offer64: 求和
 func sumNums(n int) int {
@@ -85,6 +89,7 @@ type Node struct {
 	Random *Node
 }
 
+// tag-[链表]
 // 第五题
 // leetcode 剑指offer35: 复杂链表的复制
 // 1. 构建新链表
@@ -121,6 +126,7 @@ func copyRandomList(head *Node) *Node {
 	return tmp.Next
 }
 
+// tag-[二叉树]
 // 第六题
 // leetcode 剑指offer26: 树的子结构
 func isSubStructure(A *TreeNode, B *TreeNode) bool {
@@ -146,6 +152,7 @@ func isEqual1(a, b *TreeNode) bool {
 	return a.Val == b.Val && isEqual1(a.Left, b.Left) && isEqual1(a.Right, b.Right)
 }
 
+// tag-[背包]
 // 第七题
 // leetcode 剑指offer14-I: 剪绳子
 // 剪绳子类似于整数拆分：dp[i] = max(dp[j]*(i-j), j*(i, j))
@@ -163,6 +170,7 @@ func cuttingRope(n int) int {
 	return dp[n] % mod
 }
 
+// tag-[数学]
 // 第八题
 // leetcode 剑指offer 16: 数值的整数次方
 func myPow(x float64, n int) float64 {
@@ -183,6 +191,7 @@ func powF(x float64, n int) float64 {
 	return powF(x, n-1) * x
 }
 
+// tag-[栈]
 // 第九题
 // leetcode 剑指offer 31: 栈的压入、弹出序列
 func validateStackSequences(pushed []int, popped []int) bool {
@@ -197,6 +206,7 @@ func validateStackSequences(pushed []int, popped []int) bool {
 	return stack.Len() == 0
 }
 
+// tag-[双指针]
 // 第十题
 // leetcode 剑指offer 48：最长不包含重复字符的子串
 func lengthOfLongestSubstring11(s string) int {
@@ -220,6 +230,7 @@ func Test_lengthOfLongestSubstring11(t *testing.T) {
 	fmt.Println(lengthOfLongestSubstring11("dvdf"))
 }
 
+// tag-[双指针]
 // 第十一题
 // leetcode 剑指offer67：把字符串转换为整数
 func strToInt(str string) int {

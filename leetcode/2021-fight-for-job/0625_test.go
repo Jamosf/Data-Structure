@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[字符串]
 func magicalString(n int) int {
 	str := "122"
 	fast := 2

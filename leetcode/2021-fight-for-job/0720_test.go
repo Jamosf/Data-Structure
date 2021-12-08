@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[链表]
 // 第三题
 // leetcode876: 链表的中间结点
 func middleNode(head *ListNode) *ListNode {
@@ -25,6 +26,7 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 
+//
 // 第二题
 // leetcode19: 删除链表的倒数第N个结点
 func removeNthFromEnd(head *ListNode, n int) *ListNode {

@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[数组]
 // 第一题
 // leetcode27: 移除元素
 func removeElement(nums []int, val int) int {
@@ -23,6 +24,7 @@ func removeElement(nums []int, val int) int {
 	return len(nums)
 }
 
+// tag-[字符串]
 // 第二题
 // leetcode125：验证回文串
 func isPalindrome(s string) bool {
@@ -76,6 +78,7 @@ func Test_isPalindrome(t *testing.T) {
 	fmt.Println(isPalindrome_("A man, a plan, a canal: Panama"))
 }
 
+// tag-[字符串]
 // 第三题
 // leetcode66: 加一
 func plusOne(digits []int) []int {
@@ -95,6 +98,7 @@ func Test_plusOne(t *testing.T) {
 	fmt.Println(plusOne([]int{9}))
 }
 
+// tag-[字符串]
 // 第四题
 // leetcode58：最后一个单词长度
 func lengthOfLastWord(s string) int {
@@ -111,6 +115,7 @@ func lengthOfLastWord(s string) int {
 	return cnt
 }
 
+// tag-[数学]
 // 第五题
 // leetcode172：阶乘后的零
 func trailingZeroes(n int) int {

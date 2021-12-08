@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[二叉树]
 // 第一题
 // leetcode701: 二叉搜索树中的插入操作
 func insertIntoBST(root *TreeNode, val int) *TreeNode {
@@ -21,6 +22,7 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 	return root
 }
 
+// tag-[二叉树]
 // 第二题
 // leetcode98: 验证二叉搜索树
 func isValidBST(root *TreeNode) bool {
@@ -38,6 +40,7 @@ func isValidBST(root *TreeNode) bool {
 	return isValidBST(root.Right)
 }
 
+// tag-[二叉树]
 // leetcode98: 验证二叉搜索树
 // 方法2
 func isValidBST2(root *TreeNode) bool {
@@ -54,8 +57,8 @@ func helper(root *TreeNode, lower, upper int) bool {
 	return helper(root.Left, lower, root.Val) && helper(root.Right, root.Val, upper)
 }
 
+// tag-[二叉树]
 // 第三题
-//
 func findTarget(root *TreeNode, k int) bool {
 	m := make(map[int]struct{})
 	return dfs(root, m, k)
@@ -72,6 +75,7 @@ func dfs(root *TreeNode, m map[int]struct{}, k int) bool {
 	return dfs(root.Left, m, k) || dfs(root.Right, m, k)
 }
 
+// tag-[二叉树]
 // 第四题
 // leetcode235: 二叉搜索树的最近公共祖先
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
@@ -91,6 +95,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return root
 }
 
+// tag-[位运算]
 // 第五题
 // leetcode190: 颠倒二进制位
 func reverseBits(num uint32) uint32 {
@@ -118,6 +123,7 @@ func Test_reverseBits(t *testing.T) {
 	fmt.Println(reverseBits(0b00000010100101000001111010011100))
 }
 
+// tag-[位运算]
 // 第六题
 // leetcode136: 只出现一次的数字
 func singleNumber(nums []int) int {

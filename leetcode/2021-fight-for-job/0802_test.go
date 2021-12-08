@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[位运算]
 // 第二题
 // leetcode 剑指offer56-I：数组中数字出现的次数
 // 数组中两个出现一次的数，分开异或
@@ -32,6 +33,7 @@ func Test_singleNumbers(t *testing.T) {
 	fmt.Println(singleNumbers([]int{4, 1, 4, 6}))
 }
 
+// tag-[位运算]
 // 第三题
 // leetcode剑指offer56-II: 数组中数字出现的次数II
 func singleNumberII(nums []int) int {
@@ -52,6 +54,7 @@ func singleNumberII(nums []int) int {
 	return ans
 }
 
+// tag-[数组]
 // 第四题
 // leetcode剑指offer 66： 构建乘积数组
 func constructArr(a []int) []int {

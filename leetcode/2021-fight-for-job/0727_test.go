@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[二叉树]
 // 第一题
 // leetcode144: 二叉树的前序遍历
 func preorderTraversal(root *TreeNode) []int {
@@ -22,6 +23,7 @@ func preorderTraversal(root *TreeNode) []int {
 	return ret
 }
 
+// tag-[二叉树]
 // 第二题
 // leetcode94: 二叉树的中序遍历
 func inorderTraversal(root *TreeNode) []int {
@@ -36,6 +38,7 @@ func inorderTraversal(root *TreeNode) []int {
 	return ret
 }
 
+// tag-[二叉树]
 // 第三题
 // leetcode145: 二叉树的后序遍历
 func postorderTraversal(root *TreeNode) []int {
@@ -50,6 +53,7 @@ func postorderTraversal(root *TreeNode) []int {
 	return ret
 }
 
+// tag-[二叉树]
 // 第五题
 // leetcode104: 二叉树的最大深度
 func maxDepth(root *TreeNode) int {
@@ -59,6 +63,7 @@ func maxDepth(root *TreeNode) int {
 	return 1 + max(maxDepth(root.Left), maxDepth(root.Right))
 }
 
+// tag-[二叉树]
 // 第六题
 // leetcode101: 对称二叉树
 func isSymmetric(root *TreeNode) bool {
@@ -78,6 +83,7 @@ func check(left, right *TreeNode) bool {
 	return left.Val == right.Val && check(left.Right, right.Left) && check(left.Left, right.Right)
 }
 
+// tag-[二叉树]
 // 第七题
 // leetcode226: 翻转二叉树
 func invertTree(root *TreeNode) *TreeNode {
@@ -88,6 +94,7 @@ func invertTree(root *TreeNode) *TreeNode {
 	return root
 }
 
+// tag-[二叉树]
 // 第八题
 // leetcode112: 路径总和
 func hasPathSum(root *TreeNode, targetSum int) bool {
@@ -101,6 +108,7 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	return hasPathSum(root.Left, targetSum) || hasPathSum(root.Right, targetSum)
 }
 
+// tag-[二叉树]
 // 第九题
 // leetcode102: 二叉树的层序遍历
 func levelOrder1(root *TreeNode) [][]int {
@@ -130,6 +138,7 @@ func levelOrder1(root *TreeNode) [][]int {
 	return ret
 }
 
+// tag-[链表]
 // 第四题
 // leetcode203: 移除链表元素
 func removeElements(head *ListNode, val int) *ListNode {
@@ -145,6 +154,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 	return p.Next
 }
 
+// tag-[链表]
 // 第四题
 // leetcode21: 合并两个有序链表
 // 迭代
@@ -175,6 +185,7 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	return tmp.Next
 }
 
+// tag-[链表]
 // 第十题
 // leetcode21: 合并两个有序链表
 // 递归
@@ -194,6 +205,7 @@ func mergeTwoLists_(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 }
 
+// tag-[动态规划]
 // 第十一题
 // leetcode70: 爬楼梯
 func climbStairs(n int) int {
@@ -206,6 +218,7 @@ func climbStairs(n int) int {
 	return dp[n-1]
 }
 
+// tag-[位运算]
 // 第三题
 // leetcode 剑指offer 65: 不用加减乘除做加法
 func add(a int, b int) int {
@@ -217,6 +230,7 @@ func add(a int, b int) int {
 	return a
 }
 
+// tag-[数组]
 // 第四题
 // leetcode 剑指offer 61: 扑克牌中的顺子
 func isStraight(nums []int) bool {

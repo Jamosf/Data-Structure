@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[数组]
 // 第一题
 // leetcode1846: 减少和重新排列数组后的最大元素
 func maximumElementAfterDecrementingAndRearranging(arr []int) int {
@@ -23,6 +24,7 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	return arr[len(arr)-1]
 }
 
+// tag-[二分查找]
 // 第二题
 // leetcode1818: 绝对差值和
 func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
@@ -48,6 +50,7 @@ func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
 	return (sum - maxn) % mod
 }
 
+// tag-[二分查找]
 // 第三题
 // leetcode275: H指数II
 func hIndex(citations []int) int {
@@ -64,6 +67,7 @@ func hIndex(citations []int) int {
 	return len(citations) - left
 }
 
+// tag-[动态规划]
 // 第四题
 // leetcode981: 基于时间的键值存储
 type TimeMap struct {
@@ -108,6 +112,7 @@ func (t *TimeMap) Get(key string, timestamp int) string {
 	return ""
 }
 
+// tag-[数学]
 // 第五题
 // leetcode 面试题17.10: 主要元素
 func majorityElement(nums []int) int {
@@ -135,6 +140,7 @@ func majorityElement(nums []int) int {
 	return -1
 }
 
+// tag-[前缀和]
 // 第六题
 // leetcode
 func numSubarraysWithSum(nums []int, goal int) int {

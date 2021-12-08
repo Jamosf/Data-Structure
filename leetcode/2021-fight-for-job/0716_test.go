@@ -5,6 +5,7 @@ import (
 	"sort"
 )
 
+// tag-[二分查找]
 // 第一题
 // leetcode 剑指offer53-I: 在排序数组中查找数字I
 func search(nums []int, target int) int {
@@ -20,6 +21,7 @@ func search(nums []int, target int) int {
 	return ans
 }
 
+// tag-[二分查找]
 // 第二题
 // leetcode704: 二分查找
 func searchBinary(nums []int, target int) int {
@@ -37,6 +39,7 @@ func searchBinary(nums []int, target int) int {
 	return -1
 }
 
+// tag-[二分查找]
 // 第四题
 // leetcode35: 搜索插入位置
 func searchInsert(nums []int, target int) int {
@@ -54,6 +57,7 @@ func searchInsert(nums []int, target int) int {
 	return left
 }
 
+// tag-[排序]
 // 第五题
 // leetcode217: 存在重复元素
 func containsDuplicate(nums []int) bool {

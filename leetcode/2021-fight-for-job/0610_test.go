@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[双指针]
 // 第一题
 // leetcode80: 删除有序数组中的重复项II
 func removeDuplicates(nums []int) int {
@@ -38,6 +39,7 @@ func Test_remove(t *testing.T) {
 	fmt.Println(removeDuplicates([]int{1, 1, 1}))
 }
 
+// tag-[数组]
 // 第三题
 // leetcode18: 四数之和
 func fourSum(nums []int, target int) [][]int {
@@ -95,6 +97,7 @@ func Test_four(t *testing.T) {
 	fmt.Println(fourSum([]int{1, 0, -1, 0, -2, 2}, 0))
 }
 
+// tag-[双指针]
 // 第四题
 // leetcode16: 最接近的三数之和
 func threeSumClosest(nums []int, target int) int {
@@ -137,6 +140,7 @@ func Test_close(t *testing.T) {
 	fmt.Println(threeSumClosest([]int{-1, 2, 1, -4}, 1))
 }
 
+// tag-[双指针]
 // 第五题
 // leetcode15: 三数之和
 func threeSum(nums []int) [][]int {

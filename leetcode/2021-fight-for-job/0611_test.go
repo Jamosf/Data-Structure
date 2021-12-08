@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[双指针]
 // leetcode713: 乘积小于k的子数组
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	if k < 1 {
