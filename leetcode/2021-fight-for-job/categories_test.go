@@ -249,7 +249,11 @@ func Test_categories(t *testing.T) {
 			if err != nil {
 				t.Errorf("create file by tag failed, err: %v\n", err)
 			}
-			b := make([]byte, tag.posEnd-tag.posStart)
+			size := tag.posEnd - tag.posStart
+			if size < 0 {
+				continue
+			}
+			b := make([]byte, size)
 			_, err = fi.ReadAt(b, int64(tag.posStart)-1)
 			if err != nil && err != io.EOF {
 				t.Errorf("read b from [%s] failed, err:%v", fi.Name(), err)
