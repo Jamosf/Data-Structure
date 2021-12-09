@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[字符串]
 // leetcode2027：转换字符串的最少操作次数
 // 字符串、贪心
 func minimumMoves(s string) int {
@@ -23,6 +24,7 @@ func minimumMoves(s string) int {
 	return cnt
 }
 
+// tag-[数组]
 // leetcode2028: 找出缺失的观测数据
 // dfs求解超时
 func missingRolls(rolls []int, mean int, n int) []int {
@@ -94,6 +96,7 @@ func Test_missingRolls(t *testing.T) {
 	fmt.Println(missingRolls_([]int{6, 3, 4, 3, 5, 3}, 1, 6))
 }
 
+// tag-[数学]
 // 第三题
 // leetcode2029: 石子游戏IX
 // 数学
@@ -118,6 +121,7 @@ func checkW(c [3]int) bool {
 	return turn%2 == 1 && c[1] != c[2] // 回合为奇数，且还有石子剩余，轮到bob出，则alice胜出
 }
 
+// tag-[字符串]
 // 第四题
 // leetcode43: 字符串相乘
 // 数学，字符串

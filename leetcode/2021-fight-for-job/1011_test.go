@@ -10,6 +10,7 @@ import (
 	"testing"
 )
 
+// tag-[动态规划]
 // 第一题
 // O(n^2)解法
 func jump(nums []int) int {
@@ -48,6 +49,7 @@ func jump1(nums []int) int {
 	return steps
 }
 
+// tag-[数组]
 func canCompleteCircuit(gas []int, cost []int) int {
 	n := len(gas)
 	sum := 0
@@ -63,6 +65,7 @@ func canCompleteCircuit(gas []int, cost []int) int {
 	return idx
 }
 
+// tag-[排序]
 func largestNumber(nums []int) string {
 	sort.Slice(nums, func(i, j int) bool {
 		s, t := strconv.Itoa(nums[i]), strconv.Itoa(nums[j])

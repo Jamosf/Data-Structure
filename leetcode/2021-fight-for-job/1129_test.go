@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[深度优先搜索]
 // leetcode375: 猜数字大小II
 // 记忆化搜索
 func getMoneyAmount(n int) int {
@@ -31,6 +32,7 @@ func getMoneyAmount(n int) int {
 	return dfs(1, n)
 }
 
+// tag-[动态规划]
 // leetcode375: 猜数字大小II
 // 区间dp状态转移方程: f(i, j) = min{k + max(f(i, k-1), f(k+1, j))}  1<=k<=j
 func getMoneyAmount_(n int) int {
@@ -49,6 +51,7 @@ func getMoneyAmount_(n int) int {
 	return dp[1][n]
 }
 
+// tag-[排序]
 // leetcode384: 打乱数组
 type Solution384 struct {
 	original []int
@@ -95,6 +98,7 @@ func Test_Solution384(t *testing.T) {
 	fmt.Println(p.Shuffle_())
 }
 
+// tag-[数学]
 // 蓄水池采样算法，保证留下来的概率都是K/N
 func ReservoirSampling(nums []int, k int) []int {
 	out := make([]int, k)

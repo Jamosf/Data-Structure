@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// tag-[动态规划]
 // leetcode1986: 完成任务的最少工作时间段
 // dp[i]的含义是：i表示的二进制对应的索引全部选中的情况下，最小的组合数
 func minSessions(tasks []int, sessionTime int) int {
@@ -48,6 +49,7 @@ func minSessions(tasks []int, sessionTime int) int {
 	return dp[m-1]
 }
 
+// tag-[回溯]
 // leetcode1986: 完成任务的最少工作时间段
 // dfs解这个题
 func minSessions_(tasks []int, sessionTime int) int {
@@ -88,6 +90,7 @@ func Test_minSessions2(t *testing.T) {
 	fmt.Println(minSessions_([]int{1, 1, 1, 3, 3, 1}, 8))
 }
 
+// tag-[动态规划]
 // leetcode1987: 不同的好子序列数目
 func numberOfUniqueGoodSubsequences(binary string) int {
 	n := len(binary)
@@ -104,6 +107,7 @@ func numberOfUniqueGoodSubsequences(binary string) int {
 	return (dp1 + has0) % mod
 }
 
+// tag-[字符串]
 // leetcode165: 比较版本号
 // 分割字符串
 func compareVersion(version1 string, version2 string) int {
@@ -272,6 +276,7 @@ func Test_compareVersion(t *testing.T) {
 	fmt.Println(compareVersion__("1.2", "1.10"))
 }
 
+// tag-[字符串]
 // leetcode214: 最短回文串
 // 输入：s = "aacecaaa"
 // 输出："aaacecaaa"

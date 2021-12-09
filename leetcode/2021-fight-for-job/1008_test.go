@@ -5,6 +5,7 @@ import (
 	"math/rand"
 )
 
+// tag-[堆]
 func kthLargestValue(matrix [][]int, k int) int {
 	m, n := len(matrix), len(matrix[0])
 	sum := make([][]int, m)
@@ -37,6 +38,7 @@ func kthLargestValue(matrix [][]int, k int) int {
 	return heap.Pop(mh).(int)
 }
 
+// tag-[排序]
 // 快速选择算法
 func quickSelect(a []int, k int) int {
 	rand.Shuffle(len(a), func(i, j int) { a[i], a[j] = a[j], a[i] })

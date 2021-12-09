@@ -1,6 +1,7 @@
 // Copyright (c) Huawei Technologies Co., Ltd. 2012-2019. All rights reserved.
 package ojeveryday
 
+// tag-[广度优先搜索]
 // leetcode529: 扫雷游戏
 func updateBoard(board [][]byte, click []int) [][]byte {
 	if board[click[0]][click[1]] == 'M' {

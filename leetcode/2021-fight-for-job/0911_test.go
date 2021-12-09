@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[哈希表]
 func minimumSwitchingTimes(source [][]int, target [][]int) int {
 	m, n := len(source), len(source[0])
 	mk := map[int]int{}
@@ -31,6 +32,7 @@ func Test_minimumSwitchingTimes(t *testing.T) {
 	fmt.Println(maxmiumScore([]int{1, 2, 8, 9}, 3))
 }
 
+// tag-[回溯]
 func maxmiumScore1(cards []int, cnt int) int {
 	n := len(cards)
 	maxn := 0

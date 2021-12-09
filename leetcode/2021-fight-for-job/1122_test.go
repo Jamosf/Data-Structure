@@ -1,5 +1,6 @@
 package ojeveryday
 
+// tag-[排序]
 func quickSort(nums []int, l, r int) {
 	if l >= r {
 		return
@@ -28,6 +29,7 @@ func sortArray(nums []int) []int {
 	return nums
 }
 
+// tag-[前缀和]
 // leetcode1314: 矩阵区域和
 // 二维前缀和
 // sum[i][j] = sum[i-1][j] + sum[i][j-1] - sum[i-1][j-1] + mat[i-1][j-1]

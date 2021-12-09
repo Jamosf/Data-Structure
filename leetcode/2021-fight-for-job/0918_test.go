@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[矩阵]
 // leetcode LCP42: 玩具套圈
 func circleGame(toys [][]int, circles [][]int, r int) int {
 	var check func(toy []int, circle []int, r int) bool
@@ -31,6 +32,7 @@ func circleGame(toys [][]int, circles [][]int, r int) int {
 	return ans
 }
 
+// tag-[二分查找]
 // leetcode LCP42: 玩具套圈
 // 两次二分找距离玩具最近的点
 // 利用二分找到离玩具圆心最近的圈的中心，如果离的最近的圈都套不上，那么离的远的肯定更加套不上。

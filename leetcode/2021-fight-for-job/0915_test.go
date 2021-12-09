@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[堆]
 // leetcode lcp30: 魔塔游戏
 func magicTower(nums []int) int {
 	sum := 1
@@ -36,6 +37,7 @@ func magicTower(nums []int) int {
 	return cnt
 }
 
+// tag-[深度优先搜索]
 // leetcode lcp39: 无人机方阵
 func escapeMaze(g [][]string) bool {
 	k, m, n := len(g), len(g[0]), len(g[0][0])
@@ -89,6 +91,7 @@ func escapeMaze(g [][]string) bool {
 	return dfs(0, 0, 0, 0)
 }
 
+// tag-[数组]
 // leetcode lcp33: 蓄水
 func storeWater(bucket []int, vat []int) int {
 	maxn := vat[0]
@@ -125,6 +128,7 @@ func Test_storeWater(t *testing.T) {
 	fmt.Println(storeWater([]int{1, 3}, []int{6, 8}))
 }
 
+// tag-[数组]
 // leetcode lcp40: 心算挑战
 func maxmiumScore(a []int, cnt int) int {
 	n := len(a)

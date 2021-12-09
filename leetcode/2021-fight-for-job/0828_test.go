@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[回溯]
 // leetcode46: 全排列
 func permute(nums []int) [][]int {
 	n := len(nums)
@@ -39,6 +40,7 @@ func Test_permute(t *testing.T) {
 	fmt.Println(permute([]int{1, 2, 3}))
 }
 
+// tag-[回溯]
 // leetcode77: 组合
 func combine(n int, k int) [][]int {
 	var ans [][]int

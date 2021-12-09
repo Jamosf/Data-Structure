@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[二分查找]
 // 二分查找
 // 第一题
 // leetcode153: 寻找旋转排序数组中的最小值
@@ -26,6 +27,7 @@ func Test_findMin(t *testing.T) {
 	fmt.Println(findMin([]int{1, 2, 0}))
 }
 
+// tag-[二分查找]
 // 第二题
 // leetcode33: 搜索旋转排序数组
 func search33(nums []int, target int) int {
@@ -61,6 +63,7 @@ func search33(nums []int, target int) int {
 	return -1
 }
 
+// tag-[二分查找]
 // 第三题
 // leetcode81: 搜索旋转排序数组II
 func search81(nums []int, target int) bool {

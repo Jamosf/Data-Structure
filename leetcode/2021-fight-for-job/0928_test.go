@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[双指针]
 // leetcode75: 颜色分类
 // 双指针
 func sortColors(nums []int) {
@@ -27,6 +28,7 @@ func Test_sortColors(t *testing.T) {
 	sortColors([]int{1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0})
 }
 
+// tag-[动态规划]
 // leetcode152: 乘积最大的子数组
 // 动态规划
 func maxProduct152(nums []int) int {
@@ -52,6 +54,7 @@ func Test_maxProduct1(t *testing.T) {
 	fmt.Println(maxProduct152([]int{-3, 2, -4}))
 }
 
+// tag-[动态规划]
 // leetcode 面试题17.16: 按摩师
 // 动态规划
 func massage(nums []int) int {
@@ -70,6 +73,7 @@ func massage(nums []int) int {
 	return max(dp[n-1], dp[n-2])
 }
 
+// tag-[动态规划]
 // leetcode337: 打家劫舍
 // 树形dp
 func rob1(root *TreeNode) int {
@@ -90,6 +94,7 @@ func rob1(root *TreeNode) int {
 	return max(ans[0], ans[1])
 }
 
+// tag-[动态规划]
 // leetcode62: 不同路径
 // 动态规划
 func uniquePaths(m int, n int) int {
@@ -114,6 +119,7 @@ func uniquePaths(m int, n int) int {
 	return dp[m-1][n-1]
 }
 
+// tag-[链表]
 // leetcode148: 排序链表
 func sortList(head *ListNode) *ListNode {
 	p := head
@@ -164,6 +170,7 @@ func sortList_(head *ListNode) *ListNode {
 	return p.Next
 }
 
+// tag-[动态规划]
 // leetcode96: 不同的二叉搜索树
 // 每个数字作为根节点，左右子树的各种组合乘积
 func numTrees(n int) int {

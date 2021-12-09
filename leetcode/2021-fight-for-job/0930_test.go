@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[前缀和]
 // leetcode287: 寻找重复数
 // 利用数字出现次数的的前缀和
 func findDuplicate(nums []int) int {
@@ -30,6 +31,7 @@ func findDuplicate(nums []int) int {
 	return ans
 }
 
+// tag-[数组]
 // leetcode287: 寻找重复数
 // 利用快慢指针，找环的入口
 // 由于题目的数据范围在1~n之间，可以把这些元素组织成链表
@@ -47,6 +49,7 @@ func findDuplicate_(nums []int) int {
 	return p1
 }
 
+// tag-[位运算]
 // leetcode287: 寻找重复数
 // 二进制解法
 // 解题思路：如果重复的数字在第i位为1，那么第i位上1的个数大于1~n所有数字第i位上1的个数。

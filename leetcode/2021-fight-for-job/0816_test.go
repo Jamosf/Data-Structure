@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[前缀和]
 // 前缀和
 // 第一题
 // leetcode525: 连续数组
@@ -33,6 +34,7 @@ func Test_findMaxLength(t *testing.T) {
 	fmt.Println(findMaxLength([]int{0, 1, 0, 1}))
 }
 
+// tag-[前缀和]
 // 第二题
 // leetcode560: 和为K的子数组
 func subarraySum(nums []int, k int) int {
@@ -56,6 +58,7 @@ func Test_subarraySum(t *testing.T) {
 	fmt.Println(subarraySum([]int{-1, -1, 1}, 0))
 }
 
+// tag-[差分]
 // 第三题
 // leetcode1109: 航班预定统计
 func corpFlightBookings(bookings [][]int, n int) []int {

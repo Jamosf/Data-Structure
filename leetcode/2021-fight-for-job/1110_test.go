@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[排序]
 // leetcode274: 排序
 func hIndex274(citations []int) int {
 	n := len(citations)
@@ -25,6 +26,7 @@ func Test_hIndex274(t *testing.T) {
 	fmt.Println(hIndex274([]int{1, 1, 1}))
 }
 
+// tag-[排序]
 // leetcode324: 排序 朴素解法
 func wiggleSort(nums []int) {
 	n := len(nums)
@@ -71,6 +73,7 @@ func wiggleSort_(nums []int) {
 	copy(nums, s)
 }
 
+// tag-[排序]
 // leetcode324: 桶排序
 func wiggleSort__(nums []int) {
 	n := len(nums)

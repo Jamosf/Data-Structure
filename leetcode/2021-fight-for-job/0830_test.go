@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[回溯]
 // 第一题
 // leetcode51: N皇后
 func solveNQueens(n int) [][]string {
@@ -55,6 +56,7 @@ func Test_solveNQueens(t *testing.T) {
 	fmt.Println(solveNQueens(4))
 }
 
+// tag-[回溯]
 // leetcode934: 最短的桥
 // 求最小翻转的个数，就是求两个岛之间的最短距离
 func shortestBridge(grid [][]int) int {
@@ -125,6 +127,7 @@ type graph struct {
 	n, e   int
 }
 
+// tag-[图]
 // leetcode127: 单词接龙
 func findLadders(beginWord string, endWord string, wordList []string) [][]string {
 	isExist, idx := isWordExist(beginWord, wordList)

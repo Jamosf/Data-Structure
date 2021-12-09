@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[双指针]
 // 第一题
 // leetcode209: 长度最小的子数组
 // 双指针
@@ -33,6 +34,7 @@ func minSubArrayLen(target int, nums []int) int {
 	return minn
 }
 
+// tag-[二分查找]
 // leetcode209: 长度最小的子数组
 // 二分搜索
 func minSubArrayLen_(target int, nums []int) int {
@@ -74,6 +76,7 @@ func Test_sortSearch(t *testing.T) {
 	fmt.Println(sort.SearchInts([]int{1, 2, 3}, 5))
 }
 
+// tag-[数组]
 // 第二题
 // leetcode238: 除自身以外数组的乘积
 func productExceptSelf(nums []int) []int {
@@ -90,6 +93,7 @@ func productExceptSelf(nums []int) []int {
 	return ans
 }
 
+// tag-[前缀和]
 // 第三题
 // leetcode304: 二维区域和检索-矩阵不可变
 type NumMatrix struct {
@@ -121,6 +125,7 @@ func (n *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 	return sum
 }
 
+// tag-[前缀和]
 // 第四题
 // leetcode523: 连续的子数组和
 // 方法1 前缀和+hashmap

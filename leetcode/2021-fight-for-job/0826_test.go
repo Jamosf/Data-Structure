@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[双指针]
 // 第一题
 // leetcode45: 分发饼干
 func findContentChildren(g []int, s []int) int {
@@ -24,6 +25,7 @@ func findContentChildren(g []int, s []int) int {
 	return i
 }
 
+// tag-[数组]
 // 第二题
 // leetcode135：分发糖果
 func candy(ratings []int) int {
@@ -50,6 +52,7 @@ func Test_candy(t *testing.T) {
 	fmt.Println(candy([]int{1, 0, 2}))
 }
 
+// tag-[数组]
 // 第三题
 // leetcode435: 无重叠区间
 func eraseOverlapIntervals(intervals [][]int) int {
@@ -71,6 +74,7 @@ func Test_eraseOverlapIntervals(t *testing.T) {
 	fmt.Println(eraseOverlapIntervals([][]int{{1, 2}, {1, 2}, {1, 2}}))
 }
 
+// tag-[数组]
 // 第四题
 // leetcode605：种花问题
 func canPlaceFlowers(flowerbed []int, n int) bool {
@@ -98,6 +102,7 @@ func Test_canPlaceFlowers(t *testing.T) {
 	fmt.Println(canPlaceFlowers([]int{0}, 1))
 }
 
+// tag-[数组]
 // 第五题
 // leetcode763: 划分字母区间
 func partitionLabels(s string) []int {
@@ -138,6 +143,7 @@ func Test_partitionLabels(t *testing.T) {
 	fmt.Println(partitionLabels("aaaaaaaaaaa"))
 }
 
+// tag-[双指针]
 // 第六题
 // leetcode76: 最小覆盖子串
 func minWindow(s string, t string) string {
@@ -174,6 +180,7 @@ func Test_minWindow(t *testing.T) {
 	fmt.Println(minWindow("a", "aa"))
 }
 
+// tag-[二分查找]
 // 第七题
 // leetcode633：平方数之和
 func judgeSquareSum(c int) bool {
@@ -218,6 +225,7 @@ func Test_judgeSquareSum(t *testing.T) {
 	fmt.Println(judgeSquareSum(5))
 }
 
+// tag-[双指针]
 // 第八题
 // leetcode680: 验证回文字符串II
 func validPalindrome(s string) bool {

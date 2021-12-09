@@ -90,6 +90,7 @@ func (m *myHeap) Pop() (v interface{}) {
 	return
 }
 
+// tag-[链表]
 // 第一题：合并链表
 // leetcode23: 合并k个升序链表
 func mergeKLists(lists []*ListNode) *ListNode {
@@ -114,6 +115,7 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	return dummy.Next
 }
 
+// tag-[排序/堆]
 // 第二题
 // TODO
 // leetcode218: 天际线问题
@@ -206,6 +208,7 @@ func Test_getSkyline(t *testing.T) {
 	fmt.Println(getSkyline1([][]int{{2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}}))
 }
 
+// tag-[堆]
 // 第二题
 // leetcode506: 相对名次
 // 金牌、银牌、铜牌

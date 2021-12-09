@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[单调栈]
 // leetcode316和1081
 func removeDuplicateLetters(s string) string {
 	var count [26]int
@@ -37,6 +38,7 @@ func Test_removeDuplicateLetters(t *testing.T) {
 	fmt.Println(removeDuplicateLetters("abcfdbcgthsiidbbcxxwwsxxxxkkkl"))
 }
 
+// tag-[单调栈]
 // leetcode321
 func maxNumber(nums1 []int, nums2 []int, k int) []int {
 	pickNum := func(nums []int, k int) []int {
@@ -120,6 +122,7 @@ func Test_maxNumber(t *testing.T) {
 	fmt.Println(maxNumber([]int{5, 6, 8}, []int{6, 4, 0}, 3))
 }
 
+// tag-[数组]
 // leetcode334
 func increasingTriplet(nums []int) bool {
 	small, mid := math.MaxInt32, math.MaxInt32

@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// tag-[字符串]
 // leetcode1945: 字符串转化后的各位数字之和
 func getLucky(s string, k int) int {
 	ans := make([]byte, 0)
@@ -43,6 +44,7 @@ func Test_getLucky(t *testing.T) {
 	fmt.Println(getLucky("dbvmfhnttvr", 5))
 }
 
+// tag-[字符串]
 // leetcode1946: 子字符串突变后可能得到的最大整数
 func maximumNumber(num string, change []int) string {
 	b := []byte(num)
@@ -65,6 +67,7 @@ func Test_maximumNumber(t *testing.T) {
 	fmt.Println(maximumNumber("334111", []int{0, 9, 2, 3, 3, 2, 5, 5, 5, 5}))
 }
 
+// tag-[回溯]
 // leetcode1947: 最大兼容性评分和
 func maxCompatibilitySum(students [][]int, mentors [][]int) int {
 	m := len(students)
@@ -106,6 +109,7 @@ func Test_maxCompatibilitySum(t *testing.T) {
 	fmt.Println(maxCompatibilitySum([][]int{{0, 1, 0, 1, 1, 1}, {1, 0, 0, 1, 0, 1}, {1, 0, 1, 1, 0, 0}}, [][]int{{1, 0, 0, 0, 0, 1}, {0, 1, 0, 0, 1, 1}, {0, 1, 0, 0, 1, 1}}))
 }
 
+// tag-[字典树]
 type folder struct {
 	son map[string]*folder
 	val string // 文件夹名称
@@ -179,6 +183,7 @@ func Test_deleteDuplicateFolder(t *testing.T) {
 	fmt.Println(deleteDuplicateFolder([][]string{{"a"}, {"a", "x"}, {"a", "x", "y"}, {"a", "z"}, {"b"}, {"b", "x"}, {"b", "x", "y"}, {"b", "z"}, {"b", "w"}}))
 }
 
+// tag-[矩阵]
 // leetcode1895: 最大的幻方
 func largestMagicSquare(grid [][]int) int {
 	print_matrix(grid)

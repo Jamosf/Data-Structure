@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[并查集]
 // leetcode924: 尽量减少恶意软件的传播
 // 并查集
 func minMalwareSpread(graph [][]int, initial []int) int {
@@ -40,6 +41,7 @@ func minMalwareSpread(graph [][]int, initial []int) int {
 	return ans
 }
 
+// tag-[深度优先搜索]
 // leetcode924: 尽量减少恶意软件的传播
 // dfs解法
 func minMalwareSpread_(graph [][]int, initial []int) int {
@@ -92,6 +94,7 @@ func Test_minMalwareSpread(t *testing.T) {
 	fmt.Println(minMalwareSpread_([][]int{{1, 0, 0, 0, 0, 0}, {0, 1, 1, 0, 0, 0}, {0, 1, 1, 0, 0, 0}, {0, 0, 0, 1, 1, 1}, {0, 0, 0, 1, 1, 1}, {0, 0, 0, 1, 1, 1}}, []int{2, 3}))
 }
 
+// tag-[双指针]
 // leetcode1208: 尽可能使字符串相等
 // 滑动窗口
 func equalSubstring(s string, t string, maxCost int) int {
@@ -145,6 +148,7 @@ func Test_equalSubstring(t *testing.T) {
 	fmt.Println(equalSubstring_("abcdefgdssdfdj", "acadfkaeifadff", 20))
 }
 
+// tag-[差分]
 // leetcode1094: 拼车
 // 差分
 func carPooling(trips [][]int, capacity int) bool {

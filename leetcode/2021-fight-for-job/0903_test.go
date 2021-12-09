@@ -26,6 +26,7 @@ func minAbs(a, b int) int {
 	return a
 }
 
+// tag-[字符串]
 // leetcode1974: 使用特殊打字机键入单词的最少次数
 func minTimeToType(word string) int {
 	n := len(word)
@@ -43,6 +44,7 @@ func Test_minTimeToType(t *testing.T) {
 	fmt.Println(minTimeToType("bza"))
 }
 
+// tag-[数组]
 // leetcode1975: 最大方阵和
 func maxMatrixSum(matrix [][]int) int64 {
 	m, n := len(matrix), len(matrix[0])
@@ -72,6 +74,7 @@ func Test_maxMatrixSum(t *testing.T) {
 	fmt.Println(maxMatrixSum([][]int{{-1, 0, -1}, {-2, 1, 3}, {3, 2, 2}}))
 }
 
+// tag-[图]
 // leetcode1976: 达到目的地的方案数
 func countPaths(n int, roads [][]int) int {
 	edge := make([][]int, n)

@@ -6,6 +6,7 @@ import (
 	"github.com/emirpasic/gods/trees/redblacktree"
 )
 
+// tag-[矩阵]
 func minOperations(grid [][]int, x int) int {
 	m, n := len(grid), len(grid[0])
 	nums := make([]int, m*n)
@@ -26,6 +27,7 @@ func minOperations(grid [][]int, x int) int {
 	return ans
 }
 
+// tag-[红黑树]
 type StockPrice struct {
 	*redblacktree.Tree // 价格和次数
 	prices             map[int]int

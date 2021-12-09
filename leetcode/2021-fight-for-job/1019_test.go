@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// tag-[字典树]
 // leetcode211:字典树
 type trieRegex struct {
 	tr *trie
@@ -83,6 +84,7 @@ func Test_WordDictionary(t *testing.T) {
 	fmt.Println(wordDictionary.Search("........c")) // return True
 }
 
+// tag-[回溯]
 // leetcode40:回溯
 func combinationSum2(candidates []int, target int) [][]int {
 	n := len(candidates)
@@ -120,6 +122,7 @@ func Test_combinationSum2(t *testing.T) {
 	fmt.Println(combinationSum2([]int{2, 5, 2, 1, 2}, 5))
 }
 
+// tag-[回溯]
 // leetcode47: 不重复全排列
 func permuteUnique(nums []int) [][]int {
 	n := len(nums)
@@ -157,6 +160,7 @@ func Test_permuteUnique(t *testing.T) {
 	fmt.Println(permuteUnique([]int{0, 1, 0, 0, 9}))
 }
 
+// tag-[回溯]
 // leetcode78
 func subsets78(nums []int) [][]int {
 	sort.Ints(nums)
@@ -181,6 +185,7 @@ func subsets78(nums []int) [][]int {
 	return ans
 }
 
+// tag-[回溯]
 // leetcode90
 func subsetsWithDup(nums []int) [][]int {
 	sort.Ints(nums)
@@ -219,6 +224,7 @@ func Test_subsetsWithDup(t *testing.T) {
 	fmt.Println(subsetsWithDup([]int{0, 1, 0, 0, 9}))
 }
 
+// tag-[位运算]
 // leetcode137:只出现一次的数字
 func singleNumber137(nums []int) int {
 	ans := int32(0)
@@ -241,6 +247,7 @@ func Test_singleNumber137(t *testing.T) {
 	// fmt.Println(singleNumber137([]int{-2, -2, 1, 1, 4, 1, 4, 4, -4, -2}))
 }
 
+// tag-[位运算]
 // leetcode260
 func singleNumber260(nums []int) []int {
 	m, n := 0, 1
@@ -263,6 +270,7 @@ func Test_singleNumber260(t *testing.T) {
 	fmt.Println(singleNumber260([]int{1, 2, 1, 3, 2, 5}))
 }
 
+// tag-[二分查找]
 // leetcode162:
 func findPeakElement(nums []int) int {
 	// 满足二段性所以可以用二分查找
@@ -282,6 +290,7 @@ func Test_findPeakElement(t *testing.T) {
 	fmt.Println(findPeakElement([]int{1, 2, 1, 3, 5, 6, 4}))
 }
 
+// tag-[回溯]
 // leetcode216
 func combinationSum3(k int, n int) [][]int {
 	tmp := make([]int, 0)
@@ -340,6 +349,7 @@ func combinationSum3_(k int, n int) (ans [][]int) {
 	return
 }
 
+// tag-[哈希表]
 // leetcode380
 type RandomizedSet struct {
 	m map[int]int

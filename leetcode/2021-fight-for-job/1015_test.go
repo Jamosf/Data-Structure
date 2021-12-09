@@ -6,6 +6,7 @@ import (
 	"sort"
 )
 
+// tag-[数学]
 // leetcode29
 // 快速乘
 // x 和 y 是负数，z 是正数
@@ -30,6 +31,7 @@ func quickAdd(y, z, x int) bool {
 	return true
 }
 
+// tag-[数学]
 func divide(dividend, divisor int) int {
 	if dividend == math.MinInt32 { // 考虑被除数为最小值的情况
 		if divisor == 1 {
@@ -86,6 +88,7 @@ func bulbSwitch(n int) int {
 	return int(math.Sqrt(float64(n)))
 }
 
+// tag-[数组]
 // leetcode1033
 func numMovesStones(a int, b int, c int) []int {
 	v := []int{a, b, c}

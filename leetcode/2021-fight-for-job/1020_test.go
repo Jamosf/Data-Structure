@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// tag-[数组]
 // leetcode453
 func minMoves(nums []int) int {
 	n := len(nums)
@@ -26,6 +27,7 @@ func Test_minMoves(t *testing.T) {
 	fmt.Println(minMoves([]int{1, 2, 3, 4}))
 }
 
+// tag-[图]
 type graphNode struct {
 	Val       int
 	Neighbors []*graphNode
@@ -52,6 +54,7 @@ func cloneGraph(node *graphNode) *graphNode {
 	return dfs(node)
 }
 
+// tag-[深度优先搜索/图]
 // leetcode797:图中所有可能的路径
 func allPathsSourceTarget(graph [][]int) [][]int {
 	n := len(graph)
@@ -85,6 +88,7 @@ func allPathsSourceTarget(graph [][]int) [][]int {
 	return ans
 }
 
+// tag-[排序]
 // leetcode802:最终的安全位置
 func eventualSafeNodes(graph [][]int) []int {
 	n := len(graph)
@@ -124,6 +128,7 @@ func Test_eventualSafeNodes(t *testing.T) {
 	fmt.Println(eventualSafeNodes([][]int{{1, 2, 3, 4}, {1, 2}, {3, 4}, {0, 4}, {}}))
 }
 
+// tag-[排序]
 // leetcode802:三色标记解法，参考
 func eventualSafeNodes__(graph [][]int) (ans []int) {
 	n := len(graph)
@@ -192,6 +197,7 @@ func checkSafe(graph [][]int, state []int, v int) bool {
 	panic("should not reach here")
 }
 
+// tag-[广度优先搜索]
 // leetcode841:钥匙和房间 bfs
 func canVisitAllRooms(rooms [][]int) bool {
 	n := len(rooms)
@@ -218,6 +224,7 @@ func canVisitAllRooms(rooms [][]int) bool {
 	return true
 }
 
+// tag-[深度优先搜索]
 // leetcode841:钥匙和房间 dfs
 func canVisitAllRooms_(rooms [][]int) bool {
 	n := len(rooms)

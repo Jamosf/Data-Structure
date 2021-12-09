@@ -3,6 +3,7 @@ package ojeveryday
 
 import "math"
 
+// tag-[前缀和]
 // 前缀和
 // 第一题
 // leetcode303: 区域和检索-数组不可变
@@ -26,6 +27,7 @@ func (n *NumArray) SumRange(left int, right int) int {
 	return n.sum[right] - n.sum[left-1]
 }
 
+// tag-[前缀和]
 // 第二题
 // leetcode1413: 逐步求和得到正数的最小值
 func minStartValue(nums []int) int {
@@ -43,6 +45,7 @@ func minStartValue(nums []int) int {
 	return ans
 }
 
+// tag-[前缀和]
 // 第三题
 // leetcode1480: 一维数组的动态和
 func runningSum(nums []int) []int {
@@ -54,6 +57,7 @@ func runningSum(nums []int) []int {
 	return sum
 }
 
+// tag-[前缀和]
 // 前缀和
 // 第一题
 // leetcode1732: 找到最高海拔
@@ -67,6 +71,7 @@ func largestAltitude(gain []int) int {
 	return maxn
 }
 
+// tag-[前缀和]
 // 第三题
 // leetcode 剑指offerII 012：左右两边子数组的和相等
 func pivotIndex(nums []int) int {

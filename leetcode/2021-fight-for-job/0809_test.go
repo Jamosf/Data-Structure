@@ -3,6 +3,7 @@ package ojeveryday
 
 import "math"
 
+// tag-[背包]
 // 完全背包问题
 // leetcode139: 单词拆分
 func wordBreak(s string, wordDict []string) bool {
@@ -19,6 +20,7 @@ func wordBreak(s string, wordDict []string) bool {
 	return dp[len(s)]
 }
 
+// tag-[背包]
 // 背包问题
 // leetcode416: 分割等和子集
 // 0-1背包问题
@@ -42,6 +44,7 @@ func canPartition(nums []int) bool {
 	return dp[cap]
 }
 
+// tag-[背包]
 // 完全背包问题
 // leetcode322: 钱币兑换
 func coinChange(coins []int, amount int) int {

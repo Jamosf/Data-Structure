@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[动态规划]
 // leetcode413: 等差数列划分
 // dp[i]表示以i结尾的等差数列的个数
 func numberOfArithmeticSlices(nums []int) int {
@@ -35,6 +36,7 @@ func Test_numberOfArithmeticSlices(t *testing.T) {
 	fmt.Println(numberOfArithmeticSlices([]int{1, 2, 3, 0, 5, 6, 7}))
 }
 
+// tag-[双指针]
 // leetcode413: 等差数列划分
 // 双指针方法
 func numberOfArithmeticSlices_(nums []int) int {
@@ -61,6 +63,7 @@ func Test_numberOfArithmeticSlices1(t *testing.T) {
 	fmt.Println(numberOfArithmeticSlices_([]int{1, 2, 3, 0, 5, 6, 7}))
 }
 
+// tag-[动态规划]
 // 第二题
 // leetcode542: 01矩阵
 func updateMatrix(mat [][]int) [][]int {
@@ -103,6 +106,7 @@ func updateMatrix(mat [][]int) [][]int {
 	return dp
 }
 
+// tag-[动态规划]
 // 第三题
 // leetcode221: 最大正方形
 func maximalSquare(matrix [][]byte) int {
@@ -131,6 +135,7 @@ func Test_maximalSquare(t *testing.T) {
 	fmt.Println(maximalSquare([][]byte{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}}))
 }
 
+// tag-[动态规划]
 // 第四题
 // leetcode91: 解码方法
 func numDecodings(s string) int {
@@ -155,6 +160,7 @@ func numDecodings(s string) int {
 	return dp[n-1]
 }
 
+// tag-[动态规划]
 // leetcode91: 解码方法
 // 空间压缩版，内存消耗略优于上面的版本
 func numDecodings_(s string) int {
@@ -185,6 +191,7 @@ func Test_numDecodings(t *testing.T) {
 	fmt.Println(numDecodings_("226"))
 }
 
+// tag-[动态规划]
 // 第五题
 // leetcode139：单词拆分
 func wordBreak139(s string, wordDict []string) bool {
@@ -202,6 +209,7 @@ func wordBreak139(s string, wordDict []string) bool {
 	return dp[n-1]
 }
 
+// tag-[动态规划]
 // 第六题
 // leetcode300
 // dp[i]表示以i结尾的最长子序列
@@ -243,6 +251,7 @@ func Test_lengthOfLIS(t *testing.T) {
 	fmt.Println(lengthOfLIS_([]int{1, 3, 6, 7, 9, 4, 10, 5, 6}))
 }
 
+// tag-[字符串]
 // 第七题
 // leetcode205：同构字符串
 func isIsomorphic(s string, t string) bool {
@@ -267,6 +276,7 @@ func Test_isIsomorphic(t *testing.T) {
 	fmt.Println(isIsomorphic("egt", "add"))
 }
 
+// tag-[双指针]
 // leetcode1984: 学生分数的最小差值
 func minimumDifference(nums []int, k int) int {
 	n := len(nums)
@@ -285,6 +295,7 @@ func Test_minimumDifference(t *testing.T) {
 	fmt.Println(minimumDifference([]int{9, 4, 1, 7}, 2))
 }
 
+// tag-[排序]
 // leetcode1985: 找出数组中的第K大整数
 func kthLargestNumber(nums []string, k int) string {
 	sort.SliceStable(nums, func(i, j int) bool {

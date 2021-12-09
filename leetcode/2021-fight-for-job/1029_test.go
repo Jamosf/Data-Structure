@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[双指针]
 // leetcode986:双指针
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 	ans := make([][]int, 0)
@@ -64,6 +65,7 @@ func Test_intervalIntersection(t *testing.T) {
 	fmt.Println(intervalIntersection([][]int{{1, 7}}, [][]int{{3, 10}}))
 }
 
+// tag-[双指针]
 // leetcode443:双指针
 func compress(chars []byte) int {
 	n := len(chars)
@@ -99,6 +101,7 @@ func Test_compress(t *testing.T) {
 	// fmt.Println(compress([]byte{'a', 'a', '2', '2', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'}))
 }
 
+// tag-[双指针]
 // leetcode457: 快慢指针
 func circularArrayLoop(nums []int) bool {
 	n := len(nums)

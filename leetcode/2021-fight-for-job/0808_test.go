@@ -9,6 +9,7 @@ import (
 
 const maxNodeNum = 26
 
+// tag-[字典树]
 // 第一题
 type trieWord struct {
 	next    [maxNodeNum]*trieWord

@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[字符串]
 // leetcode1957: 删除字符串使字符串变好
 func makeFancyString(s string) string {
 	n := len(s)
@@ -34,6 +35,7 @@ func Test_makeFancyString(t *testing.T) {
 	fmt.Println(makeFancyString("leeettttccccoooooddddeeee"))
 }
 
+// tag-[矩阵]
 // leetcode1958: 检查操作是否合法
 func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
 	m, n := len(board), len(board[0])
@@ -69,6 +71,7 @@ func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
 	return false
 }
 
+// tag-[动态规划]
 // leetcode1959: k次调整数组大小浪费的最小总空间
 // 区间dp，dp[x][y]表示前i个元素被分成j段的最小值
 // 状态转移方程：dp[x][y] = min(dp[x][y], dp[l-1][y-1] + weight[l][x])，其中l范围0...x-1

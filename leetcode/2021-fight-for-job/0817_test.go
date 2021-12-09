@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[并查集]
 // 第一题
 // leetcode130：被围绕的区域
 func solve(board [][]byte) {
@@ -61,6 +62,7 @@ func Test_solve(t *testing.T) {
 	fmt.Println(b)
 }
 
+// tag-[并查集]
 // 第二题
 // leetcode684: 冗余连接
 // 删除图中多余的边
@@ -78,6 +80,7 @@ func findRedundantConnection(edges [][]int) []int {
 	return ans
 }
 
+// tag-[并查集]
 // 第三题
 // leetcode547: 省份数量
 func findCircleNum(isConnected [][]int) int {
@@ -93,6 +96,7 @@ func findCircleNum(isConnected [][]int) int {
 	return u.count()
 }
 
+// tag-[并查集]
 // 第四题
 // leetcode1905：统计子岛屿
 func countSubIslands(grid1 [][]int, grid2 [][]int) int {

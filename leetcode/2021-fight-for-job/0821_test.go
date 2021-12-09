@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[二分查找]
 // 二分查找
 // 第一题
 // leetcode34: 在排序数组中查找元素的第一个和最后一个位置
@@ -55,6 +56,7 @@ func Test_searchRange(t *testing.T) {
 	fmt.Println(searchRange([]int{7}, 7))
 }
 
+// tag-[二分查找]
 // 第二题
 // leetcode69: sqrt
 func mySqrt(x int) int {
@@ -76,6 +78,7 @@ func Test_mySqrt(t *testing.T) {
 	fmt.Println(mySqrt(0))
 }
 
+// tag-[二分查找]
 // 第三题
 // leetcode74: 搜索二维矩阵
 func searchMatrix(matrix [][]int, target int) bool {
@@ -103,6 +106,7 @@ func Test_searchMatrix(t *testing.T) {
 	fmt.Println(searchMatrix([][]int{{1, 1}}, 2))
 }
 
+// tag-[单调栈]
 // 第四题
 // leetcode496: 下一个更大元素I
 // 单调栈
@@ -132,6 +136,7 @@ func Test_nextGreaterElement(t *testing.T) {
 	fmt.Println(nextGreaterElement([]int{4}, []int{4}))
 }
 
+// tag-[单调栈]
 // 第六题
 // leetcode503: 下一个更大元素II
 func nextGreaterElements(nums []int) []int {
@@ -157,6 +162,7 @@ func Test_nextGreaterElements(t *testing.T) {
 	fmt.Println(nextGreaterElements([]int{1, 2, 1}))
 }
 
+// tag-[回溯]
 // 第七题
 // leetcode556: 下一个更大元素III
 func nextGreaterElementIII(n int) int {
@@ -206,6 +212,7 @@ func Test_nextGreaterElementIII(t *testing.T) {
 	fmt.Println(nextGreaterElementIII(1234))
 }
 
+// tag-[单调栈]
 // 第八题
 // leetcode739: 每日温度
 func dailyTemperatures(temperatures []int) []int {

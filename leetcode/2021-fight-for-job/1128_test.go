@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[并查集]
 // leetcode721: 账户合并
 func accountsMerge(accounts [][]string) [][]string {
 	n := len(accounts)
@@ -58,6 +59,7 @@ func Test_accountsMerge(t *testing.T) {
 	fmt.Println(accountsMerge([][]string{{"John", "johnsmith@mail.com", "john00@mail.com"}, {"John", "johnnybravo@mail.com"}, {"John", "johnsmith@mail.com", "john_newyork@mail.com"}, {"Mary", "mary@mail.com"}}))
 }
 
+// tag-[深度优先搜索]
 // leetcode464: 我能赢吗
 // 记忆化搜索，博弈
 func canIWin(maxChoosableInteger int, desiredTotal int) bool {

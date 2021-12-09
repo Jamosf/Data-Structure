@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[二叉树]
 // 第一题
 // leetcode105: 从前序与中序遍历序列构造二叉树
 func buildTree(preorder []int, inorder []int) *TreeNode {
@@ -31,6 +32,7 @@ func Test_buildTree(t *testing.T) {
 	fmt.Println(r)
 }
 
+// tag-[二叉树]
 // 第二题
 // leetcode236: 二叉树的最近公共祖先
 // 二叉树
@@ -53,6 +55,7 @@ func lowestCommonAncestor236(root, p, q *TreeNode) *TreeNode {
 	return root
 }
 
+// tag-[链表]
 // 第三题
 // leetcode146: LRU缓存机制
 // 解题思路：双向链表+hashmap
@@ -139,6 +142,7 @@ func Test_LRUCache(t *testing.T) {
 	fmt.Println(L.Get(5))
 }
 
+// tag-[矩阵]
 // 第四题：搜索
 // leetcode240: 搜索二维矩阵II
 // 解题思路：从右上角开始搜索
@@ -156,6 +160,7 @@ func searchMatrix1(matrix [][]int, target int) bool {
 	return false
 }
 
+// tag-[动态规划]
 // 第五题
 // leetcode309: 最佳买卖股票时机含冷冻期
 // 动态规划：dp[i]表示第i天获取的最大利润, 0：持有一只股票；1：不持有股票，处于冷冻期；2：不持有股票，不处于冷冻期
@@ -171,6 +176,7 @@ func maxProfit1(prices []int) int {
 	return max(dp[n-1][1], dp[n-1][2])
 }
 
+// tag-[排序]
 // 第六题
 // leetcode207: 课程表
 // 拓扑排序
@@ -213,6 +219,7 @@ func topoSort(edge [][]int, inDegree []int, n int) bool {
 	return cnt == n
 }
 
+// tag-[二叉树]
 // 第二题
 // leetcode538: 二叉搜索树转换为累加树
 // 二叉树、反向中序遍历

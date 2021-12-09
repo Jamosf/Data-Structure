@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[堆]
 // 第一题
 // leetcode703: 数据流中的第K大元素
 // 数据流中第k大的数据
@@ -41,6 +42,7 @@ func (k1 *KthLargest) Add(val int) int {
 	return k1.IntSlice[0]
 }
 
+// tag-[堆]
 // 第三题
 // leetcode1046: 最后一块石头的重量
 func lastStoneWeight(stones []int) int {
@@ -61,6 +63,7 @@ func lastStoneWeight(stones []int) int {
 	return 0
 }
 
+// tag-[数组]
 // 第四题
 // leetcode1464: 数组中两元素的最大乘积
 // 最大值和次大值
@@ -86,6 +89,7 @@ func maxProduct1464_(nums []int) int {
 	return (max1 - 1) * (max2 - 1)
 }
 
+// tag-[堆]
 // 第五题
 // leetcode215: 数组中两元素的最大乘积
 func findKthLargest(nums []int, k int) int {
@@ -99,6 +103,7 @@ func findKthLargest(nums []int, k int) int {
 	return heap.Pop(m).(int)
 }
 
+// tag-[堆]
 // 第六题
 // leetcode347: 前k个高频元素
 func topKFrequent(nums []int, k int) []int {

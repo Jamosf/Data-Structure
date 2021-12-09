@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[深度优先搜索]
 // leetcode638:每日一题,dfs记忆化搜索（非回溯）
 func shoppingOffers(price []int, special [][]int, needs []int) int {
 	n := len(price)
@@ -55,6 +56,7 @@ func shoppingOffers(price []int, special [][]int, needs []int) int {
 	return dfs(needs_)
 }
 
+// tag-[回溯]
 // leetcode638:回溯法思想
 func shoppingOffers_(price []int, special [][]int, needs []int) int {
 	n := len(price)
@@ -103,6 +105,7 @@ func Test_shoppingOffers(t *testing.T) {
 	fmt.Println(shoppingOffers_([]int{2, 3, 4}, [][]int{{1, 1, 0, 4}, {2, 2, 1, 9}}, []int{1, 2, 1}))
 }
 
+// tag-[字符串]
 // leetcode周赛第一题
 func countValidWords(sentence string) int {
 	ss := strings.Split(sentence, " ")
@@ -162,6 +165,7 @@ func Test_countValidWords(t *testing.T) {
 	fmt.Println(countValidWords("!this  a-s- bad!"))
 }
 
+// tag-[回溯]
 // leetcode周赛第二题
 func nextBeautifulNumber(n int) int {
 	v := n
@@ -263,6 +267,7 @@ func Test_nextBeautifulNumber(t *testing.T) {
 	fmt.Println(nextBeautifulNumber_(3000))
 }
 
+// tag-[深度优先搜索]
 // leetcode周赛第三题
 func countHighestScoreNodes(parents []int) int {
 	n := len(parents)

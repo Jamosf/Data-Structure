@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[动态规划]
 // leetcode63:动态规划(可以降维)
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	m, n := len(obstacleGrid), len(obstacleGrid[0])
@@ -38,6 +39,7 @@ func Test_uniquePathsWithObstacles(t *testing.T) {
 	fmt.Println(uniquePathsWithObstacles([][]int{{0, 1}, {0, 0}}))
 }
 
+// tag-[回溯]
 // leetcode95:回溯法
 func generateTrees(n int) []*TreeNode {
 	var backtrace func(start, end int) []*TreeNode
@@ -63,6 +65,7 @@ func generateTrees(n int) []*TreeNode {
 	return backtrace(1, n)
 }
 
+// tag-[回溯]
 // leetcode131: 分割回文串(典型的回溯)
 func partition(s string) [][]string {
 	n := len(s)
@@ -97,6 +100,7 @@ func partition(s string) [][]string {
 	return ans
 }
 
+// tag-[回溯]
 // leetcode131: 分割回文串(典型的回溯) 使用记忆化优化或者使用dp来预处理字符串把任意i->j是否为回文算出来
 func partition_(s string) [][]string {
 	n := len(s)
@@ -143,6 +147,7 @@ func Test_partition(t *testing.T) {
 	fmt.Println(partition_("aabbaababab"))
 }
 
+// tag-[数学]
 // leetcode229: 求众数
 func majorityElement229(nums []int) []int {
 	n := len(nums)

@@ -39,6 +39,7 @@ func floor(x int) int {
 	return x>>1 + 1
 }
 
+// tag-[堆]
 // leetcode1962: 移除石子使总数最小
 func minStoneSum(piles []int, k int) int {
 	mh := &mHeap{}
@@ -77,6 +78,7 @@ func Test_minStoneSum(t *testing.T) {
 	fmt.Println(minStoneSum_([]int{5, 4, 9}, 2))
 }
 
+// tag-[堆]
 type hp struct{ sort.IntSlice }
 
 func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
@@ -98,6 +100,7 @@ func minSwaps(s string) int {
 	return (-minCnt + 1) >> 1
 }
 
+// tag-[排序]
 // leetcode1753: 移除石子的最大得分
 func maximumScore(a int, b int, c int) int {
 	v := []int{a, b, c}

@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[回溯]
 // leetcode869：每日一题
 func reorderedPowerOf2(n int) bool {
 	isPow2 := func(num int) bool {
@@ -51,6 +52,7 @@ func Test_reorderedPowerOf2(t *testing.T) {
 	fmt.Println(reorderedPowerOf2(1234))
 }
 
+// tag-[哈希表]
 // leetcode869：预处理加hash表，词频统计;思路，因为可以任意顺序排列，则词频相同的最终可以排列等到的数据是一致的。
 // 时间复杂度：O(logn)
 // 空间负责度：O(1)
@@ -70,6 +72,7 @@ func reorderedPowerOf2_(n int) bool {
 	return m[countDigital(n)]
 }
 
+// tag-[排序]
 // leetcode147:仿照插入排序的实现
 func insertionSortList(head *ListNode) *ListNode {
 	dummy := &ListNode{Val: math.MinInt32, Next: head}
@@ -96,6 +99,7 @@ func Test_insertionSortList(t *testing.T) {
 	//fmt.Println(insertionSortList(newListNode([]int{4, 3, 2, 1})))
 }
 
+// tag-[排序]
 // leetcode220:存在重复元素(桶的思想)
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	getId := func(x, w int) int {

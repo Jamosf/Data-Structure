@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[数学]
 // leetcode66:每日一题
 func plusOne66(digits []int) []int {
 	n := len(digits)
@@ -23,6 +24,7 @@ func plusOne66(digits []int) []int {
 	return digits
 }
 
+// tag-[字符串]
 // leetcode6:字符串（模拟）
 func convert(s string, numRows int) string {
 	n := len(s)
@@ -71,6 +73,7 @@ func convert(s string, numRows int) string {
 	return string(res)
 }
 
+// tag-[字符串]
 // leetcode6:优化解法，无需计算列的个数
 func convert_(s string, numRows int) string {
 	n := len(s)
@@ -110,6 +113,7 @@ func Test_convert_(t *testing.T) {
 	fmt.Println(convert("PAYPALISHIRING", 9))
 }
 
+// tag-[字符串]
 // leetcode481:神奇字符串（模拟）
 func magicalString_(n int) int {
 	if n < 3 {
@@ -154,6 +158,7 @@ func Test_magicalString_(t *testing.T) {
 	fmt.Println(magicalString_(100))
 }
 
+// tag-[字符串]
 // leetcode71: 简化路径
 func simplifyPath(path string) string {
 	ss := strings.Split(path, "/")
@@ -178,6 +183,7 @@ func Test_simplifyPath(t *testing.T) {
 	fmt.Println(simplifyPath("/../"))
 }
 
+// tag-[回溯]
 // leetcode93:复原ip地址
 func restoreIpAddresses(s string) []string {
 	n := len(s)
@@ -227,6 +233,7 @@ func Test_restoreIpAddresses(t *testing.T) {
 	fmt.Println(restoreIpAddresses("101023"))
 }
 
+// tag-[字符串/回溯]
 // leetcode97:交错字符串(记忆化搜索)
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	n1, n2, n3 := len(s1), len(s2), len(s3)
@@ -259,6 +266,7 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	return backtrace(0, 0, 0)
 }
 
+// tag-[动态规划]
 // leetcode97:交错字符串(记忆化搜索)
 func isInterleave_(s1 string, s2 string, s3 string) bool {
 	n1, n2, n3 := len(s1), len(s2), len(s3)

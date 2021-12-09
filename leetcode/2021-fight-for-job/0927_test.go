@@ -1,6 +1,7 @@
 // Copyright (c) Huawei Technologies Co., Ltd. 2012-2019. All rights reserved.
 package ojeveryday
 
+// tag-[矩阵]
 // leetcode48: 旋转图像
 // 数学
 func rotate(matrix [][]int) {
@@ -13,6 +14,7 @@ func rotate(matrix [][]int) {
 	}
 }
 
+// tag-[二叉树]
 // leetcode543: 二叉树的直径
 func diameterOfBinaryTree(root *TreeNode) int {
 	maxn := 0
@@ -30,6 +32,7 @@ func diameterOfBinaryTree(root *TreeNode) int {
 	return maxn
 }
 
+// tag-[字符串]
 // leetcode49: 字母的异位分词
 func groupAnagrams(strs []string) [][]string {
 	mk := make(map[[26]int][]string)

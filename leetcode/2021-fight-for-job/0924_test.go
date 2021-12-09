@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[位运算]
 // 第一题
 // leetcode1806: 还原排列的最少操作步数
 // 位运算
@@ -31,6 +32,7 @@ func Test_reinitializePermutation(t *testing.T) {
 	fmt.Println(reinitializePermutation(8))
 }
 
+// tag-[回溯]
 // 第二题
 // leetcode22: 括号生成
 func generateParenthesis(n int) []string {
@@ -93,6 +95,7 @@ func Test_generateParenthesis(t *testing.T) {
 	fmt.Println(generateParenthesis(8))
 }
 
+// tag-[双指针]
 // 第三题
 // leetcode31: 下一个排列
 func nextPermutation(nums []int) {
@@ -126,6 +129,7 @@ func Test_nextPermutation(t *testing.T) {
 	fmt.Println(nums)
 }
 
+// tag-[字符串]
 // 第四题
 // leetcode621: 任务调度器
 func leastInterval(tasks []byte, n int) int {
@@ -148,6 +152,7 @@ func leastInterval(tasks []byte, n int) int {
 	return max(len(tasks), cnt+(n+1)*(maxn-1))
 }
 
+// tag-[二叉树]
 // 第五题
 // leetcode114: 二叉树展开为链表
 func flatten(root *TreeNode) {
@@ -175,6 +180,7 @@ func Test_flatten(t *testing.T) {
 	flatten(&TreeNode{Right: &TreeNode{1, nil, nil}, Left: &TreeNode{2, nil, nil}, Val: 0})
 }
 
+// tag-[动态规划]
 // 第六题
 // leetcode55: 跳跃游戏
 func canJump(nums []int) bool {

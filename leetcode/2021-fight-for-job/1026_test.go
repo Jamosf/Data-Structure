@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[二叉树]
 // leetcode99:二叉搜索树中序遍历,找出错位的两个节点并交换
 // 时间复杂度：O(n)
 // 空间复杂度：O(logn), 即为树的高度
@@ -33,6 +34,7 @@ func recoverTree(root *TreeNode) {
 	}
 }
 
+// tag-[二叉树]
 // leetcode99: 中序遍历栈的写法，先将跟节点和所有的左节点压栈，然后逐个取出左节点，压入右节点。
 func recoverTree_(root *TreeNode) {
 	stack := []*TreeNode{}
@@ -84,6 +86,7 @@ func morrisInorder(root *TreeNode) {
 	}
 }
 
+// tag-[二叉树]
 // leetcode99:morris解法
 // 时间复杂度：O(n)
 // 空间复杂度：O(1)
@@ -131,6 +134,7 @@ func Test_recoverTree(t *testing.T) {
 	recoverTree(&TreeNode{Val: 1, Left: &TreeNode{3, nil, &TreeNode{2, nil, nil}}})
 }
 
+// tag-[二叉树/回溯]
 // leetcode113:路径总和,前序遍历
 func pathSum(root *TreeNode, targetSum int) [][]int {
 	ans := make([][]int, 0)
@@ -153,6 +157,7 @@ func pathSum(root *TreeNode, targetSum int) [][]int {
 	return ans
 }
 
+// tag-[广度优先搜索]
 type pair struct {
 	node *TreeNode
 	left int
@@ -215,6 +220,7 @@ func pathSumCnt(root *TreeNode, targetSum int) int {
 	return sum
 }
 
+// tag-[二叉树]
 // leetcode437: 不一定从根节点开始的路径和
 func pathSumIII(root *TreeNode, targetSum int) int {
 	sum := 0

@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[单调栈]
 // leetcode85: 矩阵中的最大矩形面积，单调栈
 func maximalRectangle(matrix [][]byte) int {
 	m, n := len(matrix), len(matrix[0])
@@ -24,6 +25,7 @@ func maximalRectangle(matrix [][]byte) int {
 	return maxn
 }
 
+// tag-[单调栈]
 // leetcode84: 最大的矩形面积，单调递减栈
 func largestRectangleArea(heights []int) int {
 	n := len(heights)
@@ -59,6 +61,7 @@ func Test_largestRectangleArea(t *testing.T) {
 	fmt.Println(largestRectangleArea([]int{2, 1, 2}))
 }
 
+// tag-[单调栈]
 // leetcode42：接雨水, 单调栈解法
 // 思路：如果栈内元素超过两个，并且当前元素大于栈顶元素，那么栈顶元素处可以积水
 func trap_(height []int) (ans int) {
@@ -83,6 +86,7 @@ func Test_trap(t *testing.T) {
 	fmt.Println(trap_([]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}))
 }
 
+// tag-[单调栈]
 // leetcode901: 股票价格跨度, 单调递增栈
 type StockSpanner struct {
 	prices []int

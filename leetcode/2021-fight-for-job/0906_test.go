@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[二叉树]
 // leetcode1993: 树上的操作
 type lockStatus struct {
 	user     int
@@ -100,6 +101,7 @@ func Test_lock(t *testing.T) {
 	fmt.Println(a, b, c, d, e, f)
 }
 
+// tag-[数组]
 // leetcode149: 直线上最多的点数
 func maxPoints(points [][]int) int {
 	m := len(points)
@@ -131,6 +133,7 @@ func Test_maxPoints(t *testing.T) {
 	fmt.Println(maxPoints([][]int{{1, 1}, {2, 2}, {3, 3}}))
 }
 
+// tag-[字符串]
 // 优秀代码学习，枚举回文串
 func countSubstrings(s string) int {
 	n := len(s)

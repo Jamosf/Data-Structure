@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[单调栈]
 // 第一题
 // leetcode402: 移掉 K 位数字
 // 从左到右，移除比右侧大的数，如果没有，则移除最后的数字
@@ -42,6 +43,7 @@ func Test_removeKdigits(t *testing.T) {
 	fmt.Println(removeKdigits("100", 1))
 }
 
+// tag-[二叉树]
 // 第二题
 // leetcode654：最大二叉树
 func constructMaximumBinaryTree(nums []int) *TreeNode {
@@ -71,6 +73,7 @@ func Test_constructMaximumBinaryTree(t *testing.T) {
 	fmt.Println(r)
 }
 
+// tag-[背包]
 // 第三题
 // TODO
 func combinationSum1(candidates []int, target int) [][]int {

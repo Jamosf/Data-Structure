@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[字符串]
 // leetcode2011：执行操作后的变量值
 func finalValueAfterOperations(operations []string) int {
 	ans := 0
@@ -20,6 +21,7 @@ func finalValueAfterOperations(operations []string) int {
 	return ans
 }
 
+// tag-[单调栈]
 // leetcode2012: 数组美丽值求和
 // 双向单调栈
 func sumOfBeauties(nums []int) int {
@@ -65,6 +67,7 @@ func sumOfBeauties(nums []int) int {
 	return ans
 }
 
+// tag-[前缀和]
 // leetcode2012: 数组美丽值求和
 // 前缀最大值和后缀最小值
 func sumOfBeauties_(nums []int) int {
@@ -97,6 +100,7 @@ func Test_sumOfBeauties(t *testing.T) {
 	fmt.Println(sumOfBeauties_([]int{5, 5, 10, 4, 6}))
 }
 
+// tag-[矩阵]
 // leetcode2013: 检测正方形
 type DetectSquares struct {
 	p map[int]map[int]int
@@ -143,6 +147,7 @@ func Test_DetectSquares(t *testing.T) {
 	fmt.Println(d.Count([]int{11, 10}))
 }
 
+// tag-[字符串]
 func longestSubsequenceRepeatedK(s string, k int) (ans string) {
 	n := len(s)
 	pos := [26]int{}
@@ -230,6 +235,7 @@ func permutations(n, r int, do func(ids []int) bool) {
 	}
 }
 
+// tag-[哈希表]
 // leetcode2006：差的绝对值为k的数对数目
 func countKDifference(nums []int, k int) int {
 	m := make(map[int]int)
@@ -242,6 +248,7 @@ func countKDifference(nums []int, k int) int {
 	return ans
 }
 
+// tag-[数组]
 // leetcode2007: 从双倍数组中还原数组
 func findOriginalArray(changed []int) []int {
 	sort.Ints(changed)
@@ -275,6 +282,7 @@ func maxInt64(a, b int64) int64 {
 	return b
 }
 
+// tag-[动态规划]
 // leetcode2008: 出租车的最大盈利
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool {

@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[数组]
 func intToBytes(n int64) []byte {
 	ans := make([]byte, 0)
 	for n != 0 {
@@ -22,6 +23,7 @@ func Test_intToBytes(t *testing.T) {
 	fmt.Println(string(intToBytes(12345)))
 }
 
+// tag-[数学]
 // leetcode166
 func fractionToDecimal(numerator int, denominator int) string {
 	if numerator == 0 {
@@ -94,6 +96,7 @@ func Test_fractionToDecimal(t *testing.T) {
 	fmt.Println(fractionToDecimal(-50, 8))
 }
 
+// tag-[数学]
 // leetcode263
 func isUgly(n int) bool {
 	factors := []int{2, 3, 5}
@@ -108,6 +111,7 @@ func isUgly(n int) bool {
 	return n == 1
 }
 
+// tag-[排序]
 // leetcode264: 多路归并
 func nthUglyNumber(n int) int {
 	dp := make([]int, n+1)

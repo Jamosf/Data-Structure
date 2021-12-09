@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[排序]
 // leetcode1711: 大餐计数
 func countPairs(deliciousness []int) int {
 	n := len(deliciousness)
@@ -68,6 +69,7 @@ func Test_t(t *testing.T) {
 	fmt.Println(int(4999950000) % int(1e9+7))
 }
 
+// tag-[排序]
 // leetcode lcp28: 采购方案
 func purchasePlans(nums []int, target int) int {
 	mod := int(1e9 + 7)
@@ -93,6 +95,7 @@ func Test_purse(t *testing.T) {
 	fmt.Println(purchasePlans([]int{2, 2, 1, 9}, 10))
 }
 
+// tag-[数学]
 // leetcode lcp29: 乐团站位
 func orchestraLayout(num int, xPos int, yPos int) int {
 	cycle := min(min(num-1-xPos, xPos), min(num-1-yPos, yPos))
@@ -114,6 +117,7 @@ func Test_orchestraLayout(t *testing.T) {
 	fmt.Println(orchestraLayout(10, 5, 6))
 }
 
+// tag-[数组]
 // leetcode414: 第三大的数
 func thirdMax(nums []int) int {
 	sort.Ints(nums)
