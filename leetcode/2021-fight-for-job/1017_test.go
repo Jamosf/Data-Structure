@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[字符串]
 func areNumbersAscending(s string) bool {
 	last := 0
 	for i := 0; i < len(s); {
@@ -32,6 +33,7 @@ func Test_areNumbersAscending(t *testing.T) {
 	fmt.Println(areNumbersAscending("4 5 11 26"))
 }
 
+// tag-[数组]
 type Bank struct {
 	money []int64
 	n     int
@@ -80,6 +82,7 @@ func or(v []int) int {
 	return ans
 }
 
+// tag-[回溯]
 func countMaxOrSubsets(nums []int) int {
 	var backtrace func(index int)
 	m := make(map[int]int)

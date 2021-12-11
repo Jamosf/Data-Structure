@@ -60,6 +60,7 @@ func maxmiumScore1(cards []int, cnt int) int {
 	return maxn
 }
 
+// tag-[矩阵]
 func flipChess1(chessboard []string) int {
 	m, n := len(chessboard), len(chessboard[0])
 	direction := [8][2]int{{-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}}

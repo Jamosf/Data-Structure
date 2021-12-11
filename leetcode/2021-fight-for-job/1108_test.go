@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// tag-[前缀和]
 // leetcode528: 前缀和
 type Solution struct {
 	preSum []int
@@ -33,6 +34,7 @@ func Test_Solution(t *testing.T) {
 	}
 }
 
+// tag-[前缀和]
 // leetcode930: 前缀和
 func numSubarraysWithSum930(nums []int, goal int) int {
 	ans := 0

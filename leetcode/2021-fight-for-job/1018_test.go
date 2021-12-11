@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[动态规划]
 // leetcode673: 可以用双dp来理解
 func findNumberOfLIS(nums []int) int {
 	n := len(nums)

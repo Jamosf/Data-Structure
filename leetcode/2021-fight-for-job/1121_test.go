@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[图]
 // leetcode815: 公交路线
 // 主要是建图，将公交线路看成一个点
 func numBusesToDestination(routes [][]int, source int, target int) int {
@@ -71,6 +72,7 @@ func Test_numBusesToDestination(t *testing.T) {
 	fmt.Println(numBusesToDestination([][]int{{7, 12}, {4, 5, 15}, {6}, {15, 19}, {9, 12, 13}}, 15, 12))
 }
 
+// tag-[二叉树]
 // leetcode230: 二叉搜索树中k小的元素
 // 中序遍历
 func kthSmallest(root *TreeNode, k int) int {

@@ -3,6 +3,7 @@ package ojeveryday
 
 import "container/heap"
 
+// tag-[图]
 // leetcode1263: 推箱子
 // 箱子和目标有一条路径，最短路
 // A*启发式搜索算法

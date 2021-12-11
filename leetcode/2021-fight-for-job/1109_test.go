@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[前缀和]
 // leetcode974:前缀和
 func subarraysDivByK(nums []int, k int) int {
 	n := len(nums)
@@ -32,6 +33,7 @@ func Test_subarraysDivByK(t *testing.T) {
 	fmt.Println(subarraysDivByK([]int{-6, 6}, 5))
 }
 
+// tag-[前缀和]
 // leetcode1829:前缀异或
 func getMaximumXor(nums []int, maximumBit int) []int {
 	n := len(nums)
@@ -54,6 +56,7 @@ func Test_getMaximumXor(t *testing.T) {
 	fmt.Println(getMaximumXor([]int{0, 1, 2, 2, 5, 7}, 3))
 }
 
+// tag-[数组]
 // leetcode769: 数组分组，前k个的最大值是不是k
 func maxChunksToSorted(arr []int) int {
 	n := len(arr)

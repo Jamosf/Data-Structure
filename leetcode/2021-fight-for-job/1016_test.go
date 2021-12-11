@@ -1,6 +1,7 @@
 // Copyright (c) Huawei Technologies Co., Ltd. 2012-2019. All rights reserved.
 package ojeveryday
 
+// tag-[二叉树]
 // leetcode106, 可以使用map优化查找节点的idx
 func buildTree1(inorder []int, postorder []int) *TreeNode {
 	if len(postorder) == 0 || len(inorder) == 0 {
@@ -17,6 +18,7 @@ func buildTree1(inorder []int, postorder []int) *TreeNode {
 	return root
 }
 
+// tag-[线段树]
 // leetcode307 线段树
 type NumArray1 struct {
 	tree *segTree

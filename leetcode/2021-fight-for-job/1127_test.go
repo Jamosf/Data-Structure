@@ -2,6 +2,7 @@ package ojeveryday
 
 import "container/heap"
 
+// tag-[堆]
 // 最小堆
 type MinHeap [][3]int
 
@@ -36,13 +37,14 @@ func kthSmallest378(matrix [][]int, k int) int {
 	}
 	for i := 0; i < k-1; i++ {
 		v := heap.Pop(m).([3]int)
-		if v[2] < n-1{
+		if v[2] < n-1 {
 			heap.Push(m, [3]int{matrix[v[1]][v[2]+1], v[1], v[2] + 1})
 		}
 	}
 	return heap.Pop(m).([3]int)[0]
 }
 
+// tag-[二分查找]
 // leetcode378: 有序矩阵中第K小的元素
 // 二分查找
 func kthSmallest378_(matrix [][]int, k int) int {
@@ -71,6 +73,7 @@ func kthSmallest378_(matrix [][]int, k int) int {
 	return left
 }
 
+// tag-[差分]
 // leetcode798: 得分最高的最小轮调
 // 差分+前缀和
 func bestRotation(nums []int) int {

@@ -149,6 +149,7 @@ func countSubstrings(s string) int {
 	return ans
 }
 
+// tag-[数学]
 // leetcode1952: 三除数
 func isThree(n int) bool {
 	if n == 1 || n == 2 || n == 3 {

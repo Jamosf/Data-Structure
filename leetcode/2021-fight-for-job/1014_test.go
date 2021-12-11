@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// tag-[数组]
 func fourSum1(nums []int, target int) [][]int {
 	n := len(nums)
 	sort.Ints(nums)
@@ -50,6 +51,7 @@ func Test_fourSum(t *testing.T) {
 	fmt.Println(fourSum([]int{2, 2, 2, 2, 2}, 8))
 }
 
+// tag-[字符串]
 // leetcode8
 func myAtoi(s string) int {
 	ss := strings.TrimLeft(s, " ")

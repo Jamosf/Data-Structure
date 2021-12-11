@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// tag-[数学]
 // leetcode89:格雷编码公式i^(i>>1)
 func grayCode(n int) []int {
 	size := 1 << n
@@ -20,6 +21,7 @@ func Test_grayCode(t *testing.T) {
 	print_binary_array(grayCode(3), 3)
 }
 
+// tag-[位运算]
 // leetcode318:位运算
 func maxProduct318(words []string) int {
 	n := len(words)
@@ -46,6 +48,7 @@ func Test_maxProduct318(t *testing.T) {
 	fmt.Println(maxProduct318([]string{"a", "aa", "aaa", "aaaa"}))
 }
 
+// tag-[位运算/数学]
 // leetcode371:两数之和位运算
 func getSum(a int, b int) int {
 	for b != 0 {
@@ -60,6 +63,7 @@ func Test_getSum(t *testing.T) {
 	fmt.Println(getSum(1, 3))
 }
 
+// tag-[位运算]
 // leetcode421:异或交换律，a^b=c, a^c=b, b^c=a
 // hash解法
 func findMaximumXOR(nums []int) int {
@@ -82,6 +86,7 @@ func findMaximumXOR(nums []int) int {
 	return res
 }
 
+// tag-[字典树]
 // leetcode421:字典树解法
 const highBit = 30
 

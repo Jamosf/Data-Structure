@@ -136,6 +136,7 @@ func isContainTag(comment, tag string) bool {
 }
 
 func createFile(name string) (*os.File, error) {
+	os.MkdirAll(categoryDir, os.ModePerm)
 	fullPath := categoryDir + "/" + convertToEn(name) + "_test.go"
 	if _, err := os.Stat(fullPath); os.IsExist(err) {
 		return os.OpenFile(fullPath, os.O_APPEND|os.O_CREATE|os.O_RDWR, os.ModePerm)

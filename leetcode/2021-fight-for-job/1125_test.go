@@ -2,6 +2,7 @@ package ojeveryday
 
 import "sort"
 
+// tag-[排序]
 // leetcode692: 前K个高频单词
 func topKFrequent_(words []string, k int) []string {
 	m := make(map[string]int)

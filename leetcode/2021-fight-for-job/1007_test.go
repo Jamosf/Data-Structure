@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// tag-[数组]
 // 暴力
 func numOfPairs(nums []string, target string) int {
 	n := len(nums)
@@ -24,6 +25,7 @@ func Test_numOfPairs(t *testing.T) {
 	fmt.Println(numOfPairs([]string{"777", "7", "77", "77"}, "7777"))
 }
 
+// tag-[双指针]
 // 滑动窗口
 func maxConsecutiveAnswers(answerKey string, k int) int {
 	l, r, n := 0, 0, len(answerKey)

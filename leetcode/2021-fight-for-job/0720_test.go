@@ -26,7 +26,7 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 
-//
+// tag-[链表]
 // 第二题
 // leetcode19: 删除链表的倒数第N个结点
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
@@ -55,6 +55,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	return tmp.Next
 }
 
+// tag-[链表]
 // 第二题
 // leetcode19: 删除链表的倒数第N个结点
 func removeNthFromEnd_(head *ListNode, n int) *ListNode {

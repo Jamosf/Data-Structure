@@ -2,6 +2,7 @@ package ojeveryday
 
 import "container/list"
 
+// tag-[二叉树]
 // 二叉树的前序遍历迭代遍历
 func preorderTraversal_(root *TreeNode) []int {
 	if root == nil {

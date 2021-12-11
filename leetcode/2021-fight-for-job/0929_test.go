@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// tag-[堆]
 var a []int
 
 type dhp struct{ sort.IntSlice }
