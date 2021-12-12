@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[字典树]
 // 第一题
 type trieWord struct {
@@ -46,7 +47,8 @@ func longestWord(words []string) string {
 
 func Test_longestWord(t *testing.T) {
 	fmt.Println(longestWord([]string{"a", "banana", "app", "appl", "ap", "apply", "apple"}))
-}// tag-[字典树]
+}
+// tag-[字典树]
 type folder struct {
 	son map[string]*folder
 	val string // 文件夹名称
@@ -189,7 +191,8 @@ func largestMagicSquare(grid [][]int) int {
 
 func Test_largestMagicSquare(t *testing.T) {
 	fmt.Println(largestMagicSquare([][]int{{1, 17, 15, 17, 5, 16, 8, 9}, {1, 19, 11, 18, 8, 18, 3, 18}, {6, 6, 5, 8, 3, 15, 6, 11}, {19, 5, 6, 11, 9, 2, 14, 13}, {12, 16, 16, 15, 14, 18, 10, 7}, {3, 11, 15, 15, 7, 1, 9, 8}, {15, 5, 11, 17, 18, 20, 14, 17}, {13, 17, 7, 20, 12, 2, 13, 19}}))
-}// tag-[字典树]
+}
+// tag-[字典树]
 // leetcode211:字典树
 type trieRegex struct {
 	tr *trie
@@ -262,4 +265,72 @@ func Test_WordDictionary(t *testing.T) {
 	fmt.Println(wordDictionary.Search("..d.g....")) // return True
 	fmt.Println(wordDictionary.Search("..d.g.fc.")) // return True
 	fmt.Println(wordDictionary.Search("........c")) // return True
+}
+
+// tag-[字典树]
+// leetcode421:字典树解法
+const highBit = 30
+
+type trie_ struct {
+	left, right *trie_
+}
+
+func (t *trie_) add(num int) {
+	cur := t
+	for i := highBit; i >= 0; i-- {
+		bit := num >> i & 1
+		if bit == 0 {
+			if cur.left == nil {
+				cur.left = &trie_{}
+			}
+			cur = cur.left
+		} else {
+			if cur.right == nil {
+				cur.right = &trie_{}
+			}
+			cur = cur.right
+		}
+	}
+}
+
+func (t *trie_) check(num int) (x int) {
+	cur := t
+	for i := highBit; i >= 0; i-- {
+		bit := num >> i & 1
+		if bit == 0 {
+			// a_i 的第 k 个二进制位为 0，应当往表示 1 的子节点 right 走
+			if cur.right != nil {
+				cur = cur.right
+				x = x*2 + 1
+			} else {
+				cur = cur.left
+				x = x * 2
+			}
+		} else {
+			// a_i 的第 k 个二进制位为 1，应当往表示 0 的子节点 left 走
+			if cur.left != nil {
+				cur = cur.left
+				x = x*2 + 1
+			} else {
+				cur = cur.right
+				x = x * 2
+			}
+		}
+	}
+	return
+}
+
+func findMaximumXOR_(nums []int) (x int) {
+	root := &trie_{}
+	for i := 1; i < len(nums); i++ {
+		// 将 nums[i-1] 放入字典树，此时 nums[0 .. i-1] 都在字典树中
+		root.add(nums[i-1])
+		// 将 nums[i] 看作 ai，找出最大的 x 更新答案
+		x = max(x, root.check(nums[i]))
+	}
+	return
+}
+
+func Test_findMaximumXOR(t *testing.T) {
+	fmt.Println(findMaximumXOR([]int{3, 10, 5, 25, 2, 8}))
 }

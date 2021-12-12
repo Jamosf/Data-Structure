@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[字符串]
 func magicalString(n int) int {
 	str := "122"
@@ -36,7 +37,8 @@ func magicalString(n int) int {
 
 func Test_magicalString(t *testing.T) {
 	fmt.Println(magicalString(4))
-}// tag-[字符串]
+}
+// tag-[字符串]
 // leetcode718: 最长重复子数组
 func findLength(nums1 []int, nums2 []int) int {
 	lenA, lenB := len(nums1), len(nums2)
@@ -95,7 +97,8 @@ func hasAllCodes(s string, k int) bool {
 		}
 	}
 	return result == 1<<k
-}// tag-[字符串]
+}
+// tag-[字符串]
 // leetcode 面试题01.01：字符串压缩
 func compressString(S string) string {
 	var buff bytes.Buffer
@@ -125,7 +128,8 @@ func compressString(S string) string {
 
 func Test_compressString(t *testing.T) {
 	fmt.Println(compressString("rrrrrLLLLLPPPPPPRRRRRgggNNNNNVVVVVVVVVVDDDDDDDDDDIIIIIIIIIIlllllllAAAAqqqqqqqbbbNNNNffffff"))
-}// tag-[字符串]
+}
+// tag-[字符串]
 // 第一题
 // leetcode3: 无重复字符的最长子串
 func lengthOfLongestSubstring(s string) int {
@@ -148,6 +152,7 @@ func lengthOfLongestSubstring(s string) int {
 func Test_lengthOfLongestSubstring(t *testing.T) {
 	fmt.Println(lengthOfLongestSubstring(" "))
 }
+
 // tag-[字符串]
 // 第二题
 // leetcode567: 字符串的排列
@@ -182,6 +187,7 @@ func isMapEmpty(m map[uint8]int) bool {
 	}
 	return cnt == 0
 }
+
 // tag-[字符串]
 // 第三题
 // leetcode387: 字符串中的第一个唯一字符
@@ -197,6 +203,7 @@ func firstUniqChar(s string) int {
 	}
 	return -1
 }
+
 // tag-[字符串]
 // 第四题
 // leetcode383: 赎金信
@@ -215,6 +222,7 @@ func canConstruct(ransomNote string, magazine string) bool {
 	}
 	return true
 }
+
 // tag-[字符串]
 // 第五题
 // leetcode242: 有效的字母异位词
@@ -228,7 +236,8 @@ func isAnagram(s string, t string) bool {
 		n[v-'a']++
 	}
 	return m == n
-}// tag-[字符串]
+}
+// tag-[字符串]
 // 第十六题
 // leetcode 剑指offer 58-I: 翻转单词顺序
 func reverseWords(s string) string {
@@ -252,28 +261,15 @@ func reverseWords(s string) string {
 
 func Test_reverseWords(t *testing.T) {
 	fmt.Println(reverseWords("  hello world!  "))
-}// tag-[字符串]
+}
+// tag-[字符串]
 // 第五题
 // leetcode 剑指offer58-II: 左旋转字符串
 func reverseLeftWords(s string, n int) string {
 	return s[n:] + s[:n]
 }
 
-// tag-[二分查找]
-// 第六题
-// leetcode 剑指offer53-II: 0~n-1中缺失的数字
-func missingNumber(nums []int) int {
-	left, right := 0, len(nums)
-	for left < right {
-		mid := left + (right-left)/2
-		if nums[mid] > mid {
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
-	}
-	return nums[left] + 1
-}// tag-[字符串]
+// tag-[字符串]
 // 第二题
 // leetcode125：验证回文串
 func isPalindrome(s string) bool {
@@ -326,6 +322,7 @@ func Test_isPalindrome(t *testing.T) {
 	fmt.Println(isPalindrome("A man, a plan, a canal: Panama"))
 	fmt.Println(isPalindrome_("A man, a plan, a canal: Panama"))
 }
+
 // tag-[字符串]
 // 第三题
 // leetcode66: 加一
@@ -345,6 +342,7 @@ func plusOne(digits []int) []int {
 func Test_plusOne(t *testing.T) {
 	fmt.Println(plusOne([]int{9}))
 }
+
 // tag-[字符串]
 // 第四题
 // leetcode58：最后一个单词长度
@@ -361,6 +359,7 @@ func lengthOfLastWord(s string) int {
 	}
 	return cnt
 }
+
 // tag-[字符串]
 // 第一题
 // leetcode168: Excel表列名称
@@ -385,6 +384,7 @@ func convertToTitle(columnNumber int) string {
 func Test_convert(t *testing.T) {
 	fmt.Println(convertToTitle(701))
 }
+
 // tag-[字符串]
 // leetcode1980: 找出不同的二进制字符串
 func findDifferentBinaryString(nums []string) string {
@@ -416,6 +416,7 @@ func findDifferentBinaryString(nums []string) string {
 func Test_findDifferentBinaryString(t *testing.T) {
 	fmt.Println(findDifferentBinaryString([]string{"1"}))
 }
+
 // tag-[字符串]
 // 第七题
 // leetcode205：同构字符串
@@ -440,6 +441,7 @@ func isIsomorphicExec(s string, t string) bool {
 func Test_isIsomorphic(t *testing.T) {
 	fmt.Println(isIsomorphic("egt", "add"))
 }
+
 // tag-[字符串]
 // leetcode165: 比较版本号
 // 分割字符串
@@ -608,6 +610,7 @@ func Test_compareVersion(t *testing.T) {
 	fmt.Println(compareVersion_("1.2", "1.10"))
 	fmt.Println(compareVersion__("1.2", "1.10"))
 }
+
 // tag-[字符串]
 // leetcode214: 最短回文串
 // 输入：s = "aacecaaa"
@@ -631,7 +634,8 @@ func shortestPalindrome(s string) string {
 
 func Test_shortestPalindrome(t *testing.T) {
 	fmt.Println(shortestPalindrome("aacecaaa"))
-}// tag-[字符串]
+}
+// tag-[字符串]
 // leetcode1974: 使用特殊打字机键入单词的最少次数
 func minTimeToType(word string) int {
 	n := len(word)
@@ -648,6 +652,7 @@ func minTimeToType(word string) int {
 func Test_minTimeToType(t *testing.T) {
 	fmt.Println(minTimeToType("bza"))
 }
+
 // tag-[字符串]
 // 优秀代码学习，枚举回文串
 func countSubstrings(s string) int {
@@ -664,27 +669,7 @@ func countSubstrings(s string) int {
 	return ans
 }
 
-// leetcode1952: 三除数
-func isThree(n int) bool {
-	if n == 1 || n == 2 || n == 3 {
-		return false
-	}
-	cnt := 0
-	for i := 1; i*i <= n; i++ {
-		if n%i == 0 {
-			if i*i < n {
-				cnt += 2
-			} else {
-				cnt += 1
-			}
-		}
-	}
-	return cnt == 3
-}
-
-func Test_isThree(t *testing.T) {
-	fmt.Println(isThree(8))
-}// tag-[字符串]
+// tag-[字符串]
 // leetcode1957: 删除字符串使字符串变好
 func makeFancyString(s string) string {
 	n := len(s)
@@ -747,6 +732,7 @@ func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
 	}
 	return false
 }
+
 // tag-[字符串]
 // leetcode1945: 字符串转化后的各位数字之和
 func getLucky(s string, k int) int {
@@ -781,6 +767,7 @@ func countSum(s string, k int) string {
 func Test_getLucky(t *testing.T) {
 	fmt.Println(getLucky("dbvmfhnttvr", 5))
 }
+
 // tag-[字符串]
 // leetcode1946: 子字符串突变后可能得到的最大整数
 func maximumNumber(num string, change []int) string {
@@ -803,6 +790,7 @@ func maximumNumber(num string, change []int) string {
 func Test_maximumNumber(t *testing.T) {
 	fmt.Println(maximumNumber("334111", []int{0, 9, 2, 3, 3, 2, 5, 5, 5, 5}))
 }
+
 // tag-[字符串]
 // leetcode2000: 反转单次前缀
 func reversePrefix(word string, ch byte) string {
@@ -816,6 +804,7 @@ func reversePrefix(word string, ch byte) string {
 	}
 	return string(b) + word[idx+1:]
 }
+
 // tag-[字符串]
 // leetcode2002: 两个回文子序列长度的最大乘积
 func maxProduct(s string) int {
@@ -858,6 +847,7 @@ func isPlalindrome(b []byte) bool {
 func Test_maxProduct(t *testing.T) {
 	fmt.Println(maxProduct("leetcodecom"))
 }
+
 // tag-[字符串]
 // leetcode2011：执行操作后的变量值
 func finalValueAfterOperations(operations []string) int {
@@ -871,6 +861,7 @@ func finalValueAfterOperations(operations []string) int {
 	}
 	return ans
 }
+
 // tag-[字符串]
 func longestSubsequenceRepeatedK(s string, k int) (ans string) {
 	n := len(s)
@@ -959,18 +950,6 @@ func permutations(n, r int, do func(ids []int) bool) {
 	}
 }
 
-// tag-[哈希表]
-// leetcode2006：差的绝对值为k的数对数目
-func countKDifference(nums []int, k int) int {
-	m := make(map[int]int)
-	ans := 0
-	for i := range nums {
-		ans += m[nums[i]-k]
-		ans += m[nums[i]+k]
-		m[nums[i]]++
-	}
-	return ans
-}
 // tag-[字符串]
 // 第四题
 // leetcode621: 任务调度器
@@ -993,6 +972,7 @@ func leastInterval(tasks []byte, n int) int {
 	// 3. 任务很稀疏时，值为任务数量
 	return max(len(tasks), cnt+(n+1)*(maxn-1))
 }
+
 // tag-[字符串]
 // leetcode49: 字母的异位分词
 func groupAnagrams(strs []string) [][]string {
@@ -1014,7 +994,8 @@ func groupAnagrams(strs []string) [][]string {
 		ans = append(ans, v)
 	}
 	return ans
-}// tag-[字符串]
+}
+// tag-[字符串]
 // leetcode2027：转换字符串的最少操作次数
 // 字符串、贪心
 func minimumMoves(s string) int {
@@ -1031,6 +1012,7 @@ func minimumMoves(s string) int {
 	}
 	return cnt
 }
+
 // tag-[字符串]
 // 第四题
 // leetcode43: 字符串相乘
@@ -1076,7 +1058,126 @@ func multiply(num1 string, num2 string) string {
 
 func Test_multiply(t *testing.T) {
 	fmt.Println(multiply("1234", "4567"))
-}// tag-[字符串]
+}
+// tag-[字符串]
+// leetcode8
+func myAtoi(s string) int {
+	ss := strings.TrimLeft(s, " ")
+	ans := make([]byte, 0)
+	for i := range ss {
+		v := ss[i]
+		if v >= '0' && v <= '9' {
+			ans = append(ans, v)
+		}
+		if v == '-' || v == '+' {
+			if len(ans) == 0 {
+				ans = append(ans, v)
+			} else {
+				break
+			}
+		}
+		if (v >= 'a' && v <= 'z') || (v >= 'A' && v <= 'Z') || v == '.' || v == ' ' {
+			break
+		}
+	}
+	var factor int
+	if len(ans) > 0 {
+		if ans[0] == '-' {
+			factor = -1
+			ans = ans[1:]
+		} else if ans[0] == '+' {
+			factor = 1
+			ans = ans[1:]
+		} else {
+			factor = 1
+		}
+	}
+	res := 0
+	t := 1
+	for i := range ans {
+		res += int(ans[len(ans)-i-1]-'0') * t
+		if factor == 1 && (res > math.MaxInt32 || t > math.MaxInt32) {
+			return math.MaxInt32
+		}
+		if factor == -1 && (res < math.MinInt32 || t < math.MinInt32) {
+			return math.MinInt32
+		}
+		t *= 10
+	}
+	r := factor * res
+	if r > math.MaxInt32 {
+		return math.MaxInt32
+	}
+	if r < math.MinInt32 {
+		return math.MinInt32
+	}
+	return r
+}
+
+func Test_myAtoi(t *testing.T) {
+	fmt.Println(myAtoi("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000522545459"))
+}
+
+// leetcode8 优化解法
+func myAtoi1(s string) int {
+	abs, sign, i, n := 0, 1, 0, len(s)
+	// 丢弃无用的前导空格
+	for i < n && s[i] == ' ' {
+		i++
+	}
+	// 标记正负号
+	if i < n {
+		if s[i] == '-' {
+			sign = -1
+			i++
+		} else if s[i] == '+' {
+			sign = 1
+			i++
+		}
+	}
+	for i < n && s[i] >= '0' && s[i] <= '9' {
+		abs = 10*abs + int(s[i]-'0')  // 字节 byte '0' == 48
+		if sign*abs < math.MinInt32 { //整数超过 32 位有符号整数范围
+			return math.MinInt32
+		} else if sign*abs > math.MaxInt32 {
+			return math.MaxInt32
+		}
+		i++
+	}
+	return sign * abs
+}
+
+func Test_forsum(t *testing.T) {
+	fmt.Println(fourSum([]int{2, 2, 2, 2, 2}, 8))
+}
+// tag-[字符串]
+func areNumbersAscending(s string) bool {
+	last := 0
+	for i := 0; i < len(s); {
+		j := i
+		for j < len(s) && s[j] >= '0' && s[j] <= '9' {
+			j++
+		}
+		if j > i {
+			v, _ := strconv.Atoi(s[i:j])
+			fmt.Println(v, last)
+			if v <= last {
+				return false
+			}
+			last = v
+		}
+		i = j + 1
+	}
+	return true
+}
+
+func Test_areNumbersAscending(t *testing.T) {
+	fmt.Println(areNumbersAscending("sunset is at 7 51 pm overnight lows will be in the low 50 and 60 s"))
+	fmt.Println(areNumbersAscending("hello world 5 x 5"))
+	fmt.Println(areNumbersAscending("4 5 11 26"))
+}
+
+// tag-[字符串]
 // leetcode6:字符串（模拟）
 func convert(s string, numRows int) string {
 	n := len(s)
@@ -1124,6 +1225,7 @@ func convert(s string, numRows int) string {
 	}
 	return string(res)
 }
+
 // tag-[字符串]
 // leetcode6:优化解法，无需计算列的个数
 func convert_(s string, numRows int) string {
@@ -1163,6 +1265,7 @@ func Test_convert_(t *testing.T) {
 	fmt.Println(convert("PAYPALISHIRING", 8))
 	fmt.Println(convert("PAYPALISHIRING", 9))
 }
+
 // tag-[字符串]
 // leetcode481:神奇字符串（模拟）
 func magicalString_(n int) int {
@@ -1207,6 +1310,7 @@ func magicalString_(n int) int {
 func Test_magicalString_(t *testing.T) {
 	fmt.Println(magicalString_(100))
 }
+
 // tag-[字符串]
 // leetcode71: 简化路径
 func simplifyPath(path string) string {
@@ -1231,6 +1335,7 @@ func Test_simplifyPath(t *testing.T) {
 	fmt.Println(simplifyPath("/home//foo/"))
 	fmt.Println(simplifyPath("/../"))
 }
+
 // tag-[字符串]
 // leetcode周赛第一题
 func countValidWords(sentence string) int {
@@ -1289,4 +1394,30 @@ func Test_countValidWords(t *testing.T) {
 	fmt.Println(countValidWords("!this  1-s b8d!"))
 	fmt.Println(countValidWords("cat and  dog"))
 	fmt.Println(countValidWords("!this  a-s- bad!"))
+}
+
+// tag-[字符串]
+// leetcode43: 字符串相乘
+// 重刷
+func multiply_(num1 string, num2 string) string {
+	n1, n2 := len(num1), len(num2)
+	res := make([]byte, n1+n2)
+	for i := range res {
+		res[i] = '0'
+	}
+	for i := n1 - 1; i >= 0; i-- {
+		v1 := int(num1[i] - '0')
+		carry := 0
+		for j := n2 - 1; j >= 0; j-- {
+			v2 := int(num2[j] - '0')
+			v := v1*v2 + int(res[i+j+1]-'0') + carry
+			res[i+j+1] = byte(v%10 + '0')
+			carry = v / 10
+		}
+	}
+	return strings.TrimLeft(string(res), "0")
+}
+
+func Test_multiply_(t *testing.T) {
+	fmt.Println(multiply_("2", "3"))
 }

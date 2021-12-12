@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[单调栈]
 // 第四题
 // leetcode496: 下一个更大元素I
@@ -35,6 +36,7 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 func Test_nextGreaterElement(t *testing.T) {
 	fmt.Println(nextGreaterElement([]int{4}, []int{4}))
 }
+
 // tag-[单调栈]
 // 第六题
 // leetcode503: 下一个更大元素II
@@ -60,6 +62,7 @@ func nextGreaterElements(nums []int) []int {
 func Test_nextGreaterElements(t *testing.T) {
 	fmt.Println(nextGreaterElements([]int{1, 2, 1}))
 }
+
 // tag-[单调栈]
 // 第八题
 // leetcode739: 每日温度
@@ -74,7 +77,34 @@ func dailyTemperatures(temperatures []int) []int {
 		stack = append(stack, i)
 	}
 	return ans
-}// tag-[单调栈]
+}
+// tag-[单调栈]
+// leetcode581: 最短无序连续子数组
+// TODO
+func findUnsortedSubarray(nums []int) int {
+	left, right := -1, -1
+	stack := make([]int, 0, len(nums))
+	for i := range nums {
+		for len(stack) != 0 && nums[stack[len(stack)-1]] >= nums[i] {
+			if left == -1 {
+				left = stack[len(stack)-1]
+			} else {
+				right = i
+			}
+			stack = stack[:len(stack)-1]
+		}
+		stack = append(stack, i)
+	}
+	if right == -1 || left == -1 {
+		return 0
+	}
+	return right - left + 1
+}
+
+func Test_findUnsortedSubarray(t *testing.T) {
+	fmt.Println(findUnsortedSubarray([]int{1, 2, 2, 2, 3}))
+}
+// tag-[单调栈]
 // 第一题
 // leetcode402: 移掉 K 位数字
 // 从左到右，移除比右侧大的数，如果没有，则移除最后的数字
@@ -109,6 +139,7 @@ func removeKdigits(num string, k int) string {
 func Test_removeKdigits(t *testing.T) {
 	fmt.Println(removeKdigits("100", 1))
 }
+
 // tag-[单调栈]
 // leetcode1996: 游戏中弱角色的数量
 func numberOfWeakCharacters(properties [][]int) int {
@@ -132,6 +163,7 @@ func numberOfWeakCharacters(properties [][]int) int {
 func Test_numberOfWeakCharacters(t *testing.T) {
 	fmt.Println(numberOfWeakCharacters([][]int{{1, 1}, {2, 1}, {2, 2}, {1, 2}}))
 }
+
 // tag-[单调栈]
 // leetcode2012: 数组美丽值求和
 // 双向单调栈
@@ -177,6 +209,7 @@ func sumOfBeauties(nums []int) int {
 	}
 	return ans
 }
+
 // tag-[单调栈]
 // leetcode32: 最长有效括号
 // 栈的解法，栈保留索引
@@ -208,6 +241,7 @@ func longestValidParentheses(s string) int {
 func isPair(a, b byte) bool {
 	return a == '(' && b == ')'
 }
+
 // tag-[单调栈]
 // leetcode316和1081
 func removeDuplicateLetters(s string) string {
@@ -238,6 +272,7 @@ func removeDuplicateLetters(s string) string {
 func Test_removeDuplicateLetters(t *testing.T) {
 	fmt.Println(removeDuplicateLetters("abcfdbcgthsiidbbcxxwwsxxxxkkkl"))
 }
+
 // tag-[单调栈]
 // leetcode321
 func maxNumber(nums1 []int, nums2 []int, k int) []int {
@@ -321,6 +356,7 @@ func Test_maxNumber(t *testing.T) {
 	// fmt.Println(maxNumber([]int{6, 5}, []int{6, 7, 4}, 5))
 	fmt.Println(maxNumber([]int{5, 6, 8}, []int{6, 4, 0}, 3))
 }
+
 // tag-[单调栈]
 // leetcode85: 矩阵中的最大矩形面积，单调栈
 func maximalRectangle(matrix [][]byte) int {
@@ -339,6 +375,7 @@ func maximalRectangle(matrix [][]byte) int {
 	}
 	return maxn
 }
+
 // tag-[单调栈]
 // leetcode84: 最大的矩形面积，单调递减栈
 func largestRectangleArea(heights []int) int {
@@ -374,6 +411,7 @@ func Test_largestRectangleArea(t *testing.T) {
 	fmt.Println(largestRectangleArea([]int{2, 5}))
 	fmt.Println(largestRectangleArea([]int{2, 1, 2}))
 }
+
 // tag-[单调栈]
 // leetcode42：接雨水, 单调栈解法
 // 思路：如果栈内元素超过两个，并且当前元素大于栈顶元素，那么栈顶元素处可以积水
@@ -398,6 +436,7 @@ func trap_(height []int) (ans int) {
 func Test_trap(t *testing.T) {
 	fmt.Println(trap_([]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}))
 }
+
 // tag-[单调栈]
 // leetcode901: 股票价格跨度, 单调递增栈
 type StockSpanner struct {

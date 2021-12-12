@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[数学]
 // 第五题
 // leetcode 面试题17.10: 主要元素
@@ -33,6 +34,7 @@ func majorityElement(nums []int) int {
 	}
 	return -1
 }
+
 // tag-[数学]
 // 第七题
 // leetcode566: 重塑矩阵
@@ -59,6 +61,7 @@ func Test_matrixReshape(t *testing.T) {
 	mat := [][]int{{1, 2}}
 	fmt.Println(matrixReshape(mat, 1, 1))
 }
+
 // tag-[数学]
 // 第三题
 // leetcode 剑指offer 17: 打印从1到最大的n位数
@@ -76,6 +79,7 @@ func printNumbers(n int) []int {
 	}
 	return ret
 }
+
 // tag-[数学]
 // 第一题
 // leetcode191: 2的幂
@@ -87,6 +91,7 @@ func isPowerOfTwo(n int) bool {
 	}
 	return cnt == 1
 }
+
 // tag-[数学]
 // 第二题
 // leetcode461: 汉明距离
@@ -98,6 +103,7 @@ func hammingWeight(num uint32) int {
 	}
 	return cnt
 }
+
 // tag-[数学]
 // 第二题
 // leetcode 171: Excel表列序号
@@ -127,6 +133,7 @@ func Test_pow(t *testing.T) {
 func Test_titleToNumber(t *testing.T) {
 	fmt.Println(titleToNumber("FXSHRXW"))
 }
+
 // tag-[数学]
 // 第八题
 // leetcode 剑指offer 16: 数值的整数次方
@@ -148,20 +155,6 @@ func powF(x float64, n int) float64 {
 	return powF(x, n-1) * x
 }
 
-// tag-[栈]
-// 第九题
-// leetcode 剑指offer 31: 栈的压入、弹出序列
-func validateStackSequences(pushed []int, popped []int) bool {
-	stack := list.New()
-	for _, v := range pushed {
-		stack.PushFront(v)
-		if stack.Front().Value.(int) == popped[0] {
-			stack.Remove(stack.Front())
-			popped = popped[1:]
-		}
-	}
-	return stack.Len() == 0
-}
 // tag-[数学]
 // 第五题
 // leetcode172：阶乘后的零
@@ -172,7 +165,30 @@ func trailingZeroes(n int) int {
 		cnt += n
 	}
 	return cnt
-}// tag-[数学]
+}
+// tag-[数学]
+// leetcode1952: 三除数
+func isThree(n int) bool {
+	if n == 1 || n == 2 || n == 3 {
+		return false
+	}
+	cnt := 0
+	for i := 1; i*i <= n; i++ {
+		if n%i == 0 {
+			if i*i < n {
+				cnt += 2
+			} else {
+				cnt += 1
+			}
+		}
+	}
+	return cnt == 3
+}
+
+func Test_isThree(t *testing.T) {
+	fmt.Println(isThree(8))
+}
+// tag-[数学]
 // leetcode lcp29: 乐团站位
 func orchestraLayout(num int, xPos int, yPos int) int {
 	cycle := min(min(num-1-xPos, xPos), min(num-1-yPos, yPos))
@@ -193,6 +209,7 @@ func orchestraLayout(num int, xPos int, yPos int) int {
 func Test_orchestraLayout(t *testing.T) {
 	fmt.Println(orchestraLayout(10, 5, 6))
 }
+
 // tag-[数学]
 // 第三题
 // leetcode2029: 石子游戏IX
@@ -217,6 +234,7 @@ func checkW(c [3]int) bool {
 	}
 	return turn%2 == 1 && c[1] != c[2] // 回合为奇数，且还有石子剩余，轮到bob出，则alice胜出
 }
+
 // tag-[数学]
 // leetcode29
 // 快速乘
@@ -241,6 +259,7 @@ func quickAdd(y, z, x int) bool {
 	}
 	return true
 }
+
 // tag-[数学]
 func divide(dividend, divisor int) int {
 	if dividend == math.MinInt32 { // 考虑被除数为最小值的情况
@@ -297,6 +316,7 @@ func divide(dividend, divisor int) int {
 func bulbSwitch(n int) int {
 	return int(math.Sqrt(float64(n)))
 }
+
 // tag-[数学]
 // leetcode66:每日一题
 func plusOne66(digits []int) []int {
@@ -312,6 +332,7 @@ func plusOne66(digits []int) []int {
 	}
 	return digits
 }
+
 // tag-[数学]
 // leetcode229: 求众数
 func majorityElement229(nums []int) []int {
@@ -351,7 +372,8 @@ func majorityElement229(nums []int) []int {
 		ans = append(ans, e2)
 	}
 	return ans
-}// tag-[数学]
+}
+// tag-[数学]
 // leetcode166
 func fractionToDecimal(numerator int, denominator int) string {
 	if numerator == 0 {
@@ -423,6 +445,7 @@ func Test_fractionToDecimal(t *testing.T) {
 	fmt.Println(fractionToDecimal(140898435, 17))
 	fmt.Println(fractionToDecimal(-50, 8))
 }
+
 // tag-[数学]
 // leetcode263
 func isUgly(n int) bool {
@@ -438,31 +461,22 @@ func isUgly(n int) bool {
 	return n == 1
 }
 
-// tag-[排序]
-// leetcode264: 多路归并
-func nthUglyNumber(n int) int {
-	dp := make([]int, n+1)
-	p2, p3, p5 := 1, 1, 1
-	dp[1] = 1
-	for i := 2; i <= n; i++ {
-		x2, x3, x5 := dp[p2]*2, dp[p3]*3, dp[p5]*5
-		dp[i] = min(min(x2, x3), x5)
-		if x2 == dp[i] {
-			p2++
-		}
-		if x3 == dp[i] {
-			p3++
-		}
-		if x5 == dp[i] {
-			p5++
-		}
+// tag-[数学]
+// leetcode89:格雷编码公式i^(i>>1)
+func grayCode(n int) []int {
+	size := 1 << n
+	ans := make([]int, 0, size)
+	for i := 0; i < size; i++ {
+		ans = append(ans, i^(i>>1))
 	}
-	return dp[n]
+	return ans
 }
 
-func Test_nthUglyNumber(t *testing.T) {
-	fmt.Println(nthUglyNumber(100))
-}// tag-[数学]
+func Test_grayCode(t *testing.T) {
+	print_binary_array(grayCode(3), 3)
+}
+
+// tag-[数学]
 // 蓄水池采样算法，保证留下来的概率都是K/N
 func ReservoirSampling(nums []int, k int) []int {
 	out := make([]int, k)
@@ -476,7 +490,8 @@ func ReservoirSampling(nums []int, k int) []int {
 		}
 	}
 	return out
-}// tag-[数学]
+}
+// tag-[数学]
 // leetcode2063: 所有子字符串中的元音
 // 解法二: 直接计算
 func countVowels_(word string) int64 {
@@ -488,41 +503,4 @@ func countVowels_(word string) int64 {
 		}
 	}
 	return ans
-}
-
-// tag-[二分查找]
-// leetcode2064: 分配给商店的最多商品的最小值
-func minimizedMaximum(n int, quantities []int) int {
-	maxn, sum := math.MinInt32, 0
-	for i := range quantities {
-		maxn = max(maxn, quantities[i])
-		sum += quantities[i]
-	}
-	isOk := func(v int) bool {
-		k := 0
-		tmp := quantities[0]
-		for i := 0; i < n; i++ {
-			if tmp > v {
-				tmp -= v
-			} else {
-				k++
-				if k < len(quantities) {
-					tmp = quantities[k]
-				} else {
-					return true
-				}
-			}
-		}
-		return false
-	}
-	l, r := (sum+n-1)/n, maxn
-	for l < r {
-		mid := (l + r) >> 1
-		if isOk(mid) {
-			r = mid
-		} else {
-			l = mid + 1
-		}
-	}
-	return r
 }

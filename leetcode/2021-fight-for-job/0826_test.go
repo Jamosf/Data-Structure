@@ -9,7 +9,7 @@ import (
 
 // tag-[双指针]
 // 第一题
-// leetcode45: 分发饼干
+// leetcode455: 分发饼干
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
 	sort.Ints(s)

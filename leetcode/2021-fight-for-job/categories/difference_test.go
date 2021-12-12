@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[差分]
 // 第三题
 // leetcode1109: 航班预定统计
@@ -72,7 +73,8 @@ func longestConsecutive(nums []int) int {
 
 func Test_longestConsecutive(t *testing.T) {
 	fmt.Println(longestConsecutive([]int{4, 0, -4, -2, 2, 5, 2, 0, -8, -8, -8, -8, -1, 7, 4, 5, 5, -4, 6, 6, -3}))
-}// tag-[差分]
+}
+// tag-[差分]
 // leetcode1094: 拼车
 // 差分
 func carPooling(trips [][]int, capacity int) bool {
@@ -90,4 +92,26 @@ func carPooling(trips [][]int, capacity int) bool {
 		}
 	}
 	return true
+}
+// tag-[差分]
+// leetcode798: 得分最高的最小轮调
+// 差分+前缀和
+func bestRotation(nums []int) int {
+	n := len(nums)
+	diff := make([]int, n) // 差分数组，对于任意一个位置，在diff区间内是1分，区间外是0分
+	// 计算每个位置的差分，即有分的边界。
+	for i := 0; i < n; i++ {
+		diff[(i+1)%n]++
+		diff[(i+1-nums[i]+n)%n]--
+	}
+	maxn := diff[0]
+	res := 0
+	for i := 1; i < n; i++ {
+		diff[i] += diff[i-1]
+		if diff[i] > maxn {
+			maxn = diff[i]
+			res = i
+		}
+	}
+	return res
 }

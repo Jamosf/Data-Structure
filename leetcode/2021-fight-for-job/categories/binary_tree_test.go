@@ -1,11 +1,14 @@
 package categories
 
 import (
+	"container/list"
 	"fmt"
-	"testing"
-	"sort"
 	"math"
+	"strconv"
+	"strings"
+	"testing"
 )
+
 // tag-[二叉树]
 // 第一题
 // leetcode617: 合并二叉树
@@ -33,6 +36,7 @@ type pos struct {
 	x int
 	y int
 }
+
 // tag-[二叉树]
 // 第一题
 // leetcode116: 填充每个节点的下一个右侧节点指针
@@ -64,6 +68,7 @@ func Test_connect(t *testing.T) {
 	fmt.Println(connect(&NodeC{1, &NodeC{2, &NodeC{4, nil, nil, nil},
 		&NodeC{5, nil, nil, nil}, nil}, &NodeC{3, &NodeC{6, nil, nil, nil}, &NodeC{7, nil, nil, nil}, nil}, nil}))
 }
+
 // tag-[二叉树]
 // 第十二题
 // leetcode 剑指offer 27: 二叉树的镜像
@@ -74,6 +79,7 @@ func mirrorTree(root *TreeNode) *TreeNode {
 	root.Left, root.Right = mirrorTree(root.Right), mirrorTree(root.Left)
 	return root
 }
+
 // tag-[二叉树]
 // 第十题
 // leetcode 剑指offer 54: 二叉搜索树的第K大节点
@@ -97,42 +103,7 @@ func kthLargest(root *TreeNode, k int) int {
 	return res
 }
 
-// tag-[栈]
-// 第十一题
-// leetcode 剑指offer 30: 包含min函数的栈
-type MinStack struct {
-	min *list.List
-	l   *list.List
-}
-
-/** initialize your data structure here. */
-func ConstructorMinStack() MinStack {
-	return MinStack{min: list.New(), l: list.New()}
-}
-
-func (m *MinStack) Push(x int) {
-	if m.min.Len() == 0 || x <= m.min.Front().Value.(int) {
-		m.min.PushFront(x)
-	}
-	m.l.PushFront(x)
-}
-
-func (m *MinStack) Pop() {
-	v := m.l.Front()
-	m.l.Remove(v)
-	if m.min.Len() != 0 && v.Value.(int) == m.min.Front().Value.(int) {
-		vv := m.min.Front()
-		m.min.Remove(vv)
-	}
-}
-
-func (m *MinStack) Top() int {
-	return m.l.Front().Value.(int)
-}
-
-func (m *MinStack) Min() int {
-	return m.min.Front().Value.(int)
-}// tag-[二叉树]
+// tag-[二叉树]
 // 第一题
 // leetcode144: 二叉树的前序遍历
 func preorderTraversal(root *TreeNode) []int {
@@ -146,6 +117,7 @@ func preorderTraversal(root *TreeNode) []int {
 
 	return ret
 }
+
 // tag-[二叉树]
 // 第二题
 // leetcode94: 二叉树的中序遍历
@@ -160,6 +132,7 @@ func inorderTraversal(root *TreeNode) []int {
 
 	return ret
 }
+
 // tag-[二叉树]
 // 第三题
 // leetcode145: 二叉树的后序遍历
@@ -174,6 +147,7 @@ func postorderTraversal(root *TreeNode) []int {
 
 	return ret
 }
+
 // tag-[二叉树]
 // 第五题
 // leetcode104: 二叉树的最大深度
@@ -183,6 +157,7 @@ func maxDepth(root *TreeNode) int {
 	}
 	return 1 + max(maxDepth(root.Left), maxDepth(root.Right))
 }
+
 // tag-[二叉树]
 // 第六题
 // leetcode101: 对称二叉树
@@ -202,6 +177,7 @@ func check(left, right *TreeNode) bool {
 	}
 	return left.Val == right.Val && check(left.Right, right.Left) && check(left.Left, right.Right)
 }
+
 // tag-[二叉树]
 // 第七题
 // leetcode226: 翻转二叉树
@@ -212,6 +188,7 @@ func invertTree(root *TreeNode) *TreeNode {
 	root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
 	return root
 }
+
 // tag-[二叉树]
 // 第八题
 // leetcode112: 路径总和
@@ -225,6 +202,7 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	}
 	return hasPathSum(root.Left, targetSum) || hasPathSum(root.Right, targetSum)
 }
+
 // tag-[二叉树]
 // 第九题
 // leetcode102: 二叉树的层序遍历
@@ -254,6 +232,7 @@ func levelOrder1(root *TreeNode) [][]int {
 	}
 	return ret
 }
+
 // tag-[二叉树]
 // 第五题
 // leetcode700: 二叉搜索树中的搜索
@@ -268,7 +247,9 @@ func searchBST(root *TreeNode, val int) *TreeNode {
 	} else {
 		return searchBST(root.Right, val)
 	}
-}// tag-[二叉树]
+}
+
+// tag-[二叉树]
 // 第一题
 // leetcode701: 二叉搜索树中的插入操作
 func insertIntoBST(root *TreeNode, val int) *TreeNode {
@@ -282,6 +263,7 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 	}
 	return root
 }
+
 // tag-[二叉树]
 // 第二题
 // leetcode98: 验证二叉搜索树
@@ -299,6 +281,7 @@ func isValidBST(root *TreeNode) bool {
 	pre = root.Val
 	return isValidBST(root.Right)
 }
+
 // tag-[二叉树]
 // leetcode98: 验证二叉搜索树
 // 方法2
@@ -315,6 +298,7 @@ func helper(root *TreeNode, lower, upper int) bool {
 	}
 	return helper(root.Left, lower, root.Val) && helper(root.Right, root.Val, upper)
 }
+
 // tag-[二叉树]
 // 第三题
 func findTarget(root *TreeNode, k int) bool {
@@ -332,6 +316,7 @@ func dfs(root *TreeNode, m map[int]struct{}, k int) bool {
 	m[k-root.Val] = struct{}{}
 	return dfs(root.Left, m, k) || dfs(root.Right, m, k)
 }
+
 // tag-[二叉树]
 // 第四题
 // leetcode235: 二叉搜索树的最近公共祖先
@@ -351,6 +336,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	}
 	return root
 }
+
 // tag-[二叉树]
 // 第三题
 // leetcode 剑指offer32-II: 从上到下打印二叉树
@@ -379,6 +365,7 @@ func levelOrder(root *TreeNode) [][]int {
 	}
 	return result
 }
+
 // tag-[二叉树]
 // 第一题
 // leetcode 剑指offer55-II: 平衡二叉树
@@ -398,6 +385,7 @@ func depth(root *TreeNode) int {
 	}
 	return 1 + max(depth(root.Left), depth(root.Right))
 }
+
 // tag-[二叉树]
 // 第二题
 // leetcode 剑指offer 68-II: 二叉树的最近公共祖先
@@ -422,6 +410,7 @@ func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 		return left
 	}
 }
+
 // tag-[二叉树]
 // 第六题
 // leetcode 剑指offer26: 树的子结构
@@ -447,6 +436,7 @@ func isEqual1(a, b *TreeNode) bool {
 	}
 	return a.Val == b.Val && isEqual1(a.Left, b.Left) && isEqual1(a.Right, b.Right)
 }
+
 // tag-[二叉树]
 // 第二题
 // leetcode654：最大二叉树
@@ -476,6 +466,7 @@ func Test_constructMaximumBinaryTree(t *testing.T) {
 	r := constructMaximumBinaryTree([]int{3, 2, 1, 6, 0, 5})
 	fmt.Println(r)
 }
+
 // tag-[二叉树]
 // leetcode1993: 树上的操作
 type lockStatus struct {
@@ -570,6 +561,7 @@ func Test_lock(t *testing.T) {
 	f := lockTree.Lock(0, 1)
 	fmt.Println(a, b, c, d, e, f)
 }
+
 // tag-[二叉树]
 // 第五题
 // leetcode114: 二叉树展开为链表
@@ -597,6 +589,7 @@ func flatten(root *TreeNode) {
 func Test_flatten(t *testing.T) {
 	flatten(&TreeNode{Right: &TreeNode{1, nil, nil}, Left: &TreeNode{2, nil, nil}, Val: 0})
 }
+
 // tag-[二叉树]
 // leetcode543: 二叉树的直径
 func diameterOfBinaryTree(root *TreeNode) int {
@@ -614,6 +607,7 @@ func diameterOfBinaryTree(root *TreeNode) int {
 	depth(root)
 	return maxn
 }
+
 // tag-[二叉树]
 // 第一题
 // leetcode105: 从前序与中序遍历序列构造二叉树
@@ -638,6 +632,7 @@ func Test_buildTree(t *testing.T) {
 	r := buildTree([]int{-1}, []int{-1})
 	fmt.Println(r)
 }
+
 // tag-[二叉树]
 // 第二题
 // leetcode236: 二叉树的最近公共祖先
@@ -660,6 +655,7 @@ func lowestCommonAncestor236(root, p, q *TreeNode) *TreeNode {
 	}
 	return root
 }
+
 // tag-[二叉树]
 // 第二题
 // leetcode538: 二叉搜索树转换为累加树
@@ -678,7 +674,26 @@ func convertBST(root *TreeNode) *TreeNode {
 	}
 	dfs(root)
 	return root
-}// tag-[二叉树]
+}
+
+// tag-[二叉树]
+// leetcode106, 可以使用map优化查找节点的idx
+func buildTree1(inorder []int, postorder []int) *TreeNode {
+	if len(postorder) == 0 || len(inorder) == 0 {
+		return nil
+	}
+	n := len(postorder)
+	root := &TreeNode{Val: postorder[n-1]}
+	idx := n - 1
+	for idx >= 0 && inorder[idx] != postorder[n-1] {
+		idx--
+	}
+	root.Right = buildTree1(inorder[idx+1:], postorder[idx:n-1])
+	root.Left = buildTree1(inorder[:idx], postorder[:idx])
+	return root
+}
+
+// tag-[二叉树]
 // leetcode99:二叉搜索树中序遍历,找出错位的两个节点并交换
 // 时间复杂度：O(n)
 // 空间复杂度：O(logn), 即为树的高度
@@ -705,6 +720,7 @@ func recoverTree(root *TreeNode) {
 		firstMax.Val, lastMin.Val = lastMin.Val, firstMax.Val
 	}
 }
+
 // tag-[二叉树]
 // leetcode99: 中序遍历栈的写法，先将跟节点和所有的左节点压栈，然后逐个取出左节点，压入右节点。
 func recoverTree_(root *TreeNode) {
@@ -756,6 +772,7 @@ func morrisInorder(root *TreeNode) {
 		}
 	}
 }
+
 // tag-[二叉树]
 // leetcode99:morris解法
 // 时间复杂度：O(n)
@@ -803,6 +820,7 @@ func recoverTree__(root *TreeNode) {
 func Test_recoverTree(t *testing.T) {
 	recoverTree(&TreeNode{Val: 1, Left: &TreeNode{3, nil, &TreeNode{2, nil, nil}}})
 }
+
 // tag-[二叉树]
 // leetcode437: 不一定从根节点开始的路径和
 func pathSumIII(root *TreeNode, targetSum int) int {
@@ -818,7 +836,30 @@ func pathSumIII(root *TreeNode, targetSum int) int {
 	}
 	inorder(root)
 	return sum
-}// tag-[二叉树]
+}
+
+// tag-[二叉树]
+// leetcode230: 二叉搜索树中k小的元素
+// 中序遍历
+func kthSmallest(root *TreeNode, k int) int {
+	ans := -1
+	var inorder func(r *TreeNode)
+	inorder = func(r *TreeNode) {
+		if r == nil {
+			return
+		}
+		inorder(r.Left)
+		k--
+		if k == 0 {
+			ans = r.Val
+		}
+		inorder(r.Right)
+	}
+	inorder(root)
+	return ans
+}
+
+// tag-[二叉树]
 // leetcode331: 验证二叉树的前序序列化
 func isValidSerialization(preorder string) bool {
 	n := len(preorder)
@@ -847,4 +888,148 @@ func isValidSerialization(preorder string) bool {
 		}
 	}
 	return len(stack) == 0
+}
+
+// tag-[二叉树]
+// 二叉树的前序遍历迭代遍历
+func preorderTraversal_(root *TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+	out := make([]int, 0)
+	l := list.New()
+	l.PushBack(root)
+	for l.Len() != 0 {
+		v := l.Back()
+		l.Remove(v)
+		r := v.Value.(*TreeNode)
+		out = append(out, r.Val)
+		if r.Right != nil {
+			l.PushBack(r.Right)
+		}
+		if r.Left != nil {
+			l.PushBack(r.Left)
+		}
+	}
+	return out
+}
+
+// tag-[二叉树]
+// leetcode297: 二叉树的序列化和反序列化（本提可以用前序遍历和后序遍历、层序遍历来解决，但是中序遍历无法解）
+// 前序遍历
+type Codec struct {
+}
+
+func ConstructorC() Codec {
+	return Codec{}
+}
+
+// Serializes a tree to a single string.
+func (c *Codec) serialize(root *TreeNode) string {
+	var preorder func(node *TreeNode) string
+	preorder = func(node *TreeNode) string {
+		if node == nil {
+			return "#"
+		}
+		return strconv.Itoa(node.Val) + "," + preorder(node.Left) + "," + preorder(node.Right)
+	}
+	return preorder(root)
+}
+
+// Deserializes your encoded data to tree.
+func (c *Codec) deserialize(data string) *TreeNode {
+	ss := strings.Split(data, ",")
+	var preorder func(s *[]string) *TreeNode
+	preorder = func(s *[]string) *TreeNode {
+		if len(*s) == 0 {
+			return nil
+		}
+		if (*s)[0] == "#" {
+			*s = (*s)[1:]
+			return nil
+		}
+		v, _ := strconv.Atoi((*s)[0])
+		*s = (*s)[1:]
+		root := &TreeNode{Val: v}
+		root.Left = preorder(s)
+		root.Right = preorder(s)
+		return root
+	}
+	return preorder(&ss)
+}
+
+func Test_codec(t *testing.T) {
+	c := &Codec{}
+	root := &TreeNode{Val: 1}
+	root.Left = &TreeNode{Val: 2}
+	root.Left.Right = &TreeNode{Val: 4}
+	root.Right = &TreeNode{Val: 3}
+	r := c.deserialize(c.serialize(root))
+	fmt.Println(r)
+}
+
+// tag-[二叉树]
+// leetcode297: 二叉树的序列化和反序列化
+// 层序遍历
+type Codec_ struct {
+}
+
+func ConstructorC_() Codec_ {
+	return Codec_{}
+}
+
+// Serializes a tree to a single string.
+func (c *Codec_) serialize(root *TreeNode) string {
+	var ss []string
+	q := []*TreeNode{root}
+	for len(q) != 0 {
+		v := q[0]
+		q = q[1:]
+		if v == nil {
+			ss = append(ss, "#")
+			continue
+		}
+		ss = append(ss, strconv.Itoa(v.Val))
+		q = append(q, v.Left)
+		q = append(q, v.Right)
+	}
+	return strings.Join(ss, ",")
+}
+
+// Deserializes your encoded data to tree.
+func (c *Codec_) deserialize(data string) *TreeNode {
+	ss := strings.Split(data, ",")
+	v, err := strconv.Atoi(ss[0])
+	if err != nil {
+		return nil
+	}
+	root := &TreeNode{Val: v}
+	q := []*TreeNode{root}
+	for len(q) != 0 {
+		node := q[0]
+		q = q[1:]
+		left, right := ss[1], ss[2]
+		if left != "#" {
+			v, _ := strconv.Atoi(left)
+			node.Left = &TreeNode{Val: v}
+			q = append(q, node.Left)
+		}
+		if right != "#" {
+			v, _ := strconv.Atoi(right)
+			node.Right = &TreeNode{Val: v}
+			q = append(q, node.Right)
+		}
+		ss = ss[2:]
+	}
+	return root
+}
+
+func Test_codec_(t *testing.T) {
+	c := &Codec_{}
+	root := &TreeNode{Val: 1}
+	root.Left = &TreeNode{Val: 2}
+	root.Left.Right = &TreeNode{Val: 4}
+	root.Right = &TreeNode{Val: 3}
+	r := c.deserialize(c.serialize(root))
+	fmt.Println(r)
 }

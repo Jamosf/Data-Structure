@@ -17,7 +17,7 @@ const (
 
 	BinaryTree       = "二叉树"
 	Array            = "数组"
-	Stack            = "普通栈"
+	Stack            = "栈"
 	List             = "队列"
 	LinkedList       = "链表"
 	UnionFind        = "并查集"
@@ -28,11 +28,12 @@ const (
 	MonotonicStack   = "单调栈"
 	BinarySearchTree = "二叉搜索树"
 	SegmentTree      = "线段树"
+	HashMap          = "哈希表"
 
 	TwoPointers      = "双指针"
 	Bfs              = "广度优先搜索"
 	Dfs              = "深度优先搜索"
-	Sort             = "排序算法"
+	Sort             = "排序"
 	Dp               = "动态规划"
 	BackTracking     = "回溯"
 	PreSum           = "前缀和"
@@ -43,6 +44,7 @@ const (
 	Math             = "数学"
 	Difference       = "差分"
 	Bit              = "位运算"
+	BinarySearch     = "二分查找"
 )
 
 func convertToEn(cn string) string {
@@ -73,6 +75,8 @@ func convertToEn(cn string) string {
 		return "binary_search_tree"
 	case SegmentTree:
 		return "segment_tree"
+	case HashMap:
+		return "hashmap"
 
 	case TwoPointers:
 		return "two_pointers"
@@ -102,6 +106,8 @@ func convertToEn(cn string) string {
 		return "difference"
 	case Bit:
 		return "bit"
+	case BinarySearch:
+		return "binary_search"
 	}
 	return ""
 }
@@ -124,7 +130,7 @@ type tagInfo struct {
 var (
 	gInfo = globalInfo{mk: make(map[string]*os.File)}
 	tags  = []string{BinaryTree, Array, Stack, List, LinkedList, UnionFind, Graph, Heap_, String, Trie, MonotonicStack, BinarySearchTree,
-		SegmentTree, TwoPointers, Bfs, Dfs, Sort, Dp, BackTracking, PreSum, Bag, DivideAndConquer, ShortestPath, Greedy, Math, Difference, Bit}
+		SegmentTree, HashMap, TwoPointers, Bfs, Dfs, Sort, Dp, BackTracking, PreSum, Bag, DivideAndConquer, ShortestPath, Greedy, Math, Difference, Bit, BinarySearch}
 )
 
 func makeDir(dir string) error {
@@ -258,6 +264,10 @@ func Test_categories(t *testing.T) {
 			_, err = fi.ReadAt(b, int64(tag.posStart)-1)
 			if err != nil && err != io.EOF {
 				t.Errorf("read b from [%s] failed, err:%v", fi.Name(), err)
+			}
+			_, err = fo.WriteString("\n")
+			if err != nil {
+				t.Errorf("write n to [%s] failed, err:%v", fo.Name(), err)
 			}
 			_, err = fo.Write(b)
 			if err != nil {

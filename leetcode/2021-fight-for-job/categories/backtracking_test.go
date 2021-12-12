@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[回溯]
 // 第二题
 // leetcode17: 电话号码的字母组合
@@ -37,7 +38,8 @@ func letterCombinations(digits string) []string {
 
 func Test_letterCombinations(t *testing.T) {
 	fmt.Println(letterCombinations("22"))
-}// tag-[回溯]
+}
+// tag-[回溯]
 // 第七题
 // leetcode556: 下一个更大元素III
 func nextGreaterElementIII(n int) int {
@@ -86,6 +88,7 @@ func nextGreaterElementIII(n int) int {
 func Test_nextGreaterElementIII(t *testing.T) {
 	fmt.Println(nextGreaterElementIII(1234))
 }
+
 // tag-[回溯]
 // leetcode1981: 最小化目标值与所选元素的差
 func minimizeTheDifference(mat [][]int, target int) int {
@@ -120,7 +123,8 @@ func minimizeTheDifference(mat [][]int, target int) int {
 
 func Test_min(t *testing.T) {
 	fmt.Println(minimizeTheDifference([][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 13))
-}// tag-[回溯]
+}
+// tag-[回溯]
 // leetcode46: 全排列
 func permute(nums []int) [][]int {
 	n := len(nums)
@@ -153,6 +157,7 @@ func factorial(n int) int {
 func Test_permute(t *testing.T) {
 	fmt.Println(permute([]int{1, 2, 3}))
 }
+
 // tag-[回溯]
 // leetcode77: 组合
 func combine(n int, k int) [][]int {
@@ -179,7 +184,8 @@ func combine(n int, k int) [][]int {
 
 func Test_combine(t *testing.T) {
 	fmt.Println(combine(4, 3))
-}// tag-[回溯]
+}
+// tag-[回溯]
 // 第一题
 // leetcode79: 单词搜索
 func exist(board [][]byte, word string) bool {
@@ -225,7 +231,8 @@ func exist(board [][]byte, word string) bool {
 
 func Test_exist(t *testing.T) {
 	fmt.Println(exist([][]byte{{'a'}, {'a'}}, "aaa"))
-}// tag-[回溯]
+}
+// tag-[回溯]
 // 第一题
 // leetcode51: N皇后
 func solveNQueens(n int) [][]string {
@@ -272,6 +279,7 @@ func solveNQueens(n int) [][]string {
 func Test_solveNQueens(t *testing.T) {
 	fmt.Println(solveNQueens(4))
 }
+
 // tag-[回溯]
 // leetcode934: 最短的桥
 // 求最小翻转的个数，就是求两个岛之间的最短距离
@@ -342,6 +350,7 @@ type graph struct {
 	edges  [][]int
 	n, e   int
 }
+
 // tag-[回溯]
 // leetcode1986: 完成任务的最少工作时间段
 // dfs解这个题
@@ -382,6 +391,7 @@ func Test_minSessions2(t *testing.T) {
 	fmt.Println(minSessions([]int{1, 1, 1, 3, 3, 1}, 8))
 	fmt.Println(minSessions_([]int{1, 1, 1, 3, 3, 1}, 8))
 }
+
 // tag-[回溯]
 // leetcode1947: 最大兼容性评分和
 func maxCompatibilitySum(students [][]int, mentors [][]int) int {
@@ -423,6 +433,7 @@ func caclSum(a, b []int) int {
 func Test_maxCompatibilitySum(t *testing.T) {
 	fmt.Println(maxCompatibilitySum([][]int{{0, 1, 0, 1, 1, 1}, {1, 0, 0, 1, 0, 1}, {1, 0, 1, 1, 0, 0}}, [][]int{{1, 0, 0, 0, 0, 1}, {0, 1, 0, 0, 1, 1}, {0, 1, 0, 0, 1, 1}}))
 }
+
 // tag-[回溯]
 func maxmiumScore1(cards []int, cnt int) int {
 	n := len(cards)
@@ -451,6 +462,7 @@ func maxmiumScore1(cards []int, cnt int) int {
 	return maxn
 }
 
+// tag-[矩阵]
 func flipChess1(chessboard []string) int {
 	m, n := len(chessboard), len(chessboard[0])
 	direction := [8][2]int{{-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}}
@@ -504,7 +516,8 @@ func flipChess1(chessboard []string) int {
 
 func Test_flipChess1(t *testing.T) {
 	fmt.Println(flipChess([]string{".X.", ".O.", "XO."}))
-}// tag-[回溯]
+}
+// tag-[回溯]
 // leetcode78: 子集
 func subsets(nums []int) [][]int {
 	sort.Ints(nums)
@@ -531,7 +544,8 @@ func subsets(nums []int) [][]int {
 
 func Test_subSet(t *testing.T) {
 	fmt.Println(subsets([]int{4, 1, 0}))
-}// tag-[回溯]
+}
+// tag-[回溯]
 // 第二题
 // leetcode22: 括号生成
 func generateParenthesis(n int) []string {
@@ -593,6 +607,7 @@ func notContain(s string, t []string) bool {
 func Test_generateParenthesis(t *testing.T) {
 	fmt.Println(generateParenthesis(8))
 }
+
 // tag-[回溯]
 // leetcode39: 组合总和
 // 回溯
@@ -636,49 +651,49 @@ func Test_combinationSum(t *testing.T) {
 	fmt.Println(combinationSum([]int{2, 3, 5}, 8))
 }
 
-// tag-[排序]
-// leetcode56: 合并区间
-func merge(intervals [][]int) [][]int {
-	sort.Slice(intervals, func(i, j int) bool {
-		a, b := intervals[i], intervals[j]
-		return a[0] < b[0] || (a[0] == b[0] && a[1] < b[1])
-	})
-	ans := make([][]int, 0)
-	n := len(intervals)
-	for i := 0; i < n; {
-		maxn := intervals[i][1]
-		j := i
-		for j < n-1 && maxn >= intervals[j+1][0] {
-			maxn = max(maxn, intervals[j+1][1])
-			j++
+// tag-[回溯]
+func countMaxOrSubsets(nums []int) int {
+	var backtrace func(index int)
+	m := make(map[int]int)
+	n := len(nums)
+	sum := 0
+	v := make([]int, 0)
+	maxn := 0
+	backtrace = func(index int) {
+		sum = or(v)
+		if sum > 0 {
+			m[sum]++
+			if sum >= maxn {
+				maxn = sum
+			}
 		}
-		ans = append(ans, []int{intervals[i][0], maxn})
-		i = j + 1
+		if index == n {
+			return
+		}
+		for i := index; i < n; i++ {
+			v = append(v, nums[i])
+			backtrace(i + 1)
+			v = v[:len(v)-1]
+		}
 	}
-	return ans
+	backtrace(0)
+	return m[maxn]
 }
 
-func Test_merge(t *testing.T) {
-	// fmt.Println(merge([][]int{{1, 3}, {2, 6}, {8, 10}, {15, 18}}))
-	// fmt.Println(merge([][]int{{1, 4}, {2, 3}}))
-	// fmt.Println(merge([][]int{{1, 4}, {1, 4}}))
-	fmt.Println(merge([][]int{{2, 3}, {4, 5}, {6, 7}, {8, 9}, {1, 10}}))
+func Test_countMaxOrSubsets(t *testing.T) {
+	fmt.Println(countMaxOrSubsets([]int{3, 1}))
+	fmt.Println(countMaxOrSubsets([]int{2, 2, 2}))
+	fmt.Println(countMaxOrSubsets([]int{3, 2, 1, 5}))
 }
 
-// tag-[排序]
-// leetcode406: 根据身高重建队列
-// 贪心
-func reconstructQueue(people [][]int) (ans [][]int) {
-	sort.Slice(people, func(i, j int) bool {
-		a, b := people[i], people[j]
-		return a[0] > b[0] || (a[0] == b[0] && a[1] < b[1])
-	})
-	for _, person := range people {
-		idx := person[1]
-		ans = append(ans[:idx], append([][]int{person}, ans[idx:]...)...)
-	}
-	return
-}// tag-[回溯]
+func Test_bin(t *testing.T) {
+	sum := 10
+	sum |= 51
+	fmt.Println(sum)
+	sum ^= 51
+	fmt.Println(sum)
+}
+// tag-[回溯]
 // leetcode40:回溯
 func combinationSum2(candidates []int, target int) [][]int {
 	n := len(candidates)
@@ -715,6 +730,7 @@ func Test_combinationSum2(t *testing.T) {
 	fmt.Println(combinationSum2([]int{10, 1, 2, 7, 6, 1, 5}, 8))
 	fmt.Println(combinationSum2([]int{2, 5, 2, 1, 2}, 5))
 }
+
 // tag-[回溯]
 // leetcode47: 不重复全排列
 func permuteUnique(nums []int) [][]int {
@@ -752,6 +768,7 @@ func Test_permuteUnique(t *testing.T) {
 	fmt.Println(permuteUnique([]int{0, 0, 0}))
 	fmt.Println(permuteUnique([]int{0, 1, 0, 0, 9}))
 }
+
 // tag-[回溯]
 // leetcode78
 func subsets78(nums []int) [][]int {
@@ -776,6 +793,7 @@ func subsets78(nums []int) [][]int {
 	backtracking(0)
 	return ans
 }
+
 // tag-[回溯]
 // leetcode90
 func subsetsWithDup(nums []int) [][]int {
@@ -814,6 +832,7 @@ func Test_subsetsWithDup(t *testing.T) {
 	fmt.Println(subsetsWithDup([]int{1, 2, 2}))
 	fmt.Println(subsetsWithDup([]int{0, 1, 0, 0, 9}))
 }
+
 // tag-[回溯]
 // leetcode216
 func combinationSum3(k int, n int) [][]int {
@@ -873,54 +892,7 @@ func combinationSum3_(k int, n int) (ans [][]int) {
 	return
 }
 
-// tag-[哈希表]
-// leetcode380
-type RandomizedSet struct {
-	m map[int]int
-	l []int
-}
-
-func ConstructorRandomizedSet() RandomizedSet {
-	return RandomizedSet{m: make(map[int]int), l: make([]int, 0)}
-}
-
-func (r *RandomizedSet) Insert(val int) bool {
-	if _, ok := r.m[val]; !ok {
-		r.l = append(r.l, val)
-		r.m[val] = len(r.l) - 1
-		return true
-	}
-	return false
-}
-
-func (r *RandomizedSet) Remove(val int) bool {
-	if idx, ok := r.m[val]; ok {
-		delete(r.m, val)
-		n := len(r.l)
-		r.l[idx], r.l[n-1] = r.l[n-1], r.l[idx]
-		r.l = r.l[:n-1]
-		if len(r.l) > idx {
-			r.m[r.l[idx]] = idx
-		}
-		return true
-	}
-	return false
-}
-
-func (r *RandomizedSet) GetRandom() int {
-	return r.l[rand.Intn(len(r.l))]
-}
-
-func Test_RandomizedSet(t *testing.T) {
-	v := ConstructorRandomizedSet()
-	vv := &v
-	vv.Remove(0)
-	vv.Remove(0)
-	vv.Insert(0)
-	vv.GetRandom()
-	vv.Remove(0)
-	vv.Insert(0)
-}// tag-[回溯]
+// tag-[回溯]
 // leetcode93:复原ip地址
 func restoreIpAddresses(s string) []string {
 	n := len(s)
@@ -969,6 +941,7 @@ func Test_restoreIpAddresses(t *testing.T) {
 	fmt.Println(restoreIpAddresses("25525511135"))
 	fmt.Println(restoreIpAddresses("101023"))
 }
+
 // tag-[字符串/回溯]
 // leetcode97:交错字符串(记忆化搜索)
 func isInterleave(s1 string, s2 string, s3 string) bool {
@@ -1001,6 +974,7 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	}
 	return backtrace(0, 0, 0)
 }
+
 // tag-[回溯]
 // leetcode95:回溯法
 func generateTrees(n int) []*TreeNode {
@@ -1026,6 +1000,7 @@ func generateTrees(n int) []*TreeNode {
 	}
 	return backtrace(1, n)
 }
+
 // tag-[回溯]
 // leetcode131: 分割回文串(典型的回溯)
 func partition(s string) [][]string {
@@ -1060,6 +1035,7 @@ func partition(s string) [][]string {
 	backtrace(0)
 	return ans
 }
+
 // tag-[回溯]
 // leetcode131: 分割回文串(典型的回溯) 使用记忆化优化或者使用dp来预处理字符串把任意i->j是否为回文算出来
 func partition_(s string) [][]string {
@@ -1106,6 +1082,7 @@ func partition_(s string) [][]string {
 func Test_partition(t *testing.T) {
 	fmt.Println(partition_("aabbaababab"))
 }
+
 // tag-[回溯]
 // leetcode638:回溯法思想
 func shoppingOffers_(price []int, special [][]int, needs []int) int {
@@ -1154,6 +1131,7 @@ func Test_shoppingOffers(t *testing.T) {
 	// fmt.Println(shoppingOffers_([]int{2, 5}, [][]int{{3, 0, 5}, {1, 2, 10}}, []int{3, 2}))
 	fmt.Println(shoppingOffers_([]int{2, 3, 4}, [][]int{{1, 1, 0, 4}, {2, 2, 1, 9}}, []int{1, 2, 1}))
 }
+
 // tag-[回溯]
 // leetcode周赛第二题
 func nextBeautifulNumber(n int) int {
@@ -1255,6 +1233,7 @@ func Test_nextBeautifulNumber(t *testing.T) {
 	// fmt.Println(nextBeautifulNumber(1))
 	fmt.Println(nextBeautifulNumber_(3000))
 }
+
 // tag-[二叉树/回溯]
 // leetcode113:路径总和,前序遍历
 func pathSum(root *TreeNode, targetSum int) [][]int {
@@ -1277,6 +1256,7 @@ func pathSum(root *TreeNode, targetSum int) [][]int {
 	backtracking(root, targetSum)
 	return ans
 }
+
 // tag-[回溯]
 // leetcode869：每日一题
 func reorderedPowerOf2(n int) bool {
@@ -1321,81 +1301,7 @@ func Test_reorderedPowerOf2(t *testing.T) {
 	fmt.Println(reorderedPowerOf2(1234))
 }
 
-// tag-[哈希表]
-// leetcode869：预处理加hash表，词频统计;思路，因为可以任意顺序排列，则词频相同的最终可以排列等到的数据是一致的。
-// 时间复杂度：O(logn)
-// 空间负责度：O(1)
-func reorderedPowerOf2_(n int) bool {
-	m := make(map[[10]int]bool)
-	countDigital := func(v int) [10]int {
-		cnt := [10]int{}
-		for v != 0 {
-			cnt[v%10]++
-			v /= 10
-		}
-		return cnt
-	}
-	for i := 1; i < 1e9; i <<= 1 {
-		m[countDigital(i)] = true
-	}
-	return m[countDigital(n)]
-}
-
-// tag-[排序]
-// leetcode147:仿照插入排序的实现
-func insertionSortList(head *ListNode) *ListNode {
-	dummy := &ListNode{Val: math.MinInt32, Next: head}
-	lastSorted, curr := head, head.Next
-	for curr != nil {
-		if curr.Val >= lastSorted.Val {
-			lastSorted = lastSorted.Next
-		} else {
-			prev := dummy
-			for prev.Next.Val <= curr.Val {
-				prev = prev.Next
-			}
-			// 找到了插入的位置
-			lastSorted.Next = curr.Next
-			curr.Next = prev.Next
-			prev.Next = curr
-		}
-		curr = lastSorted.Next
-	}
-	return dummy.Next
-}
-
-func Test_insertionSortList(t *testing.T) {
-	//fmt.Println(insertionSortList(newListNode([]int{4, 3, 2, 1})))
-}
-
-// tag-[排序]
-// leetcode220:存在重复元素(桶的思想)
-func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
-	getId := func(x, w int) int {
-		if x >= 0 {
-			return x / w
-		}
-		return (x+1)/w - 1 // 负数为了让范围与正数一致
-	}
-	m := make(map[int]int)
-	for i := range nums {
-		id := getId(nums[i], t+1)
-		if _, ok := m[id]; ok {
-			return true
-		}
-		if v, ok := m[id-1]; ok && minusAbs(nums[i], v) <= t {
-			return true
-		}
-		if v, ok := m[id+1]; ok && minusAbs(nums[i], v) <= t {
-			return true
-		}
-		m[id] = nums[i]
-		if i >= k {
-			delete(m, getId(nums[i-k], t+1))
-		}
-	}
-	return false
-}// tag-[回溯]
+// tag-[回溯]
 // 周赛
 // 第一题 leetcode5942: 找出三位偶数
 func findEvenNumbers(digits []int) []int {

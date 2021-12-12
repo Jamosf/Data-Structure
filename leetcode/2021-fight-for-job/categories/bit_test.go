@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[位运算]
 // 第三题
 // leetcode 剑指offer 65: 不用加减乘除做加法
@@ -17,6 +18,7 @@ func add(a int, b int) int {
 	}
 	return a
 }
+
 // tag-[位运算]
 // 第五题
 // leetcode190: 颠倒二进制位
@@ -44,6 +46,7 @@ func reverseBits1(n uint32) uint32 {
 func Test_reverseBits(t *testing.T) {
 	fmt.Println(reverseBits(0b00000010100101000001111010011100))
 }
+
 // tag-[位运算]
 // 第六题
 // leetcode136: 只出现一次的数字
@@ -56,7 +59,8 @@ func singleNumber(nums []int) int {
 		ret ^= nums[i]
 	}
 	return ret
-}// tag-[位运算]
+}
+// tag-[位运算]
 // 第二题
 // leetcode 剑指offer56-I：数组中数字出现的次数
 // 数组中两个出现一次的数，分开异或
@@ -82,6 +86,7 @@ func singleNumbers(nums []int) []int {
 func Test_singleNumbers(t *testing.T) {
 	fmt.Println(singleNumbers([]int{4, 1, 4, 6}))
 }
+
 // tag-[位运算]
 // 第三题
 // leetcode剑指offer56-II: 数组中数字出现的次数II
@@ -102,6 +107,7 @@ func singleNumberII(nums []int) int {
 	}
 	return ans
 }
+
 // tag-[位运算]
 // 第一题
 // leetcode1806: 还原排列的最少操作步数
@@ -126,6 +132,7 @@ func reinitializePermutation(n int) int {
 func Test_reinitializePermutation(t *testing.T) {
 	fmt.Println(reinitializePermutation(8))
 }
+
 // tag-[位运算]
 // leetcode287: 寻找重复数
 // 二进制解法
@@ -158,7 +165,8 @@ func Test_findDuplicate1(t *testing.T) {
 	fmt.Println(findDuplicate([]int{1, 3, 2, 2, 4}))
 	fmt.Println(findDuplicate_([]int{1, 3, 2, 2, 4}))
 	fmt.Println(findDuplicate__([]int{1, 3, 2, 2, 4}))
-}// tag-[位运算]
+}
+// tag-[位运算]
 // leetcode137:只出现一次的数字
 func singleNumber137(nums []int) int {
 	ans := int32(0)
@@ -180,6 +188,7 @@ func Test_singleNumber137(t *testing.T) {
 	fmt.Println(singleNumber137([]int{2, 2, 2, -1}))
 	// fmt.Println(singleNumber137([]int{-2, -2, 1, 1, 4, 1, 4, 4, -4, -2}))
 }
+
 // tag-[位运算]
 // leetcode260
 func singleNumber260(nums []int) []int {
@@ -203,22 +212,67 @@ func Test_singleNumber260(t *testing.T) {
 	fmt.Println(singleNumber260([]int{1, 2, 1, 3, 2, 5}))
 }
 
-// tag-[二分查找]
-// leetcode162:
-func findPeakElement(nums []int) int {
-	// 满足二段性所以可以用二分查找
-	l, r := 0, len(nums)-1
-	for l < r {
-		mid := (l + r) >> 1
-		if nums[mid] > nums[mid+1] {
-			r = mid
-		} else {
-			l = mid + 1
+// tag-[位运算]
+// leetcode318:位运算
+func maxProduct318(words []string) int {
+	n := len(words)
+	count := make([]int, n)
+	for i := range words {
+		for j := 0; j < len(words[i]); j++ {
+			count[i] |= 1 << (words[i][j] - 'a')
 		}
 	}
-	return r
+	maxn := 0
+	for i := range words {
+		for j := i + 1; j < n; j++ {
+			if count[i]&count[j] == 0 {
+				maxn = max(maxn, len(words[i])*len(words[j]))
+			}
+		}
+	}
+	return maxn
 }
 
-func Test_findPeakElement(t *testing.T) {
-	fmt.Println(findPeakElement([]int{1, 2, 1, 3, 5, 6, 4}))
+func Test_maxProduct318(t *testing.T) {
+	fmt.Println(maxProduct318([]string{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"}))
+	fmt.Println(maxProduct318([]string{"a", "ab", "abc", "d", "cd", "bcd", "abcd"}))
+	fmt.Println(maxProduct318([]string{"a", "aa", "aaa", "aaaa"}))
+}
+
+// tag-[位运算/数学]
+// leetcode371:两数之和位运算
+func getSum(a int, b int) int {
+	for b != 0 {
+		carry := (a & b) << 1
+		a ^= b
+		b = carry
+	}
+	return a
+}
+
+func Test_getSum(t *testing.T) {
+	fmt.Println(getSum(1, 3))
+}
+
+// tag-[位运算]
+// leetcode421:异或交换律，a^b=c, a^c=b, b^c=a
+// hash解法
+func findMaximumXOR(nums []int) int {
+	mask := 0
+	res := 0
+	for i := 31; i >= 0; i-- {
+		mask |= 1 << i
+		m := make(map[int]struct{})
+		for i := range nums {
+			m[mask&nums[i]] = struct{}{}
+		}
+		tmp := res | (1 << i)
+		for k := range m {
+			if _, ok := m[k^tmp]; ok {
+				res = tmp
+				break
+			}
+		}
+	}
+	return res
 }

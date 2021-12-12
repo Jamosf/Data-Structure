@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[广度优先搜索]
 // 第一题
 // leetcode695: 岛屿的最大面积
@@ -82,6 +83,7 @@ func dfs2(image [][]int, r, c int, k int, color int) {
 func Test_floodFill(t *testing.T) {
 	fmt.Println(floodFill([][]int{{0, 0, 0}, {0, 1, 1}}, 1, 1, 1))
 }
+
 // tag-[广度优先搜索]
 // leetcode1992: 找到所有的农场组
 // 注意：使用切片作为队列时，长度申请不合理，会超时。使用list不会超时。
@@ -123,7 +125,8 @@ func findFarmland(land [][]int) [][]int {
 
 func Test_findFarmland(t *testing.T) {
 	fmt.Println(findFarmland([][]int{{1, 1}, {1, 1}}))
-}// tag-[广度优先搜索]
+}
+// tag-[广度优先搜索]
 // leetcode841:钥匙和房间 bfs
 func canVisitAllRooms(rooms [][]int) bool {
 	n := len(rooms)
@@ -149,6 +152,7 @@ func canVisitAllRooms(rooms [][]int) bool {
 	}
 	return true
 }
+
 // tag-[广度优先搜索]
 type pair struct {
 	node *TreeNode
@@ -211,7 +215,8 @@ func pathSumCnt(root *TreeNode, targetSum int) int {
 	dfs(root, targetSum)
 	return sum
 }
-// tag-[广度优先搜索]
+
+// tag-[广度优先搜索/图]
 // leetcode529: 扫雷游戏
 func updateBoard(board [][]byte, click []int) [][]byte {
 	if board[click[0]][click[1]] == 'M' {
@@ -259,4 +264,35 @@ func updateBoard(board [][]byte, click []int) [][]byte {
 		}
 	}
 	return board
+}
+// tag-[广度优先搜索]
+// leetcode2059: 转化数字的最小运算数
+func minimumOperations(nums []int, start int, goal int) int {
+	q := [][2]int{{start, 0}}
+	vis := make([]bool, 1001)
+	vis[start] = true
+	var v1, v2, v3 int
+	for len(q) != 0 {
+		v := q[0]
+		q = q[1:]
+		for i := 0; i < len(nums); i++ {
+			v1, v2, v3 = v[0]+nums[i], v[0]-nums[i], v[0]^nums[i]
+			if v1 == goal || v2 == goal || v3 == goal {
+				return v[1] + 1
+			}
+			if v1 <= 1000 && v1 >= 0 && !vis[v1] {
+				vis[v1] = true
+				q = append(q, [2]int{v1, v[1] + 1})
+			}
+			if v2 <= 1000 && v2 >= 0 && !vis[v2] {
+				vis[v2] = true
+				q = append(q, [2]int{v2, v[1] + 1})
+			}
+			if v3 <= 1000 && v3 >= 0 && !vis[v3] {
+				vis[v3] = true
+				q = append(q, [2]int{v3, v[1] + 1})
+			}
+		}
+	}
+	return -1
 }

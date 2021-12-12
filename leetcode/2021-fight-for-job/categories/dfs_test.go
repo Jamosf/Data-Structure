@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[深度优先搜索]
 // 第二题
 func updateMatrix1(mat [][]int) [][]int {
@@ -34,6 +35,7 @@ func updateMatrix1(mat [][]int) [][]int {
 	}
 	return mat
 }
+
 // tag-[深度优先搜索]
 // leetcode lcp39: 无人机方阵
 func escapeMaze(g [][]string) bool {
@@ -87,6 +89,7 @@ func escapeMaze(g [][]string) bool {
 	}
 	return dfs(0, 0, 0, 0)
 }
+
 // tag-[深度优先搜索/图]
 // leetcode797:图中所有可能的路径
 func allPathsSourceTarget(graph [][]int) [][]int {
@@ -121,114 +124,6 @@ func allPathsSourceTarget(graph [][]int) [][]int {
 	return ans
 }
 
-// tag-[排序]
-// leetcode802:最终的安全位置
-func eventualSafeNodes(graph [][]int) []int {
-	n := len(graph)
-	rg := make([][]int, n)
-	indegree := make([]int, n)
-	for i := range graph {
-		for _, v := range graph[i] {
-			rg[v] = append(rg[v], i)
-			indegree[i]++
-		}
-	}
-	q := list.New()
-	for i := range indegree {
-		if indegree[i] == 0 {
-			q.PushBack(i)
-		}
-	}
-	ans := make([]int, 0)
-	for q.Len() != 0 {
-		v := q.Front()
-		q.Remove(v)
-		vv := v.Value.(int)
-		ans = append(ans, vv)
-		for _, t := range rg[vv] {
-			indegree[t]--
-			if indegree[t] == 0 {
-				q.PushBack(t)
-			}
-		}
-	}
-	sort.Ints(ans)
-	return ans
-}
-
-func Test_eventualSafeNodes(t *testing.T) {
-	fmt.Println(eventualSafeNodes([][]int{{1, 2}, {2, 3}, {5}, {0}, {5}, {}, {}}))
-	fmt.Println(eventualSafeNodes([][]int{{1, 2, 3, 4}, {1, 2}, {3, 4}, {0, 4}, {}}))
-}
-
-// tag-[排序]
-// leetcode802:三色标记解法，参考
-func eventualSafeNodes__(graph [][]int) (ans []int) {
-	n := len(graph)
-	color := make([]int, n)
-	var safe func(int) bool
-	safe = func(x int) bool {
-		if color[x] > 0 {
-			return color[x] == 2
-		}
-		color[x] = 1
-		for _, y := range graph[x] {
-			if !safe(y) {
-				return false
-			}
-		}
-		color[x] = 2
-		return true
-	}
-	for i := 0; i < n; i++ {
-		if safe(i) {
-			ans = append(ans, i)
-		}
-	}
-	return
-}
-
-const (
-	NotExplored = 0
-	Explored    = 1
-	Safe        = 2
-)
-
-// leetcode802:三色标记解法，参考
-func eventualSafeNodes_(graph [][]int) []int {
-	state := make([]int, len(graph))
-	var res []int
-	for v := range graph {
-		if checkSafe(graph, state, v) {
-			res = append(res, v)
-		}
-	}
-
-	return res
-}
-
-func checkSafe(graph [][]int, state []int, v int) bool {
-	switch state[v] {
-	case NotExplored:
-		state[v] = Explored
-		for _, n := range graph[v] {
-			if !checkSafe(graph, state, n) {
-				return false
-			}
-		}
-
-		state[v] = Safe
-		return true
-
-	case Explored:
-		return false
-
-	case Safe:
-		return true
-	}
-
-	panic("should not reach here")
-}
 // tag-[深度优先搜索]
 // leetcode841:钥匙和房间 dfs
 func canVisitAllRooms_(rooms [][]int) bool {
@@ -259,7 +154,8 @@ func Test_canVisitAllRooms(t *testing.T) {
 	fmt.Println(canVisitAllRooms_([][]int{{1}, {1}}))
 	fmt.Println(canVisitAllRooms_([][]int{{1}, {2}, {}, {3}}))
 	fmt.Println(canVisitAllRooms_([][]int{{1, 2}, {2, 1}, {1}}))
-}// tag-[深度优先搜索]
+}
+// tag-[深度优先搜索]
 // leetcode638:每日一题,dfs记忆化搜索（非回溯）
 func shoppingOffers(price []int, special [][]int, needs []int) int {
 	n := len(price)
@@ -306,6 +202,7 @@ func shoppingOffers(price []int, special [][]int, needs []int) int {
 	}
 	return dfs(needs_)
 }
+
 // tag-[深度优先搜索]
 // leetcode周赛第三题
 func countHighestScoreNodes(parents []int) int {
@@ -370,7 +267,8 @@ func countHighestScoreNodes_(parents []int) (ans int) {
 	}
 	dfs(0)
 	return
-}// tag-[深度优先搜索]
+}
+// tag-[深度优先搜索]
 // leetcode924: 尽量减少恶意软件的传播
 // dfs解法
 func minMalwareSpread_(graph [][]int, initial []int) int {
@@ -422,6 +320,7 @@ func Test_minMalwareSpread(t *testing.T) {
 	fmt.Println(minMalwareSpread([][]int{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}}, []int{0, 1, 2}))
 	fmt.Println(minMalwareSpread_([][]int{{1, 0, 0, 0, 0, 0}, {0, 1, 1, 0, 0, 0}, {0, 1, 1, 0, 0, 0}, {0, 0, 0, 1, 1, 1}, {0, 0, 0, 1, 1, 1}, {0, 0, 0, 1, 1, 1}}, []int{2, 3}))
 }
+
 // tag-[深度优先搜索]
 // leetcode464: 我能赢吗
 // 记忆化搜索，博弈
@@ -456,7 +355,8 @@ func canIWin(maxChoosableInteger int, desiredTotal int) bool {
 func Test_canIWin(t *testing.T) {
 	fmt.Println(canIWin(3, 5))
 	// fmt.Println(canIWin(10, 11))
-}// tag-[深度优先搜索]
+}
+// tag-[深度优先搜索]
 // leetcode375: 猜数字大小II
 // 记忆化搜索
 func getMoneyAmount(n int) int {

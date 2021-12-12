@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[并查集]
 // 第一题
 // leetcode130：被围绕的区域
@@ -61,6 +62,7 @@ func Test_solve(t *testing.T) {
 	solve(b)
 	fmt.Println(b)
 }
+
 // tag-[并查集]
 // 第二题
 // leetcode684: 冗余连接
@@ -78,6 +80,7 @@ func findRedundantConnection(edges [][]int) []int {
 	}
 	return ans
 }
+
 // tag-[并查集]
 // 第三题
 // leetcode547: 省份数量
@@ -93,6 +96,7 @@ func findCircleNum(isConnected [][]int) int {
 	}
 	return u.count()
 }
+
 // tag-[并查集]
 // 第四题
 // leetcode1905：统计子岛屿
@@ -147,7 +151,8 @@ func Test_countSubIslands(t *testing.T) {
 	grid1 := [][]int{{1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {0, 0, 0, 0, 0}, {1, 0, 0, 0, 0}, {1, 1, 0, 1, 1}}
 	grid2 := [][]int{{1, 1, 1, 0, 0}, {0, 0, 1, 1, 1}, {0, 1, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 0}}
 	fmt.Println(countSubIslands(grid1, grid2))
-}// tag-[并查集]
+}
+// tag-[并查集]
 // leetcode1998: 数组的最大公因数排序
 func gcdSort(nums []int) bool {
 	n := len(nums)
@@ -182,6 +187,7 @@ func gcd(a, b int) int {
 func Test_gcdSort(t *testing.T) {
 	fmt.Println(gcdSort([]int{8, 9, 4, 2, 3}))
 }
+
 // tag-[并查集]
 // leetcode924: 尽量减少恶意软件的传播
 // 并查集
@@ -215,6 +221,7 @@ func minMalwareSpread(graph [][]int, initial []int) int {
 	}
 	return ans
 }
+
 // tag-[并查集]
 // leetcode721: 账户合并
 func accountsMerge(accounts [][]string) [][]string {

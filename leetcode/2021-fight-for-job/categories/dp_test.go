@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[动态规划]
 // 第四题
 // leetcode981: 基于时间的键值存储
@@ -50,6 +51,7 @@ func (t *TimeMap) Get(key string, timestamp int) string {
 	}
 	return ""
 }
+
 // tag-[动态规划]
 // 第十一题
 // leetcode70: 爬楼梯
@@ -62,6 +64,7 @@ func climbStairs(n int) int {
 	}
 	return dp[n-1]
 }
+
 // tag-[动态规划]
 // 第三题
 // leetcode198: 打家劫舍
@@ -78,6 +81,7 @@ func rob(nums []int) int {
 	}
 	return dp[len(nums)-1]
 }
+
 // tag-[动态规划]
 // 第四题
 // leetcode120: 三角形最小路径和
@@ -113,6 +117,7 @@ func minimumTotal(triangle [][]int) int {
 func Test_minimumTotal(t *testing.T) {
 	fmt.Println(minimumTotal([][]int{{-1}, {-2, -3}}))
 }
+
 // tag-[动态规划]
 // 第三题
 // leetcode 剑指offer63: 股票的最大利润
@@ -128,6 +133,7 @@ func maxProfit(prices []int) int {
 	}
 	return maxn
 }
+
 // tag-[动态规划]
 // leetcode413: 等差数列划分
 // dp[i]表示以i结尾的等差数列的个数
@@ -155,6 +161,7 @@ func numberOfArithmeticSlices(nums []int) int {
 func Test_numberOfArithmeticSlices(t *testing.T) {
 	fmt.Println(numberOfArithmeticSlices([]int{1, 2, 3, 0, 5, 6, 7}))
 }
+
 // tag-[动态规划]
 // 第二题
 // leetcode542: 01矩阵
@@ -197,6 +204,7 @@ func updateMatrix(mat [][]int) [][]int {
 	}
 	return dp
 }
+
 // tag-[动态规划]
 // 第三题
 // leetcode221: 最大正方形
@@ -225,6 +233,7 @@ func maximalSquare(matrix [][]byte) int {
 func Test_maximalSquare(t *testing.T) {
 	fmt.Println(maximalSquare([][]byte{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}}))
 }
+
 // tag-[动态规划]
 // 第四题
 // leetcode91: 解码方法
@@ -249,6 +258,7 @@ func numDecodings(s string) int {
 	}
 	return dp[n-1]
 }
+
 // tag-[动态规划]
 // leetcode91: 解码方法
 // 空间压缩版，内存消耗略优于上面的版本
@@ -279,6 +289,7 @@ func Test_numDecodings(t *testing.T) {
 	fmt.Println(numDecodings("226"))
 	fmt.Println(numDecodings_("226"))
 }
+
 // tag-[动态规划]
 // 第五题
 // leetcode139：单词拆分
@@ -296,6 +307,7 @@ func wordBreak139(s string, wordDict []string) bool {
 	}
 	return dp[n-1]
 }
+
 // tag-[动态规划]
 // 第六题
 // leetcode300
@@ -337,6 +349,7 @@ func Test_lengthOfLIS(t *testing.T) {
 	fmt.Println(lengthOfLIS([]int{1, 3, 6, 7, 9, 4, 10, 5, 6}))
 	fmt.Println(lengthOfLIS_([]int{1, 3, 6, 7, 9, 4, 10, 5, 6}))
 }
+
 // tag-[动态规划]
 // leetcode1986: 完成任务的最少工作时间段
 // dp[i]的含义是：i表示的二进制对应的索引全部选中的情况下，最小的组合数
@@ -376,6 +389,7 @@ func minSessions(tasks []int, sessionTime int) int {
 	}
 	return dp[m-1]
 }
+
 // tag-[动态规划]
 // leetcode1987: 不同的好子序列数目
 func numberOfUniqueGoodSubsequences(binary string) int {
@@ -392,6 +406,7 @@ func numberOfUniqueGoodSubsequences(binary string) int {
 	}
 	return (dp1 + has0) % mod
 }
+
 // tag-[动态规划]
 // leetcode1997: 访问完所有房间的第一天
 // 超时了
@@ -433,6 +448,7 @@ func Test_firstDayBeenInAllRooms1(t *testing.T) {
 	fmt.Println(firstDayBeenInAllRooms([]int{0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32, 33, 33, 34, 34, 35, 35, 36, 36, 37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 42, 42, 43, 43, 44, 44, 45, 45, 46, 46, 47, 47, 48}))
 	fmt.Println(firstDayBeenInAllRooms_([]int{0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32, 33, 33, 34, 34, 35, 35, 36, 36, 37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 42, 42, 43, 43, 44, 44, 45, 45, 46, 46, 47, 47, 48}))
 }
+
 // tag-[动态规划]
 // leetcode1959: k次调整数组大小浪费的最小总空间
 // 区间dp，dp[x][y]表示前i个元素被分成j段的最小值
@@ -473,7 +489,8 @@ func minSpaceWastedKResizing(nums []int, k int) int {
 		}
 	}
 	return dp[n-1][k+1]
-}// tag-[动态规划]
+}
+// tag-[动态规划]
 // leetcode2008: 出租车的最大盈利
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool {
@@ -521,7 +538,8 @@ func maxTaxiEarnings_(n int, rides [][]int) int64 {
 func Test_maxTaxiEarnings(t *testing.T) {
 	fmt.Println(maxTaxiEarnings(10, [][]int{{9, 10, 2}, {4, 5, 6}, {6, 8, 1}, {1, 5, 5}, {4, 9, 5}, {1, 6, 5}, {4, 8, 3}, {4, 7, 10}, {1, 9, 8}, {2, 3, 5}}))
 	fmt.Println(maxTaxiEarnings_(10, [][]int{{9, 10, 2}, {4, 5, 6}, {6, 8, 1}, {1, 5, 5}, {4, 9, 5}, {1, 6, 5}, {4, 8, 3}, {4, 7, 10}, {1, 9, 8}, {2, 3, 5}}))
-}// tag-[动态规划]
+}
+// tag-[动态规划]
 // 第六题
 // leetcode55: 跳跃游戏
 func canJump(nums []int) bool {
@@ -542,7 +560,8 @@ func canJump(nums []int) bool {
 		}
 	}
 	return dp[n-1]
-}// tag-[动态规划]
+}
+// tag-[动态规划]
 // leetcode32: 最长有效括号
 // 动态规划解法
 func longestValidParentheses_(s string) int {
@@ -568,6 +587,7 @@ func Test_longestValidParentheses(t *testing.T) {
 	fmt.Println(longestValidParentheses("()()(((()())))"))
 	fmt.Println(longestValidParentheses_("()()(((()())))"))
 }
+
 // tag-[动态规划]
 // leetcode152: 乘积最大的子数组
 // 动态规划
@@ -593,6 +613,7 @@ func maxProduct152(nums []int) int {
 func Test_maxProduct1(t *testing.T) {
 	fmt.Println(maxProduct152([]int{-3, 2, -4}))
 }
+
 // tag-[动态规划]
 // leetcode 面试题17.16: 按摩师
 // 动态规划
@@ -611,6 +632,7 @@ func massage(nums []int) int {
 	}
 	return max(dp[n-1], dp[n-2])
 }
+
 // tag-[动态规划]
 // leetcode337: 打家劫舍
 // 树形dp
@@ -631,6 +653,7 @@ func rob1(root *TreeNode) int {
 	ans := dfs(root)
 	return max(ans[0], ans[1])
 }
+
 // tag-[动态规划]
 // leetcode62: 不同路径
 // 动态规划
@@ -655,6 +678,7 @@ func uniquePaths(m int, n int) int {
 	}
 	return dp[m-1][n-1]
 }
+
 // tag-[动态规划]
 // leetcode96: 不同的二叉搜索树
 // 每个数字作为根节点，左右子树的各种组合乘积
@@ -668,7 +692,8 @@ func numTrees(n int) int {
 		}
 	}
 	return dp[n]
-}// tag-[动态规划]
+}
+// tag-[动态规划]
 // 第五题
 // leetcode309: 最佳买卖股票时机含冷冻期
 // 动态规划：dp[i]表示第i天获取的最大利润, 0：持有一只股票；1：不持有股票，处于冷冻期；2：不持有股票，不处于冷冻期
@@ -684,48 +709,6 @@ func maxProfit1(prices []int) int {
 	return max(dp[n-1][1], dp[n-1][2])
 }
 
-// tag-[排序]
-// 第六题
-// leetcode207: 课程表
-// 拓扑排序
-func canFinish(numCourses int, prerequisites [][]int) bool {
-	edge := make([][]int, numCourses)
-	for i := range edge {
-		edge[i] = make([]int, numCourses)
-	}
-	inDegree := make([]int, 100005)
-	for i := range prerequisites {
-		v1, v2 := prerequisites[i][0], prerequisites[i][1]
-		edge[v2][v1] = 1
-		inDegree[v1]++
-	}
-	return topoSort(edge, inDegree, numCourses)
-}
-
-func topoSort(edge [][]int, inDegree []int, n int) bool {
-	q := list.New()
-	for i := 0; i < n; i++ {
-		if inDegree[i] == 0 {
-			q.PushBack(i)
-		}
-	}
-	cnt := 0
-	for q.Len() != 0 {
-		v := q.Front()
-		q.Remove(v)
-		vv := v.Value.(int)
-		cnt++
-		for i := 0; i < n; i++ {
-			if edge[vv][i] == 1 {
-				inDegree[i]--
-				if inDegree[i] == 0 {
-					q.PushBack(i)
-				}
-			}
-		}
-	}
-	return cnt == n
-}
 // tag-[动态规划]
 // 第一题
 // O(n^2)解法
@@ -764,6 +747,43 @@ func jump1(nums []int) int {
 	}
 	return steps
 }
+
+// tag-[动态规划]
+// leetcode673: 可以用双dp来理解
+func findNumberOfLIS(nums []int) int {
+	n := len(nums)
+	dp := make([]int, n)
+	maxn := 1
+	count := make([]int, n)
+	ans := 0
+	for i := 0; i < n; i++ {
+		dp[i] = 1
+		count[i] = 1
+		for j := i - 1; j >= 0; j-- {
+			if nums[i] > nums[j] {
+				if dp[j]+1 > dp[i] {
+					dp[i] = dp[j] + 1
+					count[i] = count[j]
+				} else if dp[j]+1 == dp[i] {
+					count[i] += count[j]
+				}
+			}
+		}
+		if dp[i] > maxn {
+			maxn = dp[i]
+			ans = count[i]
+		} else if dp[i] == maxn {
+			ans += count[i]
+		}
+	}
+	return ans
+}
+
+func Test_findNumberOfLIS(t *testing.T) {
+	fmt.Println(findNumberOfLIS([]int{1, 3, 5, 4, 7}))
+	fmt.Println(findNumberOfLIS([]int{2, 2, 2, 2, 2}))
+	fmt.Println(findNumberOfLIS([]int{1, 2, 4, 3, 5, 4, 7, 2}))
+}
 // tag-[动态规划]
 // leetcode97:交错字符串(记忆化搜索)
 func isInterleave_(s1 string, s2 string, s3 string) bool {
@@ -792,7 +812,8 @@ func isInterleave_(s1 string, s2 string, s3 string) bool {
 
 func Test_isInterleave(t *testing.T) {
 	fmt.Println(isInterleave_("aabcc", "dbbca", "aadbbcbcac"))
-}// tag-[动态规划]
+}
+// tag-[动态规划]
 // leetcode63:动态规划(可以降维)
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	m, n := len(obstacleGrid), len(obstacleGrid[0])
@@ -824,6 +845,7 @@ func Test_uniquePathsWithObstacles(t *testing.T) {
 	fmt.Println(uniquePathsWithObstacles([][]int{{0, 1, 0}, {0, 1, 0}, {0, 0, 0}}))
 	fmt.Println(uniquePathsWithObstacles([][]int{{0, 1}, {0, 0}}))
 }
+
 // tag-[动态规划]
 // leetcode375: 猜数字大小II
 // 区间dp状态转移方程: f(i, j) = min{k + max(f(i, k-1), f(k+1, j))}  1<=k<=j
@@ -843,52 +865,6 @@ func getMoneyAmount_(n int) int {
 	return dp[1][n]
 }
 
-// tag-[排序]
-// leetcode384: 打乱数组
-type Solution384 struct {
-	original []int
-	waiting  []int
-}
-
-func Constructor384(nums []int) Solution384 {
-	s := Solution384{waiting: append([]int{}, nums...), original: nums}
-	return s
-}
-
-func (s *Solution384) Reset() []int {
-	copy(s.waiting, s.original)
-	return s.original
-}
-
-// 暴力洗牌
-func (s *Solution384) Shuffle() []int {
-	out := make([]int, 0, len(s.original))
-	for len(s.waiting) != 0 {
-		idx := rand.Intn(len(s.waiting))
-		out = append(out, s.waiting[idx])
-		s.waiting = append(s.waiting[:idx], s.waiting[idx+1:]...)
-	}
-	s.waiting = out
-	return out
-}
-
-// Fisher-Yates洗牌
-func (s *Solution384) Shuffle_() []int {
-	n := len(s.waiting)
-	for i := range s.waiting {
-		idx := i + rand.Intn(n-i)
-		s.waiting[i], s.waiting[idx] = s.waiting[idx], s.waiting[i]
-	}
-	return s.waiting
-}
-
-func Test_Solution384(t *testing.T) {
-	s := Constructor384([]int{1, 2, 3, 4})
-	p := &s
-	fmt.Println(p.Shuffle_())
-	fmt.Println(p.Reset())
-	fmt.Println(p.Shuffle_())
-}
 // tag-[动态规划]
 // leetcode2086: 从房屋收集雨水需要的最少水桶数
 // dp[i][3]: 第二维的含义：0表示以H结尾且前面无桶、1表示以H结尾且前面有桶、2表示以B结尾、3表示以.结尾（前面H必有桶）
@@ -950,6 +926,7 @@ func minCost(startPos, homePos, rowCosts, colCosts []int) int {
 	} // 统计答案
 	return ans
 }
+
 // tag-[动态规划]
 // leetcode2063: 所有子字符串中的元音
 // dp[i] = dp[i-1] + ？
@@ -983,4 +960,137 @@ func isVowel(b byte, vowel []byte) bool {
 		}
 	}
 	return false
+}
+
+// tag-[动态规划]
+// leetcode1235: 规划兼职工作
+// 上面的解法会占用内存过大而出现内存分配失败的情况
+// fn[i]表示0~i内最多选择k个的最大值。
+// fn[i] = max(fn[i-1], fn[high]+profit[i])
+func jobScheduling(startTime []int, endTime []int, profit []int) int {
+	n := len(startTime)
+	jobs := make([][3]int, n)
+	for i := 0; i < n; i++ {
+		jobs[i] = [3]int{startTime[i], endTime[i], profit[i]}
+	}
+	sort.Slice(jobs, func(i, j int) bool {
+		return jobs[i][1] < jobs[j][1]
+	})
+	fn := make([]int, n)
+	for i := 0; i < n; i++ {
+		low, high := 0, i-1
+		for low <= high {
+			mid := (low + high) >> 1
+			if jobs[mid][1] <= jobs[i][0] {
+				low = mid + 1
+			} else {
+				high = mid - 1
+			}
+		}
+		fn[i] = jobs[i][2]
+		if high >= 0 {
+			fn[i] += fn[high]
+		}
+		if i > 0 {
+			fn[i] = max(fn[i], fn[i-1])
+		}
+	}
+	return fn[n-1]
+}
+
+// tag-[动态规划/堆]
+// leetcode2054: 两个最好的不重叠活动
+// 按照开始时间进行排序，同时用小根堆维护结束时间的队列，结束必须是小根堆。
+func maxTwoEvents(events [][]int) (ans int) {
+	sort.Slice(events, func(i, j int) bool {
+		return events[i][0] < events[j][0]
+	})
+	maxn := 0
+	h := hp_{}
+	for i := 0; i < len(events); i++ {
+		start, end, val := events[i][0], events[i][1], events[i][2]
+		for len(h) > 0 && h[0].end < start {
+			maxn = max(maxn, heap.Pop(&h).(pair_).val)
+		}
+		ans = max(ans, maxn+val)
+		heap.Push(&h, pair_{end, val})
+	}
+	return ans
+}
+
+type pair_ struct{ end, val int }
+type hp_ []pair_
+
+func (h hp_) Len() int            { return len(h) }
+func (h hp_) Less(i, j int) bool  { return h[i].end < h[j].end }
+func (h hp_) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp_) Push(v interface{}) { *h = append(*h, v.(pair_)) }
+func (h *hp_) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+
+// tag-[动态规划/二分]
+// leetcode2054: 两个最好的不重叠活动
+// 排序+动态规划+二分
+// fn表示0~i选一个的最大值：fn[i] = max(fn[i-1], event[i][2])，可以使用前缀最大值来代替
+// gn表示0~i选两个的最大值：gn[i] = max(gn[i-1], f[j]+event[i][2])
+func maxTwoEvents_(events [][]int) (ans int) {
+	n := len(events)
+	sort.Slice(events, func(i, j int) bool {
+		return events[i][1] < events[j][1]
+	})
+	fn := make([]int, n)
+	gn := make([]int, n)
+	for i := 0; i < n; i++ {
+		low, high := 0, i-1
+		for low <= high {
+			mid := (low + high) >> 1
+			if events[mid][1] < events[i][0] {
+				low = mid + 1
+			} else {
+				high = mid - 1
+			}
+		}
+		fn[i] = events[i][2]
+		if high >= 0 {
+			gn[i] = fn[high] + events[i][2]
+		}
+		if i > 0 {
+			fn[i] = max(fn[i], fn[i-1])
+			gn[i] = max(gn[i], gn[i-1])
+		}
+	}
+	return max(fn[n-1], gn[n-1])
+}
+
+// tag-[动态规划/二分]
+// leetcode2054: 两个最好的不重叠活动
+// 排序+动态规划+二分
+// fn表示0~i选两个的最大值：fn[i] = max(fn[i-1], preMax[high]+event[i][2])
+func maxTwoEvents__(events [][]int) (ans int) {
+	n := len(events)
+	sort.Slice(events, func(i, j int) bool {
+		return events[i][1] < events[j][1]
+	})
+	fn := make([]int, n)
+	preMax := make([]int, n)
+	for i := 0; i < n; i++ {
+		low, high := 0, i-1
+		for low <= high {
+			mid := (low + high) >> 1
+			if events[mid][1] < events[i][0] {
+				low = mid + 1
+			} else {
+				high = mid - 1
+			}
+		}
+		fn[i] = events[i][2]
+		preMax[i] = events[i][2]
+		if high >= 0 {
+			fn[i] += preMax[high]
+		}
+		if i > 0 {
+			fn[i] = max(fn[i], fn[i-1])
+			preMax[i] = max(preMax[i], preMax[i-1])
+		}
+	}
+	return fn[n-1]
 }

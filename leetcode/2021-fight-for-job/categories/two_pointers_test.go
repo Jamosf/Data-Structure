@@ -1,11 +1,13 @@
 package categories
 
 import (
+	"container/list"
 	"fmt"
-	"testing"
-	"sort"
 	"math"
+	"sort"
+	"testing"
 )
+
 // tag-[双指针]
 // leetcode11: 盛最多水的容器
 func maxArea(height []int) int {
@@ -20,7 +22,9 @@ func maxArea(height []int) int {
 		}
 	}
 	return ans
-}// tag-[双指针]
+}
+
+// tag-[双指针]
 // 第一题
 // leetcode80: 删除有序数组中的重复项II
 func removeDuplicates(nums []int) int {
@@ -50,6 +54,7 @@ func removeDuplicates(nums []int) int {
 func Test_remove(t *testing.T) {
 	fmt.Println(removeDuplicates([]int{1, 1, 1}))
 }
+
 // tag-[双指针]
 // 第四题
 // leetcode16: 最接近的三数之和
@@ -92,6 +97,7 @@ func threeSumClosest(nums []int, target int) int {
 func Test_close(t *testing.T) {
 	fmt.Println(threeSumClosest([]int{-1, 2, 1, -4}, 1))
 }
+
 // tag-[双指针]
 // 第五题
 // leetcode15: 三数之和
@@ -126,7 +132,9 @@ func threeSum(nums []int) [][]int {
 
 func Test_threeNum(t *testing.T) {
 	fmt.Println(threeSum([]int{-1, 0, 1, 0}))
-}// tag-[双指针]
+}
+
+// tag-[双指针]
 // leetcode713: 乘积小于k的子数组
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	if k < 1 {
@@ -148,7 +156,9 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 
 func Test_num(t *testing.T) {
 	fmt.Println(numSubarrayProductLessThanK([]int{1, 2, 3}, 0))
-}// tag-[双指针]
+}
+
+// tag-[双指针]
 // 第十四题
 // leetcode 剑指offer 21: 调整数组顺序使奇数位于偶数前面
 func exchange(nums []int) []int {
@@ -173,6 +183,7 @@ func exchange(nums []int) []int {
 func Test_exchange(t *testing.T) {
 	fmt.Println(exchange([]int{2, 4, 5}))
 }
+
 // tag-[双指针]
 // 第四题
 // leetcode 剑指offer57-II: 和为s的连续正数序列
@@ -196,6 +207,7 @@ func findContinuousSequence(target int) [][]int {
 	}
 	return res
 }
+
 // tag-[双指针]
 // 第十题
 // leetcode 剑指offer 48：最长不包含重复字符的子串
@@ -219,6 +231,7 @@ func lengthOfLongestSubstring11(s string) int {
 func Test_lengthOfLongestSubstring11(t *testing.T) {
 	fmt.Println(lengthOfLongestSubstring11("dvdf"))
 }
+
 // tag-[双指针]
 // 第十一题
 // leetcode 剑指offer67：把字符串转换为整数
@@ -281,7 +294,9 @@ func strToInt(str string) int {
 
 func Test_strToInt(t *testing.T) {
 	fmt.Println(strToInt("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000522545459"))
-}// tag-[双指针]
+}
+
+// tag-[双指针]
 // 第一题
 // leetcode209: 长度最小的子数组
 // 双指针
@@ -307,47 +322,6 @@ func minSubArrayLen(target int, nums []int) int {
 	return minn
 }
 
-// tag-[二分查找]
-// leetcode209: 长度最小的子数组
-// 二分搜索
-func minSubArrayLen_(target int, nums []int) int {
-	sum := make([]int, len(nums)+1)
-	sum[0] = 0
-	for i := 0; i < len(nums); i++ {
-		sum[i+1] = sum[i] + nums[i]
-	}
-	minn := math.MaxInt32
-	for i := range sum {
-		idx := binarySearch(sum, sum[i]+target)
-		if idx > 0 {
-			minn = min(minn, idx-i)
-		}
-	}
-	if minn == math.MaxInt32 {
-		return 0
-	}
-	return minn
-}
-
-func binarySearch(sum []int, target int) int {
-	left, right := 0, len(sum)-1
-	for left < right { // 查找左边界
-		mid := (left + right) >> 1
-		if sum[mid] >= target {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	if sum[left] >= target {
-		return left
-	}
-	return -1
-}
-
-func Test_sortSearch(t *testing.T) {
-	fmt.Println(sort.SearchInts([]int{1, 2, 3}, 5))
-}
 // tag-[双指针]
 // 第一题
 // leetcode45: 分发饼干
@@ -365,6 +339,7 @@ func findContentChildren(g []int, s []int) int {
 	}
 	return i
 }
+
 // tag-[双指针]
 // 第六题
 // leetcode76: 最小覆盖子串
@@ -402,50 +377,6 @@ func Test_minWindow(t *testing.T) {
 	fmt.Println(minWindow("a", "aa"))
 }
 
-// tag-[二分查找]
-// 第七题
-// leetcode633：平方数之和
-func judgeSquareSum(c int) bool {
-	left, right := 0, sqrt(c)
-	for left <= right {
-		v := left*left + right*right
-		if v > c {
-			right--
-		} else if v < c {
-			left++
-		} else {
-			return true
-		}
-	}
-	return false
-}
-
-func sqrt(n int) int {
-	if n == 0 {
-		return 0
-	}
-	left, right := 0, n
-	for left < right {
-		mid := left + (right-left)>>1
-		if mid == 0 {
-			return right
-		}
-		v := n / mid
-		if v == mid {
-			return mid
-		} else if v < mid {
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
-	}
-	return right
-}
-
-func Test_judgeSquareSum(t *testing.T) {
-	fmt.Println(sqrt(1))
-	fmt.Println(judgeSquareSum(5))
-}
 // tag-[双指针]
 // 第八题
 // leetcode680: 验证回文字符串II
@@ -477,7 +408,9 @@ func validPalindrome(s string) bool {
 
 func Test_validPalindrome(t *testing.T) {
 	fmt.Println(validPalindrome("ab"))
-}// tag-[双指针]
+}
+
+// tag-[双指针]
 // leetcode413: 等差数列划分
 // 双指针方法
 func numberOfArithmeticSlices_(nums []int) int {
@@ -503,6 +436,7 @@ func Test_numberOfArithmeticSlices1(t *testing.T) {
 	fmt.Println(numberOfArithmeticSlices([]int{1, 2, 3, 0, 5, 6, 7}))
 	fmt.Println(numberOfArithmeticSlices_([]int{1, 2, 3, 0, 5, 6, 7}))
 }
+
 // tag-[双指针]
 // leetcode1984: 学生分数的最小差值
 func minimumDifference(nums []int, k int) int {
@@ -522,24 +456,7 @@ func Test_minimumDifference(t *testing.T) {
 	fmt.Println(minimumDifference([]int{9, 4, 1, 7}, 2))
 }
 
-// tag-[排序]
-// leetcode1985: 找出数组中的第K大整数
-func kthLargestNumber(nums []string, k int) string {
-	sort.SliceStable(nums, func(i, j int) bool {
-		if len(nums[i]) > len(nums[j]) {
-			return true
-		} else if len(nums[i]) < len(nums[j]) {
-			return false
-		} else {
-			return nums[i] > nums[j]
-		}
-	})
-	return nums[k-1]
-}
-
-func Test_kthLargestNumber(t *testing.T) {
-	fmt.Println(kthLargestNumber([]string{"233", "97"}, 1))
-}// tag-[双指针]
+// tag-[双指针]
 // leetcode438: 找到字符串中所有字母异位词
 func findAnagrams(s string, p string) []int {
 	m, n, ns := map[byte]int{}, len(p), len(s)
@@ -582,6 +499,7 @@ func isEqual(t, s map[byte]int) bool {
 func Test_findAnagrams(t *testing.T) {
 	fmt.Println(findAnagrams("aaaaaaaaaaaaa", "aaaaaaaaaaaaaaaa"))
 }
+
 // tag-[双指针]
 // 第三题
 // leetcode31: 下一个排列
@@ -615,6 +533,7 @@ func Test_nextPermutation(t *testing.T) {
 	nextPermutation(nums)
 	fmt.Println(nums)
 }
+
 // tag-[双指针]
 // leetcode42：接雨水
 func trap(height []int) int {
@@ -639,7 +558,9 @@ func trap(height []int) int {
 		}
 	}
 	return sum
-}// tag-[双指针]
+}
+
+// tag-[双指针]
 // leetcode75: 颜色分类
 // 双指针
 func sortColors(nums []int) {
@@ -659,6 +580,56 @@ func sortColors(nums []int) {
 func Test_sortColors(t *testing.T) {
 	sortColors([]int{1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0})
 }
+
+// tag-[双指针]
+// 滑动窗口
+func maxConsecutiveAnswers(answerKey string, k int) int {
+	l, r, n := 0, 0, len(answerKey)
+	sumt, sumf := 0, 0
+	ans := 0
+	for ; r < n; r++ {
+		if answerKey[r] == 'T' {
+			sumt++
+		} else {
+			sumf++
+		}
+		for sumt > k && sumf > k { // 关键：如果滑窗内的t和f都大于k，则需要收缩滑窗，并更新结果。
+			if answerKey[l] == 'T' {
+				sumt--
+			} else {
+				sumf--
+			}
+			l++
+		}
+		ans = max(ans, r-l+1)
+	}
+	return ans
+}
+
+// 与上一题相同的题目
+func longestOnes(nums []int, k int) int {
+	l, r, n := 0, 0, len(nums)
+	sum1, sum0 := 0, 0
+	ans := 0
+	for ; r < n; r++ {
+		if nums[r] == 1 {
+			sum1++
+		} else {
+			sum0++
+		}
+		for sum0 > k { // 关键：如果滑窗内的t和f都大于k，则需要收缩滑窗，并更新结果。
+			if nums[l] == 1 {
+				sum1--
+			} else {
+				sum0--
+			}
+			l++
+		}
+		ans = max(ans, r-l+1)
+	}
+	return ans
+}
+
 // tag-[双指针]
 // leetcode986:双指针
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
@@ -717,6 +688,7 @@ func Test_intervalIntersection(t *testing.T) {
 	fmt.Println(intervalIntersection([][]int{{1, 3}, {5, 9}}, [][]int{}))
 	fmt.Println(intervalIntersection([][]int{{1, 7}}, [][]int{{3, 10}}))
 }
+
 // tag-[双指针]
 // leetcode443:双指针
 func compress(chars []byte) int {
@@ -752,6 +724,7 @@ func Test_compress(t *testing.T) {
 	fmt.Println(compress([]byte{'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'}))
 	// fmt.Println(compress([]byte{'a', 'a', '2', '2', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'}))
 }
+
 // tag-[双指针]
 // leetcode457: 快慢指针
 func circularArrayLoop(nums []int) bool {
@@ -793,7 +766,9 @@ func Test_circularArrayLoop(t *testing.T) {
 	fmt.Println(circularArrayLoop([]int{1}))
 	fmt.Println(circularArrayLoop([]int{1, 1}))
 	fmt.Println(circularArrayLoop([]int{-1, -2, -3, -4, -5}))
-}// tag-[双指针]
+}
+
+// tag-[双指针]
 // leetcode1208: 尽可能使字符串相等
 // 滑动窗口
 func equalSubstring(s string, t string, maxCost int) int {

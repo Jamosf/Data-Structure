@@ -290,3 +290,35 @@ func Test_codec_(t *testing.T) {
 	r := c.deserialize(c.serialize(root))
 	fmt.Println(r)
 }
+
+// tag-[字符串]
+// leetcode43: 字符串相乘
+// 重刷
+func multiply_(num1 string, num2 string) string {
+	n1, n2 := len(num1), len(num2)
+	res := make([]byte, n1+n2)
+	for i := range res {
+		res[i] = '0'
+	}
+	for i := n1 - 1; i >= 0; i-- {
+		v1 := int(num1[i] - '0')
+		carry := 0
+		for j := n2 - 1; j >= 0; j-- {
+			v2 := int(num2[j] - '0')
+			v := v1*v2 + int(res[i+j+1]-'0') + carry
+			res[i+j+1] = byte(v%10 + '0')
+			carry = v / 10
+		}
+	}
+	return strings.TrimLeft(string(res), "0")
+}
+
+func Test_multiply_(t *testing.T) {
+	fmt.Println(multiply_("2", "3"))
+}
+
+// tag-[链表]
+// leetcode25: k个一组翻转链表
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	return nil
+}

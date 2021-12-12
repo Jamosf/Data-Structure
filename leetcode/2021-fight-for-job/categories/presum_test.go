@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[前缀和]
 // 第六题
 // leetcode
@@ -24,7 +25,8 @@ func numSubarraysWithSum(nums []int, goal int) int {
 
 func Test_numSubarraysWithSum(t *testing.T) {
 	fmt.Println(numSubarraysWithSum([]int{0, 0, 0, 0, 0}, 0))
-}// tag-[前缀和]
+}
+// tag-[前缀和]
 // 第二题
 // leetcode122: 买卖股票的最佳时机II
 func maxProfitII(prices []int) int {
@@ -39,7 +41,8 @@ func maxProfitII(prices []int) int {
 
 func Test_maxProfitII(t *testing.T) {
 	fmt.Println(maxProfitII([]int{1, 2, 3, 4, 5}))
-}// tag-[前缀和]
+}
+// tag-[前缀和]
 // 前缀和
 // 第一题
 // leetcode303: 区域和检索-数组不可变
@@ -62,6 +65,7 @@ func (n *NumArray) SumRange(left int, right int) int {
 	}
 	return n.sum[right] - n.sum[left-1]
 }
+
 // tag-[前缀和]
 // 第二题
 // leetcode1413: 逐步求和得到正数的最小值
@@ -79,6 +83,7 @@ func minStartValue(nums []int) int {
 	}
 	return ans
 }
+
 // tag-[前缀和]
 // 第三题
 // leetcode1480: 一维数组的动态和
@@ -90,6 +95,7 @@ func runningSum(nums []int) []int {
 	}
 	return sum
 }
+
 // tag-[前缀和]
 // 前缀和
 // 第一题
@@ -103,6 +109,7 @@ func largestAltitude(gain []int) int {
 	}
 	return maxn
 }
+
 // tag-[前缀和]
 // 第三题
 // leetcode 剑指offerII 012：左右两边子数组的和相等
@@ -119,7 +126,8 @@ func pivotIndex(nums []int) int {
 		}
 	}
 	return -1
-}// tag-[前缀和]
+}
+// tag-[前缀和]
 // 第三题
 // leetcode304: 二维区域和检索-矩阵不可变
 type NumMatrix struct {
@@ -150,6 +158,7 @@ func (n *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 	}
 	return sum
 }
+
 // tag-[前缀和]
 // 第四题
 // leetcode523: 连续的子数组和
@@ -177,7 +186,8 @@ func checkSubarraySum(nums []int, k int) bool {
 
 func Test_checkSubarraySum(t *testing.T) {
 	fmt.Println(checkSubarraySum([]int{5, 0, 0, 0}, 3))
-}// tag-[前缀和]
+}
+// tag-[前缀和]
 // 前缀和
 // 第一题
 // leetcode525: 连续数组
@@ -204,6 +214,7 @@ func findMaxLength(nums []int) int {
 func Test_findMaxLength(t *testing.T) {
 	fmt.Println(findMaxLength([]int{0, 1, 0, 1}))
 }
+
 // tag-[前缀和]
 // 第二题
 // leetcode560: 和为K的子数组
@@ -227,6 +238,7 @@ func subarraySum(nums []int, k int) int {
 func Test_subarraySum(t *testing.T) {
 	fmt.Println(subarraySum([]int{-1, -1, 1}, 0))
 }
+
 // tag-[前缀和]
 // leetcode2012: 数组美丽值求和
 // 前缀最大值和后缀最小值
@@ -306,6 +318,7 @@ func Test_DetectSquares(t *testing.T) {
 	d.Add([]int{11, 2})
 	fmt.Println(d.Count([]int{11, 10}))
 }
+
 // tag-[前缀和]
 // leetcode287: 寻找重复数
 // 利用数字出现次数的的前缀和
@@ -330,6 +343,105 @@ func findDuplicate(nums []int) int {
 	}
 	return ans
 }
+
+// tag-[前缀和]
+// leetcode528: 前缀和
+type Solution struct {
+	preSum []int
+}
+
+func ConstructorSolution(w []int) Solution {
+	s := Solution{preSum: make([]int, len(w))}
+	s.preSum[0] = w[0]
+	for i := 1; i < len(w); i++ {
+		s.preSum[i] = s.preSum[i-1] + w[i]
+	}
+	return s
+}
+
+func (s *Solution) PickIndex() int {
+	v := rand.Intn(s.preSum[len(s.preSum)-1]) + 1
+	return sort.SearchInts(s.preSum, v)
+}
+
+func Test_Solution(t *testing.T) {
+	s := ConstructorSolution([]int{1, 3})
+	for i := 0; i < 100; i++ {
+		fmt.Println(s.PickIndex())
+	}
+}
+
+// tag-[前缀和]
+// leetcode930: 前缀和
+func numSubarraysWithSum930(nums []int, goal int) int {
+	ans := 0
+	sum1, sum2 := 0, 0
+	left1, left2 := 0, 0
+	for right, num := range nums {
+		sum1 += num
+		for left1 <= right && sum1 > goal {
+			sum1 -= nums[left1]
+			left1++
+		}
+		sum2 += num
+		for left2 <= right && sum2 >= goal {
+			sum2 -= nums[left2]
+			left2++
+		}
+		ans += left2 - left1
+	}
+	return ans
+}
+// tag-[前缀和]
+// leetcode974:前缀和
+func subarraysDivByK(nums []int, k int) int {
+	n := len(nums)
+	for i := 1; i < n; i++ {
+		nums[i] = nums[i-1] + nums[i]
+	}
+	cnt := make(map[int]int)
+	for i := range nums {
+		cnt[(nums[i]%k+k)%k]++
+	}
+	ans := 0
+	for i := range cnt {
+		if i == 0 {
+			ans += cnt[i]
+		}
+		ans += cnt[i] * (cnt[i] - 1) / 2
+	}
+	return ans
+}
+
+func Test_subarraysDivByK(t *testing.T) {
+	// fmt.Println(subarraysDivByK([]int{4, 5, 0, -2, -3, 1}, 5))
+	// fmt.Println(subarraysDivByK([]int{-1, 2, 9}, 2))
+	fmt.Println(subarraysDivByK([]int{-6, 6}, 5))
+}
+
+// tag-[前缀和]
+// leetcode1829:前缀异或
+func getMaximumXor(nums []int, maximumBit int) []int {
+	n := len(nums)
+	xor := make([]int, n)
+	xor[0] = nums[0]
+	for i := 1; i < n; i++ {
+		xor[i] = xor[i-1] ^ nums[i]
+	}
+	ans := make([]int, 0, n)
+	maxn := 1<<maximumBit - 1
+	for i := n - 1; i >= 0; i-- {
+		ans = append(ans, maxn^xor[i])
+	}
+	return ans
+}
+
+func Test_getMaximumXor(t *testing.T) {
+	fmt.Println(getMaximumXor([]int{0, 1, 1, 3}, 2))
+	fmt.Println(getMaximumXor([]int{2, 3, 4, 7}, 3))
+	fmt.Println(getMaximumXor([]int{0, 1, 2, 2, 5, 7}, 3))
+}
+
 // tag-[前缀和]
 // leetcode1314: 矩阵区域和
 // 二维前缀和
@@ -369,7 +481,8 @@ func matrixBlockSum(mat [][]int, k int) [][]int {
 		}
 	}
 	return ans
-}// tag-[前缀和]
+}
+// tag-[前缀和]
 // leetcode2090: 半径为k的子数组平均值
 func getAverages(nums []int, k int) []int {
 	n := len(nums)
@@ -383,6 +496,35 @@ func getAverages(nums []int, k int) []int {
 			out[i] = (preSum[i+k+1] - preSum[i-k]) / (2*k + 1)
 		} else {
 			out[i] = -1
+		}
+	}
+	return out
+}
+
+// tag-[二分搜索/前缀和]
+// leetcode2055: 蜡烛之间的盘子
+// 先记录所有蜡烛的位置，然后采用二分法搜索
+func platesBetweenCandles(s string, queries [][]int) []int {
+	n := len(s)
+	candles := make([]int, 0, n/2)
+	for i := range s {
+		if s[i] == '|' {
+			candles = append(candles, i)
+		}
+	}
+	preSum := make([]int, len(candles)+1)
+	for i := 1; i < len(candles); i++ {
+		preSum[i] = preSum[i-1] + candles[i] - candles[i-1] - 1
+	}
+	m := len(queries)
+	out := make([]int, m)
+	for i, q := range queries {
+		l, r := sort.Search(len(candles), func(i int) bool { return candles[i] >= q[0] }), sort.Search(len(candles), func(i int) bool { return candles[i] > q[1] })
+		if r > 0 {
+			r--
+		}
+		if v := preSum[r] - preSum[l]; v > 0 && r > l {
+			out[i] = v
 		}
 	}
 	return out

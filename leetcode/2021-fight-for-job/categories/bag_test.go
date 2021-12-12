@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[背包]
 // 第七题
 // leetcode 剑指offer14-I: 剪绳子
@@ -23,6 +24,7 @@ func cuttingRope(n int) int {
 	}
 	return dp[n] % mod
 }
+
 // tag-[背包]
 // 完全背包问题
 // leetcode139: 单词拆分
@@ -39,6 +41,7 @@ func wordBreak(s string, wordDict []string) bool {
 	}
 	return dp[len(s)]
 }
+
 // tag-[背包]
 // 背包问题
 // leetcode416: 分割等和子集
@@ -62,6 +65,7 @@ func canPartition(nums []int) bool {
 	}
 	return dp[cap]
 }
+
 // tag-[背包]
 // 完全背包问题
 // leetcode322: 钱币兑换
@@ -80,7 +84,8 @@ func coinChange(coins []int, amount int) int {
 		return -1
 	}
 	return dp[amount]
-}// tag-[背包]
+}
+// tag-[背包]
 // 第一题
 // leetcode494: 目标和
 // 背包问题
@@ -107,6 +112,7 @@ func findTargetSumWays(nums []int, target int) int {
 func Test_findTargetSumWays(t *testing.T) {
 	fmt.Println(findTargetSumWays([]int{1}, 1))
 }
+
 // tag-[背包]
 // 第二题
 // leetcode279: 完全平方数，背包问题
@@ -127,6 +133,7 @@ func numSquares(n int) int {
 func Test_numSquares(t *testing.T) {
 	fmt.Println(numSquares(12))
 }
+
 // tag-[背包]
 // 第三题
 // leetcode377: 组合总和IV
@@ -146,6 +153,7 @@ func combinationSum4(nums []int, target int) int {
 func Test_combinationSum4(t *testing.T) {
 	fmt.Println(combinationSum4([]int{9}, 4))
 }
+
 // tag-[背包]
 // 第四题
 // leetcode518: 零钱兑换II
@@ -159,6 +167,7 @@ func change(amount int, coins []int) int {
 	}
 	return dp[amount]
 }
+
 // tag-[背包]
 // 第五题
 // leetcode474: 一和零
@@ -205,6 +214,7 @@ func findMaxForm(strs []string, m int, n int) int {
 func Test_findMaxForm(t *testing.T) {
 	fmt.Println(findMaxForm([]string{"10", "0", "1"}, 1, 1))
 }
+
 // tag-[背包]
 // 第六题
 // leetcode1049: 最后一块石头的重量 II
@@ -228,7 +238,8 @@ func lastStoneWeightII(stones []int) int {
 		}
 	}
 	return sum - 2*maxn
-}// tag-[背包]
+}
+// tag-[背包]
 // 第三题
 // TODO
 func combinationSum1(candidates []int, target int) [][]int {

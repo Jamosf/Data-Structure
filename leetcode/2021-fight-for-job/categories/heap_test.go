@@ -6,98 +6,7 @@ import (
 	"sort"
 	"math"
 )
-// tag-[排序/堆]
-// 第二题
-// TODO
-// leetcode218: 天际线问题
-func getSkyline(buildings [][]int) [][]int {
-	if len(buildings) == 0 {
-		return nil
-	}
-	// 处理各建筑的左右端点
-	var pos [][]int
-	for _, building := range buildings {
-		if building != nil {
-			pos = append(pos, []int{building[0], -building[2]})
-			pos = append(pos, []int{building[1], building[2]})
-		}
-	}
-	// 对pos进行排序，先按照横坐标优先排序，然后按照高度优先排序
-	sort.Slice(pos, func(i, j int) bool {
-		if pos[i][0] != pos[j][0] {
-			return pos[i][0] < pos[j][0]
-		}
-		return pos[i][1] > pos[j][1]
-	})
-	// 构造最大堆
-	m := &maxHeap{}
-	pre := 0
-	var ans [][]int
-	for _, v := range pos {
-		// 如果是左端点，则将高度入队
-		if v[1] < 0 {
-			heap.Push(m, -v[1])
-		} else { // 如果是右端点，则将高度出队
-			heap.Remove(m, v[1])
-		}
-		cur := heap.Pop(m).(int)
-		if cur != pre {
-			ans = append(ans, []int{v[0], cur})
-			pre = cur
-		}
-	}
-	return ans
-}
 
-// leetcode218: 天际线问题
-// TODO
-func getSkyline1(buildings [][]int) [][]int {
-	if len(buildings) == 0 {
-		return nil
-	}
-	var pos [][]int
-	// 1. 根据横坐标和高度，构造点的坐标
-	for _, building := range buildings {
-		if building != nil {
-			pos = append(pos, []int{building[0], -building[2]})
-			pos = append(pos, []int{building[1], building[2]})
-		}
-	}
-	// 2. sort
-	sort.Slice(pos, func(i, j int) bool {
-		if pos[i][0] != pos[j][0] {
-			return pos[i][0] < pos[j][0]
-		}
-		return abs(pos[i][1]) > abs(pos[j][1])
-	})
-	// 3. 构造最大堆
-	m := &maxHeap{}
-	pre := 0
-	deleteK := make(map[int]bool)
-	var ans [][]int
-	for _, v := range pos {
-		if v[1] < 0 {
-			heap.Push(m, -v[1])
-		} else {
-			deleteK[v[1]] = true
-		}
-		cur := heap.Pop(m).(int)
-		heap.Push(m, cur)
-		for deleteK[cur] {
-			cur = heap.Pop(m).(int)
-			delete(deleteK, cur)
-		}
-		if cur != pre {
-			ans = append(ans, []int{v[0], cur})
-			pre = cur
-		}
-	}
-	return ans
-}
-
-func Test_getSkyline(t *testing.T) {
-	fmt.Println(getSkyline1([][]int{{2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}}))
-}
 // tag-[堆]
 // 第二题
 // leetcode506: 相对名次
@@ -152,7 +61,8 @@ func (m *rankHeap) Push(x interface{}) {
 func (m *rankHeap) Pop() (v interface{}) {
 	*m, v = (*m)[:m.Len()-1], (*m)[m.Len()-1]
 	return
-}// tag-[堆]
+}
+// tag-[堆]
 // 第一题
 // leetcode703: 数据流中的第K大元素
 // 数据流中第k大的数据
@@ -185,6 +95,7 @@ func (k1 *KthLargest) Add(val int) int {
 	}
 	return k1.IntSlice[0]
 }
+
 // tag-[堆]
 // 第三题
 // leetcode1046: 最后一块石头的重量
@@ -205,6 +116,7 @@ func lastStoneWeight(stones []int) int {
 	}
 	return 0
 }
+
 // tag-[堆]
 // 第五题
 // leetcode215: 数组中两元素的最大乘积
@@ -218,6 +130,7 @@ func findKthLargest(nums []int, k int) int {
 	}
 	return heap.Pop(m).(int)
 }
+
 // tag-[堆]
 // 第六题
 // leetcode347: 前k个高频元素
@@ -242,7 +155,8 @@ func topKFrequent(nums []int, k int) []int {
 
 func Test_topKFrequent(t *testing.T) {
 	fmt.Println(topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2))
-}// tag-[堆]
+}
+// tag-[堆]
 // leetcode lcp30: 魔塔游戏
 func magicTower(nums []int) int {
 	sum := 1
@@ -270,6 +184,7 @@ func magicTower(nums []int) int {
 	}
 	return cnt
 }
+
 // tag-[堆]
 // leetcode1962: 移除石子使总数最小
 func minStoneSum(piles []int, k int) int {
@@ -308,6 +223,7 @@ func Test_minStoneSum(t *testing.T) {
 	fmt.Println(minStoneSum([]int{5, 4, 9}, 2))
 	fmt.Println(minStoneSum_([]int{5, 4, 9}, 2))
 }
+
 // tag-[堆]
 type hp struct{ sort.IntSlice }
 
@@ -330,16 +246,101 @@ func minSwaps(s string) int {
 	return (-minCnt + 1) >> 1
 }
 
-// tag-[排序]
-// leetcode1753: 移除石子的最大得分
-func maximumScore(a int, b int, c int) int {
-	v := []int{a, b, c}
-	sort.Ints(v)
-	if v[0]+v[1] >= v[2] {
-		return (v[0] + v[1] + v[2]) >> 1
+// tag-[堆]
+var a []int
+
+type dhp struct{ sort.IntSlice }
+
+func (h *dhp) Less(i, j int) bool { return a[h.IntSlice[i]] > a[h.IntSlice[j]] }
+func (h *dhp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *dhp) Pop() interface{} {
+	var v interface{}
+	v, h.IntSlice = h.IntSlice[:h.Len()-1], h.IntSlice[:h.Len()-1]
+	return v
+}
+
+// leetcode239: 滑动窗口最大值
+// 大根堆
+// 求解思路：将遍历到的数据的索引添加到大根堆中，在前进过程中，不断的弹出大根堆的堆顶元素，如果堆顶的索引在滑窗中，则为滑窗内最大值。
+func maxSlidingWindow(nums []int, k int) (ans []int) {
+	a = nums
+	n := len(nums)
+	if n < k {
+		return nil
 	}
-	return v[0] + v[1]
-}// tag-[堆]
+	h := &dhp{}
+	for i := 0; i < k; i++ {
+		heap.Push(h, i)
+	}
+	ans = append(ans, nums[h.IntSlice[0]])
+	for i := k; i < n; i++ {
+		heap.Push(h, i)
+		for (h.IntSlice)[0] <= i-k {
+			heap.Pop(h)
+		}
+		ans = append(ans, nums[(h.IntSlice)[0]])
+	}
+	return
+}
+
+// leetcode239: 滑动窗口最大值
+// 双端队列求解
+// 求解思路：将遍历到的数据添加到单调队列中，队列单调递增。从队列头部弹出元素，如果元素在滑窗内，则
+func maxSlidingWindow_(nums []int, k int) (ans []int) {
+	var q []int
+	push := func(i int) {
+		for len(q) != 0 && nums[q[len(q)-1]] <= nums[i] {
+			q = q[:len(q)-1]
+		}
+		q = append(q, i)
+	}
+	for i := 0; i < k; i++ {
+		push(i)
+	}
+	n := len(nums)
+	for i := k; i < n; i++ {
+		push(i)
+		for q[0] < i-k+1 {
+			q = q[1:]
+		}
+		ans = append(ans, nums[q[0]])
+	}
+	return
+}
+
+// leetcode239: 滑动窗口最大值
+// 分块：前缀最大值和后缀最大值求解
+func maxSlidingWindow__(nums []int, k int) []int {
+	n := len(nums)
+	prefix := make([]int, n+1)
+	suffix := make([]int, n+1)
+	for i := 0; i <= n; i++ {
+		if i%k == 0 {
+			prefix[i] = nums[i]
+		} else {
+			prefix[i] = max(prefix[i-1], nums[i])
+		}
+	}
+	for i := n - 1; i >= 0; i-- {
+		if i == n-1 || (i+1)%k == 0 {
+			suffix[i] = nums[i]
+		} else {
+			suffix[i] = max(suffix[i+1], nums[i])
+		}
+	}
+	ans := make([]int, n-k+1)
+	for i := range ans {
+		ans[i] = max(suffix[i], prefix[i+k-1])
+	}
+	return ans
+}
+
+func Test_maxSlidingWindow(t *testing.T) {
+	fmt.Println(maxSlidingWindow([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
+	fmt.Println(maxSlidingWindow_([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
+	fmt.Println(maxSlidingWindow__([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
+}
+// tag-[堆]
 func kthLargestValue(matrix [][]int, k int) int {
 	m, n := len(matrix), len(matrix[0])
 	sum := make([][]int, m)
@@ -372,46 +373,44 @@ func kthLargestValue(matrix [][]int, k int) int {
 	return heap.Pop(mh).(int)
 }
 
-// tag-[排序]
-// 快速选择算法
-func quickSelect(a []int, k int) int {
-	rand.Shuffle(len(a), func(i, j int) { a[i], a[j] = a[j], a[i] })
-	for l, r := 0, len(a)-1; l < r; {
-		v := a[l]
-		i, j := l, r+1
-		for {
-			for i++; i < r && a[i] < v; i++ {
-			}
-			for j--; j > l && a[j] > v; j-- {
-			}
-			if i >= j {
-				break
-			}
-			a[i], a[j] = a[j], a[i]
-		}
-		a[l], a[j] = a[j], v
-		if j == k {
-			break
-		} else if j < k {
-			l = j + 1
-		} else {
-			r = j - 1
-		}
-	}
-	return a[k]
+// tag-[堆]
+// 最小堆
+type MinHeap [][3]int
+
+func (h *MinHeap) Push(x interface{}) {
+	*h = append(*h, x.([3]int))
 }
 
-func kthLargestValue1(matrix [][]int, k int) int {
-	m, n := len(matrix), len(matrix[0])
-	results := make([]int, 0, m*n)
-	pre := make([][]int, m+1)
-	pre[0] = make([]int, n+1)
-	for i, row := range matrix {
-		pre[i+1] = make([]int, n+1)
-		for j, val := range row {
-			pre[i+1][j+1] = pre[i+1][j] ^ pre[i][j+1] ^ pre[i][j] ^ val
-			results = append(results, pre[i+1][j+1])
+func (h *MinHeap) Pop() interface{} {
+	var v [3]int
+	*h, v = (*h)[:h.Len()-1], (*h)[h.Len()-1]
+	return v
+}
+
+func (h *MinHeap) Len() int {
+	return len(*h)
+}
+
+func (h *MinHeap) Less(i, j int) bool {
+	return (*h)[i][0] < (*h)[j][0]
+}
+
+func (h *MinHeap) Swap(i, j int) {
+	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
+}
+
+// leetcode378: 有序矩阵中第K小的元素
+// n路归并，类似于合并k个链表
+func kthSmallest378(matrix [][]int, k int) int {
+	m, n := &MinHeap{}, len(matrix)
+	for i := 0; i < n; i++ {
+		heap.Push(m, [3]int{matrix[i][0], i, 0})
+	}
+	for i := 0; i < k-1; i++ {
+		v := heap.Pop(m).([3]int)
+		if v[2] < n-1 {
+			heap.Push(m, [3]int{matrix[v[1]][v[2]+1], v[1], v[2] + 1})
 		}
 	}
-	return quickSelect(results, m*n-k)
+	return heap.Pop(m).([3]int)[0]
 }

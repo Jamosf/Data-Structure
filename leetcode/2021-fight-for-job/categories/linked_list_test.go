@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[链表]
 // 第三题
 // leetcode876: 链表的中间结点
@@ -26,7 +27,7 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 
-//
+// tag-[链表]
 // 第二题
 // leetcode19: 删除链表的倒数第N个结点
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
@@ -55,6 +56,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	return tmp.Next
 }
 
+// tag-[链表]
 // 第二题
 // leetcode19: 删除链表的倒数第N个结点
 func removeNthFromEnd_(head *ListNode, n int) *ListNode {
@@ -82,7 +84,8 @@ func Test_listNode(t *testing.T) {
 	l := &ListNode{1, nil}
 	fmt.Println(removeNthFromEnd(l, 1))
 	fmt.Println(removeNthFromEnd_(l, 1))
-}// tag-[链表]
+}
+// tag-[链表]
 // 第三题
 // leetcode141: 环形链表
 type ListNode struct {
@@ -100,7 +103,8 @@ func hasCycle(head *ListNode) bool {
 		}
 	}
 	return false
-}// tag-[链表]
+}
+// tag-[链表]
 // 第三题
 func reverseList(head *ListNode) *ListNode {
 	var prev *ListNode
@@ -113,6 +117,7 @@ func reverseList(head *ListNode) *ListNode {
 	}
 	return prev
 }
+
 // tag-[链表]
 // 第四题
 // leetcode83: 删除排序链表中的重复元素
@@ -128,81 +133,6 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 
-// tag-[栈]
-// 第五题
-// leetcode20: 有效的括号
-func isValidParentheses(s string) bool {
-	m := map[uint8]uint8{
-		'{': '}',
-		'[': ']',
-		'(': ')',
-	}
-	stack := list.New()
-	for _, v := range []byte(s) {
-		if stack.Len() == 0 {
-			stack.PushFront(v)
-		} else {
-			l := stack.Front()
-			vv := l.Value.(uint8)
-			if m[vv] == v {
-				stack.Remove(l)
-			} else {
-				stack.PushFront(v)
-			}
-		}
-	}
-	return stack.Len() == 0
-}
-
-// tag-[栈]
-// 第六题
-// leetcode232: 用栈实现队列
-type MyQueue struct {
-	add *list.List
-	del *list.List
-}
-
-/** Initialize your data structure here. */
-func ConstructorMyQueue() MyQueue {
-	return MyQueue{add: list.New(), del: list.New()}
-}
-
-/** Push element x to the back of queue. */
-func (m *MyQueue) Push(x int) {
-	m.add.PushFront(x)
-}
-
-/** Removes the element from in front of queue and returns that element. */
-func (m *MyQueue) Pop() int {
-	if m.del.Len() == 0 {
-		for m.add.Len() != 0 {
-			v := m.add.Front()
-			m.del.PushFront(v.Value.(int))
-			m.add.Remove(v)
-		}
-	}
-	v := m.del.Front()
-	m.del.Remove(v)
-	return v.Value.(int)
-}
-
-/** Get the front element. */
-func (m *MyQueue) Peek() int {
-	if m.del.Len() == 0 {
-		for m.add.Len() != 0 {
-			v := m.add.Front()
-			m.del.PushFront(v.Value.(int))
-			m.add.Remove(v)
-		}
-	}
-	v := m.del.Front()
-	return v.Value.(int)
-}
-
-/** Returns whether the queue is empty. */
-func (m *MyQueue) Empty() bool {
-	return m.add.Len() == 0 && m.del.Len() == 0
-}
 // tag-[链表]
 // 第十题
 // leetcode 剑指offer 06: 从尾到头打印链表
@@ -221,6 +151,7 @@ type TreeNode struct {
 	Left  *TreeNode
 	Right *TreeNode
 }
+
 // tag-[链表]
 // 第二题
 // leetcode 剑指offer 22: 链表中倒数第K个节点
@@ -236,6 +167,7 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 	}
 	return slow
 }
+
 // tag-[链表]
 // 第五题
 // leetcode 剑指offer 18: 删除链表节点
@@ -252,19 +184,6 @@ func deleteNode(head *ListNode, val int) *ListNode {
 	return tmp.Next
 }
 
-// tag-[排序]
-// 第六题
-// leetcode 剑指offer 40: 最小的K个数
-func getLeastNumbers(arr []int, k int) []int {
-	if len(arr) < k {
-		return arr
-	}
-	return quickSortK(arr, 0, len(arr)-1, k)
-}
-
-func Test_getLeastNumbers(t *testing.T) {
-	fmt.Println(getLeastNumbers([]int{3, 2, 1}, 2))
-}
 // tag-[链表]
 // 第四题
 // leetcode203: 移除链表元素
@@ -280,6 +199,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 	}
 	return p.Next
 }
+
 // tag-[链表]
 // 第四题
 // leetcode21: 合并两个有序链表
@@ -310,6 +230,7 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	return tmp.Next
 }
+
 // tag-[链表]
 // 第十题
 // leetcode21: 合并两个有序链表
@@ -329,6 +250,7 @@ func mergeTwoLists_(l1 *ListNode, l2 *ListNode) *ListNode {
 		return l1
 	}
 }
+
 // tag-[链表]
 // 第一题
 // leetcode 剑指offer52: 两个链表的第一个公共节点
@@ -362,6 +284,7 @@ func lenOfList(p *ListNode) int {
 	}
 	return cnt
 }
+
 // tag-[链表]
 // 第五题
 // leetcode 剑指offer35: 复杂链表的复制
@@ -398,6 +321,7 @@ func copyRandomList(head *Node) *Node {
 	}
 	return tmp.Next
 }
+
 // tag-[链表]
 // 第一题：合并链表
 // leetcode23: 合并k个升序链表
@@ -422,6 +346,7 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	}
 	return dummy.Next
 }
+
 // tag-[链表]
 // leetcode148: 排序链表
 func sortList(head *ListNode) *ListNode {
@@ -472,6 +397,7 @@ func sortList_(head *ListNode) *ListNode {
 	}
 	return p.Next
 }
+
 // tag-[链表]
 // 第三题
 // leetcode146: LRU缓存机制
@@ -576,6 +502,7 @@ func searchMatrix1(matrix [][]int, target int) bool {
 	}
 	return false
 }
+
 // tag-[链表]
 // 第二题
 /**
@@ -672,7 +599,8 @@ func getDirections(root *TreeNode, startValue int, destValue int) string {
 		ans[i], ans[n-1-i] = ans[n-1-i], ans[i]
 	}
 	return string(ans)
-}// tag-[链表]
+}
+// tag-[链表]
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -710,4 +638,10 @@ func nodesBetweenCriticalPoints(head *ListNode) []int {
 		minn = min(minn, maxIdx[i+1]-maxIdx[i])
 	}
 	return []int{minn, maxIdx[len(maxIdx)-1] - maxIdx[0]}
+}
+
+// tag-[链表]
+// leetcode25: k个一组翻转链表
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	return nil
 }

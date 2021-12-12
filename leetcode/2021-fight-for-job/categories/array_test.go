@@ -6,6 +6,7 @@ import (
 	"sort"
 	"math"
 )
+
 // tag-[数组]
 // 第三题
 // leetcode18: 四数之和
@@ -63,6 +64,7 @@ func threesumT(nums []int, target int) [][]int {
 func Test_four(t *testing.T) {
 	fmt.Println(fourSum([]int{1, 0, -1, 0, -2, 2}, 0))
 }
+
 // tag-[数组]
 // 第一题
 // leetcode1846: 减少和重新排列数组后的最大元素
@@ -80,48 +82,6 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	return arr[len(arr)-1]
 }
 
-// tag-[二分查找]
-// 第二题
-// leetcode1818: 绝对差值和
-func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
-	mod := int(1e9 + 7)
-	// 1. 先复制一份数组并排序
-	rec := append(sort.IntSlice{}, nums1...)
-	rec.Sort()
-	// 2. 开始找
-	sum := 0
-	maxn := 0
-	for i := 0; i < len(nums1); i++ {
-		diff := minusAbs(nums1[i], nums2[i])
-		sum += diff % mod
-		// 3. 在rec中找替换
-		j := rec.Search(nums2[i])
-		if j < len(nums1) {
-			maxn = max(maxn, diff-minusAbs(rec[j], nums2[i]))
-		}
-		if j > 0 {
-			maxn = max(maxn, diff-minusAbs(rec[j-1], nums2[i]))
-		}
-	}
-	return (sum - maxn) % mod
-}
-
-// tag-[二分查找]
-// 第三题
-// leetcode275: H指数II
-func hIndex(citations []int) int {
-	left, right := 0, len(citations)
-	mid := (left + right) / 2
-	for left < right {
-		if citations[mid] > len(citations)-mid {
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
-		mid = (left + right) / 2
-	}
-	return len(citations) - left
-}
 // tag-[数组]
 // 第八题
 // leetcode118: 杨辉三角
@@ -144,6 +104,7 @@ func generate(numRows int) [][]int {
 func Test_generate(t *testing.T) {
 	fmt.Println(generate(5))
 }
+
 // tag-[数组]
 // 第九题
 // leetcode36: 有效的数独
@@ -184,6 +145,7 @@ func Test_isVlid(t *testing.T) {
 	}
 	fmt.Println(isValidSudoku(board))
 }
+
 // tag-[数组]
 // 第一题
 // leetcode 剑指offer 11: 旋转数组的最小数字
@@ -196,6 +158,7 @@ func minArray(numbers []int) int {
 	}
 	return min
 }
+
 // tag-[数组]
 // 第九题
 // leetcode 剑指offer 42: 连续子数组的最大和
@@ -212,6 +175,7 @@ func maxSubArray42(nums []int) int {
 	}
 	return maxn
 }
+
 // tag-[数组]
 // 第一题
 // leetcode 剑指offer 30: 和为s的两个数字
@@ -224,7 +188,8 @@ func twoSum(nums []int, target int) []int {
 		m[target-v] = struct{}{}
 	}
 	return nil
-}// tag-[数组]
+}
+// tag-[数组]
 // 第四题
 // leetcode 剑指offer 61: 扑克牌中的顺子
 func isStraight(nums []int) bool {
@@ -244,7 +209,8 @@ func isStraight(nums []int) bool {
 
 func Test_isStraight(t *testing.T) {
 	fmt.Println(isStraight([]int{0, 1, 1, 0, 5}))
-}// tag-[数组]
+}
+// tag-[数组]
 // 第四题
 // leetcode 剑指offer64: 求和
 func sumNums(n int) int {
@@ -263,6 +229,7 @@ type Node struct {
 	Next   *Node
 	Random *Node
 }
+
 // tag-[数组]
 // 第四题
 // leetcode剑指offer 66： 构建乘积数组
@@ -285,7 +252,8 @@ func constructArr(a []int) []int {
 
 func Test_constructArr(t *testing.T) {
 	fmt.Println(constructArr([]int{1, 2, 3, 4, 5}))
-}// tag-[数组]
+}
+// tag-[数组]
 // 第一题
 // leetcode27: 移除元素
 func removeElement(nums []int, val int) int {
@@ -302,6 +270,7 @@ func removeElement(nums []int, val int) int {
 	}
 	return len(nums)
 }
+
 // tag-[数组]
 // 第四题
 // leetcode1464: 数组中两元素的最大乘积
@@ -327,6 +296,7 @@ func maxProduct1464_(nums []int) int {
 	max2 := heap.Pop(m).(int)
 	return (max1 - 1) * (max2 - 1)
 }
+
 // tag-[数组]
 // 第二题
 // leetcode238: 除自身以外数组的乘积
@@ -343,6 +313,7 @@ func productExceptSelf(nums []int) []int {
 	}
 	return ans
 }
+
 // tag-[数组]
 // 第二题
 // leetcode135：分发糖果
@@ -369,6 +340,7 @@ func candy(ratings []int) int {
 func Test_candy(t *testing.T) {
 	fmt.Println(candy([]int{1, 0, 2}))
 }
+
 // tag-[数组]
 // 第三题
 // leetcode435: 无重叠区间
@@ -390,6 +362,7 @@ func eraseOverlapIntervals(intervals [][]int) int {
 func Test_eraseOverlapIntervals(t *testing.T) {
 	fmt.Println(eraseOverlapIntervals([][]int{{1, 2}, {1, 2}, {1, 2}}))
 }
+
 // tag-[数组]
 // 第四题
 // leetcode605：种花问题
@@ -417,6 +390,7 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 func Test_canPlaceFlowers(t *testing.T) {
 	fmt.Println(canPlaceFlowers([]int{0}, 1))
 }
+
 // tag-[数组]
 // 第五题
 // leetcode763: 划分字母区间
@@ -457,6 +431,7 @@ func partitionLabels(s string) []int {
 func Test_partitionLabels(t *testing.T) {
 	fmt.Println(partitionLabels("aaaaaaaaaaa"))
 }
+
 // tag-[数组]
 // leetcode1979: 找出数组的最大公约数
 func findGCD(nums []int) int {
@@ -478,6 +453,7 @@ func findGCD(nums []int) int {
 func Test_findGCD(t *testing.T) {
 	fmt.Println(findGCD([]int{1, 12}))
 }
+
 // tag-[数组]
 // leetcode1975: 最大方阵和
 func maxMatrixSum(matrix [][]int) int64 {
@@ -507,6 +483,7 @@ func Test_maxMatrixSum(t *testing.T) {
 	fmt.Println(maxMatrixSum([][]int{{1, -1}, {-1, 1}}))
 	fmt.Println(maxMatrixSum([][]int{{-1, 0, -1}, {-2, 1, 3}, {3, 2, 2}}))
 }
+
 // tag-[数组]
 // leetcode149: 直线上最多的点数
 func maxPoints(points [][]int) int {
@@ -538,6 +515,7 @@ func maxPoints(points [][]int) int {
 func Test_maxPoints(t *testing.T) {
 	fmt.Println(maxPoints([][]int{{1, 1}, {2, 2}, {3, 3}}))
 }
+
 // tag-[数组]
 // leetcode414: 第三大的数
 func thirdMax(nums []int) int {
@@ -579,7 +557,8 @@ func thirdMax_(nums []int) int {
 func Test_third(t *testing.T) {
 	fmt.Println(thirdMax([]int{2, 2, 1, 3}))
 	fmt.Println(thirdMax_([]int{2, 2, 1, 3}))
-}// tag-[数组]
+}
+// tag-[数组]
 // leetcode lcp33: 蓄水
 func storeWater(bucket []int, vat []int) int {
 	maxn := vat[0]
@@ -615,6 +594,7 @@ func storeWater(bucket []int, vat []int) int {
 func Test_storeWater(t *testing.T) {
 	fmt.Println(storeWater([]int{1, 3}, []int{6, 8}))
 }
+
 // tag-[数组]
 // leetcode lcp40: 心算挑战
 func maxmiumScore(a []int, cnt int) int {
@@ -651,7 +631,8 @@ func maxmiumScore(a []int, cnt int) int {
 		}
 	}
 	return 0
-}// tag-[数组]
+}
+// tag-[数组]
 // leetcode2001: 可变换矩阵的组数
 func interchangeableRectangles(rectangles [][]int) int64 {
 	m := make(map[float64]int64)
@@ -666,6 +647,7 @@ func interchangeableRectangles(rectangles [][]int) int64 {
 	}
 	return cnt
 }
+
 // tag-[数组]
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	totalLength := len(nums1) + len(nums2)
@@ -707,7 +689,8 @@ func getKthElement(nums1, nums2 []int, k int) int {
 
 func Test_findMedianSortedArrays(t *testing.T) {
 	fmt.Println(findMedianSortedArrays([]int{2}, []int{1, 3}))
-}// tag-[数组]
+}
+// tag-[数组]
 // leetcode2007: 从双倍数组中还原数组
 func findOriginalArray(changed []int) []int {
 	sort.Ints(changed)
@@ -740,6 +723,7 @@ func maxInt64(a, b int64) int64 {
 	}
 	return b
 }
+
 // tag-[数组]
 // leetcode287: 寻找重复数
 // 利用快慢指针，找环的入口
@@ -757,6 +741,7 @@ func findDuplicate_(nums []int) int {
 	}
 	return p1
 }
+
 // tag-[数组]
 // leetcode2028: 找出缺失的观测数据
 // dfs求解超时
@@ -828,6 +813,27 @@ func missingRolls_(rolls []int, mean int, n int) []int {
 func Test_missingRolls(t *testing.T) {
 	fmt.Println(missingRolls_([]int{6, 3, 4, 3, 5, 3}, 1, 6))
 }
+
+// tag-[数组]
+// 暴力
+func numOfPairs(nums []string, target string) int {
+	n := len(nums)
+	cnt := 0
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			if i != j && nums[i]+nums[j] == target {
+				fmt.Println(i, j)
+				cnt++
+			}
+		}
+	}
+	return cnt
+}
+
+func Test_numOfPairs(t *testing.T) {
+	fmt.Println(numOfPairs([]string{"777", "7", "77", "77"}, "7777"))
+}
+
 // tag-[数组]
 func canCompleteCircuit(gas []int, cost []int) int {
 	n := len(gas)
@@ -844,21 +850,7 @@ func canCompleteCircuit(gas []int, cost []int) int {
 	return idx
 }
 
-// tag-[排序]
-func largestNumber(nums []int) string {
-	sort.Slice(nums, func(i, j int) bool {
-		s, t := strconv.Itoa(nums[i]), strconv.Itoa(nums[j])
-		return s+t > t+s
-	})
-	var buff bytes.Buffer
-	for i := range nums {
-		if buff.Len() == 0 && nums[i] == 0 {
-			continue
-		}
-		buff.WriteString(strconv.Itoa(nums[i]))
-	}
-	return buff.String()
-}// tag-[数组]
+// tag-[数组]
 // leetcode334
 func increasingTriplet(nums []int) bool {
 	small, mid := math.MaxInt32, math.MaxInt32
@@ -876,7 +868,50 @@ func increasingTriplet(nums []int) bool {
 
 func Test_increasingTriplet(t *testing.T) {
 	fmt.Println(increasingTriplet([]int{2, 1, 4, 2, 4, 3}))
-}// tag-[数组]
+}
+// tag-[数组]
+func fourSum1(nums []int, target int) [][]int {
+	n := len(nums)
+	sort.Ints(nums)
+	ans := make([][]int, 0)
+	for i := 0; i < n; i++ {
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+		for j := i + 1; j < n; j++ {
+			if j > i+1 && nums[j] == nums[j-1] {
+				continue
+			}
+			l, r := j+1, n-1
+			for l < r {
+				v := nums[i] + nums[j] + nums[l] + nums[r]
+				if v > target {
+					r--
+				} else if v < target {
+					l++
+				} else {
+					ans = append(ans, []int{nums[i], nums[j], nums[l], nums[r]})
+					l++
+					r--
+					for l < r && nums[l] == nums[l-1] {
+						l++
+					}
+					for l < r && nums[r] == nums[r+1] {
+						r--
+					}
+				}
+			}
+		}
+	}
+	return ans
+}
+
+func Test_fourSum(t *testing.T) {
+	fmt.Println(fourSum([]int{1, 0, -1, 0, -2, 2}, 0))
+	fmt.Println(fourSum([]int{2, 2, 2, 2, 2}, 8))
+}
+
+// tag-[数组]
 // leetcode1033
 func numMovesStones(a int, b int, c int) []int {
 	v := []int{a, b, c}
@@ -894,7 +929,57 @@ func numMovesStones(a int, b int, c int) []int {
 		minv = 1
 	}
 	return []int{minv, v[1] - minn + maxn - v[1] - 2}
-}// tag-[数组]
+}
+// tag-[数组]
+type Bank struct {
+	money []int64
+	n     int
+}
+
+func Constructor_n(balance []int64) Bank {
+	return Bank{money: balance, n: len(balance)}
+}
+
+func (b *Bank) isValid(account int) bool {
+	return account >= 1 && account <= b.n
+}
+
+func (b *Bank) Transfer(account1 int, account2 int, money int64) bool {
+	if b.isValid(account1) && b.isValid(account2) {
+		if b.money[account1-1] >= money {
+			b.money[account1-1] -= money
+			b.money[account2-1] += money
+			return true
+		}
+	}
+	return false
+}
+
+func (b *Bank) Deposit(account int, money int64) bool {
+	if b.isValid(account) {
+		b.money[account-1] += money
+		return true
+	}
+	return false
+}
+
+func (b *Bank) Withdraw(account int, money int64) bool {
+	if b.isValid(account) && b.money[account-1] >= money {
+		b.money[account-1] -= money
+		return true
+	}
+	return false
+}
+
+func or(v []int) int {
+	ans := 0
+	for i := range v {
+		ans |= v[i]
+	}
+	return ans
+}
+
+// tag-[数组]
 // leetcode453
 func minMoves(nums []int) int {
 	n := len(nums)
@@ -911,6 +996,7 @@ func Test_minMoves(t *testing.T) {
 	fmt.Println(minMoves([]int{1, 1, 1}))
 	fmt.Println(minMoves([]int{1, 2, 3, 4}))
 }
+
 // tag-[数组]
 func intToBytes(n int64) []byte {
 	ans := make([]byte, 0)
@@ -926,6 +1012,27 @@ func intToBytes(n int64) []byte {
 
 func Test_intToBytes(t *testing.T) {
 	fmt.Println(string(intToBytes(12345)))
+}
+
+// tag-[数组]
+// leetcode769: 数组分组，前k个的最大值是不是k
+func maxChunksToSorted(arr []int) int {
+	n := len(arr)
+	maxn := arr[0]
+	ans := 0
+	for i := 0; i < n; i++ {
+		maxn = max(maxn, arr[i])
+		if maxn == i {
+			ans++
+		}
+	}
+	return ans
+}
+
+func Test_maxChunksToSorted(t *testing.T) {
+	fmt.Println(maxChunksToSorted([]int{4, 3, 2, 1, 0}))
+	fmt.Println(maxChunksToSorted([]int{1, 0, 2, 3, 4}))
+	fmt.Println(maxChunksToSorted([]int{2, 0, 1}))
 }
 // tag-[数组]
 // leetcode2091: 从数组中移除最大值和最小值
@@ -952,7 +1059,8 @@ func minimumDeletions(nums []int) int {
 	res = min(res, maxIdx+1+len(nums)-minIdx)
 	// 4. 一个右边，一个左边
 	return min(res, len(nums)-maxIdx+1+minIdx)
-}// tag-[数组]
+}
+// tag-[数组]
 // leetcode2079: 给植物浇水
 // 模拟
 func wateringPlants(plants []int, capacity int) int {
@@ -968,28 +1076,4 @@ func wateringPlants(plants []int, capacity int) int {
 		ans += 1
 	}
 	return ans
-}
-
-// tag-[哈希表/二分查找]
-// leetcode2080: 区间内查询数字的频率
-// hash预处理+二分
-type RangeFreqQuery struct {
-	m map[int][]int
-}
-
-func ConstructorR(arr []int) RangeFreqQuery {
-	r := RangeFreqQuery{m: make(map[int][]int)}
-	for i := range arr {
-		r.m[arr[i]] = append(r.m[arr[i]], i)
-	}
-	return r
-}
-
-func (r *RangeFreqQuery) Query(left int, right int, value int) int {
-	s := r.m[value]
-	if len(s) == 0 {
-		return 0
-	}
-	idx1, idx2 := sort.SearchInts(s, left), sort.SearchInts(s, right+1)
-	return idx2 - idx1
 }
