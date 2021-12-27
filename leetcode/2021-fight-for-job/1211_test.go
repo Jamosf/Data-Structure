@@ -144,6 +144,8 @@ func Test_lengthOfLongestSubstring_(t *testing.T) {
 	fmt.Println(lengthOfLongestSubstring_("pwwkew"))
 }
 
+// tag-[双指针]
+// leetcode209: 长度最小的子数组
 func minSubArrayLen__(target int, nums []int) int {
 	n := len(nums)
 	l, r := 0, 0
@@ -168,6 +170,8 @@ func Test_minSubArrayLen__(t *testing.T) {
 	fmt.Println(minSubArrayLen__(11, []int{1, 2, 3, 4, 5}))
 }
 
+// tag-[双指针]
+// leetcode76: 最小覆盖子串
 func minWindow_(s string, t string) string {
 	if len(t) > len(s) {
 		return ""

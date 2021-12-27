@@ -72,7 +72,7 @@ func isValid(s []byte) bool {
 	for i := range s {
 		if s[i] == '(' {
 			cnt++
-		} else {
+		} else if s[i] == ')' {
 			cnt--
 		}
 		if cnt < 0 {
