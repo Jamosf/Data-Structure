@@ -1,7 +1,7 @@
 package ojeveryday
 
-// tag-[×î¶ÌÂ·]
-// leetcode399: ³ý·¨ÇóÖµ
+// tag-[æœ€çŸ­è·¯]
+// leetcode399: é™¤æ³•æ±‚å€¼
 func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
 	m := make(map[string]int)
 	g := make([][]float64, len(equations)*2)

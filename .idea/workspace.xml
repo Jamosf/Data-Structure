@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e1db043-0847-4661-b896-112ba4043593" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1224_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1224_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1220_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1220_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
