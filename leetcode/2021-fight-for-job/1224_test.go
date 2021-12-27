@@ -5,9 +5,8 @@ import (
 	"sort"
 )
 
-// tag-[Ì°ÐÄ]
-// leetcode870: ÓÅÊÆÏ´ÅÆ
-// Ì°ÐÄ²ßÂÔ
+// tag-[è´ªå¿ƒ]
+// leetcode870ï¼š ä¼˜åŠ¿æ´—ç‰Œ
 func advantageCount(nums1 []int, nums2 []int) []int {
 	m := &maxheap{}
 	for i := range nums2 {
