@@ -316,9 +316,3 @@ func multiply_(num1 string, num2 string) string {
 func Test_multiply_(t *testing.T) {
 	fmt.Println(multiply_("2", "3"))
 }
-
-// tag-[链表]
-// leetcode25: k个一组翻转链表
-func reverseKGroup(head *ListNode, k int) *ListNode {
-	return nil
-}

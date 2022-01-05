@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e1db043-0847-4661-b896-112ba4043593" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1220_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1220_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1230_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1231_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0105_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1210_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1210_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ask.go.tool.to.install.GoImportsTaskConsumer" value="true" />
     <property name="configurable..is.expanded" value="false" />
     <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
     <property name="go.formatter.settings.were.checked" value="true" />
@@ -53,7 +58,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RunManager" selected="Go Test.Test_numBusesToDestination in leetcode/leetcode/2021-fight-for-job">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
