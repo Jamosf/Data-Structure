@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e1db043-0847-4661-b896-112ba4043593" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1230_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1231_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0105_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0108_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0109_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1210_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/2021-fight-for-job/1210_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +37,9 @@
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1zraZXUMKElA5qr1cWDjyITW16o" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
