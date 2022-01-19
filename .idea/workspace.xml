@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e1db043-0847-4661-b896-112ba4043593" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0108_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0109_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0115_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0116_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/2022-improve/0113_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/2022-improve/0113_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/2022-improve/0114_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/2022-improve/0114_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
-  <component name="RunManager" selected="Go Test.Test_numBusesToDestination in leetcode/leetcode/2021-fight-for-job">
+  <component name="RunManager" selected="Go Test.Test_minMoves in leetcode/leetcode/2022-improve">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="Data-Structure" />
       <working_directory value="$PROJECT_DIR$" />
@@ -69,30 +71,6 @@
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test_Solution in leetcode/leetcode/2021-fight-for-job" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Data-Structure" />
-      <working_directory value="$PROJECT_DIR$/leetcode/2021-fight-for-job" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="leetcode/leetcode/2021-fight-for-job" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTest_Solution\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test_canVisitAllRooms in leetcode/leetcode/2021-fight-for-job" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Data-Structure" />
-      <working_directory value="$PROJECT_DIR$/leetcode/2021-fight-for-job" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="leetcode/leetcode/2021-fight-for-job" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTest_canVisitAllRooms\E$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_convertInputData in leetcode/leetcode/2021-fight-for-job" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -105,6 +83,30 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTest_convertInputData\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_divideString in leetcode/leetcode/2022-improve" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Data-Structure" />
+      <working_directory value="$PROJECT_DIR$/leetcode/2022-improve" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="leetcode/leetcode/2022-improve" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_divideString\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_minMoves in leetcode/leetcode/2022-improve" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Data-Structure" />
+      <working_directory value="$PROJECT_DIR$/leetcode/2022-improve" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="leetcode/leetcode/2022-improve" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_minMoves\E$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_numBusesToDestination in leetcode/leetcode/2021-fight-for-job" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -143,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.Test_minMoves in leetcode/leetcode/2022-improve" />
+        <item itemvalue="Go Test.Test_divideString in leetcode/leetcode/2022-improve" />
         <item itemvalue="Go Test.Test_numBusesToDestination in leetcode/leetcode/2021-fight-for-job" />
         <item itemvalue="Go Test.Test_convertInputData in leetcode/leetcode/2021-fight-for-job" />
         <item itemvalue="Go Test.Test_numSubarraysWithSum in leetcode/leetcode/2021-fight-for-job" />
-        <item itemvalue="Go Test.Test_Solution in leetcode/leetcode/2021-fight-for-job" />
-        <item itemvalue="Go Test.Test_canVisitAllRooms in leetcode/leetcode/2021-fight-for-job" />
       </list>
     </recent_temporary>
   </component>
@@ -187,6 +189,16 @@
           <url>file://$PROJECT_DIR$/leetcode/2021-fight-for-job/1121_test.go</url>
           <line>37</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/leetcode/2022-improve/0116_test.go</url>
+          <line>48</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/leetcode/2022-improve/0116_test.go</url>
+          <line>65</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
