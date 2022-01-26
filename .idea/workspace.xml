@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e1db043-0847-4661-b896-112ba4043593" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0121_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0122_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0123_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0125_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/2022-improve/0126_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0120_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/acwing/0120_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
