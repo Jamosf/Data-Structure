@@ -1,4 +1,4 @@
-package _022_improve
+package days
 
 import (
 	"fmt"
@@ -8,9 +8,9 @@ import (
 	"testing"
 )
 
-// tag-[×Ö·û´®]
-// Ã¿ÈÕÒ»Ìâ1.27
-// leetcode2047: ¾ä×ÓÖÐµÄÓÐÐ§µ¥´ÊÊý
+// tag-[ï¿½Ö·ï¿½ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½1.27
+// leetcode2047: ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 func countValidWords(sentence string) int {
 	ss := strings.Split(sentence, " ")
 	isChar := func(v byte) bool {
@@ -61,9 +61,9 @@ func countValidWords(sentence string) int {
 	return cnt
 }
 
-// tag-[ÅÅÐò]
-// Ã¿ÈÕÒ»Ìâ1.28
-// leetcode1996£ºÓÎÏ·ÖÐÈõ½ÇÉ«µÄÊýÁ¿
+// tag-[ï¿½ï¿½ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½1.28
+// leetcode1996ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 func numberOfWeakCharacters(properties [][]int) int {
 	sort.Slice(properties, func(i, j int) bool {
 		return properties[i][0] < properties[j][0] || (properties[i][0] == properties[j][0] && properties[i][1] > properties[j][1])
@@ -80,9 +80,9 @@ func numberOfWeakCharacters(properties [][]int) int {
 	return cnt
 }
 
-// tag-[¹þÏ£±í]
-// Ã¿ÈÕÒ»Ìâ1.30
-// leetcode884: Á½¾ä»°ÖÐµÄ²»³£¼ûµ¥´Ê
+// tag-[ï¿½ï¿½Ï£ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½1.30
+// leetcode884: ï¿½ï¿½ï¿½ä»°ï¿½ÐµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 func uncommonFromSentences(s1 string, s2 string) []string {
 	ss1, ss2 := strings.Split(s1, " "), strings.Split(s2, " ")
 	m := make(map[string]int)
@@ -101,9 +101,9 @@ func uncommonFromSentences(s1 string, s2 string) []string {
 	return ans
 }
 
-// tag-[¹ã¶ÈÓÅÏÈËÑË÷]
-// Ã¿ÈÕÒ»Ìâ1.29
-// leetcode1765: µØÍ¼ÖÐµÄ×î¸ßµã
+// tag-[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½1.29
+// leetcode1765: ï¿½ï¿½Í¼ï¿½Ðµï¿½ï¿½ï¿½ßµï¿½
 func highestPeak(isWater [][]int) [][]int {
 	m, n := len(isWater), len(isWater[0])
 	q := [][3]int{}
@@ -152,10 +152,10 @@ func Test_highestPeak(t *testing.T) {
 	fmt.Println(highestPeak([][]int{{0, 0, 1}, {1, 0, 0}, {0, 0, 0}}))
 }
 
-// tag-[¹ã¶ÈÓÅÏÈËÑË÷]
-// Ã¿ÈÕÒ»Ìâ1.29
-// leetcode1765: µØÍ¼ÖÐµÄ×î¸ßµã
-// ¼ÆËãµ½0µÄ¾àÀë
+// tag-[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½1.29
+// leetcode1765: ï¿½ï¿½Í¼ï¿½Ðµï¿½ï¿½ï¿½ßµï¿½
+// ï¿½ï¿½ï¿½ãµ½0ï¿½Ä¾ï¿½ï¿½ï¿½
 func highestPeak_(isWater [][]int) [][]int {
 	m, n := len(isWater), len(isWater[0])
 	ans := make([][]int, m)
@@ -205,10 +205,10 @@ func Test_highestPeak_(t *testing.T) {
 	fmt.Println(highestPeak__([][]int{{0, 0, 1}, {1, 0, 0}, {0, 0, 0}}))
 }
 
-// tag-[¹ã¶ÈÓÅÏÈËÑË÷]
-// Ã¿ÈÕÒ»Ìâ1.29
-// leetcode1765: µØÍ¼ÖÐµÄ×î¸ßµã
-// ¶àÔ´bfs
+// tag-[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½1.29
+// leetcode1765: ï¿½ï¿½Í¼ï¿½Ðµï¿½ï¿½ï¿½ßµï¿½
+// ï¿½ï¿½Ô´bfs
 func highestPeak__(isWater [][]int) [][]int {
 	m, n := len(isWater), len(isWater[0])
 	ans := make([][]int, m)
@@ -240,8 +240,8 @@ func highestPeak__(isWater [][]int) [][]int {
 	return ans
 }
 
-// tag-[ÊýÑ§]
-// leetcode1342: ½«Êý×Ö±ä³É 0 µÄ²Ù×÷´ÎÊý
+// tag-[ï¿½ï¿½Ñ§]
+// leetcode1342: ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ 0 ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 func numberOfSteps(num int) int {
 	cnt := 0
 	for num != 0 {

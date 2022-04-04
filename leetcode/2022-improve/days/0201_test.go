@@ -1,4 +1,4 @@
-package _022_improve
+package days
 
 import (
 	"fmt"
@@ -7,9 +7,9 @@ import (
 	"testing"
 )
 
-// tag-[Êý×é]
-// Ã¿ÈÕÒ»Ìâ
-// leetcode1001: Íø¸ñÕÕÃ÷
+// tag-[ï¿½ï¿½ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½
+// leetcode1001: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 func gridIllumination(n int, lamps [][]int, queries [][]int) []int {
 	light := make(map[[2]int]bool)
 	row, col, left, right := make(map[int]int), make(map[int]int), make(map[int]int), make(map[int]int)
@@ -61,9 +61,9 @@ func Test_gridIllumination(t *testing.T) {
 	fmt.Println(gridIllumination(5, [][]int{{0, 0}, {0, 4}}, [][]int{{0, 4}, {0, 1}, {1, 4}}))
 }
 
-// tag-[¹þÏ£±í]
-// Ã¿ÈÕÒ»Ìâ
-// leetcode2006: ²îµÄ¾ø¶ÔÖµÎª K µÄÊý¶ÔÊýÄ¿
+// tag-[ï¿½ï¿½Ï£ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½
+// leetcode2006: ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ÖµÎª K ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 func countKDifference(nums []int, k int) int {
 	m := make(map[int]int)
 	cnt := 0
@@ -78,9 +78,9 @@ func Test_count(t *testing.T) {
 	fmt.Println(countKDifference([]int{3, 2, 1, 5, 4}, 2))
 }
 
-// tag-[ÊýÑ§]
-// Ã¿ÈÕÒ»Ìâ
-// leetcode1447: ×î¼ò·ÖÊý
+// tag-[ï¿½ï¿½Ñ§]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½
+// leetcode1447: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 func simplifiedFractions(n int) []string {
 	var gcd func(m, n int) int
 	gcd = func(m, n int) int {
@@ -100,9 +100,9 @@ func simplifiedFractions(n int) []string {
 	return ans
 }
 
-// tag-[Éî¶ÈÓÅÏÈËÑË÷]
-// Ã¿ÈÕÒ»Ìâ
-// leetcode1020: ·ÉµØµÄÊýÁ¿
+// tag-[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½
+// leetcode1020: ï¿½ÉµØµï¿½ï¿½ï¿½ï¿½ï¿½
 func numEnclaves(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
 	var dfs func(i, j int)
@@ -119,12 +119,12 @@ func numEnclaves(grid [][]int) int {
 		dfs(i, j+1)
 		dfs(i, j-1)
 	}
-	// ÑÍÃ»ÉÏÏÂ±ß½ç
+	// ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â±ß½ï¿½
 	for i := 0; i < m; i++ {
 		dfs(i, 0)
 		dfs(i, n-1)
 	}
-	// ÑÍÃ»×óÓÒ±ß½ç
+	// ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ò±ß½ï¿½
 	for j := 0; j < n; j++ {
 		dfs(0, j)
 		dfs(m-1, j)
@@ -140,9 +140,9 @@ func numEnclaves(grid [][]int) int {
 	return res
 }
 
-// tag-[»¬¶¯´°¿Ú]
-// Ã¿ÈÕÒ»Ìâ
-// leetcode1984: Ñ§Éú·ÖÊýµÄ×îÐ¡²îÖµ
+// tag-[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½
+// leetcode1984: Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Öµ
 func minimumDifference(nums []int, k int) int {
 	n := len(nums)
 	sort.Ints(nums)

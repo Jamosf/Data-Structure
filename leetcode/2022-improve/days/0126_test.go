@@ -1,8 +1,8 @@
-package _022_improve
+package days
 
-// tag-[ÊýÑ§]
-// Ã¿ÈÕÒ»Ìâ
-// leetcode2013: ¼ì²âÕý·½ÐÎ
+// tag-[ï¿½ï¿½Ñ§]
+// Ã¿ï¿½ï¿½Ò»ï¿½ï¿½
+// leetcode2013: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 type DetectSquares struct {
 	p map[int]map[int]int
 }

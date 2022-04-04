@@ -1,4 +1,4 @@
-package _022_improve
+package days
 
 import (
 	"fmt"
@@ -8,8 +8,8 @@ import (
 )
 
 // tag
-// 竞赛
-// 模拟
+// 锟斤拷锟斤拷
+// 模锟斤拷
 func countOperations(num1 int, num2 int) int {
 	cnt := 0
 	for num1 != 0 && num2 != 0 {
@@ -23,7 +23,7 @@ func countOperations(num1 int, num2 int) int {
 	return cnt
 }
 
-// 计数
+// 锟斤拷锟斤拷
 func minimumOperations(nums []int) int {
 	n := len(nums)
 	m, k := make(map[int]int), make(map[int]int)
@@ -59,7 +59,7 @@ func minimumOperations(nums []int) int {
 	return n - maxj[0][1] - maxo[0][1]
 }
 
-// 排序
+// 锟斤拷锟斤拷
 func minimumRemoval(beans []int) int64 {
 	n := len(beans)
 	sort.Ints(beans)
@@ -103,7 +103,7 @@ func Test_minimumRemoval(t *testing.T) {
 	fmt.Println(minimumRemoval([]int{1, 4, 5, 6}))
 }
 
-// 每日一题
+// 每锟斤拷一锟斤拷
 func maxNumberOfBalloons(text string) int {
 	char := [5]uint8{'b', 'a', 'l', 'o', 'n'}
 	m := make(map[uint8]int)
@@ -133,7 +133,7 @@ func Test_maxNumber(t *testing.T) {
 	fmt.Println(maxNumberOfBalloons("nlaebolko"))
 }
 
-// 每日一题
+// 每锟斤拷一锟斤拷
 func singleNonDuplicate(nums []int) int {
 	n := len(nums)
 	l, r := 0, n-1
@@ -155,7 +155,7 @@ func Test_single(t *testing.T) {
 	fmt.Println(singleNonDuplicate([]int{1, 1, 2, 3, 3, 4, 4, 8, 8}))
 }
 
-// 每日一题
+// 每锟斤拷一锟斤拷
 func luckyNumbers(matrix [][]int) []int {
 	getMinIdx := func(a []int) int {
 		minn, idx := a[0], 0
@@ -186,8 +186,8 @@ func luckyNumbers(matrix [][]int) []int {
 	return ans
 }
 
-// 每日一题
-// 超时
+// 每锟斤拷一锟斤拷
+// 锟斤拷时
 func knightProbability_(n int, k int, row int, column int) float64 {
 	direct := [8][2]int{{-1, -2}, {-2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, 1}, {2, -1}, {1, -2}}
 	q := [][2]int{}
@@ -242,7 +242,7 @@ func knightProbability(n, k, row, column int) float64 {
 	return dp[k][row][column]
 }
 
-// 每日一题
+// 每锟斤拷一锟斤拷
 func findCenter(edges [][]int) int {
 	m := make(map[int]int)
 	for i := 0; i < len(edges); i++ {
