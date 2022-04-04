@@ -1,4 +1,4 @@
-package _022_improve
+package days
 
 // tag-[数学]
 // 每日一题

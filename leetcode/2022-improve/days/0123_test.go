@@ -1,4 +1,4 @@
-package _022_improve
+package days
 
 import "github.com/emirpasic/gods/trees/redblacktree"
 

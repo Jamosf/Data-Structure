@@ -1,4 +1,4 @@
-package _022_improve
+package days
 
 // tag-[广度优先搜索]
 // leetcode1345: 跳跃游戏

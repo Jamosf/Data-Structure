@@ -1,4 +1,4 @@
-package _022_improve
+package days
 
 import (
 	"container/heap"

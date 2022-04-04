@@ -1,4 +1,4 @@
-package _022_improve
+package days
 
 // tag-[二进制]
 // leetcode89: 格雷编码
